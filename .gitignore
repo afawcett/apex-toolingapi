@@ -2,3 +2,41 @@
 apex-toolingapi/.settings/com.salesforce.ide.core.prefs
 
 apex-toolingapi/salesforce.schema
+
+apex-toolingapi/Referenced Packages/AvaSFSDK/classes/AddressSvc.cls
+
+apex-toolingapi/Referenced Packages/AvaSFSDK/classes/AddressSvc.cls-meta.xml
+
+apex-toolingapi/Referenced Packages/AvaSFSDK/classes/TaxSvc.cls
+
+apex-toolingapi/Referenced Packages/AvaSFSDK/classes/TaxSvc.cls-meta.xml
+
+apex-toolingapi/Referenced Packages/AvaSFSDK/package.xml
+
+apex-toolingapi/Referenced Packages/Dataloader_Bulk/applicationManifests/Dataloader_Bulk
+
+apex-toolingapi/Referenced Packages/Dataloader_Bulk/package.xml
+
+apex-toolingapi/Referenced Packages/Dataloader_Bulk_oauth/modules/Dataloader_Bulk_oauth/modules/sf_com_apps__Dataloader_Bulk_oauth
+
+apex-toolingapi/Referenced Packages/Dataloader_Bulk_oauth/package.xml
+
+apex-toolingapi/Referenced Packages/Dataloader_P5r_oauth/modules/Dataloader_P5r_oauth/modules/sf_com_apps__Dataloader_P5r_oauth
+
+apex-toolingapi/Referenced Packages/Dataloader_P5r_oauth/package.xml
+
+apex-toolingapi/Referenced Packages/Dataloader_Partner/applicationManifests/Dataloader_Partner
+
+apex-toolingapi/Referenced Packages/Dataloader_Partner/package.xml
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/classes/ApexClassesSelector.cls
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/classes/ApexClassesSelector.cls-meta.xml
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/classes/ApexTriggersSelector.cls
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/classes/ApexTriggersSelector.cls-meta.xml
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/classes/LREngine.cls
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/classes/LREngine.cls-meta.xml
