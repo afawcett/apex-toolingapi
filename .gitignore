@@ -40,3 +40,205 @@ apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/cla
 apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/classes/LREngine.cls
 
 apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/classes/LREngine.cls-meta.xml
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/classes/MetadataService.cls
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/classes/MetadataService.cls-meta.xml
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/classes/MetadataServiceTest.cls
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/classes/MetadataServiceTest.cls-meta.xml
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/classes/RollupController.cls
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/classes/RollupController.cls-meta.xml
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/classes/RollupControllerTest.cls
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/classes/RollupControllerTest.cls-meta.xml
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/classes/RollupJob.cls
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/classes/RollupJob.cls-meta.xml
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/classes/RollupJobTest.cls
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/classes/RollupJobTest.cls-meta.xml
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/classes/RollupService.cls
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/classes/RollupService.cls-meta.xml
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/classes/RollupServiceException.cls
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/classes/RollupServiceException.cls-meta.xml
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/classes/RollupServiceTest.cls
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/classes/RollupServiceTest.cls-meta.xml
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/classes/RollupSummaries.cls
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/classes/RollupSummaries.cls-meta.xml
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/classes/RollupSummariesSelector.cls
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/classes/RollupSummariesSelector.cls-meta.xml
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/classes/RollupSummariesTest.cls
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/classes/RollupSummariesTest.cls-meta.xml
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/classes/SObjectDomain.cls
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/classes/SObjectDomain.cls-meta.xml
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/classes/SObjectDomainTest.cls
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/classes/SObjectDomainTest.cls-meta.xml
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/classes/SObjectSelector.cls
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/classes/SObjectSelector.cls-meta.xml
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/classes/SObjectSelectorTest.cls
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/classes/SObjectSelectorTest.cls-meta.xml
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/classes/StringBuilder.cls
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/classes/StringBuilder.cls-meta.xml
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/classes/TestContext.cls
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/classes/TestContext.cls-meta.xml
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/classes/TestLREngine.cls
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/classes/TestLREngine.cls-meta.xml
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/components/zip.component
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/components/zip.component-meta.xml
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/components/zipEntry.component
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/components/zipEntry.component-meta.xml
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/layouts/LookupRollupSummary__c-Lookup Rollup Summary Layout.layout
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/objects/LookupRollupSummary__c.object
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/package.xml
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/pages/managetrigger.page
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/pages/managetrigger.page-meta.xml
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/pages/rollupcalculate.page
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/pages/rollupcalculate.page-meta.xml
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/pages/welcome.page
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/pages/welcome.page-meta.xml
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/staticresources/jszip.resource
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/staticresources/jszip.resource-meta.xml
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/tabs/LookupRollupSummary__c.tab
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/triggers/RollupSummariesTrigger.trigger
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/triggers/RollupSummariesTrigger.trigger-meta.xml
+
+apex-toolingapi/Referenced Packages/Declarative Lookup Rollup Summaries Tool/weblinks/Welcome.weblink
+
+apex-toolingapi/Referenced Packages/Forcecom_IDE/applicationManifests/Forcecom_IDE
+
+apex-toolingapi/Referenced Packages/Forcecom_IDE/package.xml
+
+apex-toolingapi/Referenced Packages/Forcecom_IDE_oauth/modules/Forcecom_IDE_oauth/modules/sf_com_apps__Forcecom_IDE_oauth
+
+apex-toolingapi/Referenced Packages/Forcecom_IDE_oauth/package.xml
+
+apex-toolingapi/Referenced Packages/Forcecom_Migration_Tool/applicationManifests/Forcecom_Migration_Tool
+
+apex-toolingapi/Referenced Packages/Forcecom_Migration_Tool/package.xml
+
+apex-toolingapi/Referenced Packages/Forcecom_Migration_Tool_oauth/modules/Forcecom_Migration_Tool_oauth/modules/sf_com_apps__Forcecom_Migration_Tool_oauth
+
+apex-toolingapi/Referenced Packages/Forcecom_Migration_Tool_oauth/package.xml
+
+apex-toolingapi/Referenced Packages/FormulaForce/layouts/Contestant__c-Contestant Layout.layout
+
+apex-toolingapi/Referenced Packages/FormulaForce/layouts/Driver__c-Driver Layout.layout
+
+apex-toolingapi/Referenced Packages/FormulaForce/layouts/Race__c-Race Layout.layout
+
+apex-toolingapi/Referenced Packages/FormulaForce/layouts/Season__c-Season Layout.layout
+
+apex-toolingapi/Referenced Packages/FormulaForce/objects/Contestant__c.object
+
+apex-toolingapi/Referenced Packages/FormulaForce/objects/Driver__c.object
+
+apex-toolingapi/Referenced Packages/FormulaForce/objects/Race__c.object
+
+apex-toolingapi/Referenced Packages/FormulaForce/objects/Season__c.object
+
+apex-toolingapi/Referenced Packages/FormulaForce/package.xml
+
+apex-toolingapi/Referenced Packages/Package A/classes/HelloWorldController.cls
+
+apex-toolingapi/Referenced Packages/Package A/classes/HelloWorldController.cls-meta.xml
+
+apex-toolingapi/Referenced Packages/Package A/layouts/WorkOrders__c-Work Order Layout.layout
+
+apex-toolingapi/Referenced Packages/Package A/objects/WorkOrders__c.object
+
+apex-toolingapi/Referenced Packages/Package A/package.xml
+
+apex-toolingapi/Referenced Packages/Package A/pages/helloworld.page
+
+apex-toolingapi/Referenced Packages/Package A/pages/helloworld.page-meta.xml
+
+apex-toolingapi/Referenced Packages/Package A/tabs/Hello_World.tab
+
+apex-toolingapi/Referenced Packages/S8e_M4e_Dashboards_oauth/modules/S8e_M4e_Dashboards_oauth/modules/sf_com_apps__S8e_M4e_Dashboards_oauth
+
+apex-toolingapi/Referenced Packages/S8e_M4e_Dashboards_oauth/package.xml
+
+apex-toolingapi/Referenced Packages/S8e_T3h_oauth/modules/S8e_T3h_oauth/modules/sf_com_apps__S8e_T3h_oauth
+
+apex-toolingapi/Referenced Packages/S8e_T3h_oauth/package.xml
+
+apex-toolingapi/Referenced Packages/S8e_for_Outlook_oauth/modules/S8e_for_Outlook_oauth/modules/sf_com_apps__S8e_for_Outlook_oauth
+
+apex-toolingapi/Referenced Packages/S8e_for_Outlook_oauth/package.xml
+
+apex-toolingapi/Referenced Packages/Salesforce Connected Apps/package.xml
+
+apex-toolingapi/Referenced Packages/Salesforce_Mobile_Dashboards/applicationManifests/Salesforce_Mobile_Dashboards
+
+apex-toolingapi/Referenced Packages/Salesforce_Mobile_Dashboards/package.xml
+
+apex-toolingapi/Referenced Packages/Salesforce_Touch/applicationManifests/Salesforce_Touch
+
+apex-toolingapi/Referenced Packages/Salesforce_Touch/package.xml
+
+apex-toolingapi/Referenced Packages/Salesforce_for_Outlook/applicationManifests/Salesforce_for_Outlook
+
+apex-toolingapi/Referenced Packages/Salesforce_for_Outlook/package.xml
+
+apex-toolingapi/Referenced Packages/Workbench/applicationManifests/Workbench
+
+apex-toolingapi/Referenced Packages/Workbench/package.xml
+
+apex-toolingapi/Referenced Packages/Workbench_oauth/modules/Workbench_oauth/modules/sf_com_apps__Workbench_oauth
+
+apex-toolingapi/Referenced Packages/Workbench_oauth/package.xml
+
+apex-toolingapi/Referenced Packages/Workbench_oauth_c4s/modules/Workbench_oauth_c4s/modules/sf_com_apps__Workbench_oauth_c4s
+
+apex-toolingapi/Referenced Packages/Workbench_oauth_c4s/package.xml

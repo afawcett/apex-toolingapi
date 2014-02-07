@@ -25,8 +25,7 @@
 **/
 
 /**
- * Simple wrapper around the REST version of the Salesforce Tooling API, 
- *   initially created to dynamically obtain Custom Object and Field Id's
+ * Apex Tooling API Wrapper (WIP)
  **/
 public with sharing class ToolingAPI 
 {
@@ -56,51 +55,110 @@ public with sharing class ToolingAPI
 					CustomFieldQueryResult.class);
 	}
 	
-	public class CustomObject
-	{
-		public Id id;
-		public String DeveloperName;
-		public String NamespacePrefix;
-	}
-	
-	public class CustomField
-	{
-		public Id id;
-		public String DeveloperName;
-		public String NamespacePrefix;
-		public String TableEnumOrId;
-	}
-	
-	public class ErrorResponse
-	{
-		public String errorCode;
-		public String message;		
-	}
-
-	public abstract class QueryResult
-	{
-		public Integer size;
-		public Integer totalSize;
-		public Boolean done;
-	}
-	
-	public class CustomObjectQueryResult extends QueryResult
-	{
-		public List<CustomObject> records;
-	}
-	
-	public class CustomFieldQueryResult extends QueryResult
-	{
-		public List<CustomField> records;
-	}
-	
-	public class ToolingAPIException extends Exception
-	{
-		public ToolingAPIException(List<ErrorResponse> errorResponses)
-		{
-			this(errorResponses[0].errorCode + ' : ' + errorResponses[0].message);
-		}
-	}
+    public sObject_x[] retrieve_x(String select_x,String type_x,String[] ids)
+    {
+        return null;
+    }
+    
+    public DescribeGlobalResult describeGlobal() 
+    {
+    	return null;
+    }
+    
+    public QueryResult queryMore(String queryLocator) 
+    {
+    	return null;
+    }
+    
+    public DescribeSObjectResult describeSObject(String type_x) 
+    {
+    	return null;
+    }
+    
+    public void logout() 
+    {
+    	return;
+    }
+    
+    public SetPasswordResult setPassword(String userId,String password) 
+    {
+    	return null;
+    }
+    
+    public LoginResult login(String username,String password) 
+    {
+    	return null;
+    }
+    
+    public DeleteResult[] delete_x(String[] ids) 
+    {
+    	return null;
+    }
+    
+    public QueryResult query(String queryString) 
+    {
+    	return null;
+    }
+    
+    public GetDeletedResult getDeleted(String sObjectType,DateTime start,DateTime end_x) 
+    {
+    	return null;
+    }
+    
+    public SaveResult[] update_x(sObject_x[] sObjects) 
+    {
+    	return null;
+    }
+    
+    public UpsertResult[] upsert_x(String fieldName,sObject_x[] entities) 
+    {
+    	return null;
+    }
+    
+    public ExecuteAnonymousResult executeAnonymous(String String_x) 
+    {
+		return null;
+    }
+    
+    public GetUpdatedResult getUpdated(String sObjectType,DateTime start,DateTime end_x) 
+    {
+    	return null;
+    }
+    
+    public InvalidateSessionsResult[] invalidateSessions(String[] ArrayList) 
+    {
+    	return null;
+    }
+    
+    public SaveResult[] create(sObject_x[] sObjects) 
+    {
+    	return null;
+    }
+    
+    public DescribeSObjectResult[] describeSObjects(String[] types) 
+    {
+    	return null;
+    }
+    
+    public DescribeWorkitemActionResult[] describeWorkitemActions(String[] workitemIds) 
+    {
+    	return null;
+    }
+    
+    public GetServerTimestampResult getServerTimestamp() 
+    {
+    	return null;
+    }
+    
+    public GetUserInfoResult getUserInfo() 
+    {
+    	return null;
+    }
+    
+    public QueryResult queryAll(String queryString) 
+    {
+    	return null;
+    }		
 		
 	private Object query(String soql, Type responseType)
 	{
@@ -115,82 +173,72 @@ public with sharing class ToolingAPI
 	    	throw new ToolingAPIException((List<ErrorResponse>) JSON.deserialize(queryRes.getBody(), List<ErrorResponse>.class));
 	    return JSON.deserialize(queryRes.getBody(), responseType);
 	}	
+		
+	public class ToolingAPIException extends Exception
+	{
+		public ToolingAPIException(List<ErrorResponse> errorResponses)
+		{
+			this(errorResponses[0].errorCode + ' : ' + errorResponses[0].message);
+		}
+	}
+		
+	public class CustomObject
+	{
+		public Id id;
+		public String DeveloperName;
+        public String ExternalDataSourceId;		
+		public String NamespacePrefix;
+	}
 	
-	/**
-	 * DO NOT USE YET: Below is an initial set of methods and types (based on a scrubbed output from the Apex2WSDL tool)	 
-	 **/
-    public sObject_x[] retrieve_x(String select_x,String type_x,String[] ids) {
-        return null;
+	public class CustomField
+	{
+		public Id id;
+		public String DeveloperName;
+        public String FullName;
+        public CustomFieldMetadata Metadata;
+		public String NamespacePrefix;
+		public String TableEnumOrId;
+	}
+	
+    public abstract class QueryResult {
+        public Boolean done;
+        public String entityTypeName;
+        public String nextRecordsUrl;
+        public String queryLocator;
+        public Integer size;
+        public Integer totalSize;
     }
-    public DescribeGlobalResult describeGlobal() {
-    	return null;
-    }
-    public QueryResult queryMore(String queryLocator) {
-    	return null;
-    }
-    public DescribeSObjectResult describeSObject(String type_x) {
-    	return null;
-    }
-    public void logout() {
-    	return;
-    }
-    public SetPasswordResult setPassword(String userId,String password) {
-    	return null;
-    }
-    public LoginResult login(String username,String password) {
-    	return null;
-    }
-    public DeleteResult[] delete_x(String[] ids) {
-    	return null;
-    }
-    public QueryResult query(String queryString) {
-    	return null;
-    }
-    public GetDeletedResult getDeleted(String sObjectType,DateTime start,DateTime end_x) {
-    	return null;
-    }
-    public SaveResult[] update_x(sObject_x[] sObjects) {
-    	return null;
-    }
-    public UpsertResult[] upsert_x(String fieldName,sObject_x[] entities) {
-    	return null;
-    }
-    public ExecuteAnonymousResult executeAnonymous(String String_x) {
-		return null;
-    }
-    public GetUpdatedResult getUpdated(String sObjectType,DateTime start,DateTime end_x) {
-    	return null;
-    }
-    public InvalidateSessionsResult[] invalidateSessions(String[] ArrayList) {
-    	return null;
-    }
-    public SaveResult[] create(sObject_x[] sObjects) {
-    	return null;
-    }
-    public DescribeSObjectResult[] describeSObjects(String[] types) {
-    	return null;
-    }
-    public DescribeWorkitemActionResult[] describeWorkitemActions(String[] workitemIds) {
-    	return null;
-    }
-    public GetServerTimestampResult getServerTimestamp() {
-    	return null;
-    }
-    public GetUserInfoResult getUserInfo() {
-    	return null;
-    }
-    public QueryResult queryAll(String queryString) {
-    	return null;
-    }		
-    public class DescribeColorResult {
+		
+	public class CustomObjectQueryResult extends QueryResult
+	{
+		public List<CustomObject> records;
+	}
+	
+	public class CustomFieldQueryResult extends QueryResult
+	{
+		public List<CustomField> records;
+	}
+	
+	public class ErrorResponse
+	{
+		public String errorCode;
+		public String message;		
+	}
+	
+    public class DescribeColorResult 
+    {
         public String color;
         public String context;
         public String theme;
     }
-    public class Method {
+    
+    public class Method 
+    {
         public String returnType;
     }
-    public class MetadataContainerMember {
+    
+    public class MetadataContainerMember 
+    {
         public String Content;
         public sObject_x ContentEntity;
         public String ContentEntityId;
@@ -198,9 +246,13 @@ public with sharing class ToolingAPI
         public MetadataContainer MetadataContainer;
         public String MetadataContainerId;
     }
-    public class getUserInfo_element {
+    
+    public class getUserInfo_element 
+    {
     }
-    public class LoginResult {
+    
+    public class LoginResult 
+    {
         public String metadataServerUrl;
         public Boolean passwordExpired;
         public Boolean sandbox;
@@ -211,11 +263,15 @@ public with sharing class ToolingAPI
         public String userId;
         public GetUserInfoResult userInfo;
     }
-    public class MapEntry {
+    
+    public class MapEntry 
+    {
         public String keyDisplayValue;
         public StateValue value;
     }
-    public class TraceFlag {
+    
+    public class TraceFlag 
+    {
         public String ApexCode;
         public String ApexProfiling;
         public String Callout;
@@ -238,7 +294,9 @@ public with sharing class ToolingAPI
         public String Visualforce;
         public String Workflow;
     }
-    public class IDEPerspective {
+    
+    public class IDEPerspective 
+    {
         public String Content;
         public User_x CreatedBy;
         public String CreatedById;
@@ -252,20 +310,20 @@ public with sharing class ToolingAPI
         public User_x User_x;
         public String UserId;
     }
-    public class describeWorkitemActionsResponse_element {
-        public DescribeWorkitemActionResult[] result;
-    }
-    public class AttributeDefinition {
+
+    public class AttributeDefinition 
+    {
         public String name;
         public String type_x;
     }
-    public class SetValue {
+    
+    public class SetValue 
+    {
         public StateValue[] value;
     }
-    public class queryMore_element {
-        public String queryLocator;
-    }
-    public class ProcessResult {
+
+    public class ProcessResult 
+    {
         public String[] actorIds;
         public String entityId;
         public Error[] errors;
@@ -274,29 +332,36 @@ public with sharing class ToolingAPI
         public String[] newWorkitemIds;
         public Boolean success;
     }
-    public class ListValue {
+    
+    public class ListValue 
+    {
         public StateValue[] value;
     }
-    public class Coverage {
+    
+    public class Coverage 
+    {
         public Integer[] coveredLines;
         public Integer[] uncoveredLines;
     }
-    public class logout_element {
-    }
-    public class Picklist {
+    
+    public class Picklist 
+    {
         public String controllingField;
         public Boolean sorted;
     }
-    public class ExternalConstructor {
+    
+    public class ExternalConstructor 
+    {
         public Parameter[] parameters;
     }
-    public class BooleanValue {
+    
+    public class BooleanValue 
+    {
         public Boolean value;
     }
-    public class executeAnonymous_element {
-        public String String_x;
-    }
-    public class ApexClassMember {
+
+    public class ApexClassMember 
+    {
         public String Body;
         public String Content;
         public ApexClass ContentEntity;
@@ -315,18 +380,26 @@ public with sharing class ToolingAPI
         public SymbolTable SymbolTable;
         public DateTime SystemModstamp;
     }
-    public class LoginFault {
+    
+    public class LoginFault 
+    {
     }
-    public class ResetPasswordResult {
+    
+    public class ResetPasswordResult 
+    {
         public String password;
     }
-    public class HeapDump {
+    
+    public class HeapDump 
+    {
         public String className;
         public TypeExtent[] extents;
         public DateTime heapDumpDate;
         public String namespace;
     }
-    public class ApexPageMember {
+    
+    public class ApexPageMember 
+    {
         public String Body;
         public String Content;
         public ApexPage ContentEntity;
@@ -344,45 +417,61 @@ public with sharing class ToolingAPI
         public String MetadataContainerId;
         public DateTime SystemModstamp;
     }
-    public class FilterItem {
+    
+    public class FilterItem 
+    {
         public String field;
         public String operation;
         public String value;
         public String valueField;
     }
-    public class QueryResultMetadata {
+    
+    public class QueryResultMetadata 
+    {
         public QueryResultColumnMetadata[] columnMetadata;
         public String entityName;
         public Boolean groupBy;
         public Boolean idSelected;
         public String keyPrefix;
     }
-    public class QueryResultColumnMetadata {
+    
+    public class QueryResultColumnMetadata 
+    {
         public String apexType;
         public String columnName;
         public Boolean custom;
         public String displayName;
         public String foreignKeyName;
     }
-    public class ApiQueryFault {
+    
+    public class ApiQueryFault 
+    {
         public Integer row;
         public Integer column;
     }
-    public class describeGlobal_element {
+    
+    public class describeGlobal_element 
+    {
     }
-    public class RecordTypeInfo {
+    
+    public class RecordTypeInfo 
+    {
         public Boolean available;
         public Boolean defaultRecordTypeMapping;
         public String name;
         public String recordTypeId;
     }
-    public class DescribeColumn {
+    
+    public class DescribeColumn 
+    {
         public String field;
         public String format;
         public String label;
         public String name;
     }
-    public class ApexPage {
+    
+    public class ApexPage 
+    {
         public Double ApiVersion;
         public String ControllerKey;
         public String ControllerType;
@@ -401,26 +490,38 @@ public with sharing class ToolingAPI
         public String NamespacePrefix;
         public DateTime SystemModstamp;
     }
-    public class queryResponse_element {
+    
+    public class queryResponse_element 
+    {
         public QueryResult result;
     }
-    public class RecordTypePicklist {
+    
+    public class RecordTypePicklist 
+    {
         public String picklistName;
         public PicklistEntry[] picklistValues;
     }
-    public class LogInfo {
+    
+    public class LogInfo 
+    {
         public String category;
         public String level;
     }
-    public class ApiFault {
+    
+    public class ApiFault 
+    {
         public String exceptionCode;
         public String exceptionMessage;
         public String upgradeURL;
         public String upgradeMessage;
     }
-    public class StateValue {
+    
+    public class StateValue 
+    {
     }
-    public class ApexExecutionOverlayAction {
+    
+    public class ApexExecutionOverlayAction 
+    {
         public String ActionScript;
         public String ActionScriptType;
         public User_x CreatedBy;
@@ -440,16 +541,14 @@ public with sharing class ToolingAPI
         public String ScopeId;
         public DateTime SystemModstamp;
     }
-    public class NumberValue {
+    
+    public class NumberValue 
+    {
         public Double value;
     }
-    public class describeWorkitemActions_element {
-        public String[] workitemIds;
-    }
-    public class loginResponse_element {
-        public LoginResult result;
-    }
-    public class ApexOrgWideCoverage {
+
+    public class ApexOrgWideCoverage 
+    {
         public User_x CreatedBy;
         public String CreatedById;
         public DateTime CreatedDate;
@@ -460,13 +559,19 @@ public with sharing class ToolingAPI
         public Integer PercentCovered;
         public DateTime SystemModstamp;
     }
-    public class getServerTimestamp_element {
+    
+    public class getServerTimestamp_element 
+    {
     }
-    public class sObject_x {
+    
+    public class sObject_x 
+    {
         public String[] fieldsToNull;
         public String Id;
     }
-    public class GetUserInfoResult {
+    
+    public class GetUserInfoResult 
+    {
         public Boolean accessibilityMode;
         public String currencySymbol;
         public Integer orgAttachmentFileSizeLimit;
@@ -490,7 +595,9 @@ public with sharing class ToolingAPI
         public String userType;
         public String userUiSkin;
     }
-    public class ChildRelationship {
+    
+    public class ChildRelationship 
+    {
         public Boolean cascadeDelete;
         public String childSObject;
         public Boolean deprecatedAndHidden;
@@ -498,27 +605,17 @@ public with sharing class ToolingAPI
         public String relationshipName;
         public Boolean restrictedDelete;
     }
-    public class DescribeLayoutComponent {
+    
+    public class DescribeLayoutComponent 
+    {
         public Integer displayLines;
         public Integer tabOrder;
         public String type_x;
         public String value;
     }
-    public class QueryResult2 {
-        public Boolean done;
-        public String entityTypeName;
-        public String nextRecordsUrl;
-        public String queryLocator;
-        public sObject_x[] records;
-        public Integer size;
-        public Integer totalSize;
-    }
-    public class CallOptions_element {
-        public String client;
-    }
-    public class PrimitiveQueryResultColumnMetadata {
-    }
-    public class ApexLog {
+
+    public class ApexLog 
+    {
         public String Application;
         public Integer DurationMilliseconds;
         public DateTime LastModifiedDate;
@@ -532,23 +629,25 @@ public with sharing class ToolingAPI
         public String Status;
         public DateTime SystemModstamp;
     }
-    public class SessionHeader_element {
-        public String sessionId;
-    }
-    public class AggregateExpressionResultColumnMetadata {
+
+    public class AggregateExpressionResultColumnMetadata 
+    {
         public String displayName;
     }
-    public class User_x {
+    
+    public class User_x 
+    {
         public QueryResult DelegatedUsers;
         public QueryResult UserPreferences;
         public String WorkspaceId;
     }
-    public class MalformedQueryFault {
+    
+    public class MalformedQueryFault 
+    {
     }
-    public class describeGlobalResponse_element {
-        public DescribeGlobalResult result;
-    }
-    public class ApexComponent {
+    
+    public class ApexComponent 
+    {
         public Double ApiVersion;
         public String ControllerKey;
         public String ControllerType;
@@ -565,52 +664,49 @@ public with sharing class ToolingAPI
         public String NamespacePrefix;
         public DateTime SystemModstamp;
     }
-    public class DescribeLayoutButton {
+    
+    public class DescribeLayoutButton 
+    {
         public Boolean custom;
         public DescribeIconResult[] icons;
         public String label;
         public String name;
     }
-    public class UnexpectedErrorFault {
+    
+    public class UnexpectedErrorFault 
+    {
     }
-    public class HeapAddress {
+    
+    public class HeapAddress 
+    {
         public String address;
         public Integer size;
         public String[] symbols;
         public StateValue value;
     }
-    public class DescribeLayoutItem {
+    
+    public class DescribeLayoutItem 
+    {
         public Boolean editable;
         public String label;
         public DescribeLayoutComponent[] layoutComponents;
         public Boolean placeholder;
         public Boolean required;
     }
-    public class InvalidQueryLocatorFault {
-        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{};
+    
+    public class InvalidQueryLocatorFault 
+    {
     }
-    public class AllowFieldTruncationHeader_element {
-        public Boolean allowFieldTruncation;
-        private String[] allowFieldTruncation_type_info = new String[]{'allowFieldTruncation','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'allowFieldTruncation'};
-    }
-    public class getDeletedResponse_element {
-        public GetDeletedResult result;
-        private String[] result_type_info = new String[]{'result','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'result'};
-    }
-    public class SaveResult {
+    
+    public class SaveResult 
+    {
         public Error[] errors;
         public String id;
         public Boolean success;
     }
-    public class deleteResponse_element {
-        public DeleteResult[] result;
-    }
-    public class ApexTestResult {
+
+    public class ApexTestResult 
+    {
         public ApexClass ApexClass;
         public String ApexClassId;
         public ApexLog ApexLog;
@@ -626,7 +722,9 @@ public with sharing class ToolingAPI
         public DateTime SystemModstamp;
         public DateTime TestTimestamp;
     }
-    public class ApexTestQueueItem {
+    
+    public class ApexTestQueueItem 
+    {
         public ApexClass ApexClass;
         public String ApexClassId;
         public User_x CreatedBy;
@@ -637,7 +735,9 @@ public with sharing class ToolingAPI
         public String Status;
         public DateTime SystemModstamp;
     }
-    public class ApexCodeCoverageAggregate {
+    
+    public class ApexCodeCoverageAggregate 
+    {
         public sObject_x ApexClassOrTrigger;
         public String ApexClassOrTriggerId;
         public Coverage Coverage;
@@ -653,25 +753,27 @@ public with sharing class ToolingAPI
         public Integer NumLinesUncovered;
         public DateTime SystemModstamp;
     }
-    public class describeSObjects_element {
-        public String[] types;
-    }
-    public class ExternalMethod {
+    
+    public class ExternalMethod 
+    {
         public String[] argTypes;
         public String returnType;
     }
-    public class update_element {
-        public sObject_x[] sObjects;
-    }
-    public class SOQLResult {
+    
+    public class SOQLResult 
+    {
         public String queryError;
         public QueryResultMetadata queryMetadata;
         public MapValue[] queryResult;
     }
-    public class StringValue {
+    
+    public class StringValue 
+    {
         public String value;
     }
-    public class AsyncApexJob {
+    
+    public class AsyncApexJob 
+    {
         public ApexClass ApexClass;
         public String ApexClassId;
         public DateTime CompletedDate;
@@ -689,30 +791,22 @@ public with sharing class ToolingAPI
         public String Status;
         public Integer TotalJobItems;
     }
-    public class ExternalSymbol {
+    
+    public class ExternalSymbol 
+    {
         public String name;
         public Position[] references;
     }
-    public class CustomObject2 {
-        public String DeveloperName;
-        public String ExternalDataSourceId;
-        public String NamespacePrefix;
-    }
-    public class DisableFeedTrackingHeader_element {
-        public Boolean disableFeedTracking;
-    }
-    public class ApexClassMetadata {
+
+    public class ApexClassMetadata 
+    {
         public Double apiVersion;
         public PackageVersionMetadata[] packageVersions;
         public String status;
     }
-    public class executeAnonymousResponse_element {
-        public ExecuteAnonymousResult result;
-    }
-    public class describeSObject_element {
-        public String type_x;
-    }
-    public class ApexTrigger {
+
+    public class ApexTrigger 
+    {
         public Double ApiVersion;
         public String Body;
         public Double BodyCrc;
@@ -738,52 +832,50 @@ public with sharing class ToolingAPI
         public Boolean UsageBeforeUpdate;
         public Boolean UsageIsBulk;
     }
-    public class invalidateSessionsResponse_element {
-        public InvalidateSessionsResult[] result;
-    }
-    public class delete_element {
-        public String[] ids;
-    }
-    public class DescribeLayoutButtonSection {
+
+    public class DescribeLayoutButtonSection 
+    {
         public DescribeLayoutButton[] detailButtons;
     }
-    public class Constructor {
+    
+    public class Constructor 
+    {
         public Parameter[] parameters;
     }
-    public class updateResponse_element {
+    
+    public class updateResponse_element 
+    {
         public SaveResult[] result;
     }
-    public class retrieve_element {
+    
+    public class retrieve_element 
+    {
         public String select_x;
         public String type_x;
         public String[] ids;
     }
-    public class queryAll_element {
+    
+    public class queryAll_element 
+    {
         public String queryString;
     }
-    public class GetServerTimestampResult {
+    
+    public class GetServerTimestampResult 
+    {
         public DateTime timestamp;
     }
-    public class retrieveResponse_element {
-        public sObject_x[] result;
-    }
-    public class DescribeWorkitemActionResult {
+    
+    public class DescribeWorkitemActionResult 
+    {
         public AllowedWorkitemAction[] actions;
         public Error[] errors;
         public Boolean success;
         public String targetObjectId;
         public String workitemId;
     }
-    public class queryAllResponse_element {
-        public QueryResult result;
-    }
-    public class invalidateSessions_element {
-        public String[] ArrayList;
-    }
-    public class create_element {
-        public sObject_x[] sObjects;
-    }
-    public class ApexComponentMember {
+
+    public class ApexComponentMember 
+    {
         public String Body;
         public String Content;
         public ApexComponent ContentEntity;
@@ -801,7 +893,9 @@ public with sharing class ToolingAPI
         public String MetadataContainerId;
         public DateTime SystemModstamp;
     }
-    public class IDEWorkspace {
+    
+    public class IDEWorkspace 
+    {
         public String Content;
         public User_x CreatedBy;
         public String CreatedById;
@@ -815,10 +909,9 @@ public with sharing class ToolingAPI
         public User_x User_x;
         public String UserId;
     }
-    public class createResponse_element {
-        public SaveResult[] result;
-    }
-    public class TypeExtent {
+
+    public class TypeExtent 
+    {
         public String collectionType;
         public Integer count;
         public AttributeDefinition[] definition;
@@ -826,23 +919,26 @@ public with sharing class ToolingAPI
         public Integer totalSize;
         public String typeName;
     }
-    public class AllowedWorkitemAction {
+    
+    public class AllowedWorkitemAction 
+    {
         public Boolean commentsRequired;
         public String label;
         public String name;
         public Boolean nextOwnerRequired;
         public Boolean versionRequired;
     }
-    public class getServerTimestampResponse_element {
-        public GetServerTimestampResult result;
-    }
-    public class ApexComponentMetadata {
+
+    public class ApexComponentMetadata 
+    {
         public Double apiVersion;
         public String description;
         public String label;
         public PackageVersionMetadata[] packageVersions;
     }
-    public class ContainerAsyncRequest {
+    
+    public class ContainerAsyncRequest 
+    {
         public String CompilerErrors;
         public User_x CreatedBy;
         public String CreatedById;
@@ -861,11 +957,15 @@ public with sharing class ToolingAPI
         public String State;
         public DateTime SystemModstamp;
     }
-    public class DeletedRecord {
+    
+    public class DeletedRecord 
+    {
         public DateTime deletedDate;
         public String id;
     }
-    public class ApexCodeCoverage {
+
+    public class ApexCodeCoverage 
+    {
         public sObject_x ApexClassOrTrigger;
         public String ApexClassOrTriggerId;
         public ApexClass ApexTestClass;
@@ -883,10 +983,14 @@ public with sharing class ToolingAPI
         public DateTime SystemModstamp;
         public String TestMethodName;
     }
-    public class ComplexQueryResultColumnMetadata {
+    
+    public class ComplexQueryResultColumnMetadata 
+    {
         public QueryResultColumnMetadata[] joinColumns;
     }
-    public class ApexPageMetadata {
+    
+    public class ApexPageMetadata 
+    {
         public Double apiVersion;
         public Boolean availableInTouch;
         public Boolean confirmationTokenRequired;
@@ -894,49 +998,45 @@ public with sharing class ToolingAPI
         public String label;
         public PackageVersionMetadata[] packageVersions;
     }
-    public class PackageVersionMetadata {
+    
+    public class PackageVersionMetadata 
+    {
         public Integer majorNumber;
         public Integer minorNumber;
         public String namespace;
     }
-    public class getUpdatedResponse_element {
-        public GetUpdatedResult result;
+
+    public class AggregateQueryResultColumnMetadata 
+    {
     }
-    public class AggregateQueryResultColumnMetadata {
-    }
-    public class query_element {
-        public String queryString;
-    }
-    public class CustomField2 {
-        public String DeveloperName;
-        public String FullName;
-        public CustomFieldMetadata Metadata;
-        public String NamespacePrefix;
-        public String TableEnumOrId;
-    }
-    public class getDeleted_element {
-        public String sObjectType;
-        public DateTime start;
-        public DateTime end_x;
-    }
-    public class PackageVersion {
+
+    public class PackageVersion 
+    {
         public Integer majorNumber;
         public Integer minorNumber;
         public String namespace;
     }
-    public class GetDeletedResult {
+    
+    public class GetDeletedResult 
+    {
         public DeletedRecord[] deletedRecords;
         public DateTime earliestDateAvailable;
         public DateTime latestDateCovered;
     }
-    public class DescribeGlobalResult {
+    
+    public class DescribeGlobalResult 
+    {
         public String encoding;
         public Integer maxBatchSize;
         public DescribeGlobalSObjectResult[] sobjects;
     }
-    public class InvalidNewPasswordFault {
+    
+    public class InvalidNewPasswordFault 
+    {
     }
-    public class StaticResource {
+    
+    public class StaticResource 
+    {
         public String Body;
         public Integer BodyLength;
         public String CacheControl;
@@ -952,7 +1052,9 @@ public with sharing class ToolingAPI
         public String NamespacePrefix;
         public DateTime SystemModstamp;
     }
-    public class DescribeLayoutSection {
+    
+    public class DescribeLayoutSection 
+    {
         public Integer columns;
         public String heading;
         public DescribeLayoutRow[] layoutRows;
@@ -960,38 +1062,29 @@ public with sharing class ToolingAPI
         public Boolean useCollapsibleSection;
         public Boolean useHeading;
     }
-    public class ApexTriggerMetadata {
+    
+    public class ApexTriggerMetadata 
+    {
         public Double apiVersion;
         public PackageVersionMetadata[] packageVersions;
         public String status;
     }
-    public class Symbol {
+    
+    public class Symbol 
+    {
         public Position location;
         public String[] modifiers;
         public String name;
         public Position[] references;
         public String type_x;
     }
-    public class MalformedSearchFault {
-        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{};
+    
+    public class MalformedSearchFault 
+    {
     }
-    public class PackageVersionHeader_element {
-        public PackageVersion[] packageVersions;
-    }
-    public class login_element {
-        public String username;
-        public String password;
-    }
-    public class getUpdated_element {
-        public String sObjectType;
-        public DateTime start;
-        public DateTime end_x;
-    }
-    public class upsertResponse_element {
-        public UpsertResult[] result;
-    }
-    public class Field {
+
+    public class Field 
+    {
         public Boolean autoNumber;
         public Integer byteLength;
         public Boolean calculated;
@@ -1035,27 +1128,26 @@ public with sharing class ToolingAPI
         public Boolean updateable;
         public Boolean writeRequiresMasterRead;
     }
-    public class VisibilitySymbol {
+    
+    public class VisibilitySymbol 
+    {
         public String visibility;
     }
-    public class InvalidIdFault {
+    
+    public class InvalidIdFault 
+    {
     }
-    public class describeSObjectsResponse_element {
-        public DescribeSObjectResult[] result;
-    }
-    public class getUserInfoResponse_element {
-        public GetUserInfoResult result;
-    }
-    public class UpsertResult {
+
+    public class UpsertResult 
+    {
         public Boolean created;
         public Error[] errors;
         public String id;
         public Boolean success;
     }
-    public class setPasswordResponse_element {
-        public SetPasswordResult result;
-    }
-    public class DescribeSObjectResult {
+
+    public class DescribeSObjectResult 
+    {
         public Boolean activateable;
         public ChildRelationship[] childRelationships;
         public Boolean createable;
@@ -1083,19 +1175,25 @@ public with sharing class ToolingAPI
         public Boolean undeletable;
         public Boolean updateable;
     }
-    public class ApexResult {
+    
+    public class ApexResult 
+    {
         public String apexError;
         public ExecuteAnonymousResult apexExecutionResult;
     }
-    public class logoutResponse_element {
-    }
-    public class InvalidateSessionsResult {
+    
+    public class InvalidateSessionsResult 
+    {
         public Error[] errors;
         public Boolean success;
     }
-    public class InvalidSObjectFault {
+    
+    public class InvalidSObjectFault 
+    {
     }
-    public class DescribeGlobalSObjectResult {
+    
+    public class DescribeGlobalSObjectResult 
+    {
         public Boolean activateable;
         public Boolean createable;
         public Boolean custom;
@@ -1117,19 +1215,27 @@ public with sharing class ToolingAPI
         public Boolean undeletable;
         public Boolean updateable;
     }
-    public class InvalidFieldFault {
+    
+    public class InvalidFieldFault 
+    {
     }
-    public class PicklistEntry {
+    
+    public class PicklistEntry 
+    {
         public Boolean active;
         public Boolean defaultValue;
         public String label;
         public String validFor;
         public String value;
     }
-    public class MapValue {
+    
+    public class MapValue 
+    {
         public MapEntry[] entry;
     }
-    public class ApexClass {
+    
+    public class ApexClass 
+    {
         public Double ApiVersion;
         public String Body;
         public Double BodyCrc;
@@ -1149,17 +1255,20 @@ public with sharing class ToolingAPI
         public SymbolTable SymbolTable;
         public DateTime SystemModstamp;
     }
-    public class MetadataWithContent {
+    
+    public class MetadataWithContent 
+    {
         public String content;
     }
-    public class Parameter {
+    
+    public class Parameter 
+    {
         public String name;
         public String type_x;
     }
-    public class DebuggingInfo_element {
-        public String debugLog;
-    }
-    public class ApexExecutionOverlayResult {
+
+    public class ApexExecutionOverlayResult 
+    {
         public String ActionScript;
         public String ActionScriptType;
         public ApexResult ApexResult;
@@ -1185,13 +1294,17 @@ public with sharing class ToolingAPI
         public sObject_x User_x;
         public String UserId;
     }
-    public class UserPreference {
+    
+    public class UserPreference 
+    {
         public String Preference;
         public DateTime SystemModstamp;
         public String UserId;
         public String Value;
     }
-    public class CustomFieldMetadata {
+    
+    public class CustomFieldMetadata 
+    {
         public Boolean caseSensitive;
         public String customDataType;
         public String defaultValue;
@@ -1237,33 +1350,31 @@ public with sharing class ToolingAPI
         public Integer visibleLines;
         public Boolean writeRequiresMasterRead;
     }
-    public class describeSObjectResponse_element {
-        public DescribeSObjectResult result;
-    }
-    public class DeleteResult {
+    
+    public class DeleteResult 
+    {
         public Error[] errors;
         public String id;
         public Boolean success;
     }
-    public class DescribeIconResult {
+    
+    public class DescribeIconResult 
+    {
         public String contentType;
         public Integer height;
         public String theme;
         public String url;
         public Integer width;
     }
-    public class GetUpdatedResult {
+    
+    public class GetUpdatedResult 
+    {
         public String[] ids;
         public DateTime latestDateCovered;
     }
-    public class queryMoreResponse_element {
-        public QueryResult result;
-    }
-    public class upsert_element {
-        public String fieldName;
-        public sObject_x[] entities;
-    }    
-    public class MetadataContainer {
+
+    public class MetadataContainer 
+    {
         public User_x CreatedBy;
         public String CreatedById;
         public DateTime CreatedDate;
@@ -1274,20 +1385,22 @@ public with sharing class ToolingAPI
         public String Name;
         public DateTime SystemModstamp;
     }
-    public class DescribeLayoutRow {
+    
+    public class DescribeLayoutRow 
+    {
         public DescribeLayoutItem[] layoutItems;
         public Integer numItems;
-    }    
-    public class setPassword_element {
-        public String userId;
-        public String password;
     }
-    public class Error {
+
+    public class Error 
+    {
         public String[] fields;
         public String message;
         public String statusCode;
     }
-    public class ExecuteAnonymousResult {
+    
+    public class ExecuteAnonymousResult 
+    {
         public Integer column;
         public String compileProblem;
         public Boolean compiled;
@@ -1296,7 +1409,9 @@ public with sharing class ToolingAPI
         public Integer line;
         public Boolean success;
     }
-    public class Name {
+    
+    public class Name 
+    {
         public String Alias;
         public String Email;
         public String FirstName;
@@ -1313,20 +1428,22 @@ public with sharing class ToolingAPI
         public String UserRoleId;
         public String Username;
     }
-    public class DebuggingHeader_element {
-        public LogInfo[] categories;
-        public String debugLevel;
+    
+    public class SetPasswordResult 
+    {
     }
-    public class SetPasswordResult {
-    }
-    public class ExternalReference {
+    
+    public class ExternalReference 
+    {
         public ExternalMethod[] methods;
         public String name;
         public String namespace;
         public Position[] references;
         public ExternalSymbol[] variables;
     }
-    public class SymbolTable {
+    
+    public class SymbolTable 
+    {
         public Constructor[] constructors;
         public ExternalReference[] externalReferences;
         public String id;
@@ -1339,7 +1456,9 @@ public with sharing class ToolingAPI
         public Symbol tableDeclaration;
         public Symbol[] variables;
     }
-    public class ApexTriggerMember {
+    
+    public class ApexTriggerMember 
+    {
         public String Body;
         public String Content;
         public ApexTrigger ContentEntity;
@@ -1358,7 +1477,9 @@ public with sharing class ToolingAPI
         public SymbolTable SymbolTable;
         public DateTime SystemModstamp;
     }
-    public class Position {
+    
+    public class Position 
+    {
         public Integer column;
         public Integer line;
     }    
