@@ -23,7 +23,4 @@ Contributors
 TODO List
 =========
 
-- Review functionality of both REST and API
-- Decide what core functionality will be exposed, for example Apex already has the ability to retrieve tabs
-- Further clean up on the types, apply the inheritance seen in the XML Schema types to the Apex types
-- Figure out a good way to deserialise the REST data into the types with without to much coding
+Our current TODO list is being managed via [GitHub Issues](https://github.com/afawcett/apex-toolingapi/issues)
