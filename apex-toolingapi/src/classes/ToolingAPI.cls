@@ -30,7 +30,7 @@ public with sharing class ToolingAPI{
 
     //Public Static Tooling API method go here
 
-    /*
+    /**
      * Using this query as an example for calling the private static helper method.
      * query
      * @description Uses the queryString to issue a query via the Tooling API
@@ -39,8 +39,33 @@ public with sharing class ToolingAPI{
      * @throws ToolingAPIException if an an exception was encountered.
      */
     public static QueryResult query(String queryString) {
-        HttpResponse response = submitRestCall(TOOLING_API_URI + '/query/?q=' + EncodingUtil.urlEncode(queryString, 'UTF-8'));
+        HttpResponse response = submitRestCall('/query/?q=' + EncodingUtil.urlEncode(queryString, 'UTF-8'));
         return parseQueryResult(response.getBody());
+    }
+
+    /**
+     * Describes all the sobjects via the tooling api.  This is the equivalent of
+     * calling //instance/api/tooling/sobjects via the Tooling REST API.
+     * @return a ToolingAPI DescribeGlobalResult
+     * @throws ToolingAPIException if an an exception was encountered.
+     */
+    public static DescribeGlobalResult describeGlobal(){
+        return (DescribeGlobalResult)submitRestCallAndDeserialize('/sobjects',DescribeGlobalResult.class);
+    }
+
+    /**
+     * Describes a particular sobject via the tooling api.
+     * This is the equivalent of calling //instance/api/tooling/sobjects/{sobjectname}/describe
+     * @param The api name of the sobject to describe
+     * @return a ToolingAPI DescribeSObjectResult
+     * @throws ToolingAPIException if an exception was encountered
+     */
+    public static DescribeSObjectResult describeSObject(String apiName){
+        return 
+            (DescribeSObjectResult)
+                submitRestCallAndDeserialize(
+                    '/sobjects/'+apiName+'/describe',
+                    DescribeSObjectResult.class);
     }
 
     //Public Inner Classes for Handling Tooling API Requests
@@ -975,6 +1000,18 @@ public with sharing class ToolingAPI{
     }
 
     //Private helper methods go here
+    //
+    
+
+    /*
+     * Static helper method for the "happy path" of JSON deserialization.
+     * This method should be used for the public methods when the generic JSON deserialize method
+     * may be used.
+     */
+    private static Object submitRestCallAndDeserialize(String relativeUrl,Type classType){
+        HttpResponse response = submitRestCall(relativeUrl);
+        return JSON.deserialize(response.getBody(),classType);
+    }
 
     /*
      * Helper method for submitting the REST request.
@@ -983,7 +1020,7 @@ public with sharing class ToolingAPI{
     private static HttpResponse submitRestCall(String relativeUrl){
         Http h = new Http();
         HttpRequest queryReq = new HttpRequest();
-        queryReq.setEndpoint(URL.getSalesforceBaseUrl().toExternalForm() + relativeUrl);
+        queryReq.setEndpoint(URL.getSalesforceBaseUrl().toExternalForm() + TOOLING_API_URI + relativeUrl);
         queryReq.setHeader('Authorization', 'OAuth ' + UserInfo.getSessionId());
         queryReq.setHeader('Content-Type', 'application/json');
         queryReq.setMethod('GET');
