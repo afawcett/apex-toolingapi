@@ -23,13 +23,31 @@
  *  OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 **/
-public with sharing class ToolingAPI{
+public with sharing class ToolingAPI {
 
-    //Perhaps use a custom setting instead of this?
-    public static final String TOOLING_API_URI = '/services/data/v29.0/tooling';
+    // The API version used relates to the types and structures defined here
+    private static final String TOOLING_API_URI = '/services/data/v29.0/tooling';
 
-    //Public Static Tooling API method go here
+	// Session Id can be resovled automatically depending on consturctor used
+    private String sessionId;
 
+	/**
+	 * Uses the current users Session Id, only compatible in a interactive context
+	 * @throws ToolingAPIException if no Session Id can be resolved (e.g. in a batch context)
+	 **/
+	public ToolingAPI() {
+		this.sessionId = UserInfo.getSessionId();
+		if(this.sessionId==null)
+			throw new ToolingAPIException('Unable to obtain Session Id');
+	}
+	
+	/**
+	 * Uses the given Session Id, useful when using the API in a batch context
+	 **/
+	public ToolingAPI(String sessionId) {
+		this.sessionId = sessionId;
+	}
+	
     /**
      * Using this query as an example for calling the private static helper method.
      * query
@@ -38,7 +56,7 @@ public with sharing class ToolingAPI{
      * @return a ToolingAPI Query Result
      * @throws ToolingAPIException if an an exception was encountered.
      */
-    public static QueryResult query(String queryString) {
+    public QueryResult query(String queryString) {
         HttpResponse response = submitRestCall('/query/?q=' + EncodingUtil.urlEncode(queryString, 'UTF-8'));
         return parseQueryResult(response.getBody());
     }
@@ -49,7 +67,7 @@ public with sharing class ToolingAPI{
      * @return a ToolingAPI DescribeGlobalResult
      * @throws ToolingAPIException if an an exception was encountered.
      */
-    public static DescribeGlobalResult describeGlobal(){
+    public DescribeGlobalResult describeGlobal(){
         return (DescribeGlobalResult)submitRestCallAndDeserialize('/sobjects',DescribeGlobalResult.class);
     }
 
@@ -60,7 +78,7 @@ public with sharing class ToolingAPI{
      * @return a ToolingAPI DescribeSObjectResult
      * @throws ToolingAPIException if an exception was encountered
      */
-    public static DescribeSObjectResult describeSObject(String apiName){
+    public DescribeSObjectResult describeSObject(String apiName){
         return 
             (DescribeSObjectResult)
                 submitRestCallAndDeserialize(
@@ -1002,13 +1020,12 @@ public with sharing class ToolingAPI{
     //Private helper methods go here
     //
     
-
     /*
      * Static helper method for the "happy path" of JSON deserialization.
      * This method should be used for the public methods when the generic JSON deserialize method
      * may be used.
      */
-    private static Object submitRestCallAndDeserialize(String relativeUrl,Type classType){
+    private Object submitRestCallAndDeserialize(String relativeUrl,Type classType){
         HttpResponse response = submitRestCall(relativeUrl);
         return JSON.deserialize(response.getBody(),classType);
     }
@@ -1017,11 +1034,11 @@ public with sharing class ToolingAPI{
      * Helper method for submitting the REST request.
      * Note, this may take some refactoring a bit to set the body of the request
      */
-    private static HttpResponse submitRestCall(String relativeUrl){
+    private HttpResponse submitRestCall(String relativeUrl){
         Http h = new Http();
         HttpRequest queryReq = new HttpRequest();
         queryReq.setEndpoint(URL.getSalesforceBaseUrl().toExternalForm() + TOOLING_API_URI + relativeUrl);
-        queryReq.setHeader('Authorization', 'OAuth ' + UserInfo.getSessionId());
+        queryReq.setHeader('Authorization', 'OAuth ' + this.sessionId);
         queryReq.setHeader('Content-Type', 'application/json');
         queryReq.setMethod('GET');
         HttpResponse queryRes = h.send(queryReq);
@@ -1030,7 +1047,10 @@ public with sharing class ToolingAPI{
         return queryRes;
     }
 
-    private static QueryResult parseQueryResult(String jsonStr){
+	/**
+	 * Helper method for parsing query results
+	 **/
+    private QueryResult parseQueryResult(String jsonStr){
         QueryResult queryResult = (QueryResult)JSON.deserialize(jsonStr, ToolingAPI.QueryResult.class);
         queryResult.records = getQueryResultRecords(jsonStr);
         return queryResult;
@@ -1040,7 +1060,7 @@ public with sharing class ToolingAPI{
      * Helper method for parsing the QueryResult response and determining
      * which instance of QueryResultRecord to use
      */
-    private static List<QueryResultRecord> getQueryResultRecords(String jsonStr){
+    private List<QueryResultRecord> getQueryResultRecords(String jsonStr){
 
         String recordType = getRecordType(jsonStr);
 
@@ -1061,7 +1081,7 @@ public with sharing class ToolingAPI{
     /**
      * Helper method for parsing type attribute from query result records in JSON response
      */
-    private static String getRecordType(String jsonStr){
+    private String getRecordType(String jsonStr){
         JSONParser parser = JSON.createParser(jsonStr);
 
         while (parser.nextToken() != null) {

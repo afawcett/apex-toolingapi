@@ -26,20 +26,20 @@
 
 public with sharing class ToolingAPIDemo 
 {
-	public static void dumpFieldIds()
-	{
+	public static void dumpFieldIds()  {
+		
 		// Constructs the Tooling API wrapper (default constructor uses user session Id)		
 		ToolingAPI toolingAPI = new ToolingAPI();
 		
 		// Query CustomObject object by DeveloperName (note no __c suffix required)
-		List<ToolingAPI.CustomObject> customObjects = 
-			toolingAPI.queryCustomObject('DeveloperName = \'Test\'').records;
+		List<ToolingAPI.CustomObject> customObjects = (List<ToolingAPI.CustomObject>) 
+			toolingAPI.query('Select Id, DeveloperName, NamespacePrefix From CustomObject Where DeveloperName = \'Test\'').records;
 		
 		// Query CustomField object by TableEnumOrId (use CustomObject Id not name for Custom Objects)
 		ToolingAPI.CustomObject customObject = customObjects[0];
 		Id customObjectId = customObject.Id;
-		List<ToolingAPI.CustomField> customFields = 
-			toolingAPI.queryCustomField('TableEnumOrId = \'' + customObjectId + '\'').records;
+		List<ToolingAPI.CustomField> customFields = (List<ToolingAPI.CustomField>) 
+			toolingAPI.query('Select Id, DeveloperName, NamespacePrefix, TableEnumOrId From CustomField Where TableEnumOrId = \'' + customObjectId + '\'').records;
 		
 		// Dump field names (reapply the __c suffix) and their Id's
 		System.debug(customObject.DeveloperName + '__c : ' + customObject.Id);

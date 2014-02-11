@@ -78,10 +78,10 @@ private class ToolingAPITest
 	{
 		Test.setMock(HttpCalloutMock.class, new ToolingAPIMock(testObjectResponse, 200));		
 		ToolingAPI toolingAPI = new ToolingAPI();	
-		ToolingAPI.CustomObjectQueryResult result = 
-			toolingAPI.queryCustomObject('DeveloperName = \'Test\'');
-		System.assertEquals(result.size, 1);
-		System.assertEquals(result.records[0].DeveloperName, 'Test');
+		List<ToolingAPI.CustomObject> result  = (List<ToolingAPI.CustomObject>)  
+			toolingAPI.query('Select Id, DeveloperName, NamespacePrefix From CustomObject Where DeveloperName = \'Test\'').records;
+		System.assertEquals(result.size(), 1);
+		System.assertEquals(result[0].DeveloperName, 'Test');
 	}
 
 	@IsTest
@@ -89,10 +89,10 @@ private class ToolingAPITest
 	{
 		Test.setMock(HttpCalloutMock.class, new ToolingAPIMock(testFieldResponse, 200));		
 		ToolingAPI toolingAPI = new ToolingAPI();			
-		ToolingAPI.CustomFieldQueryResult result = 
-			toolingAPI.queryCustomField('TableEnumOrId = \'01IG00000021cXoMAI\'');
-		System.assertEquals(result.size, 1);
-		System.assertEquals(result.records[0].DeveloperName, 'A_Number');
+		List<ToolingAPI.CustomField> result = (List<ToolingAPI.CustomField>) 
+			toolingAPI.query('Select Id, DeveloperName, NamespacePrefix, TableEnumOrId From CustomField Where TableEnumOrId = \'01IG00000021cXoMAI\'').records;
+		System.assertEquals(result.size(), 1);
+		System.assertEquals(result[0].DeveloperName, 'A_Number');
 	}
 	
 	@IsTest
@@ -101,8 +101,8 @@ private class ToolingAPITest
 		Test.setMock(HttpCalloutMock.class, new ToolingAPIMock(testErrorResponse, 400));		
 		ToolingAPI toolingAPI = new ToolingAPI();			
 		try {
-			ToolingAPI.CustomFieldQueryResult result = 
-				toolingAPI.queryCustomField('TableEnumOrId = \'Account\'');
+			List<ToolingAPI.CustomField> result = (List<ToolingAPI.CustomField>) 
+				toolingAPI.query('Select Id, DeveloperName, NamespacePrefix, TableEnumOrId From CustomField Where TableEnumOrId = \'Account\'').records;
 			System.assert(true, 'Expected exception');
 		} catch (Exception e) { }	
 	}
