@@ -87,28 +87,6 @@ public with sharing class ToolingAPI {
     }
 
     /**
-     * Retrieve an Apex Log by its Id via the tooling api
-     * This is the equivalent of calling //instance/api/tooling/sobjects/ApexLog/{apexLogId}/Body/
-     * This method actually submits two REST callouts.. 1 to grab the ApexLog body and 1 to grab
-     * the rest of the ApexLog information.
-     * @param Id of the apex log to retrieve
-     * @return a ToolingAPI ApexLog
-     * @throws ToolingAPIException if an exception was encountered
-     */
-    public ApexLog retrieveApexLog(Id apexLogId){
-        String body = submitRestCall('/sobjects/ApexLog/'+apexLogId+'/Body/').getBody();
-
-        ApexLog log = 
-            (ApexLog)
-                submitRestCallAndDeserialize(
-                    '/sobjects/ApexLog/'+apexLogId
-                    ,ApexLog.class);
-
-        log.body = body;
-        return log;
-    }
-
-    /**
      * Execute code anonymously via the tooling api
      * This is the equivalent of calling /executeAnonymous/?anonymousBody=body
      * @param an already encoded body for executing anonymous code.
@@ -135,6 +113,38 @@ public with sharing class ToolingAPI {
             body =  EncodingUtil.urlEncode(body, 'UTF-8');
         }
         return executeAnonymousEncoded(body);
+    }
+
+    /**
+     * Retrieve an Apex Log by its Id via the tooling api
+     * This is the equivalent of calling //instance/api/tooling/sobjects/ApexLog/{apexLogId}/Body/
+     * This method actually submits two REST callouts.. 1 to grab the ApexLog body and 1 to grab
+     * the rest of the ApexLog information.
+     * @param Id of the apex log to retrieve
+     * @return a ToolingAPI ApexLog
+     * @throws ToolingAPIException if an exception was encountered
+     */
+    public ApexLog retrieveApexLog(Id apexLogId){
+        String body = submitRestCall('/sobjects/ApexLog/'+apexLogId+'/Body/').getBody();
+
+        ApexLog log = (ToolingAPI.ApexLog)retrieveSObject('ApexLog',apexLogId);
+        
+        //Append the body from the first REST call to the ApexLog record.
+        log.body = body;
+
+        return log;
+    }
+
+    /**
+     * Generic method for retrieving an sobject of type by Id
+     * Assumes the class name in the ToolingAPI matches the REST api
+     */
+    public Object retrieveSObject(String sobjType,Id sobjectId){
+        //Have to prefix the sobjType with outter class name before type casting
+        return submitRestCallAndDeserialize(
+            '/sobjects/'+sobjType+'/'+sobjectId
+            ,Type.forName('ToolingAPI.'+sobjType)
+        );
     }
 
 
