@@ -769,7 +769,12 @@ public with sharing class ToolingAPI {
         public String content;
     }
 
-    public class Method {
+    public virtual class Constructor extends VisibilitySymbol
+    {
+        public List<Parameter> parameters;
+    }
+
+    public class Method extends Constructor {
         public String returnType;
     }
 
@@ -803,7 +808,7 @@ public with sharing class ToolingAPI {
 
     public class Parameter {
         public String name;
-        public String type_x;
+        public String type;
     }
 
     public class Picklist {
@@ -932,7 +937,7 @@ public with sharing class ToolingAPI {
         public String value;
     }
 
-    public class Symbol {
+    public virtual class Symbol {
         public Position   location;
         public String[]   modifiers;
         public String     name;
@@ -1013,7 +1018,7 @@ public with sharing class ToolingAPI {
         public Id          workspaceId;
     }
 
-    public class VisibilitySymbol {
+    public virtual class VisibilitySymbol extends Symbol {
         public String visibility;
     }
 
