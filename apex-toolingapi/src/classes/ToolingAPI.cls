@@ -40,14 +40,14 @@ public with sharing class ToolingAPI {
 		if(this.sessionId==null)
 			throw new ToolingAPIException('Unable to obtain Session Id');
 	}
-	
+
 	/**
 	 * Uses the given Session Id, useful when using the API in a batch context
 	 **/
 	public ToolingAPI(String sessionId) {
 		this.sessionId = sessionId;
 	}
-	
+
     /**
      * Using this query as an example for calling the private static helper method.
      * query
@@ -79,12 +79,64 @@ public with sharing class ToolingAPI {
      * @throws ToolingAPIException if an exception was encountered
      */
     public DescribeSObjectResult describeSObject(String apiName){
-        return 
+        return
             (DescribeSObjectResult)
                 submitRestCallAndDeserialize(
-                    '/sobjects/'+apiName+'/describe',
-                    DescribeSObjectResult.class);
+                    '/sobjects/'+apiName+'/describe'
+                    ,DescribeSObjectResult.class);
     }
+
+    /**
+     * Retrieve an Apex Log by its Id via the tooling api
+     * This is the equivalent of calling //instance/api/tooling/sobjects/ApexLog/{apexLogId}/Body/
+     * This method actually submits two REST callouts.. 1 to grab the ApexLog body and 1 to grab
+     * the rest of the ApexLog information.
+     * @param Id of the apex log to retrieve
+     * @return a ToolingAPI ApexLog
+     * @throws ToolingAPIException if an exception was encountered
+     */
+    public ApexLog retrieveApexLog(Id apexLogId){
+        String body = submitRestCall('/sobjects/ApexLog/'+apexLogId+'/Body/').getBody();
+
+        ApexLog log = 
+            (ApexLog)
+                submitRestCallAndDeserialize(
+                    '/sobjects/ApexLog/'+apexLogId
+                    ,ApexLog.class);
+
+        log.body = body;
+        return log;
+    }
+
+    /**
+     * Execute code anonymously via the tooling api
+     * This is the equivalent of calling /executeAnonymous/?anonymousBody=body
+     * @param an already encoded body for executing anonymous code.
+     * @return a Tooling API ExecuteAnonymousResult record
+     * @throws ToolingAPIException if an exception was encountered
+     */
+    public ExecuteAnonymousResult executeAnonymousEncoded(String body){
+        return (ExecuteAnonymousResult)
+            submitRestCallAndDeserialize(
+                '/executeAnonymous/?anonymousBody='+body
+                ,ExecuteAnonymousResult.class);
+    }
+
+    /**
+     * Execute code anonymously via the tooling api
+     * This is the equivalent of calling /executeAnonymous/?anonymousBody=body
+     * This particular method encodes the body with UTF-8 by default.
+     * @param a String for executing anonymous code that WILL BE URL encoded with UTF-8
+     * @return a Tooling API ExecuteAnonymousResult record
+     * @throws ToolingAPIException if an exception was encountered
+     */
+    public ExecuteAnonymousResult executeAnonymousUnencoded(String body){
+        if(body != null){
+            body =  EncodingUtil.urlEncode(body, 'UTF-8');
+        }
+        return executeAnonymousEncoded(body);
+    }
+
 
     //Public Inner Classes for Handling Tooling API Requests
 
@@ -179,7 +231,9 @@ public with sharing class ToolingAPI {
         public String    request;
         public DateTime  startTime;
         public String    status;
+        public String    body;
     }
+
 
     public class ApexOrgWideCoverage {
         public UserRecord createdBy;
@@ -1024,7 +1078,7 @@ public with sharing class ToolingAPI {
 
     //Private helper methods go here
     //
-    
+
     /*
      * Static helper method for the "happy path" of JSON deserialization.
      * This method should be used for the public methods when the generic JSON deserialize method
