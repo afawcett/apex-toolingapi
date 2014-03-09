@@ -181,11 +181,11 @@ public with sharing class ToolingAPI {
      * @param sobjType name of one of the valid Tooling API SObject's
      * @param sobjectId Id of the applicable record to retrieve
      */
-    public Object retrieveSObject(SObjectType sobjType,Id sobjectId){
+    public SObject_x retrieveSObject(SObjectType sobjType,Id sobjectId){
         //Have to prefix the sobjType with outter class name before type casting
-        return submitRestCallAndDeserialize(
+        return (SObject_x) submitRestCallAndDeserialize(
             '/sobjects/'+sobjType.name()+'/'+sobjectId
-            ,Type.forName('ToolingAPI.'+sobjType)
+            ,Type.forName('ToolingAPI.'+sobjType.name())
         );
     }
 
