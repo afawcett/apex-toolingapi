@@ -25,8 +25,39 @@
 **/
 public with sharing class ToolingAPI {
 
-    private interface ISeralize {
-        void seralize(JSONGenerator generator);
+    /**
+     * Complete list of all Tooling API objects (as per those in WSDL that extend tns:sObject)
+     **/
+    public enum SObjectType {
+        ApexClass,
+        ApexClassMember,
+        ApexCodeCoverage,
+        ApexCodeCoverageAggregate,
+        ApexComponent,
+        ApexComponentMember,
+        ApexExecutionOverlayAction,
+        ApexExecutionOverlayResult,
+        ApexLog,
+        ApexOrgWideCoverage,
+        ApexPage,
+        ApexPageMember,
+        ApexTestQueueItem,
+        ApexTestResult,
+        ApexTrigger,
+        ApexTriggerMember,
+        AsyncApexJob,
+        ContainerAsyncRequest,
+        CustomObject,
+        CustomField,
+        IDEPerspective,
+        IDEWorkspace,
+        MetadataContainer,
+        MetadataContainerMember,
+        Name,
+        StaticResource,
+        TraceFlag,
+        User,
+        UserPreference
     }
 
     // The API version used relates to the types and structures defined here
@@ -34,6 +65,11 @@ public with sharing class ToolingAPI {
 
     // Session Id can be resovled automatically depending on consturctor used
     private String sessionId;
+
+    // Interface used to implement customi serialization on SObject based types
+    private interface ISeralize {
+        void seralize(JSONGenerator generator);
+    }
 
     /**
      * Uses the current users Session Id, only compatible in a interactive context
@@ -131,7 +167,7 @@ public with sharing class ToolingAPI {
     public ApexLog retrieveApexLog(Id apexLogId){
         String body = submitRestCall('/sobjects/ApexLog/'+apexLogId+'/Body/').getBody();
 
-        ApexLog log = (ToolingAPI.ApexLog)retrieveSObject('ApexLog',apexLogId);
+        ApexLog log = (ToolingAPI.ApexLog)retrieveSObject(SObjectType.ApexLog,apexLogId);
         
         //Append the body from the first REST call to the ApexLog record.
         log.body = body;
@@ -145,10 +181,10 @@ public with sharing class ToolingAPI {
      * @param sobjType name of one of the valid Tooling API SObject's
      * @param sobjectId Id of the applicable record to retrieve
      */
-    public Object retrieveSObject(String sobjType,Id sobjectId){
+    public Object retrieveSObject(SObjectType sobjType,Id sobjectId){
         //Have to prefix the sobjType with outter class name before type casting
         return submitRestCallAndDeserialize(
-            '/sobjects/'+sobjType+'/'+sobjectId
+            '/sobjects/'+sobjType.name()+'/'+sobjectId
             ,Type.forName('ToolingAPI.'+sobjType)
         );
     }
@@ -158,9 +194,9 @@ public with sharing class ToolingAPI {
      * @param sobjType name of one of the valid Tooling API SObject's
      * @param sobjectId Id of the applicable record to delete
      **/
-    public void deleteSObject(String sobjType, Id sobjectId){
+    public void deleteSObject(SObjectType sobjType, Id sobjectId){
         submitRestCallAndDeserialize(
-            '/sobjects/'+sobjType+'/'+sobjectId
+            '/sobjects/'+sobjType.name()+'/'+sobjectId
             ,null
             ,'DELETE'
         );
@@ -169,19 +205,10 @@ public with sharing class ToolingAPI {
     /**
      * Generic methods for creaing an sobject record
      **/
-    public ToolingAPI.SaveResult createSObject(Object sobjectRecord)
+    public ToolingAPI.SaveResult createSObject(SObject_x sobjectRecord)
     {
-        // TODO: A dynamic way of doing this? Or atleast likely move out to helper method
-        String sObjType = null;
-        if(sobjectRecord instanceof MetadataContainer)
-            sObjType = 'MetadataContainer';
-        else if(sobjectRecord instanceof ApexClassMember)
-            sObjType = 'ApexClassMember';
-        else if(sobjectRecord instanceof ContainerAsyncRequest)
-            sObjType = 'ContainerAsyncRequest';
-        // TODO: Check for null
         return (SaveResult) submitRestCallAndDeserialize(
-            '/sobjects/'+sobjType
+            '/sobjects/'+((SObject_x)sobjectRecord).type_x
             ,SaveResult.class
             ,'POST'
             ,sobjectRecord
@@ -202,7 +229,7 @@ public with sharing class ToolingAPI {
         public boolean versionRequired;
     }
 
-    public class ApexClass extends sObject_x{
+    public class ApexClass extends SObject_x{
         public Double            apiVersion;
         public String            body;
         public Double            bodyCrc;
@@ -214,6 +241,9 @@ public with sharing class ToolingAPI {
         public String            namespacePrefix;
         public String            status;
         public SymbolTable       symbolTable;
+        public ApexClass() {
+            super(SObjectType.ApexClass);
+        }
     }
 
     public class ApexClassMetadata {
@@ -222,8 +252,8 @@ public with sharing class ToolingAPI {
         public String                   status;
     }
 
-    public class ApexCodeCoverage extends sObject_x{
-        public sObject_x apexClassOrTrigger;
+    public class ApexCodeCoverage extends SObject_x{
+        public SObject_x apexClassOrTrigger;
         public Id        apexClassOrTriggerId;
         public ApexClass apexTestClass;
         public Id        apexTestClassId;
@@ -232,16 +262,22 @@ public with sharing class ToolingAPI {
         public Integer   numLinesCovered;
         public Integer   numLinesUncovered;
         public String    testMethodName;
+        public ApexCodeCoverage() {
+            super(SObjectType.ApexCodeCoverage);
+        }
     }
 
-    public class ApexCodeCoverageAggregate extends sObject_x{
-        public sObject_x  apexClassOrTrigger;
+    public class ApexCodeCoverageAggregate extends SObject_x{
+        public SObject_x  apexClassOrTrigger;
         public String     apexClassOrTriggerId;
         public Coverage   coverage;
         public DateTime   coverageLastModifiedDate;
         public boolean    isDeleted;
         public Integer    numLinesCovered;
         public Integer    numLinesUncovered;
+        public ApexCodeCoverageAggregate() {
+            super(SObjectType.ApexCodeCoverageAggregate);
+        }
     }
 
     public class ApexComponent extends sObject_x{
@@ -253,13 +289,16 @@ public with sharing class ToolingAPI {
         public String    masterLabel;
         public String    name;
         public String    namespacePrefix;
+        public ApexComponent() {
+            super(SObjectType.ApexComponent);
+        }
     }
 
-    public class ApexExecutionOverlayAction extends sObject_x{
+    public class ApexExecutionOverlayAction extends SObject_x{
         public String     actionScript;
         public String     actionScriptType;
         public DateTime   createdDate;
-        public sObject_x  executableEntity;
+        public SObject_x  executableEntity;
         public Id         executableEntityId;
         public DateTime   expirationDate;
         public boolean    isDeleted;
@@ -268,33 +307,41 @@ public with sharing class ToolingAPI {
         public Integer    line;
         public UserRecord scope;
         public String     scopeId;
+        public ApexExecutionOverlayAction() {
+            super(SObjectType.ApexExecutionOverlayAction);
+        }
     }
 
-    public class ApexLog extends sObject_x {
+    public class ApexLog extends SObject_x {
         public String    application;
         public Integer   durationMilliseconds;
         public String    location;
         public Integer   logLength;
-        public sObject_x logUser;
+        public SObject_x logUser;
         public Id        logUserId;
         public String    operation;
         public String    request;
         public DateTime  startTime;
         public String    status;
         public String    body;
+        public ApexLog() {
+            super(SObjectType.ApexLog);
+        }
     }
 
-
-    public class ApexOrgWideCoverage {
+    public class ApexOrgWideCoverage extends SObject_x {
         public UserRecord createdBy;
         public Id         createdById;
         public DateTime   createdDate;
         public Boolean    isDeleted;
         public UserRecord lastModifiedBy;
-        public Id     lastModifiedById;
+        public Id         lastModifiedById;
         public DateTime   lastModifiedDate;
         public Integer    percentCovered;
         public DateTime   systemModstamp;
+        public ApexOrgWideCoverage() {
+            super(SObjectType.ApexOrgWideCoverage);
+        }
     }
 
     public class ApexResult {
@@ -331,7 +378,7 @@ public with sharing class ToolingAPI {
         public DateTime   systemModstamp;
     }
 
-    public class ApexPage extends sObject_x{
+    public class ApexPage extends SObject_x{
         public Double   apiVersion;
         public String   controllerKey;
         public String   controllerType;
@@ -343,9 +390,12 @@ public with sharing class ToolingAPI {
         public String   masterLabel;
         public String   name;
         public String   namespacePrefix;
+        public ApexPage() {
+            super(SObjectType.ApexPage);
+        }
     }
 
-    public class ApexClassMember extends sObject_x implements ISeralize {
+    public class ApexClassMember extends SObject_x implements ISeralize {
         public String            body;
         public String            content;
         public ApexClass         contentEntity;
@@ -355,6 +405,9 @@ public with sharing class ToolingAPI {
         public MetadataContainer metadataContainer;
         public Id                metadataContainerId;        
         public SymbolTable       symbolTable;
+        public ApexClassMember() {
+            super(SObjectType.ApexClassMember);
+        }
         public override void seralize(JSONGenerator jsonGen) {
             super.seralize(jsonGen);
             if(body!=null)
@@ -378,11 +431,19 @@ public with sharing class ToolingAPI {
         }
     }
 
-    public class ApexTriggerMember extends sObject_x {}
+    public class ApexTriggerMember extends SObject_x {
+        public ApexTriggerMember() {
+            super(SObjectType.ApexTriggerMember);
+        }
+    }
 
-    public class ApexComponentMember extends sObject_x {}
+    public class ApexComponentMember extends SObject_x {
+        public ApexComponentMember() {
+            super(SObjectType.ApexComponentMember);
+        }
+    }
 
-    public class ApexExecutionOverlayResult extends sObject_x{
+    public class ApexExecutionOverlayResult extends SObject_x {
         public String     actionScript;
         public String     actionScriptType;
         public ApexResult apexResult;
@@ -400,11 +461,18 @@ public with sharing class ToolingAPI {
         public SOQLResult sOQLResult;
         public UserRecord user_x;
         public Id         userId;
+        public ApexExecutionOverlayResult() {
+            super(SObjectType.ApexExecutionOverlayResult);
+        }
     }
 
-    public class ApexPageMember extends sObject_x {}
+    public class ApexPageMember extends SObject_x {
+        public ApexPageMember() {
+            super(SObjectType.ApexPageMember);
+        }
+    }
 
-    public class ApexTrigger extends sObject_x{
+    public class ApexTrigger extends SObject_x {
         public Double     apiVersion;
         public String     body;
         public Double     bodyCrc;
@@ -429,6 +497,9 @@ public with sharing class ToolingAPI {
         public boolean    usageBeforeInsert;
         public boolean    usageBeforeUpdate;
         public boolean    usageIsBulk;
+        public ApexTrigger() {
+            super(SObjectType.ApexTrigger);
+        }
     }
 
     public class ApiFault {
@@ -489,7 +560,7 @@ public with sharing class ToolingAPI {
         public QueryResultColumnMetadata[] joinColumns;
     }
 
-    public class ContainerAsyncRequest extends sObject_x implements ISeralize {
+    public class ContainerAsyncRequest extends SObject_x implements ISeralize {
         public String                  compilerErrors;
         public String                  errorMsg;
         public boolean                 isCheckOnly;
@@ -500,6 +571,9 @@ public with sharing class ToolingAPI {
         public MetadataContainerMember metadataContainerMember;
         public Id                      metadataContainerMemberId;
         public String                  state;
+        public ContainerAsyncRequest() {
+            super(SObjectType.ContainerAsyncRequest);
+        }
         public override void seralize(JSONGenerator jsonGen) {
             super.seralize(jsonGen);
             if(compilerErrors!=null)
@@ -530,12 +604,15 @@ public with sharing class ToolingAPI {
         public Integer[] uncoveredLines;
     }
 
-    public class CustomField extends sObject_x{
+    public class CustomField extends SObject_x {
         public String              fullName;
         public String              developerName;
         public CustomFieldMetadata metadata;
         public String              namespacePrefix;
         public String              tableEnumOrId;
+        public CustomField() {
+            super(SObjectType.CustomField);
+        }
     }
 
     public class CustomFieldMetadata {
@@ -585,10 +662,13 @@ public with sharing class ToolingAPI {
         public boolean      writeRequiresMasterRead;
     }
 
-    public class CustomObject extends sObject_x{
+    public class CustomObject extends SObject_x{
         public String developerName;
         public String externalDataSourceId;
         public String namespacePrefix;
+        public CustomObject() {
+            super(SObjectType.CustomObject);
+        }
     }
 
     public class DeletedRecord {
@@ -906,9 +986,12 @@ public with sharing class ToolingAPI {
         public String []        urls;
     }
 
-    public class MetadataContainer extends sObject_x implements ISeralize {
+    public class MetadataContainer extends SObject_x implements ISeralize {
         public Boolean isDeleted;
         public String  name;
+        public MetadataContainer() {
+            super(SObjectType.MetadataContainer);
+        }
         public override void seralize(JSONGenerator jsonGen) {
             super.seralize(jsonGen);
             if(isDeleted!=null)
@@ -920,7 +1003,7 @@ public with sharing class ToolingAPI {
 
     public class MetadataContainerMember {
         public String            content;
-        public sObject_x         contentEntity;
+        public SObject_x         contentEntity;
         public Id                contentEntityId;
         public DateTime          lastSyncDate;
         public MetadataContainer metadataContainer;
@@ -1007,7 +1090,7 @@ public with sharing class ToolingAPI {
         public boolean              done;
         public String               entityTypeName;
         public String               nextRecordsUrl;
-        public sObject_x [] records;
+        public SObject_x[]          records;
         public Integer              size;
         public Integer              totalSize;
         public String               queryLocator;
@@ -1051,22 +1134,27 @@ public with sharing class ToolingAPI {
         public StateValue[] value;
     }
 
-    public virtual class sObject_x {
-        public String[]          fieldsToNull;
-        public Id                id;
-        public Id                createdById;
-        public UserRecord        createdBy;
-        public DateTime          createdDate;
-        public boolean           isDeleted;
-        public Id                lastModifiedById;
-        public UserRecord        lastModifiedBy;
-        public Datetime          lastModifiedDate;
-        public DateTime          systemModstamp;
+    public virtual class SObject_x {
+        public transient SObjectType type_x {get; private set;}
+        public transient String[]    fieldsToNull;
+        public Id                    id;
+        public Id                    createdById;
+        public UserRecord            createdBy;
+        public DateTime              createdDate;
+        public boolean               isDeleted;
+        public Id                    lastModifiedById;
+        public UserRecord            lastModifiedBy;
+        public Datetime              lastModifiedDate;
+        public DateTime              systemModstamp;
+        public SObject_x(SObjectType sObjectType){
+            type_x = sObjectType;
+        }
         public virtual void seralize(JSONGenerator jsonGen) {
             if(id!=null)
                 jsonGen.writeStringField('id', id);
-            for(String fieldToNull : fieldsToNull)
-                jsonGen.writeNullField(fieldToNull);
+            if(fieldsToNull!=null)
+                for(String fieldToNull : fieldsToNull)
+                    jsonGen.writeNullField(fieldToNull);
         }
     }
 
@@ -1076,7 +1164,7 @@ public with sharing class ToolingAPI {
         public MapValue[] queryResult;
     }
 
-    public class StaticResource extends sObject_x{
+    public class StaticResource extends SObject_x{
         public String  body;
         public Integer bodyLength;
         public String  cacheControl;
@@ -1084,6 +1172,9 @@ public with sharing class ToolingAPI {
         public String  description;
         public String  name;
         public String  namespacePrefix;
+        public StaticResource() {
+            super(SObjectType.StaticResource);
+        }
     }
 
     public class StateValue {}
@@ -1137,7 +1228,7 @@ public with sharing class ToolingAPI {
         public Id         scopeId;
         public String     system_x;
         public DateTime   systemModstamp;
-        public sObject_x  tracedEntity;
+        public SObject_x  tracedEntity;
         public Id         tracedEntityId;
         public String     validation;
         public String     visualforce;
@@ -1280,7 +1371,7 @@ public with sharing class ToolingAPI {
      * Helper method for parsing the QueryResult response and determining
      * which instance of sObject_x to use
      */
-    private List<sObject_x> getQueryResultRecords(String jsonStr){
+    private List<SObject_x> getQueryResultRecords(String jsonStr){
 
         String recordType = getRecordType(jsonStr);
 
@@ -1290,7 +1381,7 @@ public with sharing class ToolingAPI {
             while (parser.nextToken() != null) {
                 if ((parser.getText() == 'records')) {
                     parser.nextToken();
-                    return (List<sObject_x>)parser.readValueAs(Type.forName('List<ToolingAPI.'+recordType+'>'));
+                    return (List<SObject_x>)parser.readValueAs(Type.forName('List<ToolingAPI.'+recordType+'>'));
                 }
             }
         }
