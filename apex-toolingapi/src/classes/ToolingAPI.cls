@@ -25,28 +25,32 @@
 **/
 public with sharing class ToolingAPI {
 
+    private interface ISeralize {
+        void seralize(JSONGenerator generator);
+    }
+
     // The API version used relates to the types and structures defined here
     private static final String TOOLING_API_URI = '/services/data/v29.0/tooling';
 
-	// Session Id can be resovled automatically depending on consturctor used
+    // Session Id can be resovled automatically depending on consturctor used
     private String sessionId;
 
-	/**
-	 * Uses the current users Session Id, only compatible in a interactive context
-	 * @throws ToolingAPIException if no Session Id can be resolved (e.g. in a batch context)
-	 **/
-	public ToolingAPI() {
-		this.sessionId = UserInfo.getSessionId();
-		if(this.sessionId==null)
-			throw new ToolingAPIException('Unable to obtain Session Id');
-	}
+    /**
+     * Uses the current users Session Id, only compatible in a interactive context
+     * @throws ToolingAPIException if no Session Id can be resolved (e.g. in a batch context)
+     **/
+    public ToolingAPI() {
+        this.sessionId = UserInfo.getSessionId();
+        if(this.sessionId==null)
+            throw new ToolingAPIException('Unable to obtain Session Id');
+    }
 
-	/**
-	 * Uses the given Session Id, useful when using the API in a batch context
-	 **/
-	public ToolingAPI(String sessionId) {
-		this.sessionId = sessionId;
-	}
+    /**
+     * Uses the given Session Id, useful when using the API in a batch context
+     **/
+    public ToolingAPI(String sessionId) {
+        this.sessionId = sessionId;
+    }
 
     /**
      * Using this query as an example for calling the private static helper method.
@@ -138,6 +142,8 @@ public with sharing class ToolingAPI {
     /**
      * Generic method for retrieving an sobject of type by Id
      * Assumes the class name in the ToolingAPI matches the REST api
+     * @param sobjType name of one of the valid Tooling API SObject's
+     * @param sobjectId Id of the applicable record to retrieve
      */
     public Object retrieveSObject(String sobjType,Id sobjectId){
         //Have to prefix the sobjType with outter class name before type casting
@@ -147,6 +153,40 @@ public with sharing class ToolingAPI {
         );
     }
 
+    /**
+     * Generic method for deleting an sobject record
+     * @param sobjType name of one of the valid Tooling API SObject's
+     * @param sobjectId Id of the applicable record to delete
+     **/
+    public void deleteSObject(String sobjType, Id sobjectId){
+        submitRestCallAndDeserialize(
+            '/sobjects/'+sobjType+'/'+sobjectId
+            ,null
+            ,'DELETE'
+        );
+    }
+
+    /**
+     * Generic methods for creaing an sobject record
+     **/
+    public ToolingAPI.SaveResult createSObject(Object sobjectRecord)
+    {
+        // TODO: A dynamic way of doing this? Or atleast likely move out to helper method
+        String sObjType = null;
+        if(sobjectRecord instanceof MetadataContainer)
+            sObjType = 'MetadataContainer';
+        else if(sobjectRecord instanceof ApexClassMember)
+            sObjType = 'ApexClassMember';
+        else if(sobjectRecord instanceof ContainerAsyncRequest)
+            sObjType = 'ContainerAsyncRequest';
+        // TODO: Check for null
+        return (SaveResult) submitRestCallAndDeserialize(
+            '/sobjects/'+sobjType
+            ,SaveResult.class
+            ,'POST'
+            ,sobjectRecord
+        );
+    }
 
     //Public Inner Classes for Handling Tooling API Requests
 
@@ -162,7 +202,7 @@ public with sharing class ToolingAPI {
         public boolean versionRequired;
     }
 
-    public class ApexClass extends QueryResultRecord{
+    public class ApexClass extends sObject_x{
         public Double            apiVersion;
         public String            body;
         public Double            bodyCrc;
@@ -182,7 +222,7 @@ public with sharing class ToolingAPI {
         public String                   status;
     }
 
-    public class ApexCodeCoverage extends QueryResultRecord{
+    public class ApexCodeCoverage extends sObject_x{
         public sObject_x apexClassOrTrigger;
         public Id        apexClassOrTriggerId;
         public ApexClass apexTestClass;
@@ -194,7 +234,7 @@ public with sharing class ToolingAPI {
         public String    testMethodName;
     }
 
-    public class ApexCodeCoverageAggregate extends QueryResultRecord{
+    public class ApexCodeCoverageAggregate extends sObject_x{
         public sObject_x  apexClassOrTrigger;
         public String     apexClassOrTriggerId;
         public Coverage   coverage;
@@ -204,7 +244,7 @@ public with sharing class ToolingAPI {
         public Integer    numLinesUncovered;
     }
 
-    public class ApexComponent extends QueryResultRecord{
+    public class ApexComponent extends sObject_x{
         public Double    apiVersion;
         public String    controllerKey;
         public String    controllerType;
@@ -215,7 +255,7 @@ public with sharing class ToolingAPI {
         public String    namespacePrefix;
     }
 
-    public class ApexExecutionOverlayAction extends QueryResultRecord{
+    public class ApexExecutionOverlayAction extends sObject_x{
         public String     actionScript;
         public String     actionScriptType;
         public DateTime   createdDate;
@@ -230,7 +270,7 @@ public with sharing class ToolingAPI {
         public String     scopeId;
     }
 
-    public class ApexLog extends QueryResultRecord {
+    public class ApexLog extends sObject_x {
         public String    application;
         public Integer   durationMilliseconds;
         public String    location;
@@ -291,7 +331,7 @@ public with sharing class ToolingAPI {
         public DateTime   systemModstamp;
     }
 
-    public class ApexPage extends QueryResultRecord{
+    public class ApexPage extends sObject_x{
         public Double   apiVersion;
         public String   controllerKey;
         public String   controllerType;
@@ -305,11 +345,44 @@ public with sharing class ToolingAPI {
         public String   namespacePrefix;
     }
 
-    public class ApexClassMember extends QueryResultRecord {}
-    public class ApexTriggerMember extends QueryResultRecord {}
-    public class ApexComponentMember extends QueryResultRecord {}
+    public class ApexClassMember extends sObject_x implements ISeralize {
+        public String            body;
+        public String            content;
+        public ApexClass         contentEntity;
+        public String            contentEntityId;
+        public Datetime          lastSyncDate;
+        public ApexClassMetadata metadata;
+        public MetadataContainer metadataContainer;
+        public Id                metadataContainerId;        
+        public SymbolTable       symbolTable;
+        public override void seralize(JSONGenerator jsonGen) {
+            super.seralize(jsonGen);
+            if(body!=null)
+                jsonGen.writeStringField('body', body);
+            if(content!=null)
+                jsonGen.writeStringField('content', content);
+            if(contentEntity!=null)
+                jsonGen.writeObjectField('contentEntity', contentEntity);
+            if(contentEntityId!=null)
+                jsonGen.writeStringField('contentEntityId', contentEntityId);
+            if(lastSyncDate!=null)
+                jsonGen.writeDateTimeField('lastSyncDate', lastSyncDate);
+            if(metadata!=null)
+                jsonGen.writeObjectField('metadata', metadata);
+            if(metadataContainer!=null)
+                jsonGen.writeObjectField('metadataContainer', metadataContainer);
+            if(metadataContainerId!=null)
+                jsonGen.writeStringField('metadataContainerId', metadataContainerId);
+            if(symbolTable!=null)
+                jsonGen.writeObjectField('symbolTable', symbolTable);
+        }
+    }
 
-    public class ApexExecutionOverlayResult extends QueryResultRecord{
+    public class ApexTriggerMember extends sObject_x {}
+
+    public class ApexComponentMember extends sObject_x {}
+
+    public class ApexExecutionOverlayResult extends sObject_x{
         public String     actionScript;
         public String     actionScriptType;
         public ApexResult apexResult;
@@ -329,9 +402,9 @@ public with sharing class ToolingAPI {
         public Id         userId;
     }
 
-    public class ApexPageMember extends QueryResultRecord {}
+    public class ApexPageMember extends sObject_x {}
 
-    public class ApexTrigger extends QueryResultRecord{
+    public class ApexTrigger extends sObject_x{
         public Double     apiVersion;
         public String     body;
         public Double     bodyCrc;
@@ -416,7 +489,7 @@ public with sharing class ToolingAPI {
         public QueryResultColumnMetadata[] joinColumns;
     }
 
-    public class ContainerAsyncRequest extends QueryResultRecord {
+    public class ContainerAsyncRequest extends sObject_x implements ISeralize {
         public String                  compilerErrors;
         public String                  errorMsg;
         public boolean                 isCheckOnly;
@@ -427,6 +500,29 @@ public with sharing class ToolingAPI {
         public MetadataContainerMember metadataContainerMember;
         public Id                      metadataContainerMemberId;
         public String                  state;
+        public override void seralize(JSONGenerator jsonGen) {
+            super.seralize(jsonGen);
+            if(compilerErrors!=null)
+                jsonGen.writeStringField('compilerErrors', compilerErrors);
+            if(errorMsg!=null)
+                jsonGen.writeStringField('errorMsg', errorMsg);
+            if(isCheckOnly!=null)
+                jsonGen.writeBooleanField('isCheckOnly', isCheckOnly);
+            if(isDeleted!=null)
+                jsonGen.writeBooleanField('isDeleted', isDeleted);
+            if(isRunTests!=null)
+                jsonGen.writeBooleanField('isRunTests', isRunTests);
+            if(metadataContainer!=null)
+                jsonGen.writeObjectField('metadataContainer', metadataContainer);
+            if(metadataContainerId!=null)
+                jsonGen.writeStringField('metadataContainerId', metadataContainerId);
+            if(metadataContainerMember!=null)
+                jsonGen.writeObjectField('metadataContainerMember', metadataContainerMember);
+            if(metadataContainerMemberId!=null)
+                jsonGen.writeStringField('metadataContainerMemberId', metadataContainerMemberId);
+            if(state!=null)
+                jsonGen.writeStringField('state', state);
+        }        
     }
 
     public class Coverage {
@@ -434,7 +530,7 @@ public with sharing class ToolingAPI {
         public Integer[] uncoveredLines;
     }
 
-    public class CustomField extends QueryResultRecord{
+    public class CustomField extends sObject_x{
         public String              fullName;
         public String              developerName;
         public CustomFieldMetadata metadata;
@@ -489,7 +585,7 @@ public with sharing class ToolingAPI {
         public boolean      writeRequiresMasterRead;
     }
 
-    public class CustomObject extends QueryResultRecord{
+    public class CustomObject extends sObject_x{
         public String developerName;
         public String externalDataSourceId;
         public String namespacePrefix;
@@ -498,12 +594,6 @@ public with sharing class ToolingAPI {
     public class DeletedRecord {
         public DateTime deletedDate;
         public Id       id;
-    }
-
-    public class DeleteResult {
-        public Error[] errors;
-        public Id      id;
-        public Boolean success;
     }
 
     public class DescribeColorResult {
@@ -636,6 +726,7 @@ public with sharing class ToolingAPI {
     }
 
     public class ErrorResponse{
+        public List<String> fields;
         public String errorCode;
         public String message;
     }
@@ -815,9 +906,16 @@ public with sharing class ToolingAPI {
         public String []        urls;
     }
 
-    public class MetadataContainer extends QueryResultRecord {
+    public class MetadataContainer extends sObject_x implements ISeralize {
         public Boolean isDeleted;
         public String  name;
+        public override void seralize(JSONGenerator jsonGen) {
+            super.seralize(jsonGen);
+            if(isDeleted!=null)
+                jsonGen.writeBooleanField('isDeleted', isDeleted);
+            if(Name!=null)
+                jsonGen.writeStringField('name', name);
+        }
     }
 
     public class MetadataContainerMember {
@@ -909,7 +1007,7 @@ public with sharing class ToolingAPI {
         public boolean              done;
         public String               entityTypeName;
         public String               nextRecordsUrl;
-        public QueryResultRecord [] records;
+        public sObject_x [] records;
         public Integer              size;
         public Integer              totalSize;
         public String               queryLocator;
@@ -929,27 +1027,6 @@ public with sharing class ToolingAPI {
         public boolean                     groupBy;
         public boolean                     idSelected;
         public String                      keyPrefix;
-    }
-
-     public virtual class QueryResultRecord {
-        public Id                id;
-        public Attribute         attribute;
-        public String            body;
-        public String            content;
-        public Id                contentEntityId;
-        public Id                createdById;
-        public UserRecord        createdBy;
-        public DateTime          createdDate;
-        public boolean           isDeleted;
-        public Id                lastModifiedById;
-        public UserRecord        lastModifiedBy;
-        public Datetime          lastModifiedDate;
-        public Datetime          lastSyncDate;
-        //public Metadata          metadata;
-        public MetadataContainer metadataContainer;
-        public Id                metadataContainerId;
-        public SymbolTable       symbolTable;
-        public DateTime          systemModstamp;
     }
 
     public class RecordTypeInfo {
@@ -974,9 +1051,23 @@ public with sharing class ToolingAPI {
         public StateValue[] value;
     }
 
-    public class sObject_x {
-        public String[] fieldsToNull;
-        public Id       id;
+    public virtual class sObject_x {
+        public String[]          fieldsToNull;
+        public Id                id;
+        public Id                createdById;
+        public UserRecord        createdBy;
+        public DateTime          createdDate;
+        public boolean           isDeleted;
+        public Id                lastModifiedById;
+        public UserRecord        lastModifiedBy;
+        public Datetime          lastModifiedDate;
+        public DateTime          systemModstamp;
+        public virtual void seralize(JSONGenerator jsonGen) {
+            if(id!=null)
+                jsonGen.writeStringField('id', id);
+            for(String fieldToNull : fieldsToNull)
+                jsonGen.writeNullField(fieldToNull);
+        }
     }
 
     public class SOQLResult {
@@ -985,7 +1076,7 @@ public with sharing class ToolingAPI {
         public MapValue[] queryResult;
     }
 
-    public class StaticResource extends QueryResultRecord{
+    public class StaticResource extends sObject_x{
         public String  body;
         public Integer bodyLength;
         public String  cacheControl;
@@ -1092,33 +1183,93 @@ public with sharing class ToolingAPI {
     /*
      * Static helper method for the "happy path" of JSON deserialization.
      * This method should be used for the public methods when the generic JSON deserialize method
-     * may be used.
+     * may be used. Sends a HTTP GET request.
      */
     private Object submitRestCallAndDeserialize(String relativeUrl,Type classType){
-        HttpResponse response = submitRestCall(relativeUrl);
-        return JSON.deserialize(response.getBody(),classType);
+        return submitRestCallAndDeserialize(relativeUrl, classType, 'GET');
     }
 
     /*
-     * Helper method for submitting the REST request.
-     * Note, this may take some refactoring a bit to set the body of the request
+     * Static helper method for the "happy path" of JSON deserialization.
+     * This method should be used for the public methods when the generic JSON deserialize method
+     * may be used. Sends a HTTP requested based on method parameter.
+     */
+    private Object submitRestCallAndDeserialize(String relativeUrl,Type classType, String method){
+        return submitRestCallAndDeserialize(relativeUrl, classType, method, null);
+    }        
+
+    /*
+     * Static helper method for the "happy path" of JSON deserialization.
+     * This method should be used for the public methods when the generic JSON deserialize method
+     * may be used. Sends a HTTP requested based on method parameter and data.
+     */
+    private Object submitRestCallAndDeserialize(String relativeUrl,Type classType, String method, Object data){
+        HttpResponse response = submitRestCall(relativeUrl, method, data);
+        String responseBody = response.getBody();
+        if(responseBody!=null && responseBody.length()>0)
+            return JSON.deserialize(responseBody,classType);
+        return null;
+    }
+
+    /*
+     * Helper method for submitting the REST HTTP GET request.
      */
     private HttpResponse submitRestCall(String relativeUrl){
+        return submitRestCall(relativeUrl, 'GET');
+    }
+    /*
+     * Helper method for submitting the REST request using the given method.
+     */
+    private HttpResponse submitRestCall(String relativeUrl, String method){
+        return submitRestCall(relativeUrl, method, null);
+    }
+
+    /*
+     * Helper method for submitting the REST request using the given method and data.
+     */
+    private HttpResponse submitRestCall(String relativeUrl, String method, Object data){
         Http h = new Http();
         HttpRequest queryReq = new HttpRequest();
         queryReq.setEndpoint(URL.getSalesforceBaseUrl().toExternalForm() + TOOLING_API_URI + relativeUrl);
         queryReq.setHeader('Authorization', 'OAuth ' + this.sessionId);
         queryReq.setHeader('Content-Type', 'application/json');
-        queryReq.setMethod('GET');
+        queryReq.setMethod(method);
+        if(data!=null)
+        {
+            // Custom seralizer?
+            if(data instanceof ISeralize)
+            {
+                ISeralize dataToSeralize = (ISeralize) data;
+                JSONGenerator jsonGen = JSON.createGenerator(false);
+                jsonGen.writeStartObject();
+                dataToSeralize.seralize(jsonGen);
+                jsonGen.writeEndObject();
+                queryReq.setBody(jsonGen.getAsString());
+            }
+            else
+            {
+                // Standard JSON seralizer emits null values, 
+                //    which are generally not tolerated by Tooling API
+                queryReq.setBody(JSON.serialize(data));
+            }
+        }
         HttpResponse queryRes = h.send(queryReq);
-        if(queryRes.getStatusCode() != 200)
-            throw new ToolingAPIException((List<ErrorResponse>) JSON.deserialize(queryRes.getBody(), List<ErrorResponse>.class));
+        Integer successCode = 200;
+        if(method.equals('POST'))
+            successCode = 201;
+        else if(method.equals('DELETE'))
+            successCode = 204;
+        if(queryRes.getStatusCode() != successCode)
+            if(queryRes.getBody().length()>0)
+                throw new ToolingAPIException((List<ErrorResponse>) JSON.deserialize(queryRes.getBody(), List<ErrorResponse>.class));
+            else
+                throw new ToolingAPIException('Unexpected HTTP Status ' + queryRes.getStatusCode());
         return queryRes;
     }
 
-	/**
-	 * Helper method for parsing query results
-	 **/
+    /**
+     * Helper method for parsing query results
+     **/
     private QueryResult parseQueryResult(String jsonStr){
         QueryResult queryResult = (QueryResult)JSON.deserialize(jsonStr, ToolingAPI.QueryResult.class);
         queryResult.records = getQueryResultRecords(jsonStr);
@@ -1127,9 +1278,9 @@ public with sharing class ToolingAPI {
 
     /**
      * Helper method for parsing the QueryResult response and determining
-     * which instance of QueryResultRecord to use
+     * which instance of sObject_x to use
      */
-    private List<QueryResultRecord> getQueryResultRecords(String jsonStr){
+    private List<sObject_x> getQueryResultRecords(String jsonStr){
 
         String recordType = getRecordType(jsonStr);
 
@@ -1139,7 +1290,7 @@ public with sharing class ToolingAPI {
             while (parser.nextToken() != null) {
                 if ((parser.getText() == 'records')) {
                     parser.nextToken();
-                    return (List<QueryResultRecord>)parser.readValueAs(Type.forName('List<ToolingAPI.'+recordType+'>'));
+                    return (List<sObject_x>)parser.readValueAs(Type.forName('List<ToolingAPI.'+recordType+'>'));
                 }
             }
         }
