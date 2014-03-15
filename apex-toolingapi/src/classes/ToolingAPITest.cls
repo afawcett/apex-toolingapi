@@ -107,6 +107,109 @@ private class ToolingAPITest
 		} catch (Exception e) { }	
 	}
 	
+	@IsTest
+	public static void testCoverTypes()
+	{
+   		new ToolingAPI.AggregateExpressionResultColumnMetadata();   		
+		new ToolingAPI.AllowedWorkitemAction();		
+		new ToolingAPI.ApexClass();
+		new ToolingAPI.ApexClassMetadata();
+		new ToolingAPI.ApexCodeCoverage();
+		new ToolingAPI.ApexCodeCoverageAggregate();
+		new ToolingAPI.ApexComponent();
+		new ToolingAPI.ApexExecutionOverlayAction();
+		new ToolingAPI.ApexLog();
+		new ToolingAPI.ApexOrgWideCoverage();
+		new ToolingAPI.ApexResult();
+		new ToolingAPI.ApexTestResult();
+		new ToolingAPI.ApexTestQueueItem();
+		new ToolingAPI.ApexPage();
+		new ToolingAPI.ApexClassMember();
+		new ToolingAPI.ApexTriggerMember();
+		new ToolingAPI.ApexComponentMember();
+		new ToolingAPI.ApexExecutionOverlayResult();
+		new ToolingAPI.ApexPageMember();
+		new ToolingAPI.ApexTrigger();
+		new ToolingAPI.ApiFault();
+		new ToolingAPI.ApiQueryFault();
+		new ToolingAPI.Attribute();
+		new ToolingAPI.AttributeDefinition();
+		new ToolingAPI.AsyncApexJob();
+		new ToolingAPI.BooleanValue();
+		new ToolingAPI.ChildRelationship();
+		new ToolingAPI.ComplexQueryResultColumnMetadata();
+		new ToolingAPI.ContainerAsyncRequest();
+		new ToolingAPI.Coverage();
+		new ToolingAPI.CustomField();
+		new ToolingAPI.CustomFieldMetadata();
+		new ToolingAPI.CustomObject();
+		new ToolingAPI.DeletedRecord();
+		new ToolingAPI.DescribeColorResult();
+		new ToolingAPI.DescribeColumn();
+		new ToolingAPI.DescribeGlobalResult();
+		new ToolingAPI.DescribeGlobalSObjectResult();
+		new ToolingAPI.DescribeIconResult();
+		new ToolingAPI.DescribeLayoutButton();
+		new ToolingAPI.DescribeLayoutItem();
+		new ToolingAPI.DescribeLayoutComponent();
+		new ToolingAPI.DescribeLayoutRow();
+		new ToolingAPI.DescribeLayoutSection();
+		new ToolingAPI.DescribeSObjectResult();
+		new ToolingAPI.DescribeWorkitemActionResult();
+		new ToolingAPI.Error();
+		new ToolingAPI.ErrorResponse();
+		new ToolingAPI.ExecuteAnonymousResult();
+		new ToolingAPI.ExternalConstructor();
+		new ToolingAPI.ExternalMethod();
+		new ToolingAPI.ExternalReference();
+		new ToolingAPI.ExternalSymbol();
+		new ToolingAPI.Field();
+		new ToolingAPI.FilterItem();
+		new ToolingAPI.GetDeletedResult();
+		new ToolingAPI.GetUpdatedResult();
+		new ToolingAPI.HeapAddress();
+		new ToolingAPI.HeapDump();
+		new ToolingAPI.IDEPerspective();
+		new ToolingAPI.IDEWorkspace();
+		new ToolingAPI.InvalidateSessionsResult();
+		new ToolingAPI.LogInfo();
+		new ToolingAPI.ListValue();
+		new ToolingAPI.MapEntry();
+		new ToolingAPI.MapValue();
+		new ToolingAPI.Metadata();
+		new ToolingAPI.MetadataContainer();
+		new ToolingAPI.MetadataContainerMember();
+		new ToolingAPI.MetadataWithContent();
+		new ToolingAPI.Method();
+		new ToolingAPI.Name();
+		new ToolingAPI.NumberValue();
+		new ToolingAPI.PackageVersion();
+		new ToolingAPI.Parameter();
+		new ToolingAPI.Picklist();
+		new ToolingAPI.PicklistEntry();
+		new ToolingAPI.Position();
+		new ToolingAPI.PrimitiveQueryResultColumnMetadata();
+		new ToolingAPI.ProcessResult();
+		new ToolingAPI.QueryResult();
+		new ToolingAPI.QueryResultColumnMetadata();
+		new ToolingAPI.QueryResultMetadata();
+		new ToolingAPI.RecordTypeInfo();
+		new ToolingAPI.RecordTypePicklist();
+		new ToolingAPI.SaveResult();
+		new ToolingAPI.SetValue();
+		new ToolingAPI.SOQLResult();
+		new ToolingAPI.StaticResource();
+		new ToolingAPI.StateValue();
+		new ToolingAPI.StringValue();
+		new ToolingAPI.SymbolTable();
+		new ToolingAPI.ToolingAPIException();
+		new ToolingAPI.TraceFlag();
+		new ToolingAPI.TypeExtent();
+		new ToolingAPI.UpsertResult();
+		new ToolingAPI.UserPreference();
+		new ToolingAPI.UserRecord();
+	}
+
 	public class ToolingAPIMock implements HttpCalloutMock 
 	{
 		private String testResponse;
