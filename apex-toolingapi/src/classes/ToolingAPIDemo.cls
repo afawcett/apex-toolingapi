@@ -49,4 +49,14 @@ public with sharing class ToolingAPIDemo
 				customField.DeveloperName + '__c : ' + 
 				customField.Id);
 	}
+	
+	public static void createApexClass() {
+		
+		// Create an Apex class!
+		ToolingAPI toolingAPI = new ToolingAPI();
+		ToolingAPI.ApexCLass newClass = new ToolingAPI.ApexClass();
+		newClass.Name = 'HelloWorld';
+		newClass.Body = 'public class HelloWorld { }';
+		toolingAPI.createSObject(newClass);		
+	}
 }

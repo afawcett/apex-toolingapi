@@ -229,7 +229,7 @@ public with sharing class ToolingAPI {
         public boolean versionRequired;
     }
 
-    public class ApexClass extends SObject_x{
+    public class ApexClass extends SObject_x implements ISeralize {
         public Double            apiVersion;
         public String            body;
         public Double            bodyCrc;
@@ -244,6 +244,13 @@ public with sharing class ToolingAPI {
         public ApexClass() {
             super(SObjectType.ApexClass);
         }
+        public override void seralize(JSONGenerator jsonGen) {
+            super.seralize(jsonGen);
+            if(body!=null)
+                jsonGen.writeStringField('body', body);
+            if(fullName!=null)
+                jsonGen.writeStringField('fullName', fullName);
+        }        
     }
 
     public class ApexClassMetadata {
