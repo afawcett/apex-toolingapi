@@ -6,7 +6,7 @@ Apex Tooling API
 **Reference Blogs**
 
 - [Going Native with the Apex UML Tool and Tooling API](http://andyinthecloud.com/2014/03/17/going-native-with-the-apex-uml-tool-and-tooling-api/)
-- [Querying Custom Object and Field IDs via Tooling API](http://andyinthecloud.com/2014/01/05/querying-custom-object-and-field-ids-via-tooling-api/).
+- [Querying Custom Object and Field IDs via Tooling API](http://andyinthecloud.com/2014/01/05/querying-custom-object-and-field-ids-via-tooling-api/)
 
 **NOTE:** This API is work in progress.
 
