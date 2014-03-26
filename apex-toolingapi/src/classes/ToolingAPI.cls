@@ -234,8 +234,17 @@ public with sharing class ToolingAPI {
      **/
     public ToolingAPI.SaveResult updateSObject(SObject_x sobjectRecord)
     {
+
+    	//ToolingAPI doesn't like having the Id in the body of the sobject upon update.. so null it out
+    	//But first, set it to temp variable for handling the request path.
+    	Id recordId = sobjectRecord.Id;
+    	sobjectRecord.Id = null;
+
+    	//Updates need to be "PATCH" methods, however, most clients balk at the PATCH method
+    	//Fix for this is to specify the _HttpMethod parameter.
+    	//For more info, see: http://salesforce.stackexchange.com/questions/13294/patch-request-using-apex-httprequest
         return (SaveResult) submitRestCallAndDeserialize(
-            '/sobjects/'+sobjectRecord.type_x+'/'+sobjectRecord.Id
+            '/sobjects/'+sobjectRecord.type_x+'/'+recordId+'?_HttpMethod=PATCH'
             ,SaveResult.class
             ,'POST'
             ,sobjectRecord
@@ -277,7 +286,7 @@ public with sharing class ToolingAPI {
                 jsonGen.writeStringField('body', body);
             if(fullName!=null)
                 jsonGen.writeStringField('fullName', fullName);
-        }        
+        }
     }
 
     public class ApexClassMetadata {
@@ -1446,76 +1455,4 @@ public with sharing class ToolingAPI {
         }
         return null;
     }
-
-    //Prototyped methods - commenting out for now and leaving them down here out of the way ;)
-    //
-    /**
-     * DO NOT USE YET: Below is an initial set of methods and types (based on a scrubbed output from the Apex2WSDL tool)
-     **/
-    /*public sObject_x[] retrieve_x(String select_x,String type_x,String[] ids) {
-        return null;
-    }
-    public DescribeGlobalResult describeGlobal() {
-        return null;
-    }
-    public QueryResult queryMore(String queryLocator) {
-        return null;
-    }
-    public DescribeSObjectResult describeSObject(String type_x) {
-        return null;
-    }
-    public void logout() {
-        return;
-    }
-    public DeleteResult[] delete_x(String[] ids) {
-        return null;
-    }
-
-    public GetDeletedResult getDeleted(String sObjectType,DateTime start,DateTime end_x) {
-        return null;
-    }
-
-    public SaveResult[] update_x(sObject_x[] sObjects) {
-        return null;
-    }
-
-    public UpsertResult[] upsert_x(String fieldName,sObject_x[] entities) {
-        return null;
-    }
-
-    public ExecuteAnonymousResult executeAnonymous(String String_x) {
-        return null;
-    }
-
-    public GetUpdatedResult getUpdated(String sObjectType,DateTime start,DateTime end_x) {
-        return null;
-    }
-
-    public InvalidateSessionsResult[] invalidateSessions(String[] ArrayList) {
-        return null;
-    }
-
-    public SaveResult[] create(sObject_x[] sObjects) {
-        return null;
-    }
-
-    public DescribeSObjectResult[] describeSObjects(String[] types) {
-        return null;
-    }
-
-    public DescribeWorkitemActionResult[] describeWorkitemActions(String[] workitemIds) {
-        return null;
-    }
-
-    public GetServerTimestampResult getServerTimestamp() {
-        return null;
-    }
-
-    public GetUserInfoResult getUserInfo() {
-        return null;
-    }
-
-    public QueryResult queryAll(String queryString) {
-        return null;
-    }*/
 }
