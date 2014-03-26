@@ -194,21 +194,48 @@ public with sharing class ToolingAPI {
      * @param sobjType name of one of the valid Tooling API SObject's
      * @param sobjectId Id of the applicable record to delete
      **/
-    public void deleteSObject(SObjectType sobjType, Id sobjectId){
-        submitRestCallAndDeserialize(
+    public ToolingAPI.SaveResult deleteSObject(SObjectType sobjType, Id sobjectId){
+        return (ToolingAPI.SaveResult) submitRestCallAndDeserialize(
             '/sobjects/'+sobjType.name()+'/'+sobjectId
+            ,ToolingAPI.SaveResult.class
+            ,'DELETE'
+        );
+    }
+
+    /**
+     * Generic method for deleting an sobject record
+     * @param sobjectRecord The sobject record to delete with id and type specified.
+     **/
+    public ToolingAPI.SaveResult deleteSObject(SObject_x sobjectRecord){
+        return (ToolingAPI.SaveResult) submitRestCallAndDeserialize(
+            '/sobjects/'+sobjectRecord.type_x+'/'+sobjectRecord.Id
             ,null
             ,'DELETE'
         );
     }
 
     /**
-     * Generic methods for creaing an sobject record
+     * Generic methods for creating an sobject record
+     * @param sobjectRecord The sobject record to create.
      **/
     public ToolingAPI.SaveResult createSObject(SObject_x sobjectRecord)
     {
+        return (ToolingAPI.SaveResult) submitRestCallAndDeserialize(
+            '/sobjects/'+sobjectRecord.type_x
+            ,ToolingAPI.SaveResult.class
+            ,'POST'
+            ,sobjectRecord
+        );
+    }
+
+    /**
+     * Generic methods for updating an sobject record
+     * @param sobjectRecord The sobject record to update.
+     **/
+    public ToolingAPI.SaveResult updateSObject(SObject_x sobjectRecord)
+    {
         return (SaveResult) submitRestCallAndDeserialize(
-            '/sobjects/'+((SObject_x)sobjectRecord).type_x
+            '/sobjects/'+sobjectRecord.type_x+'/'+sobjectRecord.Id
             ,SaveResult.class
             ,'POST'
             ,sobjectRecord
