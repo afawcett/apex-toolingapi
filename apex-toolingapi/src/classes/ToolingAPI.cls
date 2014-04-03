@@ -232,6 +232,7 @@ public with sharing class ToolingAPI {
      * Generic methods for updating an sobject record
      * @param sobjectRecord The sobject record to update.
      **/
+    /* - Commented out per issue https://github.com/afawcett/apex-toolingapi/issues/12
     public ToolingAPI.SaveResult updateSObject(SObject_x sobjectRecord)
     {
 
@@ -249,7 +250,7 @@ public with sharing class ToolingAPI {
             ,'POST'
             ,sobjectRecord
         );
-    }
+    }*/
 
     //Public Inner Classes for Handling Tooling API Requests
 
