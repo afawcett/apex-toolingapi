@@ -94,7 +94,6 @@ private class ToolingAPITest
 		new ToolingAPI.Attribute();
 		new ToolingAPI.AttributeDefinition();
 		new ToolingAPI.AsyncApexJob();
-		new ToolingAPI.BooleanValue();
 		new ToolingAPI.ChildRelationship();
 		new ToolingAPI.ComplexQueryResultColumnMetadata();
 		new ToolingAPI.ContainerAsyncRequest();
@@ -102,7 +101,6 @@ private class ToolingAPITest
 		new ToolingAPI.CustomField();
 		new ToolingAPI.CustomFieldMetadata();
 		new ToolingAPI.CustomObject();
-		new ToolingAPI.DeletedRecord();
 		new ToolingAPI.DescribeColorResult();
 		new ToolingAPI.DescribeColumn();
 		new ToolingAPI.DescribeGlobalResult();
@@ -124,12 +122,8 @@ private class ToolingAPITest
 		new ToolingAPI.ExternalSymbol();
 		new ToolingAPI.Field();
 		new ToolingAPI.FilterItem();
-		new ToolingAPI.GetDeletedResult();
-		new ToolingAPI.GetUpdatedResult();
 		new ToolingAPI.HeapAddress();
 		new ToolingAPI.HeapDump();
-		new ToolingAPI.IDEPerspective();
-		new ToolingAPI.IDEWorkspace();
 		new ToolingAPI.InvalidateSessionsResult();
 		new ToolingAPI.LogInfo();
 		new ToolingAPI.ListValue();
@@ -138,7 +132,6 @@ private class ToolingAPITest
 		new ToolingAPI.Metadata();
 		new ToolingAPI.MetadataContainer();
 		new ToolingAPI.MetadataContainerMember();
-		new ToolingAPI.MetadataWithContent();
 		new ToolingAPI.Method();
 		new ToolingAPI.Name();
 		new ToolingAPI.NumberValue();
@@ -166,7 +159,7 @@ private class ToolingAPITest
 		new ToolingAPI.TypeExtent();
 		new ToolingAPI.UpsertResult();
 		new ToolingAPI.UserPreference();
-		new ToolingAPI.UserRecord();
+		new ToolingAPI.User_x();
 	}
 
 	public class ToolingAPIMock implements HttpCalloutMock {
