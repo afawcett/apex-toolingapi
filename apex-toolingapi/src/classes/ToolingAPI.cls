@@ -49,8 +49,6 @@ public with sharing class ToolingAPI {
         ContainerAsyncRequest,
         CustomObject,
         CustomField,
-        IDEPerspective,
-        IDEWorkspace,
         MetadataContainer,
         MetadataContainerMember,
         Name,
@@ -67,8 +65,8 @@ public with sharing class ToolingAPI {
     private String sessionId;
 
     // Interface used to implement customi serialization on SObject based types
-    private interface ISeralize {
-        void seralize(JSONGenerator generator);
+    private interface ISerialize {
+        void serialize(JSONGenerator generator);
     }
 
     /**
@@ -266,7 +264,7 @@ public with sharing class ToolingAPI {
         public boolean versionRequired;
     }
 
-    public class ApexClass extends SObject_x implements ISeralize {
+    public class ApexClass extends SObject_x implements ISerialize {
         public Double            apiVersion;
         public String            body;
         public Double            bodyCrc;
@@ -281,8 +279,8 @@ public with sharing class ToolingAPI {
         public ApexClass() {
             super(SObjectType.ApexClass);
         }
-        public override void seralize(JSONGenerator jsonGen) {
-            super.seralize(jsonGen);
+        public override void serialize(JSONGenerator jsonGen) {
+            super.serialize(jsonGen);
             if(body!=null)
                 jsonGen.writeStringField('body', body);
             if(fullName!=null)
@@ -356,7 +354,7 @@ public with sharing class ToolingAPI {
         }
     }
 
-    public class ApexLog extends SObject_x {
+    public class ApexLog extends SObject_x{
         public String    application;
         public Integer   durationMilliseconds;
         public String    location;
@@ -373,7 +371,7 @@ public with sharing class ToolingAPI {
         }
     }
 
-    public class ApexOrgWideCoverage extends SObject_x {
+    public class ApexOrgWideCoverage extends SObject_x{
         public UserRecord createdBy;
         public Id         createdById;
         public DateTime   createdDate;
@@ -439,7 +437,7 @@ public with sharing class ToolingAPI {
         }
     }
 
-    public class ApexClassMember extends SObject_x implements ISeralize {
+    public class ApexClassMember extends SObject_x implements ISerialize {
         public String            body;
         public String            content;
         public ApexClass         contentEntity;
@@ -452,8 +450,8 @@ public with sharing class ToolingAPI {
         public ApexClassMember() {
             super(SObjectType.ApexClassMember);
         }
-        public override void seralize(JSONGenerator jsonGen) {
-            super.seralize(jsonGen);
+        public override void serialize(JSONGenerator jsonGen) {
+            super.serialize(jsonGen);
             if(body!=null)
                 jsonGen.writeStringField('body', body);
             if(content!=null)
@@ -475,19 +473,55 @@ public with sharing class ToolingAPI {
         }
     }
 
-    public class ApexTriggerMember extends SObject_x {
+    public class ApexTriggerMember extends SObject_x implements ISerialize {
+        public String              body;
+        public String              content;
+        public ApexTrigger         contentEntity;
+        public Id                  contentEntityId;
+        public DateTime            lastSyncDate;
+        public Metadata            metadata;
+        public MetadataContainer   metadataContainer;
+        public Id                  metadataContainerId;
+        public SymbolTable         symbolTable;
         public ApexTriggerMember() {
             super(SObjectType.ApexTriggerMember);
         }
+        public override void serialize(JSONGenerator jsonGen) {
+            super.serialize(jsonGen);
+            if(body!=null)
+                jsonGen.writeStringField('body', body);
+            if(content!=null)
+                jsonGen.writeStringField('content', content);
+            if(contentEntity!=null)
+                jsonGen.writeObjectField('contentEntity', contentEntity);
+            if(contentEntityId!=null)
+                jsonGen.writeIdField('contentEntityId', contentEntityId);
+            if(lastSyncDate!=null)
+                jsonGen.writeDateTimeField('lastSyncDate', lastSyncDate);
+            if(metadata!=null)
+                jsonGen.writeObjectField('metadata', metadata);
+            if(metadataContainerId!=null)
+                jsonGen.writeIdField('metadataContainerId', metadataContainerId);
+            if(symbolTable!=null)
+                jsonGen.writeObjectField('symbolTable', symbolTable);
+        }        
     }
 
-    public class ApexComponentMember extends SObject_x {
+    public class ApexComponentMember extends SObject_x{
+        public String            body;
+        public String            content;
+        public ApexComponent     contentEntity;
+        public Id                contentEntityId;
+        public DateTime          lastSyncDate;
+        public Metadata          metadata;
+        public MetadataContainer metadataContainer;
+        public Id                metadataContainerId;
         public ApexComponentMember() {
             super(SObjectType.ApexComponentMember);
         }
     }
 
-    public class ApexExecutionOverlayResult extends SObject_x {
+    public class ApexExecutionOverlayResult extends SObject_x{
         public String     actionScript;
         public String     actionScriptType;
         public ApexResult apexResult;
@@ -510,28 +544,29 @@ public with sharing class ToolingAPI {
         }
     }
 
-    public class ApexPageMember extends SObject_x {
+    public class ApexPageMember extends SObject_x{
+        public String            body;
+        public String            content;
+        public ApexPage          contentEntity;
+        public String            contentEntityId;
+        public DateTime          lastSyncDate;
+        public Metadata          metadata;
+        public MetadataContainer metadataContainer;
+        public Id                metadataContainerId;
         public ApexPageMember() {
             super(SObjectType.ApexPageMember);
         }
     }
 
-    public class ApexTrigger extends SObject_x {
+    public class ApexTrigger extends SObject_x implements ISerialize {
         public Double     apiVersion;
         public String     body;
         public Double     bodyCrc;
-        public UserRecord createdBy;
-        public Id         createdById;
-        public DateTime   createdDate;
         public boolean    isValid;
-        public UserRecord lastModifiedBy;
-        public Id         lastModifiedById;
-        public DateTime   lastModifiedDate;
         public Integer    lengthWithoutComments;
         public String     name;
         public String     namespacePrefix;
         public String     status;
-        public DateTime   systemModstamp;
         public Id         tableEnumOrId;
         public boolean    usageAfterDelete;
         public boolean    usageAfterInsert;
@@ -544,6 +579,43 @@ public with sharing class ToolingAPI {
         public ApexTrigger() {
             super(SObjectType.ApexTrigger);
         }
+        public override void serialize(JSONGenerator jsonGen) {
+            super.serialize(jsonGen);
+            if(apiVersion!=null)
+                jsonGen.writeNumberField('apiVersion', apiVersion);
+            if(body!=null)
+                jsonGen.writeStringField('body', body);
+            if(bodyCrc!=null)
+                jsonGen.writeNumberField('bodyCrc', bodyCrc);
+            if(isValid!=null)
+                jsonGen.writeBooleanField('isValid', isValid);
+            if(lengthWithoutComments!=null)
+                jsonGen.writeNumberField('lengthWithoutComments', lengthWithoutComments);
+            if(name!=null)
+                jsonGen.writeStringField('name', name);
+            if(namespacePrefix!=null)
+                jsonGen.writeStringField('namespacePrefix', namespacePrefix);
+            if(status!=null)
+                jsonGen.writeStringField('status', status);
+            if(tableEnumOrId!=null)
+                jsonGen.writeIdField('tableEnumOrId', tableEnumOrId);
+            if(usageAfterDelete!=null)
+                jsonGen.writeBooleanField('usageAfterDelete', usageAfterDelete);
+            if(usageAfterInsert!=null)
+                jsonGen.writeBooleanField('usageAfterInsert', usageAfterInsert);
+            if(usageAfterUndelete!=null)
+                jsonGen.writeBooleanField('usageAfterUndelete', usageAfterUndelete);
+            if(usageAfterUpdate!=null)
+                jsonGen.writeBooleanField('usageAfterUpdate', usageAfterUpdate);
+            if(usageBeforeDelete!=null)
+                jsonGen.writeBooleanField('usageBeforeDelete', usageBeforeDelete);
+            if(usageBeforeInsert!=null)
+                jsonGen.writeBooleanField('usageBeforeInsert', usageBeforeInsert);
+            if(usageBeforeUpdate!=null)
+                jsonGen.writeBooleanField('usageBeforeUpdate', usageBeforeUpdate);
+            if(usageIsBulk!=null)
+                jsonGen.writeBooleanField('usageIsBulk', usageIsBulk);
+        }        
     }
 
     public class ApiFault {
@@ -568,13 +640,10 @@ public with sharing class ToolingAPI {
         public String type_x;
     }
 
-    public class AsyncApexJob {
+    public class AsyncApexJob extends SObject_x implements ISerialize {
         public ApexClass  apexClass;
         public Id         apexClassId;
         public DateTime   completedDate;
-        public UserRecord createdBy;
-        public Id         createdById;
-        public DateTime   createdDate;
         public String     extendedStatus;
         public Integer    jobItemsProcessed;
         public String     jobType;
@@ -585,10 +654,38 @@ public with sharing class ToolingAPI {
         public Id         parentJobId;
         public String     status;
         public Integer    totalJobItems;
-    }
-
-    public class BooleanValue {
-        public Boolean value;
+        public AsyncApexJob() {
+            super(SObjectType.AsyncApexJob);
+        }        
+        public override void serialize(JSONGenerator jsonGen) {
+            super.serialize(jsonGen);
+            if(apexClass!=null)
+                jsonGen.writeObjectField('apexClass', apexClass);
+            if(apexClassId!=null)
+                jsonGen.writeIdField('apexClassId', apexClassId);
+            if(completedDate!=null)
+                jsonGen.writeDateTimeField('completedDate', completedDate);
+            if(extendedStatus!=null)
+                jsonGen.writeStringField('extendedStatus', extendedStatus);
+            if(jobItemsProcessed!=null)
+                jsonGen.writeNumberField('jobItemsProcessed', jobItemsProcessed);
+            if(jobType!=null)
+                jsonGen.writeStringField('jobType', jobType);
+            if(lastProcessed!=null)
+                jsonGen.writeStringField('lastProcessed', lastProcessed);
+            if(lastProcessedOffset!=null)
+                jsonGen.writeNumberField('lastProcessedOffset', lastProcessedOffset);
+            if(methodName!=null)
+                jsonGen.writeStringField('methodName', methodName);
+            if(numberOfErrors!=null)
+                jsonGen.writeNumberField('numberOfErrors', numberOfErrors);
+            if(parentJobId!=null)
+                jsonGen.writeIdField('parentJobId', parentJobId);
+            if(status!=null)
+                jsonGen.writeStringField('status', status);
+            if(totalJobItems!=null)
+                jsonGen.writeNumberField('totalJobItems', totalJobItems);
+        }        
     }
 
     public class ChildRelationship {
@@ -604,7 +701,7 @@ public with sharing class ToolingAPI {
         public QueryResultColumnMetadata[] joinColumns;
     }
 
-    public class ContainerAsyncRequest extends SObject_x implements ISeralize {
+    public class ContainerAsyncRequest extends SObject_x implements ISerialize {
         public String                  compilerErrors;
         public String                  errorMsg;
         public boolean                 isCheckOnly;
@@ -618,8 +715,8 @@ public with sharing class ToolingAPI {
         public ContainerAsyncRequest() {
             super(SObjectType.ContainerAsyncRequest);
         }
-        public override void seralize(JSONGenerator jsonGen) {
-            super.seralize(jsonGen);
+        public override void serialize(JSONGenerator jsonGen) {
+            super.serialize(jsonGen);
             if(compilerErrors!=null)
                 jsonGen.writeStringField('compilerErrors', compilerErrors);
             if(errorMsg!=null)
@@ -648,7 +745,7 @@ public with sharing class ToolingAPI {
         public Integer[] uncoveredLines;
     }
 
-    public class CustomField extends SObject_x {
+    public class CustomField extends SObject_x implements ISerialize {
         public String              fullName;
         public String              developerName;
         public CustomFieldMetadata metadata;
@@ -657,6 +754,19 @@ public with sharing class ToolingAPI {
         public CustomField() {
             super(SObjectType.CustomField);
         }
+        public override void serialize(JSONGenerator jsonGen) {
+            super.serialize(jsonGen);
+            if(fullName!=null)
+                jsonGen.writeStringField('fullName', fullName);
+            if(developerName!=null)
+                jsonGen.writeStringField('developerName', developerName);
+            if(metadata!=null)
+                jsonGen.writeObjectField('metadata', metadata);
+            if(namespacePrefix!=null)
+                jsonGen.writeStringField('namespacePrefix', namespacePrefix);
+            if(tableEnumOrId!=null)
+                jsonGen.writeStringField('tableEnumOrId', tableEnumOrId);
+        }        
     }
 
     public class CustomFieldMetadata {
@@ -706,18 +816,22 @@ public with sharing class ToolingAPI {
         public boolean      writeRequiresMasterRead;
     }
 
-    public class CustomObject extends SObject_x{
+    public class CustomObject extends SObject_x implements ISerialize {
         public String developerName;
         public String externalDataSourceId;
         public String namespacePrefix;
         public CustomObject() {
             super(SObjectType.CustomObject);
         }
-    }
-
-    public class DeletedRecord {
-        public DateTime deletedDate;
-        public Id       id;
+        public override void serialize(JSONGenerator jsonGen) {
+            super.serialize(jsonGen);
+            if(developerName!=null)
+                jsonGen.writeStringField('developerName', developerName);
+            if(externalDataSourceId!=null)
+                jsonGen.writeStringField('externalDataSourceId', externalDataSourceId);
+            if(namespacePrefix!=null)
+                jsonGen.writeStringField('namespacePrefix', namespacePrefix);
+        }        
     }
 
     public class DescribeColorResult {
@@ -939,17 +1053,6 @@ public with sharing class ToolingAPI {
         public String valueField;
     }
 
-    public class GetDeletedResult {
-        public DeletedRecord[] deletedRecords;
-        public DateTime earliestDateAvailable;
-        public DateTime latestDateCovered;
-    }
-
-    public class GetUpdatedResult {
-        public Id[]     ids;
-        public DateTime latestDateCovered;
-    }
-
     public class HeapAddress {
         public String address;
         public Integer size;
@@ -962,36 +1065,6 @@ public with sharing class ToolingAPI {
         public TypeExtent[] extents;
         public DateTime     heapDumpDate;
         public String       namespace;
-    }
-
-    public class IDEPerspective {
-        public String     content;
-        public UserRecord createdBy;
-        public Id         createdById;
-        public DateTime   createdDate;
-        public Boolean    isDeleted;
-        public UserRecord lastModifiedBy;
-        public Id         lastModifiedById;
-        public DateTime   lastModifiedDate;
-        public String     name;
-        public DateTime   systemModstamp;
-        public UserRecord user_x;
-        public Id         userId;
-    }
-
-    public class IDEWorkspace {
-        public String     content;
-        public UserRecord createdBy;
-        public Id         createdById;
-        public DateTime   createdDate;
-        public Boolean    isDeleted;
-        public UserRecord lastModifiedBy;
-        public Id         lastModifiedById;
-        public DateTime   lastModifiedDate;
-        public String     name;
-        public DateTime   systemModstamp;
-        public UserRecord user_x;
-        public Id         userId;
     }
 
     public class InvalidateSessionsResult {
@@ -1019,25 +1092,25 @@ public with sharing class ToolingAPI {
 
     public class Metadata {
         public Double           apiVersion;
-        public boolean          availableInTouch;  //PageMetaData
-        public boolean          confirmationTokenRequired; //PageMetaData
-        public String           description; //Page, Component Meta Data
+        public boolean          availableInTouch;  			//PageMetaData
+        public boolean          confirmationTokenRequired; 	//PageMetaData
+        public String           description; 				//PageMetadata, ComponentMetaData
         public String           fullName;
-        public String           label; //Page, Component Meta Data
+        public String           label; 						//PageMetadata, ComponentMetaData
         public String           module;
         public PackageVersion[] packageVersions;
-        public String           status; //Class, Trigger meta data
+        public String           status; 					//ClassMetadata, TriggerMetaData
         public String []        urls;
     }
 
-    public class MetadataContainer extends SObject_x implements ISeralize {
+    public class MetadataContainer extends SObject_x implements ISerialize {
         public Boolean isDeleted;
         public String  name;
         public MetadataContainer() {
             super(SObjectType.MetadataContainer);
         }
-        public override void seralize(JSONGenerator jsonGen) {
-            super.seralize(jsonGen);
+        public override void serialize(JSONGenerator jsonGen) {
+            super.serialize(jsonGen);
             if(isDeleted!=null)
                 jsonGen.writeBooleanField('isDeleted', isDeleted);
             if(Name!=null)
@@ -1045,21 +1118,34 @@ public with sharing class ToolingAPI {
         }
     }
 
-    public class MetadataContainerMember {
+    public class MetadataContainerMember extends SObject_x implements ISerialize {
         public String            content;
         public SObject_x         contentEntity;
         public Id                contentEntityId;
         public DateTime          lastSyncDate;
         public MetadataContainer metadataContainer;
         public Id                metadataContainerId;
+        public MetadataContainerMember() {
+            super(SObjectType.MetadataContainerMember);
+        }        
+        public override void serialize(JSONGenerator jsonGen) {
+            super.serialize(jsonGen);
+            if(content!=null)
+                jsonGen.writeStringField('content', content);
+            if(contentEntity!=null)
+                jsonGen.writeObjectField('contentEntity', contentEntity);
+            if(contentEntityId!=null)
+                jsonGen.writeIdField('contentEntityId', contentEntityId);
+            if(lastSyncDate!=null)
+                jsonGen.writeDateTimeField('lastSyncDate', lastSyncDate);
+            if(metadataContainer!=null)
+                jsonGen.writeObjectField('metadataContainer', metadataContainer);
+            if(metadataContainerId!=null)
+                jsonGen.writeObjectField('metadataContainerId', metadataContainerId);
+        }        
     }
 
-    public class MetadataWithContent {
-        public String content;
-    }
-
-    public virtual class Constructor extends VisibilitySymbol
-    {
+    public virtual class Constructor extends VisibilitySymbol {
         public List<Parameter> parameters;
     }
 
@@ -1067,7 +1153,7 @@ public with sharing class ToolingAPI {
         public String returnType;
     }
 
-    public class Name {
+    public class Name extends SObject_x implements ISerialize {
         public String   alias;
         public String   email;
         public String   firstName;
@@ -1083,6 +1169,42 @@ public with sharing class ToolingAPI {
         public String   type_x;
         public Id       userRoleId;
         public String   username;
+        public Name() {
+            super(SObjectType.Name);
+        } 
+        public override void serialize(JSONGenerator jsonGen) {
+            super.serialize(jsonGen);
+            if(alias!=null)
+                jsonGen.writeStringField('alias', alias);            
+            if(email!=null)
+                jsonGen.writeStringField('email', email);            
+            if(firstName!=null)
+                jsonGen.writeStringField('firstName', firstName);            
+            if(isActive!=null)
+                jsonGen.writeBooleanField('isActive', isActive);            
+            if(lastName!=null)
+                jsonGen.writeStringField('lastName', lastName);            
+            if(lastReferencedDate!=null)
+                jsonGen.writeDateTimeField('lastReferencedDate', lastReferencedDate);            
+            if(lastViewedDate!=null)
+                jsonGen.writeDateTimeField('lastViewedDate', lastViewedDate);            
+            if(name!=null)
+                jsonGen.writeStringField('name', name);            
+            if(phone!=null)
+                jsonGen.writeStringField('phone', phone);            
+            if(profileId!=null)
+                jsonGen.writeIdField('profileId', profileId);            
+            if(recordTypeId!=null)
+                jsonGen.writeIdField('recordTypeId', recordTypeId);            
+            if(title!=null)
+                jsonGen.writeStringField('title', title);            
+            if(type_x!=null)
+                jsonGen.writeStringField('type', type_x);            
+            if(userRoleId!=null)
+                jsonGen.writeIdField('userRoleId', userRoleId);  
+            if(username!=null)
+                jsonGen.writeStringField('username', lastName);                          
+        }               
     }
 
     public class NumberValue {
@@ -1193,7 +1315,7 @@ public with sharing class ToolingAPI {
         public SObject_x(SObjectType sObjectType){
             type_x = sObjectType;
         }
-        public virtual void seralize(JSONGenerator jsonGen) {
+        public virtual void serialize(JSONGenerator jsonGen) {
             if(id!=null)
                 jsonGen.writeStringField('id', id);
             if(fieldsToNull!=null)
@@ -1208,7 +1330,7 @@ public with sharing class ToolingAPI {
         public MapValue[] queryResult;
     }
 
-    public class StaticResource extends SObject_x{
+    public class StaticResource extends SObject_x implements ISerialize {
         public String  body;
         public Integer bodyLength;
         public String  cacheControl;
@@ -1219,6 +1341,23 @@ public with sharing class ToolingAPI {
         public StaticResource() {
             super(SObjectType.StaticResource);
         }
+        public override void serialize(JSONGenerator jsonGen) {
+            super.serialize(jsonGen);
+            if(body!=null)
+                jsonGen.writeStringField('body', body);
+            if(bodyLength!=null)
+                jsonGen.writeNumberField('bodyLength', bodyLength);
+            if(cacheControl!=null)
+                jsonGen.writeStringField('cacheControl', cacheControl);
+            if(contentType!=null)
+                jsonGen.writeStringField('contentType', contentType);
+            if(description!=null)
+                jsonGen.writeStringField('description', description);
+            if(name!=null)
+                jsonGen.writeStringField('name', name);
+            if(namespacePrefix!=null)
+                jsonGen.writeStringField('namespacePrefix', namespacePrefix);
+        }        
     }
 
     public class StateValue {}
@@ -1255,28 +1394,50 @@ public with sharing class ToolingAPI {
         }
     }
 
-    public class TraceFlag {
+    public class TraceFlag extends SObject_x implements ISerialize {
         public String     apexCode;
         public String     apexProfiling;
         public String     callout;
-        public UserRecord createdBy;
-        public Id         createdById;
-        public DateTime   createdDate;
         public String     database;
         public DateTime   expirationDate;
-        public boolean    isDeleted;
-        public UserRecord lastModifiedBy;
-        public Id         lastModifiedById;
-        public DateTime   lastModifiedDate;
         public UserRecord scope;
         public Id         scopeId;
         public String     system_x;
-        public DateTime   systemModstamp;
         public SObject_x  tracedEntity;
         public Id         tracedEntityId;
         public String     validation;
         public String     visualforce;
         public String     workflow;
+        public TraceFlag() {
+            super(SObjectType.TraceFlag);
+        }        
+        public virtual void seralize(JSONGenerator jsonGen) {
+            super.serialize(jsonGen);
+            if(apexCode!=null)
+                jsonGen.writeStringField('apexCode', apexCode);
+            if(apexProfiling!=null)
+                jsonGen.writeStringField('apexProfiling', apexProfiling);
+            if(callout!=null)
+                jsonGen.writeStringField('callout', callout);
+            if(expirationDate!=null)
+                jsonGen.writeDateTimeField('expirationDate', expirationDate);
+            if(scope!=null)
+                jsonGen.writeObjectField('scope', scope);
+            if(scopeId!=null)
+                jsonGen.writeIdField('scopeId', scopeId);
+            if(system_x!=null)
+                jsonGen.writeStringField('system', system_x);
+            if(tracedEntity!=null)
+                jsonGen.writeObjectField('tracedEntity', tracedEntity);
+            if(tracedEntityId!=null)
+                jsonGen.writeStringField('tracedEntityId', tracedEntityId);
+            if(validation!=null)
+                jsonGen.writeStringField('validation', validation);
+            if(visualforce!=null)
+                jsonGen.writeStringField('visualforce', visualforce);
+            if(workflow!=null)
+                jsonGen.writeStringField('workflow', visualforce);
+        }        
     }
 
     public class TypeExtent {
@@ -1295,11 +1456,22 @@ public with sharing class ToolingAPI {
         public boolean success;
     }
 
-    public class UserPreference {
+    public class UserPreference extends SObject_x implements ISerialize {
         public String   preference;
-        public DateTime systemModstamp;
         public Id       userId;
         public String   value;
+        public UserPreference() {
+        	super(SObjectType.UserPreference);
+        }
+        public override void serialize(JSONGenerator jsonGen) {
+            super.serialize(jsonGen);
+            if(preference!=null)
+                jsonGen.writeStringField('preference', preference);
+            if(userId!=null)
+                jsonGen.writeIdField('userId', userId);
+            if(value!=null)
+                jsonGen.writeStringField('value', value);
+        }        
     }
 
     public class UserRecord {
@@ -1371,19 +1543,19 @@ public with sharing class ToolingAPI {
         queryReq.setMethod(method);
         if(data!=null)
         {
-            // Custom seralizer?
-            if(data instanceof ISeralize)
+            // Custom serializer?
+            if(data instanceof ISerialize)
             {
-                ISeralize dataToSeralize = (ISeralize) data;
+                ISerialize dataToserialize = (ISerialize) data;
                 JSONGenerator jsonGen = JSON.createGenerator(false);
                 jsonGen.writeStartObject();
-                dataToSeralize.seralize(jsonGen);
+                dataToserialize.serialize(jsonGen);
                 jsonGen.writeEndObject();
                 queryReq.setBody(jsonGen.getAsString());
             }
             else
             {
-                // Standard JSON seralizer emits null values, 
+                // Standard JSON serializer emits null values, 
                 //    which are generally not tolerated by Tooling API
                 queryReq.setBody(JSON.serialize(data));
             }
