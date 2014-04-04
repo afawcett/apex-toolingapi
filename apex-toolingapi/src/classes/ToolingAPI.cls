@@ -1232,7 +1232,7 @@ public with sharing class ToolingAPI {
         public Integer line;
     }
 
-    public class PrimitiveQueryResultColumnMetadata {}
+    public class PrimitiveQueryResultColumnMetadata extends QueryResultColumnMetadata {}
 
     public class ProcessResult {
         public Id[]    actorIds;
@@ -1254,7 +1254,7 @@ public with sharing class ToolingAPI {
         public String               queryLocator;
     }
 
-    public class QueryResultColumnMetadata {
+    public virtual class QueryResultColumnMetadata {
         public String  apexType;
         public String  columnName;
         public boolean custom;
