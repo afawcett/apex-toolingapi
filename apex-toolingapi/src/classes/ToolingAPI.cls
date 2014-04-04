@@ -971,11 +971,11 @@ public with sharing class ToolingAPI {
         public Boolean success;
     }
 
-    public class ExternalConstructor {
+    public virtual class ExternalConstructor extends ExternalSymbol {
         public Parameter[] parameters;
     }
 
-    public class ExternalMethod {
+    public class ExternalMethod extends ExternalConstructor {
         public String[] argTypes;
         public String returnType;
     }
@@ -988,7 +988,7 @@ public with sharing class ToolingAPI {
         public ExternalSymbol[] variables;
     }
 
-    public class ExternalSymbol {
+    public virtual class ExternalSymbol {
         public String     name;
         public Position[] references;
     }
