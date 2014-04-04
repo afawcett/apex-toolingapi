@@ -347,7 +347,7 @@ public with sharing class ToolingAPI {
         public boolean    isDumpingHeap;
         public Integer    iteration;
         public Integer    line;
-        public UserRecord scope;
+        public User_x     scope;
         public String     scopeId;
         public ApexExecutionOverlayAction() {
             super(SObjectType.ApexExecutionOverlayAction);
@@ -372,15 +372,7 @@ public with sharing class ToolingAPI {
     }
 
     public class ApexOrgWideCoverage extends SObject_x{
-        public UserRecord createdBy;
-        public Id         createdById;
-        public DateTime   createdDate;
-        public Boolean    isDeleted;
-        public UserRecord lastModifiedBy;
-        public Id         lastModifiedById;
-        public DateTime   lastModifiedDate;
         public Integer    percentCovered;
-        public DateTime   systemModstamp;
         public ApexOrgWideCoverage() {
             super(SObjectType.ApexOrgWideCoverage);
         }
@@ -411,13 +403,9 @@ public with sharing class ToolingAPI {
     public class ApexTestQueueItem {
         public ApexClass  apexClass;
         public Id         apexClassId;
-        public UserRecord createdBy;
-        public Id         createdById;
-        public DateTime   createdDate;
         public String     extendedStatus;
         public Id         parentJobId;
         public String     status;
-        public DateTime   systemModstamp;
     }
 
     public class ApexPage extends SObject_x{
@@ -534,10 +522,10 @@ public with sharing class ToolingAPI {
         public Integer    line;
         public String     namespace;
         public Integer    overlayResultLength;
-        public UserRecord requestedBy;
+        public User_x     requestedBy;
         public Id         requestedById;
         public SOQLResult sOQLResult;
-        public UserRecord user_x;
+        public User_x     user;
         public Id         userId;
         public ApexExecutionOverlayResult() {
             super(SObjectType.ApexExecutionOverlayResult);
@@ -1305,11 +1293,11 @@ public with sharing class ToolingAPI {
         public transient String[]    fieldsToNull;
         public Id                    id;
         public Id                    createdById;
-        public UserRecord            createdBy;
+        public User_x                createdBy;
         public DateTime              createdDate;
         public boolean               isDeleted;
         public Id                    lastModifiedById;
-        public UserRecord            lastModifiedBy;
+        public User_x                lastModifiedBy;
         public Datetime              lastModifiedDate;
         public DateTime              systemModstamp;
         public SObject_x(SObjectType sObjectType){
@@ -1400,7 +1388,7 @@ public with sharing class ToolingAPI {
         public String     callout;
         public String     database;
         public DateTime   expirationDate;
-        public UserRecord scope;
+        public User_x     scope;
         public Id         scopeId;
         public String     system_x;
         public SObject_x  tracedEntity;
@@ -1474,10 +1462,22 @@ public with sharing class ToolingAPI {
         }        
     }
 
-    public class UserRecord {
+    public class User_x extends SObject_x implements ISerialize {
         public QueryResult delegatedUsers;
         public QueryResult userPreferences;
         public Id          workspaceId;
+        public User_x() {
+        	super(SObjectType.User);
+        }
+        public override void serialize(JSONGenerator jsonGen) {
+            super.serialize(jsonGen);
+            if(delegatedUsers!=null)
+                jsonGen.writeObjectField('delegatedUsers', delegatedUsers);
+            if(userPreferences!=null)
+                jsonGen.writeObjectField('userPreferences', userPreferences);
+            if(workspaceId!=null)
+                jsonGen.writeIdField('workspaceId', workspaceId);
+        }                
     }
 
     public virtual class VisibilitySymbol extends Symbol {
