@@ -675,7 +675,11 @@ public with sharing class ToolingAPI {
                 jsonGen.writeNumberField('totalJobItems', totalJobItems);
         }        
     }
-
+    
+    public class BooleanValue {
+        public Boolean value;
+    }
+    
     public class ChildRelationship {
         public boolean cascadeDelete;
         public String  childSObject;

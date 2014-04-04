@@ -94,6 +94,7 @@ private class ToolingAPITest
 		new ToolingAPI.Attribute();
 		new ToolingAPI.AttributeDefinition();
 		new ToolingAPI.AsyncApexJob();
+		new ToolingAPI.BooleanValue();
 		new ToolingAPI.ChildRelationship();
 		new ToolingAPI.ComplexQueryResultColumnMetadata();
 		new ToolingAPI.ContainerAsyncRequest();
