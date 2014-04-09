@@ -26,6 +26,16 @@
 
 public with sharing class ToolingAPIDemo 
 {
+	public static void createClass() {
+		// Constructs the Tooling API wrapper (default constructor uses user session Id)		
+		ToolingAPI toolingAPI = new ToolingAPI();
+		
+		ToolingAPI.ApexClass apexClass = new ToolingAPI.ApexClass();
+		apexClass.Name = 'HelloWorld';
+		apexClass.Body = 'public class HelloWorld {}';
+		toolingAPI.createSObject(apexClass);
+	}
+	
 	public static void dumpFieldIds()  {
 		
 		// Constructs the Tooling API wrapper (default constructor uses user session Id)		
