@@ -281,10 +281,18 @@ public with sharing class ToolingAPI {
         }
         public override void serialize(JSONGenerator jsonGen) {
             super.serialize(jsonGen);
+            if(apiVersion!=null)
+                jsonGen.writeNumberField('apiVersion', apiVersion);
             if(body!=null)
                 jsonGen.writeStringField('body', body);
+            if(name!=null)
+                jsonGen.writeStringField('name', name);
+            if(status!=null)
+                jsonGen.writeStringField('status', status);
             if(fullName!=null)
                 jsonGen.writeStringField('fullName', fullName);
+            if(metadata!=null)
+                jsonGen.writeObjectField('metadata', metadata);
         }
     }
 
