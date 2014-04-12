@@ -26,6 +26,52 @@
 
 public with sharing class ToolingAPIDemo 
 {
+	public static void createAndUpdateClass() {
+		// Constructs the Tooling API wrapper (default constructor uses user session Id)		
+		ToolingAPI tooling = new ToolingAPI();
+		
+		// Create class
+		ToolingAPI.ApexClass apexClass = new ToolingAPI.ApexClass();
+		apexClass.Body = 'public class HelloWorld { }';
+		ToolingAPI.SaveResult sr = tooling.createSObject(apexClass);
+
+		// Delete MetadataContainer				
+        List<ToolingAPI.MetadataContainer> containers =  
+        	(List<ToolingAPI.MetadataContainer>)
+                tooling.query(
+                    'SELECT Id, Name FROM MetadataContainer WHERE Name = \'UpdateHelloWorld\'').records;
+        if ( containers != null && ! containers.isEmpty() )
+            tooling.deleteSObject(ToolingAPI.SObjectType.MetadataContainer, containers[0].Id);
+				
+		// Create MetadataContainer
+		ToolingAPI.MetadataContainer container = new ToolingAPI.MetadataContainer();
+		container.name = 'UpdateHelloWorld';
+        ToolingAPI.SaveResult containerSaveResult = tooling.createSObject(container);
+		Id containerId = containerSaveResult.id;
+
+		// Create ApexClassMember and associate them with the MetadataContainer
+		ToolingAPI.ApexClassMember apexClassMember = new ToolingAPI.ApexClassMember();		
+		apexClassMember.Body = 'public class HelloWorld { public String hello() { return \'Hello\'; } }';
+		apexClassMember.ContentEntityId = sr.id;
+		apexClassMember.MetadataContainerId = containerId;		
+		ToolingAPI.SaveResult apexClassMemberSaveResult = tooling.createSObject(apexClassMember);
+
+		// Create ContainerAysncRequest to deploy the Apex Classes
+		ToolingAPI.ContainerAsyncRequest asyncRequest = new ToolingAPI.ContainerAsyncRequest();		
+		asyncRequest.metadataContainerId = containerId;
+		asyncRequest.IsCheckOnly = false;		
+		ToolingAPI.SaveResult asyncRequestSaveResult = tooling.createSObject(asyncRequest);
+		
+		// The above starts an async background compile, the following needs repeated (polled) to confirm compilation
+		ToolingApi.ContainerAsyncRequest containerAsyncRequest = 
+			((List<ToolingAPI.ContainerAsyncRequest>)
+				tooling.query(
+					'SELECT Id, State, MetadataContainerId, CompilerErrors ' + 
+					'FROM ContainerAsyncRequest ' + 
+					'WHERE Id = \'' + asyncRequestSaveResult.Id + '\'').records)[0];
+		System.debug('State is ' + containerAsyncRequest.State);				
+	}
+	
 	public static void dumpFieldIds()  {
 		
 		// Constructs the Tooling API wrapper (default constructor uses user session Id)		
