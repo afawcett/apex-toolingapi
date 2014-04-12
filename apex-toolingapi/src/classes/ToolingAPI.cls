@@ -1394,6 +1394,11 @@ public with sharing class ToolingAPI {
         }
     }
 
+    public class ToolingAPIAuthorizationException extends Exception
+    {
+    	
+    }
+    
     public class TraceFlag extends SObject_x implements ISerialize {
         public String     apexCode;
         public String     apexProfiling;
@@ -1532,12 +1537,16 @@ public with sharing class ToolingAPI {
 
     /*
      * Helper method for submitting the REST HTTP GET request.
+     *
+     * @throws ToolingAPIAuthorizationException if the remote site is not authorized.
      */
     private HttpResponse submitRestCall(String relativeUrl){
         return submitRestCall(relativeUrl, 'GET');
     }
     /*
      * Helper method for submitting the REST request using the given method.
+     *
+     * @throws ToolingAPIAuthorizationException if the remote site is not authorized.
      */
     private HttpResponse submitRestCall(String relativeUrl, String method){
         return submitRestCall(relativeUrl, method, null);
@@ -1545,6 +1554,8 @@ public with sharing class ToolingAPI {
 
     /*
      * Helper method for submitting the REST request using the given method and data.
+     *
+     * @throws ToolingAPIAuthorizationException if the remote site is not authorized.
      */
     private HttpResponse submitRestCall(String relativeUrl, String method, Object data){
         Http h = new Http();
@@ -1572,7 +1583,24 @@ public with sharing class ToolingAPI {
                 queryReq.setBody(JSON.serialize(data));
             }
         }
-        HttpResponse queryRes = h.send(queryReq);
+
+        HttpResponse queryRes = null;
+        try
+        {
+            queryRes = h.send(queryReq);
+        }
+        catch (System.CalloutException ce)
+        {
+            if (ce.getMessage().containsIgnoreCase('unauthorized endpoint'))
+            {
+                throw new ToolingAPIAuthorizationException(ce);
+            }
+            else
+            {
+                throw ce;
+            }
+        }
+
         Integer successCode = 200;
         if(method.equals('POST'))
             successCode = 201;
