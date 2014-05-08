@@ -55,11 +55,18 @@ public with sharing class ToolingAPI {
         StaticResource,
         TraceFlag,
         User,
-        UserPreference
+        UserPreference,
+        Workflow,
+        WorkflowRule,
+        WorkflowAction,
+        WorkflowAlert,
+        WorkflowFieldUpdate,
+        WorkflowOutboundMessage,
+        WorkflowTask
     }
 
     // The API version used relates to the types and structures defined here
-    private static final String TOOLING_API_URI = '/services/data/v29.0/tooling';
+    private static final String TOOLING_API_URI = '/services/data/v30.0/tooling';
 
     // Session Id can be resovled automatically depending on consturctor used
     private String sessionId;
@@ -330,7 +337,7 @@ public with sharing class ToolingAPI {
         }
     }
 
-    public class ApexComponent extends sObject_x{
+    public class ApexComponent extends SObject_x{
         public Double    apiVersion;
         public String    controllerKey;
         public String    controllerType;
@@ -1090,7 +1097,7 @@ public with sharing class ToolingAPI {
         public MapEntry[] entry;
     }
 
-    public class Metadata {
+    public virtual class Metadata {
         public Double           apiVersion;
         public boolean          availableInTouch;  			//PageMetaData
         public boolean          confirmationTokenRequired; 	//PageMetaData
@@ -1499,6 +1506,229 @@ public with sharing class ToolingAPI {
 
     public virtual class VisibilitySymbol extends Symbol {
         public String visibility;
+    }
+
+    public class WorkflowRule extends SObject_x implements ISerialize {
+        public String fullName;
+        public DateTime lastModifiedDate;
+        public WorkflowRuleMetadata metadata;
+        public String name;
+        public String namespacePrefix;
+        public String tableEnumOrId;
+        public WorkflowRule() {
+            super(sObjectType.WorkflowRule);
+        }
+        public override void serialize(JSONGenerator jsonGen) {
+            super.serialize(jsonGen);
+            if(fullName!=null)
+                jsonGen.writeStringField('fullName', fullName);
+            if(lastModifiedDate!=null)
+                jsonGen.writeDateTimeField('lastModifiedDate', lastModifiedDate);
+            if(metadata!=null)
+                jsonGen.writeObjectField('metadata', metadata);
+            if(name!=null)
+                jsonGen.writeStringField('name', name);
+            if(namespacePrefix!=null)
+                jsonGen.writeStringField('namespacePrefix', namespacePrefix);
+            if(tableEnumOrId!=null)
+                jsonGen.writeStringField('tableEnumOrId', tableEnumOrId);
+        }
+
+    }
+
+    public virtual class WorkflowAction extends Metadata {
+
+    }
+
+    public class Workflow extends Metadata {
+
+    }
+
+    public class WorkflowAlert extends SObject_x implements ISerialize {
+        public String description;
+        public DateTime lastModifiedDate;
+        public String namespacePrefix;
+        public String tableEnumOrId;
+        public WorkflowAlert() {
+            super(sObjectType.WorkflowAlert);
+        }
+        public override void serialize(JSONGenerator jsonGen) {
+            super.serialize(jsonGen);
+            if(description!=null)
+                jsonGen.writeStringField('description', description);
+            if(lastModifiedDate!=null)
+                jsonGen.writeDateTimeField('lastModifiedDate', lastModifiedDate);
+            if(namespacePrefix!=null)
+                jsonGen.writeStringField('namespacePrefix', namespacePrefix);
+            if(tableEnumOrId!=null)
+                jsonGen.writeStringField('tableEnumOrId', tableEnumOrId);
+        }
+    }
+
+    public class WorkflowFieldUpdate extends SObject_x implements ISerialize {
+        public DateTime lastModifiedDate;
+        public String name;
+        public String namespacePrefix;
+        public String sourceTableEnumOrId;
+        public WorkflowFieldUpdate() {
+            super(sObjectType.WorkflowFieldUpdate);
+        }
+        public override void serialize(JSONGenerator jsonGen) {
+            super.serialize(jsonGen);
+            if(lastModifiedDate!=null)
+                jsonGen.writeDateTimeField('lastModifiedDate', lastModifiedDate);
+            if(name!=null)
+                jsonGen.writeStringField('name', name);
+            if(namespacePrefix!=null)
+                jsonGen.writeStringField('namespacePrefix', namespacePrefix);
+            if(sourceTableEnumOrId!=null)
+                jsonGen.writeStringField('sourceTableEnumOrId', sourceTableEnumOrId);
+        }
+    }
+
+    public class WorkflowOutboundMessage extends SObject_x implements ISerialize {
+        public DateTime lastModifiedDate;
+        public String name;
+        public String namespacePrefix;
+        public String tableEnumOrId;
+        public WorkflowOutboundMessage() {
+            super(sObjectType.WorkflowOutboundMessage);
+        }
+        public override void serialize(JSONGenerator jsonGen) {
+            super.serialize(jsonGen);
+            if(lastModifiedDate!=null)
+                jsonGen.writeDateTimeField('lastModifiedDate', lastModifiedDate);
+            if(name!=null)
+                jsonGen.writeStringField('name', name);
+            if(namespacePrefix!=null)
+                jsonGen.writeStringField('namespacePrefix', namespacePrefix);
+            if(tableEnumOrId!=null)
+                jsonGen.writeStringField('tableEnumOrId', tableEnumOrId);
+        }
+    }
+ 
+    public class WorkflowTask extends SObject_x implements ISerialize {
+        public DateTime lastModifiedDate;
+        public String namespacePrefix;
+        public String subject;
+        public String tableEnumOrId;
+        public WorkflowTask() {
+            super(sObjectType.WorkflowTask);
+        }
+        public override void serialize(JSONGenerator jsonGen) {
+            super.serialize(jsonGen);
+            if(lastModifiedDate!=null)
+                jsonGen.writeDateTimeField('lastModifiedDate', lastModifiedDate);
+            if(namespacePrefix!=null)
+                jsonGen.writeStringField('namespacePrefix', namespacePrefix);
+            if(subject!=null)
+                jsonGen.writeStringField('subject', subject);
+            if(tableEnumOrId!=null)
+                jsonGen.writeStringField('tableEnumOrId', tableEnumOrId);
+        }
+    }
+
+    public class WorkflowRuleMetadata {
+        public WorkflowActionReference[] actions;
+        public Boolean active;
+        public String booleanFilter;
+        public FilterItem[] criteriaItems;
+        public String description;
+        public String formula;
+        public String triggerType;
+        public WorkflowTimeTrigger[] workflowTimeTriggers;
+    }
+
+    public class WorkflowActionReference {
+        public String name;
+        public String type;
+    }
+
+    public class WorkflowTimeTrigger {
+        public WorkflowActionReference actions;
+        public String offsetFromField;
+        public String timeLength;
+        public String workflowTimeTrigger;
+    }
+
+    public class WorkflowFieldUpdateMetadata extends WorkflowAction {
+        public String description;
+        public String field;
+        public String formula;
+        public String literalValue;
+        public String lookupValue;
+        public String lookupValueType;
+        public String name;
+        public Boolean notifyAssignee;
+        public String operation;
+        public Boolean reevaluateOnChange;
+        public String targetObject;
+    }
+
+    public class WorkflowKnowledgePublish extends WorkflowAction {
+        public String action;
+        public String description;
+        public String label;
+        public String language;
+    }
+
+    public class WorkflowTaskMetadata extends WorkflowAction {
+        public String assignedTo;
+        public String assignedToType;
+        public String description;
+        public Integer dueDateOffset;
+        public Boolean notifyAssignee;
+        public String offsetFromField;
+        public String priority;
+        public String status;
+        public String subject;
+
+    }
+
+    public class WorkflowAlertMetadata extends WorkflowAction {
+        public String[] ccEmails;
+        public String description;
+        public WorkflowEmailRecipient[] recipients;
+        public String senderAddress;
+        public String senderType;
+        public String template;
+    }
+
+    public class WorkflowEmailRecipient {
+        public String field;
+        public String recipient;
+        public String type;
+    }
+
+    public class WorkflowSend {
+        public String action;
+        public String description;
+        public String label;
+        public String language;
+    }
+
+    public class WorkflowOutboundMessageMetadata extends WorkflowAction {
+        public Double apiVersion;
+        public String description;
+        public String endpointUrl;
+        public String[] fields;
+        public Boolean includeSessionId;
+        public String integrationUser;
+        public String name;
+        public Boolean useDeadLetterQueue;
+    }
+
+    public class WorkflowFlowAction extends WorkflowAction {
+        public String description;
+        public String flow;
+        public WorkflowFlowActionParameter[] flowInputs;
+        public String label;
+        public String language;
+    }
+
+    public class WorkflowFlowActionParameter {
+        public String name;
+        public String value;
     }
 
     //Private helper methods go here
