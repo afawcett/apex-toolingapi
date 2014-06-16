@@ -10,6 +10,11 @@ Apex Tooling API
 
 **NOTE:** This API is work in progress.
 
+Known Issues and Gotchas
+========================
+
+- **INVALID_SESSION_ID** error message, thanks to [rdehler](https://github.com/rdehler) for spotting this one, see [here]( http://help.salesforce.com/HTViewSolution?id=000187092&language=en_US) for how to resolve this.
+
 Current Thinking and Strategy
 =============================
 
