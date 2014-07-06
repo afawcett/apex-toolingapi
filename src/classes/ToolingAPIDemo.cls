@@ -96,6 +96,15 @@ public with sharing class ToolingAPIDemo
 				customField.Id);
 	}
 	
+	public static void dumpAllFieldNamesWithDate()
+	{
+	    ToolingAPI toolingAPI = new ToolingAPI();
+	    List<ToolingAPI.CustomField> customFields= (List<ToolingAPI.CustomField>)
+	       toolingAPI.query('Select FullName, LastModifiedDate From CustomField').records;
+	    System.debug(customFields[0].fullName);
+	    System.debug(customFields[0].lastModifiedDate);		
+	}
+	
 	public static void createApexClass() {
 		
 		// Create an Apex class!
