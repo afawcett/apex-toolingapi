@@ -105,6 +105,15 @@ public with sharing class ToolingAPIDemo
 	    System.debug(customFields[0].lastModifiedDate);		
 	}
 	
+	public static void dumpAllCustomObjectsWithDate()
+	{
+	    ToolingAPI toolingAPI = new ToolingAPI();
+	    List<ToolingAPI.CustomObject> customObjects= (List<ToolingAPI.CustomObject>)
+	       toolingAPI.query('Select DeveloperName, LastModifiedDate From CustomObject').records;
+	    System.debug(customObjects[0].DeveloperName);
+	    System.debug(customObjects[0].lastModifiedDate);		
+	}
+	
 	public static void createApexClass() {
 		
 		// Create an Apex class!
