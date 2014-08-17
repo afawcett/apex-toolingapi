@@ -3,6 +3,7 @@
     <types>
         <members>ToolingAPI</members>
         <members>ToolingAPIDemo</members>
+        <members>ToolingAPITest</members>
         <name>ApexClass</name>
     </types>
     <version>29.0</version>
