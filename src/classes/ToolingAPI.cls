@@ -1645,10 +1645,10 @@ public with sharing class ToolingAPI {
     }
 
     public class WorkflowTimeTrigger {
-        public WorkflowActionReference actions;
+        public WorkflowActionReference[] actions;
         public String offsetFromField;
         public String timeLength;
-        public String workflowTimeTrigger;
+        public String workflowTimeTriggerUnit;
     }
 
     public class WorkflowFieldUpdateMetadata extends WorkflowAction {
