@@ -1232,6 +1232,7 @@ public with sharing class ToolingAPI {
     public class Picklist {
         public String controllingField;
         public Boolean sorted;
+        public List<PicklistEntry> picklistValues;
     }
 
     public class PicklistEntry {

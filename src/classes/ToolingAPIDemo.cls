@@ -123,4 +123,19 @@ public with sharing class ToolingAPIDemo
 		newClass.Body = 'public class HelloWorld { }';
 		toolingAPI.createSObject(newClass);		
 	}
+
+	public static void updatePicklist() {
+		ToolingAPI toolingAPI = new ToolingAPI();
+		// Query CustomObject object by DeveloperName (note no __c suffix required)
+		List<ToolingAPI.CustomObject> customObjects = (List<ToolingAPI.CustomObject>) 
+			toolingAPI.query('Select Id, DeveloperName, NamespacePrefix From CustomObject Where DeveloperName = \'Test\'').records;
+		// Query CustomField object by Name (filtered by CustomObject Id)
+		Id customObjectId = customObjects[0].Id;							
+		List<ToolingAPI.CustomField> customFields = (List<ToolingAPI.CustomField>) 
+			toolingAPI.query('Select Id, DeveloperName, NamespacePrefix, TableEnumOrId, Metadata From CustomField Where TableEnumOrId = \'' + customObjectId + '\' And DeveloperName = \'YesNo\'').records;
+		// Dump Picklist entries			
+		for(ToolingAPI.PicklistEntry picklistEntry : customFields[0].metadata.picklist.pickListValues) {
+			System.debug('Pick list label ' + picklistEntry.label);
+		}
+	}
 }
