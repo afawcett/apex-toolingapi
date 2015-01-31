@@ -26,25 +26,28 @@
 public class ToolingAPI {
 
     private ToolingAPIWSDL.SforceService service;
+    private static final String endpointSuffix = '/services/Soap/T/32.0';
 
     /**
      * Uses the current users Session Id, only compatible in a interactive context
      * @throws ToolingAPIException if no Session Id can be resolved (e.g. in a batch context)
      **/
     public ToolingAPI() {
-        this(UserInfo.getSessionId());
+        this(UserInfo.getSessionId(),URL.getSalesforceBaseUrl().toExternalForm());
     }
 
     /**
      * Uses the given Session Id, useful when using the API in a batch context
      **/
-    public ToolingAPI(String sessionId) {
+    public ToolingAPI(String sessionId,String endpoint) {
          if(sessionId==null)
             throw new ToolingAPIException('Unable to obtain Session Id');
 
         service = new ToolingAPIWSDL.SforceService();
         service.SessionHeader = new ToolingAPIWSDL.SessionHeader_element();
         service.SessionHeader.sessionId = sessionId;
+        service.endpoint_x = endpoint + endpointSuffix;
+        System.debug('JWL: service: ' + service);
     }
 
 

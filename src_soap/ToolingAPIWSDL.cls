@@ -9,29 +9,11 @@ public class ToolingAPIWSDL {
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
         private String[] field_order_type_info = new String[]{'errors','success'};
     }
-    public class WorkflowFlowActionParameter {
-        public String name;
-        public String value;
-        private String[] name_type_info = new String[]{'name','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] value_type_info = new String[]{'value','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'name','value'};
-    }
     public class queryResponse_element {
         public ToolingAPIWSDL.QueryResult result;
         private String[] result_type_info = new String[]{'result','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
         private String[] field_order_type_info = new String[]{'result'};
-    }
-    public class PackageVersionMetadata {
-        public Integer majorNumber;
-        public Integer minorNumber;
-        public String namespace;
-        private String[] majorNumber_type_info = new String[]{'majorNumber','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] minorNumber_type_info = new String[]{'minorNumber','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] namespace_type_info = new String[]{'namespace','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'majorNumber','minorNumber','namespace'};
     }
     public class CallOptions_element {
         public String client;
@@ -81,6 +63,26 @@ public class ToolingAPIWSDL {
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
         private String[] field_order_type_info = new String[]{'available','defaultRecordTypeMapping','name','recordTypeId'};
     }
+    public class ValueTypeField {
+        public ToolingAPIWSDL.ValueTypeField[] fields;
+        public String[] foreignKeyDomain;
+        public Boolean isForeignKey;
+        public Boolean isNameField;
+        public Integer minOccurs;
+        public String name;
+        public ToolingAPIWSDL.PicklistEntry[] picklistValues;
+        public String soapType;
+        private String[] fields_type_info = new String[]{'fields','urn:tooling.soap.sforce.com',null,'0','-1','false'};
+        private String[] foreignKeyDomain_type_info = new String[]{'foreignKeyDomain','urn:tooling.soap.sforce.com',null,'0','-1','false'};
+        private String[] isForeignKey_type_info = new String[]{'isForeignKey','urn:tooling.soap.sforce.com',null,'1','1','false'};
+        private String[] isNameField_type_info = new String[]{'isNameField','urn:tooling.soap.sforce.com',null,'1','1','false'};
+        private String[] minOccurs_type_info = new String[]{'minOccurs','urn:tooling.soap.sforce.com',null,'1','1','false'};
+        private String[] name_type_info = new String[]{'name','urn:tooling.soap.sforce.com',null,'1','1','false'};
+        private String[] picklistValues_type_info = new String[]{'picklistValues','urn:tooling.soap.sforce.com',null,'0','-1','false'};
+        private String[] soapType_type_info = new String[]{'soapType','urn:tooling.soap.sforce.com',null,'1','1','false'};
+        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
+        private String[] field_order_type_info = new String[]{'fields','foreignKeyDomain','isForeignKey','isNameField','minOccurs','name','picklistValues','soapType'};
+    }
     public class describeSObjectsResponse_element {
         public ToolingAPIWSDL.DescribeSObjectResult[] result;
         private String[] result_type_info = new String[]{'result','urn:tooling.soap.sforce.com',null,'0','-1','false'};
@@ -98,26 +100,6 @@ public class ToolingAPIWSDL {
         private String[] success_type_info = new String[]{'success','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
         private String[] field_order_type_info = new String[]{'created','errors','id','success'};
-    }
-    public class EscalationAction {
-        public String assignedTo;
-        public String assignedToTemplate;
-        public String assignedToType;
-        public Integer minutesToEscalation;
-        public Boolean notifyCaseOwner;
-        public String[] notifyEmail;
-        public String notifyTo;
-        public String notifyToTemplate;
-        private String[] assignedTo_type_info = new String[]{'assignedTo','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] assignedToTemplate_type_info = new String[]{'assignedToTemplate','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] assignedToType_type_info = new String[]{'assignedToType','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] minutesToEscalation_type_info = new String[]{'minutesToEscalation','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] notifyCaseOwner_type_info = new String[]{'notifyCaseOwner','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] notifyEmail_type_info = new String[]{'notifyEmail','urn:tooling.soap.sforce.com',null,'0','-1','false'};
-        private String[] notifyTo_type_info = new String[]{'notifyTo','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] notifyToTemplate_type_info = new String[]{'notifyToTemplate','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'assignedTo','assignedToTemplate','assignedToType','minutesToEscalation','notifyCaseOwner','notifyEmail','notifyTo','notifyToTemplate'};
     }
     public class create_element {
         public ToolingAPIWSDL.sObject_x[] sObjects;
@@ -142,14 +124,6 @@ public class ToolingAPIWSDL {
         private String[] success_type_info = new String[]{'success','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
         private String[] field_order_type_info = new String[]{'column','compileProblem','compiled','exceptionMessage','exceptionStackTrace','line','success'};
-    }
-    public class RecordTypePicklist {
-        public String picklistName;
-        public ToolingAPIWSDL.PicklistEntry[] picklistValues;
-        private String[] picklistName_type_info = new String[]{'picklistName','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] picklistValues_type_info = new String[]{'picklistValues','urn:tooling.soap.sforce.com',null,'0','-1','false'};
-        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'picklistName','picklistValues'};
     }
     public class SetPasswordResult {
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
@@ -192,22 +166,34 @@ public class ToolingAPIWSDL {
         public String StackTrace;
         public DateTime SystemModstamp;
         public DateTime TestTimestamp;
-        public DateTime LastModifiedDate;
-        public String Name;
+        public String DeveloperName;
+        public String DurableId;
+        public ToolingAPIWSDL.EntityDefinition EntityDefinition;
+        public String EntityDefinitionId;
+        public String FullName;
+        public Boolean IsDefault;
+        public ToolingAPIWSDL.QueryResult Items;
+        public String Label;
+        public ToolingAPIWSDLMetadata.CompactLayout Metadata;
         public String NamespacePrefix;
-        public String SourceTableEnumOrId;
-        public Double ApiVersion;
-        public String Body;
-        public Double BodyCrc;
         public ToolingAPIWSDL.User_x CreatedBy;
         public String CreatedById;
         public DateTime CreatedDate;
-        public String FullName;
-        public Boolean IsValid;
+        public ToolingAPIWSDL.FieldDefinition FieldDefinition;
+        public String FieldDefinitionId;
         public ToolingAPIWSDL.User_x LastModifiedBy;
         public String LastModifiedById;
+        public DateTime LastModifiedDate;
+        public String LiteralValue;
+        public String LookupValueId;
+        public String Name;
+        public String SourceTableEnumOrId;
+        public Boolean Active;
+        public Double ApiVersion;
+        public String Body;
+        public Double BodyCrc;
+        public Boolean IsValid;
         public Integer LengthWithoutComments;
-        public ToolingAPIWSDL.ApexClassMetadata Metadata;
         public String Status;
         public ToolingAPIWSDL.SymbolTable SymbolTable;
         public String ActionScript;
@@ -228,14 +214,57 @@ public class ToolingAPIWSDL {
         public Integer NumLinesCovered;
         public Integer NumLinesUncovered;
         public Integer PercentCovered;
+        public String Description;
+        public Integer Height;
+        public ToolingAPIWSDL.StaticResource Icon;
+        public String IconId;
+        public String Language;
+        public String MasterLabel;
+        public String SobjectType;
+        public String StandardLabel;
+        public String TargetField;
+        public ToolingAPIWSDL.RecordType TargetRecordType;
+        public String TargetRecordTypeId;
+        public String TargetSobjectType;
+        public String Type_x;
+        public Integer Width;
+        public ToolingAPIWSDL.QueryResult ApexTriggers;
+        public ToolingAPIWSDL.QueryResult AssignmentRules;
+        public ToolingAPIWSDL.QueryResult AutoResponseRules;
+        public ToolingAPIWSDL.QueryResult BusinessProcesses;
+        public ToolingAPIWSDL.QueryResult CompactLayouts;
+        public ToolingAPIWSDL.QueryResult CustomFields;
+        public ToolingAPIWSDL.CompactLayoutInfo DefaultCompactLayout;
+        public String DefaultCompactLayoutId;
+        public ToolingAPIWSDL.QueryResult FieldSets;
+        public ToolingAPIWSDL.QueryResult Fields;
+        public Boolean IsApexTriggerable;
+        public Boolean IsCompactLayoutable;
+        public Boolean IsCreatable;
+        public Boolean IsCustomizable;
+        public Boolean IsDeletable;
+        public Boolean IsQueryable;
+        public Boolean IsWorkflowEnabled;
+        public String KeyPrefix;
+        public ToolingAPIWSDL.QueryResult Layouts;
+        public String PluralLabel;
+        public String QualifiedApiName;
+        public ToolingAPIWSDL.QueryResult RecordTypes;
+        public ToolingAPIWSDL.QueryResult WorkflowAlerts;
+        public ToolingAPIWSDL.QueryResult WorkflowFieldUpdates;
+        public ToolingAPIWSDL.QueryResult WorkflowOutboundMessages;
+        public ToolingAPIWSDL.QueryResult WorkflowTasks;
+        public ToolingAPIWSDL.CompactLayoutInfo CompactLayoutInfo;
+        public String CompactLayoutInfoId;
+        public Integer SortOrder;
+        public Boolean ShowSubmitAndAttachButton;
+        public String TableEnumOrId;
         public ToolingAPIWSDL.ApexClass ApexTestClass;
         public String ApexTestClassId;
         public String TestMethodName;
         public String ControllerKey;
         public String ControllerType;
-        public String Description;
         public String Markup;
-        public String MasterLabel;
         public String Alias;
         public String Email;
         public String FirstName;
@@ -244,15 +273,21 @@ public class ToolingAPIWSDL {
         public DateTime LastReferencedDate;
         public DateTime LastViewedDate;
         public String Phone;
+        public ToolingAPIWSDL.Profile Profile;
         public String ProfileId;
+        public ToolingAPIWSDL.RecordType RecordType;
         public String RecordTypeId;
         public String Title;
-        public String Type_x;
         public String UserRoleId;
         public String Username;
         public String Content;
         public ToolingAPIWSDL.User_x User_x;
         public String UserId;
+        public ToolingAPIWSDL.Name Layout;
+        public String LayoutId;
+        public String QuickActionDefinition;
+        public ToolingAPIWSDL.QuickActionList QuickActionList;
+        public String QuickActionListId;
         public String ApexCode;
         public String ApexProfiling;
         public String Callout;
@@ -268,9 +303,13 @@ public class ToolingAPIWSDL {
         public DateTime LastSyncDate;
         public ToolingAPIWSDL.MetadataContainer MetadataContainer;
         public String MetadataContainerId;
-        public String TableEnumOrId;
+        public String NetworkId;
         public String ValidationName;
+        public String CcEmails;
+        public String SenderType;
+        public String TemplateId;
         public String Subject;
+        public String Priority;
         public Boolean UsageAfterDelete;
         public Boolean UsageAfterInsert;
         public Boolean UsageAfterUndelete;
@@ -282,20 +321,32 @@ public class ToolingAPIWSDL {
         public Integer BodyLength;
         public String CacheControl;
         public String ContentType;
+        public String AppId;
+        public String Color;
+        public String IconUrl;
+        public String MenuType;
+        public String Theme;
         public Boolean IsAvailableInTouch;
         public Boolean IsConfirmationTokenRequired;
         public String Preference;
         public String Value;
-        public String CompilerErrors;
+        public ToolingAPIWSDL.DeployDetails DeployDetails;
         public String ErrorMsg;
         public Boolean IsCheckOnly;
         public Boolean IsRunTests;
         public ToolingAPIWSDL.MetadataContainerMember MetadataContainerMember;
         public String MetadataContainerMemberId;
         public String State;
-        public String DeveloperName;
+        public String CustomHelpId;
         public ToolingAPIWSDL.Name ExternalDataSource;
         public String ExternalDataSourceId;
+        public String ExternalName;
+        public String ExternalRepository;
+        public String SharingModel;
+        public String IntegrationUserId;
+        public ToolingAPIWSDL.QueryResult ProfileLayouts;
+        public String UserLicenseId;
+        public ToolingAPIWSDL.QueryResult Users;
         public DateTime CompletedDate;
         public String ExtendedStatus;
         public Integer JobItemsProcessed;
@@ -305,6 +356,9 @@ public class ToolingAPIWSDL {
         public Integer NumberOfErrors;
         public String ParentJobId;
         public Integer TotalJobItems;
+        public ToolingAPIWSDL.QueryResult CompactLayoutItems;
+        public String DataType;
+        public Boolean IsWorkflowFilterable;
         public ToolingAPIWSDL.ApexResult ApexResult;
         public String ClassName;
         public ToolingAPIWSDL.HeapDump HeapDump;
@@ -317,6 +371,9 @@ public class ToolingAPIWSDL {
         public ToolingAPIWSDL.QueryResult ManagedUsers;
         public ToolingAPIWSDL.QueryResult UserPreferences;
         public String WorkspaceId;
+        public Boolean HasSidebar;
+        public String Url;
+        public String BusinessProcessId;
         public String Application;
         public Integer DurationMilliseconds;
         public String Location;
@@ -326,10 +383,18 @@ public class ToolingAPIWSDL {
         public String Operation;
         public String Request;
         public DateTime StartTime;
+        public String DefaultValue;
+        public String InlineHelpText;
+        public Integer Length;
+        public String MaskChar;
+        public String MaskType;
+        public Integer Precision;
+        public String RelationshipLabel;
+        public Integer Scale;
+        public String SummaryOperation;
         private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
         private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fieldsToNull','Id'};
         private String[] ApexClass_type_info = new String[]{'ApexClass','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] ApexClassId_type_info = new String[]{'ApexClassId','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] ApexLog_type_info = new String[]{'ApexLog','urn:tooling.soap.sforce.com',null,'0','1','true'};
@@ -344,22 +409,34 @@ public class ToolingAPIWSDL {
         private String[] StackTrace_type_info = new String[]{'StackTrace','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] SystemModstamp_type_info = new String[]{'SystemModstamp','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] TestTimestamp_type_info = new String[]{'TestTimestamp','urn:tooling.soap.sforce.com',null,'0','1','true'};
-        private String[] LastModifiedDate_type_info = new String[]{'LastModifiedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
-        private String[] Name_type_info = new String[]{'Name','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] DeveloperName_type_info = new String[]{'DeveloperName','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] DurableId_type_info = new String[]{'DurableId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] EntityDefinition_type_info = new String[]{'EntityDefinition','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] EntityDefinitionId_type_info = new String[]{'EntityDefinitionId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] FullName_type_info = new String[]{'FullName','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] IsDefault_type_info = new String[]{'IsDefault','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Items_type_info = new String[]{'Items','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Label_type_info = new String[]{'Label','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Metadata_type_info = new String[]{'Metadata','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] NamespacePrefix_type_info = new String[]{'NamespacePrefix','urn:tooling.soap.sforce.com',null,'0','1','true'};
-        private String[] SourceTableEnumOrId_type_info = new String[]{'SourceTableEnumOrId','urn:tooling.soap.sforce.com',null,'0','1','true'};
-        private String[] ApiVersion_type_info = new String[]{'ApiVersion','urn:tooling.soap.sforce.com',null,'0','1','true'};
-        private String[] Body_type_info = new String[]{'Body','urn:tooling.soap.sforce.com',null,'0','1','true'};
-        private String[] BodyCrc_type_info = new String[]{'BodyCrc','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] CreatedBy_type_info = new String[]{'CreatedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] CreatedById_type_info = new String[]{'CreatedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] CreatedDate_type_info = new String[]{'CreatedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
-        private String[] FullName_type_info = new String[]{'FullName','urn:tooling.soap.sforce.com',null,'0','1','true'};
-        private String[] IsValid_type_info = new String[]{'IsValid','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] FieldDefinition_type_info = new String[]{'FieldDefinition','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] FieldDefinitionId_type_info = new String[]{'FieldDefinitionId','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] LastModifiedBy_type_info = new String[]{'LastModifiedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] LastModifiedById_type_info = new String[]{'LastModifiedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedDate_type_info = new String[]{'LastModifiedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LiteralValue_type_info = new String[]{'LiteralValue','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LookupValueId_type_info = new String[]{'LookupValueId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Name_type_info = new String[]{'Name','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] SourceTableEnumOrId_type_info = new String[]{'SourceTableEnumOrId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Active_type_info = new String[]{'Active','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] ApiVersion_type_info = new String[]{'ApiVersion','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Body_type_info = new String[]{'Body','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] BodyCrc_type_info = new String[]{'BodyCrc','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] IsValid_type_info = new String[]{'IsValid','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] LengthWithoutComments_type_info = new String[]{'LengthWithoutComments','urn:tooling.soap.sforce.com',null,'0','1','true'};
-        private String[] Metadata_type_info = new String[]{'Metadata','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] Status_type_info = new String[]{'Status','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] SymbolTable_type_info = new String[]{'SymbolTable','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] ActionScript_type_info = new String[]{'ActionScript','urn:tooling.soap.sforce.com',null,'0','1','true'};
@@ -380,14 +457,57 @@ public class ToolingAPIWSDL {
         private String[] NumLinesCovered_type_info = new String[]{'NumLinesCovered','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] NumLinesUncovered_type_info = new String[]{'NumLinesUncovered','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] PercentCovered_type_info = new String[]{'PercentCovered','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Description_type_info = new String[]{'Description','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Height_type_info = new String[]{'Height','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Icon_type_info = new String[]{'Icon','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] IconId_type_info = new String[]{'IconId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Language_type_info = new String[]{'Language','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] MasterLabel_type_info = new String[]{'MasterLabel','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] SobjectType_type_info = new String[]{'SobjectType','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] StandardLabel_type_info = new String[]{'StandardLabel','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] TargetField_type_info = new String[]{'TargetField','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] TargetRecordType_type_info = new String[]{'TargetRecordType','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] TargetRecordTypeId_type_info = new String[]{'TargetRecordTypeId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] TargetSobjectType_type_info = new String[]{'TargetSobjectType','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Type_x_type_info = new String[]{'Type','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Width_type_info = new String[]{'Width','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] ApexTriggers_type_info = new String[]{'ApexTriggers','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] AssignmentRules_type_info = new String[]{'AssignmentRules','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] AutoResponseRules_type_info = new String[]{'AutoResponseRules','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] BusinessProcesses_type_info = new String[]{'BusinessProcesses','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CompactLayouts_type_info = new String[]{'CompactLayouts','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CustomFields_type_info = new String[]{'CustomFields','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] DefaultCompactLayout_type_info = new String[]{'DefaultCompactLayout','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] DefaultCompactLayoutId_type_info = new String[]{'DefaultCompactLayoutId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] FieldSets_type_info = new String[]{'FieldSets','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Fields_type_info = new String[]{'Fields','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] IsApexTriggerable_type_info = new String[]{'IsApexTriggerable','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] IsCompactLayoutable_type_info = new String[]{'IsCompactLayoutable','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] IsCreatable_type_info = new String[]{'IsCreatable','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] IsCustomizable_type_info = new String[]{'IsCustomizable','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] IsDeletable_type_info = new String[]{'IsDeletable','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] IsQueryable_type_info = new String[]{'IsQueryable','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] IsWorkflowEnabled_type_info = new String[]{'IsWorkflowEnabled','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] KeyPrefix_type_info = new String[]{'KeyPrefix','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Layouts_type_info = new String[]{'Layouts','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] PluralLabel_type_info = new String[]{'PluralLabel','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] QualifiedApiName_type_info = new String[]{'QualifiedApiName','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] RecordTypes_type_info = new String[]{'RecordTypes','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] WorkflowAlerts_type_info = new String[]{'WorkflowAlerts','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] WorkflowFieldUpdates_type_info = new String[]{'WorkflowFieldUpdates','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] WorkflowOutboundMessages_type_info = new String[]{'WorkflowOutboundMessages','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] WorkflowTasks_type_info = new String[]{'WorkflowTasks','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CompactLayoutInfo_type_info = new String[]{'CompactLayoutInfo','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CompactLayoutInfoId_type_info = new String[]{'CompactLayoutInfoId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] SortOrder_type_info = new String[]{'SortOrder','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] ShowSubmitAndAttachButton_type_info = new String[]{'ShowSubmitAndAttachButton','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] TableEnumOrId_type_info = new String[]{'TableEnumOrId','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] ApexTestClass_type_info = new String[]{'ApexTestClass','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] ApexTestClassId_type_info = new String[]{'ApexTestClassId','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] TestMethodName_type_info = new String[]{'TestMethodName','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] ControllerKey_type_info = new String[]{'ControllerKey','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] ControllerType_type_info = new String[]{'ControllerType','urn:tooling.soap.sforce.com',null,'0','1','true'};
-        private String[] Description_type_info = new String[]{'Description','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] Markup_type_info = new String[]{'Markup','urn:tooling.soap.sforce.com',null,'0','1','true'};
-        private String[] MasterLabel_type_info = new String[]{'MasterLabel','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] Alias_type_info = new String[]{'Alias','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] Email_type_info = new String[]{'Email','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] FirstName_type_info = new String[]{'FirstName','urn:tooling.soap.sforce.com',null,'0','1','true'};
@@ -396,15 +516,21 @@ public class ToolingAPIWSDL {
         private String[] LastReferencedDate_type_info = new String[]{'LastReferencedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] LastViewedDate_type_info = new String[]{'LastViewedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] Phone_type_info = new String[]{'Phone','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Profile_type_info = new String[]{'Profile','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] ProfileId_type_info = new String[]{'ProfileId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] RecordType_type_info = new String[]{'RecordType','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] RecordTypeId_type_info = new String[]{'RecordTypeId','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] Title_type_info = new String[]{'Title','urn:tooling.soap.sforce.com',null,'0','1','true'};
-        private String[] Type_x_type_info = new String[]{'Type','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] UserRoleId_type_info = new String[]{'UserRoleId','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] Username_type_info = new String[]{'Username','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] Content_type_info = new String[]{'Content','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] User_x_type_info = new String[]{'User','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] UserId_type_info = new String[]{'UserId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Layout_type_info = new String[]{'Layout','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LayoutId_type_info = new String[]{'LayoutId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] QuickActionDefinition_type_info = new String[]{'QuickActionDefinition','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] QuickActionList_type_info = new String[]{'QuickActionList','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] QuickActionListId_type_info = new String[]{'QuickActionListId','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] ApexCode_type_info = new String[]{'ApexCode','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] ApexProfiling_type_info = new String[]{'ApexProfiling','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] Callout_type_info = new String[]{'Callout','urn:tooling.soap.sforce.com',null,'0','1','true'};
@@ -420,9 +546,13 @@ public class ToolingAPIWSDL {
         private String[] LastSyncDate_type_info = new String[]{'LastSyncDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] MetadataContainer_type_info = new String[]{'MetadataContainer','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] MetadataContainerId_type_info = new String[]{'MetadataContainerId','urn:tooling.soap.sforce.com',null,'0','1','true'};
-        private String[] TableEnumOrId_type_info = new String[]{'TableEnumOrId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] NetworkId_type_info = new String[]{'NetworkId','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] ValidationName_type_info = new String[]{'ValidationName','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CcEmails_type_info = new String[]{'CcEmails','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] SenderType_type_info = new String[]{'SenderType','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] TemplateId_type_info = new String[]{'TemplateId','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] Subject_type_info = new String[]{'Subject','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Priority_type_info = new String[]{'Priority','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] UsageAfterDelete_type_info = new String[]{'UsageAfterDelete','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] UsageAfterInsert_type_info = new String[]{'UsageAfterInsert','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] UsageAfterUndelete_type_info = new String[]{'UsageAfterUndelete','urn:tooling.soap.sforce.com',null,'0','1','true'};
@@ -434,20 +564,32 @@ public class ToolingAPIWSDL {
         private String[] BodyLength_type_info = new String[]{'BodyLength','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] CacheControl_type_info = new String[]{'CacheControl','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] ContentType_type_info = new String[]{'ContentType','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] AppId_type_info = new String[]{'AppId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Color_type_info = new String[]{'Color','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] IconUrl_type_info = new String[]{'IconUrl','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] MenuType_type_info = new String[]{'MenuType','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Theme_type_info = new String[]{'Theme','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] IsAvailableInTouch_type_info = new String[]{'IsAvailableInTouch','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] IsConfirmationTokenRequired_type_info = new String[]{'IsConfirmationTokenRequired','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] Preference_type_info = new String[]{'Preference','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] Value_type_info = new String[]{'Value','urn:tooling.soap.sforce.com',null,'0','1','true'};
-        private String[] CompilerErrors_type_info = new String[]{'CompilerErrors','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] DeployDetails_type_info = new String[]{'DeployDetails','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] ErrorMsg_type_info = new String[]{'ErrorMsg','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] IsCheckOnly_type_info = new String[]{'IsCheckOnly','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] IsRunTests_type_info = new String[]{'IsRunTests','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] MetadataContainerMember_type_info = new String[]{'MetadataContainerMember','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] MetadataContainerMemberId_type_info = new String[]{'MetadataContainerMemberId','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] State_type_info = new String[]{'State','urn:tooling.soap.sforce.com',null,'0','1','true'};
-        private String[] DeveloperName_type_info = new String[]{'DeveloperName','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CustomHelpId_type_info = new String[]{'CustomHelpId','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] ExternalDataSource_type_info = new String[]{'ExternalDataSource','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] ExternalDataSourceId_type_info = new String[]{'ExternalDataSourceId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] ExternalName_type_info = new String[]{'ExternalName','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] ExternalRepository_type_info = new String[]{'ExternalRepository','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] SharingModel_type_info = new String[]{'SharingModel','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] IntegrationUserId_type_info = new String[]{'IntegrationUserId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] ProfileLayouts_type_info = new String[]{'ProfileLayouts','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] UserLicenseId_type_info = new String[]{'UserLicenseId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Users_type_info = new String[]{'Users','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] CompletedDate_type_info = new String[]{'CompletedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] ExtendedStatus_type_info = new String[]{'ExtendedStatus','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] JobItemsProcessed_type_info = new String[]{'JobItemsProcessed','urn:tooling.soap.sforce.com',null,'0','1','true'};
@@ -457,6 +599,9 @@ public class ToolingAPIWSDL {
         private String[] NumberOfErrors_type_info = new String[]{'NumberOfErrors','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] ParentJobId_type_info = new String[]{'ParentJobId','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] TotalJobItems_type_info = new String[]{'TotalJobItems','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CompactLayoutItems_type_info = new String[]{'CompactLayoutItems','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] DataType_type_info = new String[]{'DataType','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] IsWorkflowFilterable_type_info = new String[]{'IsWorkflowFilterable','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] ApexResult_type_info = new String[]{'ApexResult','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] ClassName_type_info = new String[]{'ClassName','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] HeapDump_type_info = new String[]{'HeapDump','urn:tooling.soap.sforce.com',null,'0','1','true'};
@@ -469,6 +614,9 @@ public class ToolingAPIWSDL {
         private String[] ManagedUsers_type_info = new String[]{'ManagedUsers','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] UserPreferences_type_info = new String[]{'UserPreferences','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] WorkspaceId_type_info = new String[]{'WorkspaceId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] HasSidebar_type_info = new String[]{'HasSidebar','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Url_type_info = new String[]{'Url','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] BusinessProcessId_type_info = new String[]{'BusinessProcessId','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] Application_type_info = new String[]{'Application','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] DurationMilliseconds_type_info = new String[]{'DurationMilliseconds','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] Location_type_info = new String[]{'Location','urn:tooling.soap.sforce.com',null,'0','1','true'};
@@ -478,138 +626,22 @@ public class ToolingAPIWSDL {
         private String[] Operation_type_info = new String[]{'Operation','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] Request_type_info = new String[]{'Request','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] StartTime_type_info = new String[]{'StartTime','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] DefaultValue_type_info = new String[]{'DefaultValue','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] InlineHelpText_type_info = new String[]{'InlineHelpText','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Length_type_info = new String[]{'Length','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] MaskChar_type_info = new String[]{'MaskChar','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] MaskType_type_info = new String[]{'MaskType','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Precision_type_info = new String[]{'Precision','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] RelationshipLabel_type_info = new String[]{'RelationshipLabel','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Scale_type_info = new String[]{'Scale','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] SummaryOperation_type_info = new String[]{'SummaryOperation','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] field_order_type_info = new String[]{'fieldsToNull','Id','ApexClass','ApexClassId','ApexLog','ApexLogId','AsyncApexJob','AsyncApexJobId','Message','MethodName','Outcome','QueueItem','QueueItemId','StackTrace','SystemModstamp','TestTimestamp','DeveloperName','DurableId','EntityDefinition','EntityDefinitionId','FullName','IsDefault','Items','Label','Metadata','NamespacePrefix','CreatedBy','CreatedById','CreatedDate','FieldDefinition','FieldDefinitionId','LastModifiedBy','LastModifiedById','LastModifiedDate','LiteralValue','LookupValueId','Name','SourceTableEnumOrId','Active','ApiVersion','Body','BodyCrc','IsValid','LengthWithoutComments','Status','SymbolTable','ActionScript','ActionScriptType','ExecutableEntity','ExecutableEntityId','ExpirationDate','IsDeleted','IsDumpingHeap','Iteration','Line','Scope','ScopeId','ApexClassOrTrigger','ApexClassOrTriggerId','Coverage','CoverageLastModifiedDate','NumLinesCovered','NumLinesUncovered','PercentCovered','Description','Height','Icon','IconId','Language','MasterLabel','SobjectType','StandardLabel','TargetField','TargetRecordType','TargetRecordTypeId','TargetSobjectType','Type_x','Width','ApexTriggers','AssignmentRules','AutoResponseRules','BusinessProcesses','CompactLayouts','CustomFields','DefaultCompactLayout','DefaultCompactLayoutId','FieldSets','Fields','IsApexTriggerable','IsCompactLayoutable','IsCreatable','IsCustomizable','IsDeletable','IsQueryable','IsWorkflowEnabled','KeyPrefix','Layouts','PluralLabel','QualifiedApiName','RecordTypes','WorkflowAlerts','WorkflowFieldUpdates','WorkflowOutboundMessages','WorkflowTasks','CompactLayoutInfo','CompactLayoutInfoId','SortOrder','ShowSubmitAndAttachButton','TableEnumOrId','ApexTestClass','ApexTestClassId','TestMethodName','ControllerKey','ControllerType','Markup','Alias','Email','FirstName','IsActive','LastName','LastReferencedDate','LastViewedDate','Phone','Profile','ProfileId','RecordType','RecordTypeId','Title','UserRoleId','Username','Content','User_x','UserId','Layout','LayoutId','QuickActionDefinition','QuickActionList','QuickActionListId','ApexCode','ApexProfiling','Callout','Database','System_x','TracedEntity','TracedEntityId','Validation','Visualforce','Workflow','ContentEntity','ContentEntityId','LastSyncDate','MetadataContainer','MetadataContainerId','NetworkId','ValidationName','CcEmails','SenderType','TemplateId','Subject','Priority','UsageAfterDelete','UsageAfterInsert','UsageAfterUndelete','UsageAfterUpdate','UsageBeforeDelete','UsageBeforeInsert','UsageBeforeUpdate','UsageIsBulk','BodyLength','CacheControl','ContentType','AppId','Color','IconUrl','MenuType','Theme','IsAvailableInTouch','IsConfirmationTokenRequired','Preference','Value','DeployDetails','ErrorMsg','IsCheckOnly','IsRunTests','MetadataContainerMember','MetadataContainerMemberId','State','CustomHelpId','ExternalDataSource','ExternalDataSourceId','ExternalName','ExternalRepository','SharingModel','IntegrationUserId','ProfileLayouts','UserLicenseId','Users','CompletedDate','ExtendedStatus','JobItemsProcessed','JobType','LastProcessed','LastProcessedOffset','NumberOfErrors','ParentJobId','TotalJobItems','CompactLayoutItems','DataType','IsWorkflowFilterable','ApexResult','ClassName','HeapDump','Namespace','OverlayResultLength','RequestedBy','RequestedById','SOQLResult','DelegatedUsers','ManagedUsers','UserPreferences','WorkspaceId','HasSidebar','Url','BusinessProcessId','Application','DurationMilliseconds','Location','LogLength','LogUser','LogUserId','Operation','Request','StartTime','DefaultValue','InlineHelpText','Length','MaskChar','MaskType','Precision','RelationshipLabel','Scale','SummaryOperation'};
     }
     public class query_element {
         public String queryString;
         private String[] queryString_type_info = new String[]{'queryString','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
         private String[] field_order_type_info = new String[]{'queryString'};
-    }
-    public virtual class Metadata {
-        public String fullName;
-        public Boolean active;
-        public ToolingAPIWSDL.RuleEntry[] ruleEntry;
-        public Boolean caseSensitive;
-        public String customDataType;
-        public String defaultValue;
-        public String deleteConstraint;
-        public Boolean deprecated;
-        public String description;
-        public String displayFormat;
-        public Boolean escapeMarkup;
-        public String externalDeveloperName;
-        public Boolean externalId;
-        public String formula;
-        public String formulaTreatBlanksAs;
-        public String inlineHelpText;
-        public Boolean isFilteringDisabled;
-        public Boolean isNameField;
-        public Boolean isSortingDisabled;
-        public String label;
-        public Integer length;
-        public ToolingAPIWSDL.LookupFilter lookupFilter;
-        public String maskChar;
-        public String maskType;
-        public ToolingAPIWSDL.Picklist picklist;
-        public Boolean populateExistingRows;
-        public Integer precision;
-        public String referenceTo;
-        public String relationshipLabel;
-        public String relationshipName;
-        public Integer relationshipOrder;
-        public Boolean reparentableMasterDetail;
-        public Boolean required;
-        public Boolean restrictedAdminField;
-        public Integer scale;
-        public Integer startingNumber;
-        public Boolean stripMarkup;
-        public String summarizedField;
-        public ToolingAPIWSDL.FilterItem[] summaryFilterItems;
-        public String summaryForeignKey;
-        public String summaryOperation;
-        public Boolean trackFeedHistory;
-        public Boolean trackHistory;
-        public Boolean trackTrending;
-        public String type_x;
-        public Boolean unique;
-        public Integer visibleLines;
-        public Boolean writeRequiresMasterRead;
-        public Double apiVersion;
-        public Boolean availableInTouch;
-        public Boolean confirmationTokenRequired;
-        public ToolingAPIWSDL.PackageVersionMetadata[] packageVersions;
-        public String status;
-        public ToolingAPIWSDL.WorkflowActionReference[] actions;
-        public String booleanFilter;
-        public ToolingAPIWSDL.FilterItem[] criteriaItems;
-        public String triggerType;
-        public ToolingAPIWSDL.WorkflowTimeTrigger[] workflowTimeTriggers;
-        public String errorConditionFormula;
-        public String errorDisplayField;
-        public String errorMessage;
-        private String[] fullName_type_info = new String[]{'fullName','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fullName'};
-        private String[] active_type_info = new String[]{'active','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] ruleEntry_type_info = new String[]{'ruleEntry','urn:tooling.soap.sforce.com',null,'0','-1','false'};
-        private String[] caseSensitive_type_info = new String[]{'caseSensitive','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] customDataType_type_info = new String[]{'customDataType','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] defaultValue_type_info = new String[]{'defaultValue','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] deleteConstraint_type_info = new String[]{'deleteConstraint','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] deprecated_type_info = new String[]{'deprecated','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] description_type_info = new String[]{'description','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] displayFormat_type_info = new String[]{'displayFormat','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] escapeMarkup_type_info = new String[]{'escapeMarkup','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] externalDeveloperName_type_info = new String[]{'externalDeveloperName','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] externalId_type_info = new String[]{'externalId','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] formula_type_info = new String[]{'formula','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] formulaTreatBlanksAs_type_info = new String[]{'formulaTreatBlanksAs','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] inlineHelpText_type_info = new String[]{'inlineHelpText','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] isFilteringDisabled_type_info = new String[]{'isFilteringDisabled','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] isNameField_type_info = new String[]{'isNameField','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] isSortingDisabled_type_info = new String[]{'isSortingDisabled','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] label_type_info = new String[]{'label','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] length_type_info = new String[]{'length','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] lookupFilter_type_info = new String[]{'lookupFilter','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] maskChar_type_info = new String[]{'maskChar','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] maskType_type_info = new String[]{'maskType','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] picklist_type_info = new String[]{'picklist','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] populateExistingRows_type_info = new String[]{'populateExistingRows','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] precision_type_info = new String[]{'precision','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] referenceTo_type_info = new String[]{'referenceTo','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] relationshipLabel_type_info = new String[]{'relationshipLabel','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] relationshipName_type_info = new String[]{'relationshipName','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] relationshipOrder_type_info = new String[]{'relationshipOrder','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] reparentableMasterDetail_type_info = new String[]{'reparentableMasterDetail','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] required_type_info = new String[]{'required','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] restrictedAdminField_type_info = new String[]{'restrictedAdminField','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] scale_type_info = new String[]{'scale','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] startingNumber_type_info = new String[]{'startingNumber','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] stripMarkup_type_info = new String[]{'stripMarkup','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] summarizedField_type_info = new String[]{'summarizedField','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] summaryFilterItems_type_info = new String[]{'summaryFilterItems','urn:tooling.soap.sforce.com',null,'0','-1','false'};
-        private String[] summaryForeignKey_type_info = new String[]{'summaryForeignKey','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] summaryOperation_type_info = new String[]{'summaryOperation','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] trackFeedHistory_type_info = new String[]{'trackFeedHistory','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] trackHistory_type_info = new String[]{'trackHistory','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] trackTrending_type_info = new String[]{'trackTrending','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] type_x_type_info = new String[]{'type','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] unique_type_info = new String[]{'unique','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] visibleLines_type_info = new String[]{'visibleLines','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] writeRequiresMasterRead_type_info = new String[]{'writeRequiresMasterRead','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] apiVersion_type_info = new String[]{'apiVersion','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] availableInTouch_type_info = new String[]{'availableInTouch','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] confirmationTokenRequired_type_info = new String[]{'confirmationTokenRequired','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] packageVersions_type_info = new String[]{'packageVersions','urn:tooling.soap.sforce.com',null,'0','-1','false'};
-        private String[] status_type_info = new String[]{'status','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] actions_type_info = new String[]{'actions','urn:tooling.soap.sforce.com',null,'0','-1','false'};
-        private String[] booleanFilter_type_info = new String[]{'booleanFilter','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] criteriaItems_type_info = new String[]{'criteriaItems','urn:tooling.soap.sforce.com',null,'0','-1','false'};
-        private String[] triggerType_type_info = new String[]{'triggerType','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] workflowTimeTriggers_type_info = new String[]{'workflowTimeTriggers','urn:tooling.soap.sforce.com',null,'0','-1','false'};
-        private String[] errorConditionFormula_type_info = new String[]{'errorConditionFormula','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] errorDisplayField_type_info = new String[]{'errorDisplayField','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] errorMessage_type_info = new String[]{'errorMessage','urn:tooling.soap.sforce.com',null,'1','1','false'};
     }
     public class DebuggingHeader_element {
         public ToolingAPIWSDL.LogInfo[] categories;
@@ -632,8 +664,8 @@ public class ToolingAPIWSDL {
         private String[] displayName_type_info = new String[]{'displayName','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] foreignKeyName_type_info = new String[]{'foreignKeyName','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'apexType','columnName','custom','displayName','foreignKeyName'};
         private String[] joinColumns_type_info = new String[]{'joinColumns','urn:tooling.soap.sforce.com',null,'0','-1','false'};
+        private String[] field_order_type_info = new String[]{'apexType','columnName','custom','displayName','foreignKeyName','joinColumns'};
     }
     public class PackageVersion {
         public Integer majorNumber;
@@ -659,11 +691,13 @@ public class ToolingAPIWSDL {
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
         private String[] field_order_type_info = new String[]{'commentsRequired','label','name','nextOwnerRequired','versionRequired'};
     }
-    public class DescribeLayoutButtonSection {
-        public ToolingAPIWSDL.DescribeLayoutButton[] detailButtons;
-        private String[] detailButtons_type_info = new String[]{'detailButtons','urn:tooling.soap.sforce.com',null,'0','-1','false'};
+    public class SearchRecord {
+        public ToolingAPIWSDL.sObject_x record;
+        public ToolingAPIWSDL.SearchSnippet snippet;
+        private String[] record_type_info = new String[]{'record','urn:tooling.soap.sforce.com',null,'1','1','false'};
+        private String[] snippet_type_info = new String[]{'snippet','urn:tooling.soap.sforce.com',null,'0','1','false'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'detailButtons'};
+        private String[] field_order_type_info = new String[]{'record','snippet'};
     }
     public virtual class ApiFault {
         public String exceptionCode;
@@ -677,15 +711,9 @@ public class ToolingAPIWSDL {
         private String[] upgradeURL_type_info = new String[]{'upgradeURL','urn:tooling.soap.sforce.com',null,'0','1','false'};
         private String[] upgradeMessage_type_info = new String[]{'upgradeMessage','urn:tooling.soap.sforce.com',null,'0','1','false'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'exceptionCode','exceptionMessage','upgradeURL','upgradeMessage'};
         private String[] row_type_info = new String[]{'row','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] column_type_info = new String[]{'column','urn:tooling.soap.sforce.com',null,'1','1','false'};
-    }
-    public class AllOrNoneHeader_element {
-        public Boolean allOrNone;
-        private String[] allOrNone_type_info = new String[]{'allOrNone','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'allOrNone'};
+        private String[] field_order_type_info = new String[]{'exceptionCode','exceptionMessage','upgradeURL','upgradeMessage','row','column'};
     }
     public class describeWorkitemActions_element {
         public String[] workitemIds;
@@ -693,29 +721,21 @@ public class ToolingAPIWSDL {
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
         private String[] field_order_type_info = new String[]{'workitemIds'};
     }
-    public class DeleteApexResult {
-        public String id;
-        public String problem;
-        public Boolean success;
-        private String[] id_type_info = new String[]{'id','urn:tooling.soap.sforce.com',null,'1','1','true'};
-        private String[] problem_type_info = new String[]{'problem','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] success_type_info = new String[]{'success','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'id','problem','success'};
-    }
     public class RunTestSuccess {
         public String id;
         public String methodName;
         public String name;
         public String namespace;
+        public Boolean seeAllData;
         public Double time_x;
         private String[] id_type_info = new String[]{'id','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] methodName_type_info = new String[]{'methodName','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] name_type_info = new String[]{'name','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] namespace_type_info = new String[]{'namespace','urn:tooling.soap.sforce.com',null,'1','1','true'};
+        private String[] seeAllData_type_info = new String[]{'seeAllData','urn:tooling.soap.sforce.com',null,'0','1','false'};
         private String[] time_x_type_info = new String[]{'time','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'id','methodName','name','namespace','time_x'};
+        private String[] field_order_type_info = new String[]{'id','methodName','name','namespace','seeAllData','time_x'};
     }
     public class LogInfo {
         public String category;
@@ -733,19 +753,13 @@ public class ToolingAPIWSDL {
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
         private String[] field_order_type_info = new String[]{'deletedDate','id'};
     }
-    public class DescribeColumn {
-        public String field;
-        public String format;
-        public String label;
-        public String name;
-        public Boolean sortable;
-        private String[] field_type_info = new String[]{'field','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] format_type_info = new String[]{'format','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] label_type_info = new String[]{'label','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] name_type_info = new String[]{'name','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] sortable_type_info = new String[]{'sortable','urn:tooling.soap.sforce.com',null,'1','1','false'};
+    public class SearchResult {
+        public String queryId;
+        public ToolingAPIWSDL.SearchRecord[] searchRecords;
+        private String[] queryId_type_info = new String[]{'queryId','urn:tooling.soap.sforce.com',null,'1','1','false'};
+        private String[] searchRecords_type_info = new String[]{'searchRecords','urn:tooling.soap.sforce.com',null,'0','-1','false'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'field','format','label','name','sortable'};
+        private String[] field_order_type_info = new String[]{'queryId','searchRecords'};
     }
     public class QueryResultMetadata {
         public ToolingAPIWSDL.QueryResultColumnMetadata[] columnMetadata;
@@ -847,16 +861,6 @@ public class ToolingAPIWSDL {
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
         private String[] field_order_type_info = new String[]{'result'};
     }
-    public class WorkflowEmailRecipient {
-        public String field;
-        public String recipient;
-        public String type_x;
-        private String[] field_type_info = new String[]{'field','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] recipient_type_info = new String[]{'recipient','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] type_x_type_info = new String[]{'type','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'field','recipient','type_x'};
-    }
     public class CodeCoverageResult {
         public String id;
         public ToolingAPIWSDL.CodeLocation[] locationsNotCovered;
@@ -887,69 +891,45 @@ public class ToolingAPIWSDL {
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
         private String[] field_order_type_info = new String[]{'types'};
     }
-    public class DescribeLayoutItem {
-        public Boolean editable;
-        public String label;
-        public ToolingAPIWSDL.DescribeLayoutComponent[] layoutComponents;
-        public Boolean placeholder;
-        public Boolean required;
-        private String[] editable_type_info = new String[]{'editable','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] label_type_info = new String[]{'label','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] layoutComponents_type_info = new String[]{'layoutComponents','urn:tooling.soap.sforce.com',null,'0','-1','false'};
-        private String[] placeholder_type_info = new String[]{'placeholder','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] required_type_info = new String[]{'required','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'editable','label','layoutComponents','placeholder','required'};
-    }
-    public class ProcessResult {
-        public String[] actorIds;
-        public String entityId;
-        public ToolingAPIWSDL.Error[] errors;
-        public String instanceId;
-        public String instanceStatus;
-        public String[] newWorkitemIds;
-        public Boolean success;
-        private String[] actorIds_type_info = new String[]{'actorIds','urn:tooling.soap.sforce.com',null,'0','-1','false'};
-        private String[] entityId_type_info = new String[]{'entityId','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] errors_type_info = new String[]{'errors','urn:tooling.soap.sforce.com',null,'0','-1','false'};
-        private String[] instanceId_type_info = new String[]{'instanceId','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] instanceStatus_type_info = new String[]{'instanceStatus','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] newWorkitemIds_type_info = new String[]{'newWorkitemIds','urn:tooling.soap.sforce.com',null,'0','-1','false'};
-        private String[] success_type_info = new String[]{'success','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'actorIds','entityId','errors','instanceId','instanceStatus','newWorkitemIds','success'};
-    }
     public class queryMoreResponse_element {
         public ToolingAPIWSDL.QueryResult result;
         private String[] result_type_info = new String[]{'result','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
         private String[] field_order_type_info = new String[]{'result'};
     }
+    public class DescribeValueTypeResult {
+        public ToolingAPIWSDL.ValueTypeField[] valueTypeFields;
+        private String[] valueTypeFields_type_info = new String[]{'valueTypeFields','urn:tooling.soap.sforce.com',null,'0','-1','false'};
+        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
+        private String[] field_order_type_info = new String[]{'valueTypeFields'};
+    }
     public class describeGlobal_element {
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
         private String[] field_order_type_info = new String[]{};
     }
-    public class DescribeLayoutSection {
-        public Integer columns;
-        public String heading;
-        public ToolingAPIWSDL.DescribeLayoutRow[] layoutRows;
-        public Integer rows;
-        public Boolean useCollapsibleSection;
-        public Boolean useHeading;
-        private String[] columns_type_info = new String[]{'columns','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] heading_type_info = new String[]{'heading','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] layoutRows_type_info = new String[]{'layoutRows','urn:tooling.soap.sforce.com',null,'0','-1','false'};
-        private String[] rows_type_info = new String[]{'rows','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] useCollapsibleSection_type_info = new String[]{'useCollapsibleSection','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] useHeading_type_info = new String[]{'useHeading','urn:tooling.soap.sforce.com',null,'1','1','false'};
+    public class describeValueTypeResponse_element {
+        public ToolingAPIWSDL.DescribeValueTypeResult result;
+        private String[] result_type_info = new String[]{'result','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'columns','heading','layoutRows','rows','useCollapsibleSection','useHeading'};
+        private String[] field_order_type_info = new String[]{'result'};
     }
     public class setPasswordResponse_element {
         public ToolingAPIWSDL.SetPasswordResult result;
         private String[] result_type_info = new String[]{'result','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
         private String[] field_order_type_info = new String[]{'result'};
+    }
+    public class ActionOverride {
+        public Boolean isAvailableInTouch;
+        public String name;
+        public String pageId;
+        public String url;
+        private String[] isAvailableInTouch_type_info = new String[]{'isAvailableInTouch','urn:tooling.soap.sforce.com',null,'1','1','false'};
+        private String[] name_type_info = new String[]{'name','urn:tooling.soap.sforce.com',null,'1','1','false'};
+        private String[] pageId_type_info = new String[]{'pageId','urn:tooling.soap.sforce.com',null,'1','1','false'};
+        private String[] url_type_info = new String[]{'url','urn:tooling.soap.sforce.com',null,'1','1','false'};
+        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
+        private String[] field_order_type_info = new String[]{'isAvailableInTouch','name','pageId','url'};
     }
     public class describeWorkitemActionsResponse_element {
         public ToolingAPIWSDL.DescribeWorkitemActionResult[] result;
@@ -973,6 +953,12 @@ public class ToolingAPIWSDL {
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
         private String[] field_order_type_info = new String[]{'encoding','maxBatchSize','sobjects'};
     }
+    public class searchResponse_element {
+        public ToolingAPIWSDL.SearchResult result;
+        private String[] result_type_info = new String[]{'result','urn:tooling.soap.sforce.com',null,'1','1','false'};
+        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
+        private String[] field_order_type_info = new String[]{'result'};
+    }
     public class HeapAddress {
         public String address;
         public Integer size;
@@ -985,19 +971,15 @@ public class ToolingAPIWSDL {
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
         private String[] field_order_type_info = new String[]{'address','size','symbols','value'};
     }
-    public class DescribeIconResult {
-        public String contentType;
-        public Integer height;
-        public String theme;
-        public String url;
-        public Integer width;
-        private String[] contentType_type_info = new String[]{'contentType','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] height_type_info = new String[]{'height','urn:tooling.soap.sforce.com',null,'1','1','true'};
-        private String[] theme_type_info = new String[]{'theme','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] url_type_info = new String[]{'url','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] width_type_info = new String[]{'width','urn:tooling.soap.sforce.com',null,'1','1','true'};
+    public class FilteredLookupInfo {
+        public String[] controllingFields;
+        public Boolean dependent;
+        public Boolean optionalFilter;
+        private String[] controllingFields_type_info = new String[]{'controllingFields','urn:tooling.soap.sforce.com',null,'0','-1','false'};
+        private String[] dependent_type_info = new String[]{'dependent','urn:tooling.soap.sforce.com',null,'1','1','false'};
+        private String[] optionalFilter_type_info = new String[]{'optionalFilter','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'contentType','height','theme','url','width'};
+        private String[] field_order_type_info = new String[]{'controllingFields','dependent','optionalFilter'};
     }
     public class Field {
         public Boolean autoNumber;
@@ -1018,7 +1000,9 @@ public class ToolingAPIWSDL {
         public Boolean externalId;
         public String extraTypeInfo;
         public Boolean filterable;
+        public ToolingAPIWSDL.FilteredLookupInfo filteredLookupInfo;
         public Boolean groupable;
+        public Boolean highScaleNumber;
         public Boolean htmlFormatted;
         public Boolean idLookup;
         public String inlineHelpText;
@@ -1033,6 +1017,7 @@ public class ToolingAPIWSDL {
         public Boolean permissionable;
         public ToolingAPIWSDL.PicklistEntry[] picklistValues;
         public Integer precision;
+        public String referenceTargetField;
         public String[] referenceTo;
         public String relationshipName;
         public Integer relationshipOrder;
@@ -1063,7 +1048,9 @@ public class ToolingAPIWSDL {
         private String[] externalId_type_info = new String[]{'externalId','urn:tooling.soap.sforce.com',null,'0','1','false'};
         private String[] extraTypeInfo_type_info = new String[]{'extraTypeInfo','urn:tooling.soap.sforce.com',null,'0','1','false'};
         private String[] filterable_type_info = new String[]{'filterable','urn:tooling.soap.sforce.com',null,'1','1','false'};
+        private String[] filteredLookupInfo_type_info = new String[]{'filteredLookupInfo','urn:tooling.soap.sforce.com',null,'0','1','false'};
         private String[] groupable_type_info = new String[]{'groupable','urn:tooling.soap.sforce.com',null,'1','1','false'};
+        private String[] highScaleNumber_type_info = new String[]{'highScaleNumber','urn:tooling.soap.sforce.com',null,'0','1','false'};
         private String[] htmlFormatted_type_info = new String[]{'htmlFormatted','urn:tooling.soap.sforce.com',null,'0','1','false'};
         private String[] idLookup_type_info = new String[]{'idLookup','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] inlineHelpText_type_info = new String[]{'inlineHelpText','urn:tooling.soap.sforce.com',null,'0','1','false'};
@@ -1078,6 +1065,7 @@ public class ToolingAPIWSDL {
         private String[] permissionable_type_info = new String[]{'permissionable','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] picklistValues_type_info = new String[]{'picklistValues','urn:tooling.soap.sforce.com',null,'0','-1','false'};
         private String[] precision_type_info = new String[]{'precision','urn:tooling.soap.sforce.com',null,'1','1','false'};
+        private String[] referenceTargetField_type_info = new String[]{'referenceTargetField','urn:tooling.soap.sforce.com',null,'0','1','false'};
         private String[] referenceTo_type_info = new String[]{'referenceTo','urn:tooling.soap.sforce.com',null,'0','-1','false'};
         private String[] relationshipName_type_info = new String[]{'relationshipName','urn:tooling.soap.sforce.com',null,'0','1','false'};
         private String[] relationshipOrder_type_info = new String[]{'relationshipOrder','urn:tooling.soap.sforce.com',null,'0','1','false'};
@@ -1091,23 +1079,13 @@ public class ToolingAPIWSDL {
         private String[] updateable_type_info = new String[]{'updateable','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] writeRequiresMasterRead_type_info = new String[]{'writeRequiresMasterRead','urn:tooling.soap.sforce.com',null,'0','1','false'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'autoNumber','byteLength','calculated','calculatedFormula','cascadeDelete','caseSensitive','controllerName','createable','custom','defaultValueFormula','defaultedOnCreate','dependentPicklist','deprecatedAndHidden','digits','displayLocationInDecimal','externalId','extraTypeInfo','filterable','groupable','htmlFormatted','idLookup','inlineHelpText','label','length','mask','maskType','name','nameField','namePointing','nillable','permissionable','picklistValues','precision','referenceTo','relationshipName','relationshipOrder','restrictedDelete','restrictedPicklist','scale','soapType','sortable','type_x','unique','updateable','writeRequiresMasterRead'};
+        private String[] field_order_type_info = new String[]{'autoNumber','byteLength','calculated','calculatedFormula','cascadeDelete','caseSensitive','controllerName','createable','custom','defaultValueFormula','defaultedOnCreate','dependentPicklist','deprecatedAndHidden','digits','displayLocationInDecimal','externalId','extraTypeInfo','filterable','filteredLookupInfo','groupable','highScaleNumber','htmlFormatted','idLookup','inlineHelpText','label','length','mask','maskType','name','nameField','namePointing','nillable','permissionable','picklistValues','precision','referenceTargetField','referenceTo','relationshipName','relationshipOrder','restrictedDelete','restrictedPicklist','scale','soapType','sortable','type_x','unique','updateable','writeRequiresMasterRead'};
     }
     public class invalidateSessionsResponse_element {
         public ToolingAPIWSDL.InvalidateSessionsResult[] result;
         private String[] result_type_info = new String[]{'result','urn:tooling.soap.sforce.com',null,'0','-1','false'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
         private String[] field_order_type_info = new String[]{'result'};
-    }
-    public class WsdlToApexResult {
-        public String[] apexScripts;
-        public String[] errors;
-        public Boolean success;
-        private String[] apexScripts_type_info = new String[]{'apexScripts','urn:tooling.soap.sforce.com',null,'0','-1','false'};
-        private String[] errors_type_info = new String[]{'errors','urn:tooling.soap.sforce.com',null,'0','-1','false'};
-        private String[] success_type_info = new String[]{'success','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'apexScripts','errors','success'};
     }
     public class PicklistEntry {
         public Boolean active;
@@ -1141,14 +1119,6 @@ public class ToolingAPIWSDL {
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
         private String[] field_order_type_info = new String[]{'id','message','name','namespace'};
     }
-    public class NamespacePackagePair {
-        public String namespace;
-        public String packageName;
-        private String[] namespace_type_info = new String[]{'namespace','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] packageName_type_info = new String[]{'packageName','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'namespace','packageName'};
-    }
     public class DebuggingInfo_element {
         public String debugLog;
         private String[] debugLog_type_info = new String[]{'debugLog','urn:tooling.soap.sforce.com',null,'1','1','false'};
@@ -1156,6 +1126,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'debugLog'};
     }
     public class DescribeSObjectResult {
+        public ToolingAPIWSDL.ActionOverride[] actionOverrides;
         public Boolean activateable;
         public ToolingAPIWSDL.ChildRelationship[] childRelationships;
         public Boolean createable;
@@ -1173,6 +1144,7 @@ public class ToolingAPIWSDL {
         public Boolean lookupLayoutable;
         public Boolean mergeable;
         public String name;
+        public ToolingAPIWSDL.NamedLayoutInfo[] namedLayoutInfos;
         public Boolean queryable;
         public ToolingAPIWSDL.RecordTypeInfo[] recordTypeInfos;
         public Boolean replicateable;
@@ -1182,6 +1154,7 @@ public class ToolingAPIWSDL {
         public Boolean triggerable;
         public Boolean undeletable;
         public Boolean updateable;
+        private String[] actionOverrides_type_info = new String[]{'actionOverrides','urn:tooling.soap.sforce.com',null,'0','-1','false'};
         private String[] activateable_type_info = new String[]{'activateable','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] childRelationships_type_info = new String[]{'childRelationships','urn:tooling.soap.sforce.com',null,'0','-1','false'};
         private String[] createable_type_info = new String[]{'createable','urn:tooling.soap.sforce.com',null,'1','1','false'};
@@ -1199,6 +1172,7 @@ public class ToolingAPIWSDL {
         private String[] lookupLayoutable_type_info = new String[]{'lookupLayoutable','urn:tooling.soap.sforce.com',null,'0','1','false'};
         private String[] mergeable_type_info = new String[]{'mergeable','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] name_type_info = new String[]{'name','urn:tooling.soap.sforce.com',null,'1','1','false'};
+        private String[] namedLayoutInfos_type_info = new String[]{'namedLayoutInfos','urn:tooling.soap.sforce.com',null,'0','-1','false'};
         private String[] queryable_type_info = new String[]{'queryable','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] recordTypeInfos_type_info = new String[]{'recordTypeInfos','urn:tooling.soap.sforce.com',null,'0','-1','false'};
         private String[] replicateable_type_info = new String[]{'replicateable','urn:tooling.soap.sforce.com',null,'1','1','false'};
@@ -1209,7 +1183,7 @@ public class ToolingAPIWSDL {
         private String[] undeletable_type_info = new String[]{'undeletable','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] updateable_type_info = new String[]{'updateable','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'activateable','childRelationships','createable','custom','customSetting','deletable','deprecatedAndHidden','feedEnabled','fields','keyPrefix','label','labelPlural','layoutable','listviewable','lookupLayoutable','mergeable','name','queryable','recordTypeInfos','replicateable','retrieveable','searchLayoutable','searchable','triggerable','undeletable','updateable'};
+        private String[] field_order_type_info = new String[]{'actionOverrides','activateable','childRelationships','createable','custom','customSetting','deletable','deprecatedAndHidden','feedEnabled','fields','keyPrefix','label','labelPlural','layoutable','listviewable','lookupLayoutable','mergeable','name','namedLayoutInfos','queryable','recordTypeInfos','replicateable','retrieveable','searchLayoutable','searchable','triggerable','undeletable','updateable'};
     }
     public class deleteResponse_element {
         public ToolingAPIWSDL.DeleteResult[] result;
@@ -1225,46 +1199,6 @@ public class ToolingAPIWSDL {
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
         private String[] field_order_type_info = new String[]{'coveredLines','uncoveredLines'};
     }
-    public class CompileClassResult {
-        public Integer bodyCrc;
-        public Integer column;
-        public String id;
-        public Integer line;
-        public String name;
-        public String problem;
-        public Boolean success;
-        public String[] warnings;
-        private String[] bodyCrc_type_info = new String[]{'bodyCrc','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] column_type_info = new String[]{'column','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] id_type_info = new String[]{'id','urn:tooling.soap.sforce.com',null,'1','1','true'};
-        private String[] line_type_info = new String[]{'line','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] name_type_info = new String[]{'name','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] problem_type_info = new String[]{'problem','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] success_type_info = new String[]{'success','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] warnings_type_info = new String[]{'warnings','urn:tooling.soap.sforce.com',null,'0','-1','false'};
-        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'bodyCrc','column','id','line','name','problem','success','warnings'};
-    }
-    public class WorkflowActionReference {
-        public String name;
-        public String type_x;
-        private String[] name_type_info = new String[]{'name','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] type_x_type_info = new String[]{'type','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'name','type_x'};
-    }
-    public class FilterItem {
-        public String field;
-        public String operation;
-        public String value;
-        public String valueField;
-        private String[] field_type_info = new String[]{'field','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] operation_type_info = new String[]{'operation','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] value_type_info = new String[]{'value','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] valueField_type_info = new String[]{'valueField','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'field','operation','value','valueField'};
-    }
     public class update_element {
         public ToolingAPIWSDL.sObject_x[] sObjects;
         private String[] sObjects_type_info = new String[]{'sObjects','urn:tooling.soap.sforce.com',null,'0','-1','false'};
@@ -1276,30 +1210,34 @@ public class ToolingAPIWSDL {
         public String childSObject;
         public Boolean deprecatedAndHidden;
         public String field;
+        public String junctionIdListName;
+        public String[] junctionReferenceTo;
         public String relationshipName;
         public Boolean restrictedDelete;
         private String[] cascadeDelete_type_info = new String[]{'cascadeDelete','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] childSObject_type_info = new String[]{'childSObject','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] deprecatedAndHidden_type_info = new String[]{'deprecatedAndHidden','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] field_type_info = new String[]{'field','urn:tooling.soap.sforce.com',null,'1','1','false'};
+        private String[] junctionIdListName_type_info = new String[]{'junctionIdListName','urn:tooling.soap.sforce.com',null,'0','1','false'};
+        private String[] junctionReferenceTo_type_info = new String[]{'junctionReferenceTo','urn:tooling.soap.sforce.com',null,'0','-1','false'};
         private String[] relationshipName_type_info = new String[]{'relationshipName','urn:tooling.soap.sforce.com',null,'0','1','false'};
         private String[] restrictedDelete_type_info = new String[]{'restrictedDelete','urn:tooling.soap.sforce.com',null,'0','1','false'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'cascadeDelete','childSObject','deprecatedAndHidden','field','relationshipName','restrictedDelete'};
-    }
-    public class WsdlToApexInfo {
-        public ToolingAPIWSDL.NamespacePackagePair[] mapping;
-        public String wsdl;
-        private String[] mapping_type_info = new String[]{'mapping','urn:tooling.soap.sforce.com',null,'0','-1','false'};
-        private String[] wsdl_type_info = new String[]{'wsdl','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'mapping','wsdl'};
+        private String[] field_order_type_info = new String[]{'cascadeDelete','childSObject','deprecatedAndHidden','field','junctionIdListName','junctionReferenceTo','relationshipName','restrictedDelete'};
     }
     public class runTestsAsynchronous_element {
         public String String_x;
         private String[] String_x_type_info = new String[]{'String','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
         private String[] field_order_type_info = new String[]{'String_x'};
+    }
+    public class SearchSnippet {
+        public String text;
+        public ToolingAPIWSDL.NameValuePair[] wholeFields;
+        private String[] text_type_info = new String[]{'text','urn:tooling.soap.sforce.com',null,'0','1','false'};
+        private String[] wholeFields_type_info = new String[]{'wholeFields','urn:tooling.soap.sforce.com',null,'0','-1','false'};
+        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
+        private String[] field_order_type_info = new String[]{'text','wholeFields'};
     }
     public class ExternalReference {
         public ToolingAPIWSDL.ExternalMethod[] methods;
@@ -1361,6 +1299,16 @@ public class ToolingAPIWSDL {
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
         private String[] field_order_type_info = new String[]{'sObjectType','start','end_x'};
     }
+    public class DeployDetails {
+        public ToolingAPIWSDL.DeployMessage[] componentFailures;
+        public ToolingAPIWSDL.DeployMessage[] componentSuccesses;
+        public ToolingAPIWSDL.RunTestsResult runTestResult;
+        private String[] componentFailures_type_info = new String[]{'componentFailures','urn:tooling.soap.sforce.com',null,'0','-1','false'};
+        private String[] componentSuccesses_type_info = new String[]{'componentSuccesses','urn:tooling.soap.sforce.com',null,'0','-1','false'};
+        private String[] runTestResult_type_info = new String[]{'runTestResult','urn:tooling.soap.sforce.com',null,'0','1','false'};
+        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
+        private String[] field_order_type_info = new String[]{'componentFailures','componentSuccesses','runTestResult'};
+    }
     public class Position {
         public Integer column;
         public Integer line;
@@ -1375,43 +1323,49 @@ public class ToolingAPIWSDL {
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
         private String[] field_order_type_info = new String[]{'ArrayList'};
     }
+    public class DeployMessage {
+        public Boolean changed;
+        public Integer columnNumber;
+        public String componentType;
+        public Boolean created;
+        public DateTime createdDate;
+        public Boolean deleted;
+        public String fileName;
+        public String fullName;
+        public String id;
+        public Integer lineNumber;
+        public String problem;
+        public String problemType;
+        public Boolean success;
+        private String[] changed_type_info = new String[]{'changed','urn:tooling.soap.sforce.com',null,'1','1','false'};
+        private String[] columnNumber_type_info = new String[]{'columnNumber','urn:tooling.soap.sforce.com',null,'0','1','false'};
+        private String[] componentType_type_info = new String[]{'componentType','urn:tooling.soap.sforce.com',null,'0','1','false'};
+        private String[] created_type_info = new String[]{'created','urn:tooling.soap.sforce.com',null,'1','1','false'};
+        private String[] createdDate_type_info = new String[]{'createdDate','urn:tooling.soap.sforce.com',null,'1','1','false'};
+        private String[] deleted_type_info = new String[]{'deleted','urn:tooling.soap.sforce.com',null,'1','1','false'};
+        private String[] fileName_type_info = new String[]{'fileName','urn:tooling.soap.sforce.com',null,'1','1','false'};
+        private String[] fullName_type_info = new String[]{'fullName','urn:tooling.soap.sforce.com',null,'1','1','false'};
+        private String[] id_type_info = new String[]{'id','urn:tooling.soap.sforce.com',null,'0','1','false'};
+        private String[] lineNumber_type_info = new String[]{'lineNumber','urn:tooling.soap.sforce.com',null,'0','1','false'};
+        private String[] problem_type_info = new String[]{'problem','urn:tooling.soap.sforce.com',null,'0','1','false'};
+        private String[] problemType_type_info = new String[]{'problemType','urn:tooling.soap.sforce.com',null,'0','1','false'};
+        private String[] success_type_info = new String[]{'success','urn:tooling.soap.sforce.com',null,'1','1','false'};
+        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
+        private String[] field_order_type_info = new String[]{'changed','columnNumber','componentType','created','createdDate','deleted','fileName','fullName','id','lineNumber','problem','problemType','success'};
+    }
     public class SessionHeader_element {
         public String sessionId;
         private String[] sessionId_type_info = new String[]{'sessionId','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
         private String[] field_order_type_info = new String[]{'sessionId'};
     }
-    public class ResetPasswordResult {
-        public String password;
-        private String[] password_type_info = new String[]{'password','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'password'};
-    }
-    public class CompileTriggerResult {
-        public Integer bodyCrc;
-        public Integer column;
-        public String id;
-        public Integer line;
-        public String name;
-        public String problem;
-        public Boolean success;
-        private String[] bodyCrc_type_info = new String[]{'bodyCrc','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] column_type_info = new String[]{'column','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] id_type_info = new String[]{'id','urn:tooling.soap.sforce.com',null,'1','1','true'};
-        private String[] line_type_info = new String[]{'line','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] name_type_info = new String[]{'name','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] problem_type_info = new String[]{'problem','urn:tooling.soap.sforce.com',null,'1','1','true'};
-        private String[] success_type_info = new String[]{'success','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'bodyCrc','column','id','line','name','problem','success'};
-    }
     public virtual class StateValue {
         public ToolingAPIWSDL.MapEntry[] entry;
         public ToolingAPIWSDL.StateValue[] value;
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{};
         private String[] entry_type_info = new String[]{'entry','urn:tooling.soap.sforce.com',null,'0','-1','false'};
         private String[] value_type_info = new String[]{'value','urn:tooling.soap.sforce.com',null,'0','-1','false'};
+        private String[] field_order_type_info = new String[]{'entry','value'};
     }
     public class setPassword_element {
         public String userId;
@@ -1428,6 +1382,18 @@ public class ToolingAPIWSDL {
         private String[] latestDateCovered_type_info = new String[]{'latestDateCovered','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
         private String[] field_order_type_info = new String[]{'ids','latestDateCovered'};
+    }
+    public class search_element {
+        public String searchString;
+        private String[] searchString_type_info = new String[]{'searchString','urn:tooling.soap.sforce.com',null,'1','1','false'};
+        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
+        private String[] field_order_type_info = new String[]{'searchString'};
+    }
+    public class MetadataWarningsHeader_element {
+        public Boolean ignoreSaveWarnings;
+        private String[] ignoreSaveWarnings_type_info = new String[]{'ignoreSaveWarnings','urn:tooling.soap.sforce.com',null,'1','1','false'};
+        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
+        private String[] field_order_type_info = new String[]{'ignoreSaveWarnings'};
     }
     public class createResponse_element {
         public ToolingAPIWSDL.SaveResult[] result;
@@ -1563,63 +1529,17 @@ public class ToolingAPIWSDL {
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
         private String[] field_order_type_info = new String[]{'metadataServerUrl','passwordExpired','sandbox','serverUrl','sessionId','upgradeMessage','upgradeURL','userId','userInfo'};
     }
-    public class Picklist {
-        public String controllingField;
-        public Boolean sorted;
-        private String[] controllingField_type_info = new String[]{'controllingField','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] sorted_type_info = new String[]{'sorted','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'controllingField','sorted'};
-    }
     public class upsertResponse_element {
         public ToolingAPIWSDL.UpsertResult[] result;
         private String[] result_type_info = new String[]{'result','urn:tooling.soap.sforce.com',null,'0','-1','false'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
         private String[] field_order_type_info = new String[]{'result'};
     }
-    public class DescribeColorResult {
-        public String color;
-        public String context;
-        public String theme;
-        private String[] color_type_info = new String[]{'color','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] context_type_info = new String[]{'context','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] theme_type_info = new String[]{'theme','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'color','context','theme'};
-    }
-    public class CompileAndTestRequest {
-        public Boolean checkOnly;
-        public String[] classes;
-        public String[] deleteClasses;
-        public String[] deleteTriggers;
-        public ToolingAPIWSDL.RunTestsRequest runTestsRequest;
-        public String[] triggers;
-        private String[] checkOnly_type_info = new String[]{'checkOnly','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] classes_type_info = new String[]{'classes','urn:tooling.soap.sforce.com',null,'0','-1','false'};
-        private String[] deleteClasses_type_info = new String[]{'deleteClasses','urn:tooling.soap.sforce.com',null,'0','-1','false'};
-        private String[] deleteTriggers_type_info = new String[]{'deleteTriggers','urn:tooling.soap.sforce.com',null,'0','-1','false'};
-        private String[] runTestsRequest_type_info = new String[]{'runTestsRequest','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] triggers_type_info = new String[]{'triggers','urn:tooling.soap.sforce.com',null,'0','-1','false'};
-        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'checkOnly','classes','deleteClasses','deleteTriggers','runTestsRequest','triggers'};
-    }
     public class retrieveResponse_element {
         public ToolingAPIWSDL.sObject_x[] result;
         private String[] result_type_info = new String[]{'result','urn:tooling.soap.sforce.com',null,'0','-1','false'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
         private String[] field_order_type_info = new String[]{'result'};
-    }
-    public class WorkflowTimeTrigger {
-        public ToolingAPIWSDL.WorkflowActionReference[] actions;
-        public String offsetFromField;
-        public String timeLength;
-        public String workflowTimeTriggerUnit;
-        private String[] actions_type_info = new String[]{'actions','urn:tooling.soap.sforce.com',null,'0','-1','false'};
-        private String[] offsetFromField_type_info = new String[]{'offsetFromField','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] timeLength_type_info = new String[]{'timeLength','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] workflowTimeTriggerUnit_type_info = new String[]{'workflowTimeTriggerUnit','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'actions','offsetFromField','timeLength','workflowTimeTriggerUnit'};
     }
     public virtual class ExternalSymbol {
         public String name;
@@ -1628,8 +1548,8 @@ public class ToolingAPIWSDL {
         private String[] name_type_info = new String[]{'name','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] references_type_info = new String[]{'references','urn:tooling.soap.sforce.com',null,'0','-1','false'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'name','references'};
         private String[] parameters_type_info = new String[]{'parameters','urn:tooling.soap.sforce.com',null,'0','-1','false'};
+        private String[] field_order_type_info = new String[]{'name','references','parameters'};
     }
     public class getDeletedResponse_element {
         public ToolingAPIWSDL.GetDeletedResult result;
@@ -1649,6 +1569,7 @@ public class ToolingAPIWSDL {
         public String methodName;
         public String name;
         public String namespace;
+        public Boolean seeAllData;
         public String stackTrace;
         public Double time_x;
         public String type_x;
@@ -1657,11 +1578,12 @@ public class ToolingAPIWSDL {
         private String[] methodName_type_info = new String[]{'methodName','urn:tooling.soap.sforce.com',null,'1','1','true'};
         private String[] name_type_info = new String[]{'name','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] namespace_type_info = new String[]{'namespace','urn:tooling.soap.sforce.com',null,'1','1','true'};
+        private String[] seeAllData_type_info = new String[]{'seeAllData','urn:tooling.soap.sforce.com',null,'0','1','false'};
         private String[] stackTrace_type_info = new String[]{'stackTrace','urn:tooling.soap.sforce.com',null,'1','1','true'};
         private String[] time_x_type_info = new String[]{'time','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] type_x_type_info = new String[]{'type','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'id','message','methodName','name','namespace','stackTrace','time_x','type_x'};
+        private String[] field_order_type_info = new String[]{'id','message','methodName','name','namespace','seeAllData','stackTrace','time_x','type_x'};
     }
     public class DescribeWorkitemActionResult {
         public ToolingAPIWSDL.AllowedWorkitemAction[] actions;
@@ -1682,6 +1604,12 @@ public class ToolingAPIWSDL {
         private String[] queryString_type_info = new String[]{'queryString','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
         private String[] field_order_type_info = new String[]{'queryString'};
+    }
+    public class NamedLayoutInfo {
+        public String name;
+        private String[] name_type_info = new String[]{'name','urn:tooling.soap.sforce.com',null,'1','1','false'};
+        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
+        private String[] field_order_type_info = new String[]{'name'};
     }
     public class PackageVersionHeader_element {
         public ToolingAPIWSDL.PackageVersion[] packageVersions;
@@ -1704,18 +1632,6 @@ public class ToolingAPIWSDL {
         private String[] disableFeedTracking_type_info = new String[]{'disableFeedTracking','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
         private String[] field_order_type_info = new String[]{'disableFeedTracking'};
-    }
-    public class DescribeLayoutButton {
-        public Boolean custom;
-        public ToolingAPIWSDL.DescribeIconResult[] icons;
-        public String label;
-        public String name;
-        private String[] custom_type_info = new String[]{'custom','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] icons_type_info = new String[]{'icons','urn:tooling.soap.sforce.com',null,'0','-1','false'};
-        private String[] label_type_info = new String[]{'label','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] name_type_info = new String[]{'name','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'custom','icons','label','name'};
     }
     public class runTests_element {
         public ToolingAPIWSDL.RunTestsRequest RunTestsRequest;
@@ -1780,8 +1696,8 @@ public class ToolingAPIWSDL {
         private String[] references_type_info = new String[]{'references','urn:tooling.soap.sforce.com',null,'0','-1','false'};
         private String[] type_x_type_info = new String[]{'type','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'location','modifiers','name','references','type_x'};
         private String[] visibility_type_info = new String[]{'visibility','urn:tooling.soap.sforce.com',null,'1','1','false'};
+        private String[] field_order_type_info = new String[]{'location','modifiers','name','references','type_x','visibility'};
     }
     public class AttributeDefinition {
         public String name;
@@ -1791,23 +1707,11 @@ public class ToolingAPIWSDL {
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
         private String[] field_order_type_info = new String[]{'name','type_x'};
     }
-    public class LookupFilter {
-        public Boolean active;
-        public String booleanFilter;
-        public String description;
-        public String errorMessage;
-        public ToolingAPIWSDL.FilterItem[] filterItems;
-        public String infoMessage;
-        public Boolean isOptional;
-        private String[] active_type_info = new String[]{'active','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] booleanFilter_type_info = new String[]{'booleanFilter','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] description_type_info = new String[]{'description','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] errorMessage_type_info = new String[]{'errorMessage','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] filterItems_type_info = new String[]{'filterItems','urn:tooling.soap.sforce.com',null,'0','-1','false'};
-        private String[] infoMessage_type_info = new String[]{'infoMessage','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] isOptional_type_info = new String[]{'isOptional','urn:tooling.soap.sforce.com',null,'1','1','false'};
+    public class describeValueType_element {
+        public String type_x;
+        private String[] type_x_type_info = new String[]{'type','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'active','booleanFilter','description','errorMessage','filterItems','infoMessage','isOptional'};
+        private String[] field_order_type_info = new String[]{'type_x'};
     }
     public class HeapDump {
         public String className;
@@ -1821,13 +1725,13 @@ public class ToolingAPIWSDL {
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
         private String[] field_order_type_info = new String[]{'className','extents','heapDumpDate','namespace'};
     }
-    public class DescribeLayoutRow {
-        public ToolingAPIWSDL.DescribeLayoutItem[] layoutItems;
-        public Integer numItems;
-        private String[] layoutItems_type_info = new String[]{'layoutItems','urn:tooling.soap.sforce.com',null,'0','-1','false'};
-        private String[] numItems_type_info = new String[]{'numItems','urn:tooling.soap.sforce.com',null,'1','1','false'};
+    public class NameValuePair {
+        public String name;
+        public String value;
+        private String[] name_type_info = new String[]{'name','urn:tooling.soap.sforce.com',null,'1','1','false'};
+        private String[] value_type_info = new String[]{'value','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'layoutItems','numItems'};
+        private String[] field_order_type_info = new String[]{'name','value'};
     }
     public class Error {
         public String[] fields;
@@ -1883,75 +1787,11 @@ public class ToolingAPIWSDL {
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
         private String[] field_order_type_info = new String[]{'result'};
     }
-    public class CompileAndTestResult {
-        public ToolingAPIWSDL.CompileClassResult[] classes;
-        public ToolingAPIWSDL.DeleteApexResult[] deleteClasses;
-        public ToolingAPIWSDL.DeleteApexResult[] deleteTriggers;
-        public ToolingAPIWSDL.RunTestsResult runTestsResult;
-        public Boolean success;
-        public ToolingAPIWSDL.CompileTriggerResult[] triggers;
-        private String[] classes_type_info = new String[]{'classes','urn:tooling.soap.sforce.com',null,'0','-1','false'};
-        private String[] deleteClasses_type_info = new String[]{'deleteClasses','urn:tooling.soap.sforce.com',null,'0','-1','false'};
-        private String[] deleteTriggers_type_info = new String[]{'deleteTriggers','urn:tooling.soap.sforce.com',null,'0','-1','false'};
-        private String[] runTestsResult_type_info = new String[]{'runTestsResult','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] success_type_info = new String[]{'success','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] triggers_type_info = new String[]{'triggers','urn:tooling.soap.sforce.com',null,'0','-1','false'};
-        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'classes','deleteClasses','deleteTriggers','runTestsResult','success','triggers'};
-    }
-    public class RuleEntry {
-        public String assignedTo;
-        public String assignedToType;
-        public String booleanFilter;
-        public String businessHours;
-        public String businessHoursSource;
-        public ToolingAPIWSDL.FilterItem[] criteriaItems;
-        public Boolean disableEscalationWhenModified;
-        public ToolingAPIWSDL.EscalationAction[] escalationAction;
-        public String escalationStartTime;
-        public String formula;
-        public Boolean overrideExistingTeams;
-        public String replyToEmail;
-        public String senderEmail;
-        public String senderName;
-        public String[] team;
-        public String template;
-        private String[] assignedTo_type_info = new String[]{'assignedTo','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] assignedToType_type_info = new String[]{'assignedToType','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] booleanFilter_type_info = new String[]{'booleanFilter','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] businessHours_type_info = new String[]{'businessHours','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] businessHoursSource_type_info = new String[]{'businessHoursSource','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] criteriaItems_type_info = new String[]{'criteriaItems','urn:tooling.soap.sforce.com',null,'0','-1','false'};
-        private String[] disableEscalationWhenModified_type_info = new String[]{'disableEscalationWhenModified','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] escalationAction_type_info = new String[]{'escalationAction','urn:tooling.soap.sforce.com',null,'0','-1','false'};
-        private String[] escalationStartTime_type_info = new String[]{'escalationStartTime','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] formula_type_info = new String[]{'formula','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] overrideExistingTeams_type_info = new String[]{'overrideExistingTeams','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] replyToEmail_type_info = new String[]{'replyToEmail','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] senderEmail_type_info = new String[]{'senderEmail','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] senderName_type_info = new String[]{'senderName','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] team_type_info = new String[]{'team','urn:tooling.soap.sforce.com',null,'0','-1','false'};
-        private String[] template_type_info = new String[]{'template','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'assignedTo','assignedToType','booleanFilter','businessHours','businessHoursSource','criteriaItems','disableEscalationWhenModified','escalationAction','escalationStartTime','formula','overrideExistingTeams','replyToEmail','senderEmail','senderName','team','template'};
-    }
     public class describeSObjectResponse_element {
         public ToolingAPIWSDL.DescribeSObjectResult result;
         private String[] result_type_info = new String[]{'result','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
         private String[] field_order_type_info = new String[]{'result'};
-    }
-    public class DescribeLayoutComponent {
-        public Integer displayLines;
-        public Integer tabOrder;
-        public String type_x;
-        public String value;
-        private String[] displayLines_type_info = new String[]{'displayLines','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] tabOrder_type_info = new String[]{'tabOrder','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] type_x_type_info = new String[]{'type','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] value_type_info = new String[]{'value','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'displayLines','tabOrder','type_x','value'};
     }
     public class queryAllResponse_element {
         public ToolingAPIWSDL.QueryResult result;
@@ -1993,27 +1833,109 @@ public class ToolingAPIWSDL {
         private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
         private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fieldsToNull','Id'};
+        private String[] field_order_type_info = new String[]{'ApexClass','ApexClassId','ApexLog','ApexLogId','AsyncApexJob','AsyncApexJobId','Message','MethodName','Outcome','QueueItem','QueueItemId','StackTrace','SystemModstamp','TestTimestamp','fieldsToNull','Id'};
+    }
+    public class CompactLayoutInfo extends sObject_x {
+        public String DeveloperName;
+        public String DurableId;
+        public ToolingAPIWSDL.EntityDefinition EntityDefinition;
+        public String EntityDefinitionId;
+        public String FullName;
+        public Boolean IsDefault;
+        public ToolingAPIWSDL.QueryResult Items;
+        public String Label;
+        public ToolingAPIWSDLMetadata.CompactLayout Metadata;
+        public String NamespacePrefix;
+        public String[] fieldsToNull;
+        public String Id;
+        private String[] DeveloperName_type_info = new String[]{'DeveloperName','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] DurableId_type_info = new String[]{'DurableId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] EntityDefinition_type_info = new String[]{'EntityDefinition','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] EntityDefinitionId_type_info = new String[]{'EntityDefinitionId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] FullName_type_info = new String[]{'FullName','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] IsDefault_type_info = new String[]{'IsDefault','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Items_type_info = new String[]{'Items','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Label_type_info = new String[]{'Label','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Metadata_type_info = new String[]{'Metadata','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] NamespacePrefix_type_info = new String[]{'NamespacePrefix','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
+        private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
+        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
+        private String[] field_order_type_info = new String[]{'DeveloperName','DurableId','EntityDefinition','EntityDefinitionId','FullName','IsDefault','Items','Label','Metadata','NamespacePrefix','fieldsToNull','Id'};
     }
     public class InvalidSObjectFault {
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
         private String[] field_order_type_info = new String[]{};
     }
     public class WorkflowFieldUpdate extends sObject_x {
+        public ToolingAPIWSDL.User_x CreatedBy;
+        public String CreatedById;
+        public DateTime CreatedDate;
+        public ToolingAPIWSDL.EntityDefinition EntityDefinition;
+        public String EntityDefinitionId;
+        public ToolingAPIWSDL.FieldDefinition FieldDefinition;
+        public String FieldDefinitionId;
+        public String FullName;
+        public ToolingAPIWSDL.User_x LastModifiedBy;
+        public String LastModifiedById;
         public DateTime LastModifiedDate;
+        public String LiteralValue;
+        public String LookupValueId;
+        public ToolingAPIWSDLMetadata.WorkflowFieldUpdate Metadata;
         public String Name;
         public String NamespacePrefix;
         public String SourceTableEnumOrId;
         public String[] fieldsToNull;
         public String Id;
+        private String[] CreatedBy_type_info = new String[]{'CreatedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedById_type_info = new String[]{'CreatedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedDate_type_info = new String[]{'CreatedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] EntityDefinition_type_info = new String[]{'EntityDefinition','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] EntityDefinitionId_type_info = new String[]{'EntityDefinitionId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] FieldDefinition_type_info = new String[]{'FieldDefinition','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] FieldDefinitionId_type_info = new String[]{'FieldDefinitionId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] FullName_type_info = new String[]{'FullName','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedBy_type_info = new String[]{'LastModifiedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedById_type_info = new String[]{'LastModifiedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] LastModifiedDate_type_info = new String[]{'LastModifiedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LiteralValue_type_info = new String[]{'LiteralValue','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LookupValueId_type_info = new String[]{'LookupValueId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Metadata_type_info = new String[]{'Metadata','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] Name_type_info = new String[]{'Name','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] NamespacePrefix_type_info = new String[]{'NamespacePrefix','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] SourceTableEnumOrId_type_info = new String[]{'SourceTableEnumOrId','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
         private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fieldsToNull','Id'};
+        private String[] field_order_type_info = new String[]{'CreatedBy','CreatedById','CreatedDate','EntityDefinition','EntityDefinitionId','FieldDefinition','FieldDefinitionId','FullName','LastModifiedBy','LastModifiedById','LastModifiedDate','LiteralValue','LookupValueId','Metadata','Name','NamespacePrefix','SourceTableEnumOrId','fieldsToNull','Id'};
+    }
+    public class AssignmentRule extends sObject_x {
+        public Boolean Active;
+        public ToolingAPIWSDL.User_x CreatedBy;
+        public String CreatedById;
+        public DateTime CreatedDate;
+        public ToolingAPIWSDL.EntityDefinition EntityDefinition;
+        public String EntityDefinitionId;
+        public ToolingAPIWSDL.User_x LastModifiedBy;
+        public String LastModifiedById;
+        public DateTime LastModifiedDate;
+        public String Name;
+        public String[] fieldsToNull;
+        public String Id;
+        private String[] Active_type_info = new String[]{'Active','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedBy_type_info = new String[]{'CreatedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedById_type_info = new String[]{'CreatedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedDate_type_info = new String[]{'CreatedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] EntityDefinition_type_info = new String[]{'EntityDefinition','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] EntityDefinitionId_type_info = new String[]{'EntityDefinitionId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedBy_type_info = new String[]{'LastModifiedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedById_type_info = new String[]{'LastModifiedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedDate_type_info = new String[]{'LastModifiedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Name_type_info = new String[]{'Name','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
+        private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
+        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
+        private String[] field_order_type_info = new String[]{'Active','CreatedBy','CreatedById','CreatedDate','EntityDefinition','EntityDefinitionId','LastModifiedBy','LastModifiedById','LastModifiedDate','Name','fieldsToNull','Id'};
     }
     public class ExternalConstructor extends ExternalSymbol {
         public ToolingAPIWSDL.Parameter[] parameters;
@@ -2023,43 +1945,13 @@ public class ToolingAPIWSDL {
         private String[] name_type_info = new String[]{'name','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] references_type_info = new String[]{'references','urn:tooling.soap.sforce.com',null,'0','-1','false'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'name','references'};
-    }
-    public class AssignmentRule extends Metadata {
-        public Boolean active;
-        public ToolingAPIWSDL.RuleEntry[] ruleEntry;
-        public String fullName;
-        private String[] active_type_info = new String[]{'active','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] ruleEntry_type_info = new String[]{'ruleEntry','urn:tooling.soap.sforce.com',null,'0','-1','false'};
-        private String[] fullName_type_info = new String[]{'fullName','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fullName'};
-    }
-    public class Workflow extends Metadata {
-        public String fullName;
-        private String[] fullName_type_info = new String[]{'fullName','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fullName'};
+        private String[] field_order_type_info = new String[]{'parameters','name','references'};
     }
     public class Method {
         public String returnType;
         private String[] returnType_type_info = new String[]{'returnType','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
         private String[] field_order_type_info = new String[]{'returnType'};
-    }
-    public class WorkflowKnowledgePublish {
-        public String action;
-        public String description;
-        public String label;
-        public String language;
-        public Boolean protected_x;
-        private String[] action_type_info = new String[]{'action','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] description_type_info = new String[]{'description','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] label_type_info = new String[]{'label','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] language_type_info = new String[]{'language','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] protected_x_type_info = new String[]{'protected','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'action','description','label','language','protected_x'};
     }
     public class ApexClass extends sObject_x {
         public Double ApiVersion;
@@ -2074,7 +1966,7 @@ public class ToolingAPIWSDL {
         public String LastModifiedById;
         public DateTime LastModifiedDate;
         public Integer LengthWithoutComments;
-        public ToolingAPIWSDL.ApexClassMetadata Metadata;
+        public ToolingAPIWSDLMetadata.ApexClass Metadata;
         public String Name;
         public String NamespacePrefix;
         public String Status;
@@ -2103,7 +1995,7 @@ public class ToolingAPIWSDL {
         private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
         private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fieldsToNull','Id'};
+        private String[] field_order_type_info = new String[]{'ApiVersion','Body','BodyCrc','CreatedBy','CreatedById','CreatedDate','FullName','IsValid','LastModifiedBy','LastModifiedById','LastModifiedDate','LengthWithoutComments','Metadata','Name','NamespacePrefix','Status','SymbolTable','SystemModstamp','fieldsToNull','Id'};
     }
     public class ApexExecutionOverlayAction extends sObject_x {
         public String ActionScript;
@@ -2147,13 +2039,7 @@ public class ToolingAPIWSDL {
         private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
         private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fieldsToNull','Id'};
-    }
-    public class AssignmentRules extends Metadata {
-        public String fullName;
-        private String[] fullName_type_info = new String[]{'fullName','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fullName'};
+        private String[] field_order_type_info = new String[]{'ActionScript','ActionScriptType','CreatedBy','CreatedById','CreatedDate','ExecutableEntity','ExecutableEntityId','ExpirationDate','IsDeleted','IsDumpingHeap','Iteration','LastModifiedBy','LastModifiedById','LastModifiedDate','Line','Scope','ScopeId','SystemModstamp','fieldsToNull','Id'};
     }
     public class UnexpectedErrorFault extends ApiFault {
         public String exceptionCode;
@@ -2201,23 +2087,7 @@ public class ToolingAPIWSDL {
         private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
         private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fieldsToNull','Id'};
-    }
-    public class WorkflowFlowAction {
-        public String description;
-        public String flow;
-        public ToolingAPIWSDL.WorkflowFlowActionParameter[] flowInputs;
-        public String label;
-        public String language;
-        public Boolean protected_x;
-        private String[] description_type_info = new String[]{'description','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] flow_type_info = new String[]{'flow','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] flowInputs_type_info = new String[]{'flowInputs','urn:tooling.soap.sforce.com',null,'0','-1','false'};
-        private String[] label_type_info = new String[]{'label','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] language_type_info = new String[]{'language','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] protected_x_type_info = new String[]{'protected','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'description','flow','flowInputs','label','language','protected_x'};
+        private String[] field_order_type_info = new String[]{'ApexClassOrTrigger','ApexClassOrTriggerId','Coverage','CoverageLastModifiedDate','CreatedBy','CreatedById','CreatedDate','IsDeleted','LastModifiedBy','LastModifiedById','LastModifiedDate','NumLinesCovered','NumLinesUncovered','SystemModstamp','fieldsToNull','Id'};
     }
     public class ApexOrgWideCoverage extends sObject_x {
         public ToolingAPIWSDL.User_x CreatedBy;
@@ -2243,7 +2113,65 @@ public class ToolingAPIWSDL {
         private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
         private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fieldsToNull','Id'};
+        private String[] field_order_type_info = new String[]{'CreatedBy','CreatedById','CreatedDate','IsDeleted','LastModifiedBy','LastModifiedById','LastModifiedDate','PercentCovered','SystemModstamp','fieldsToNull','Id'};
+    }
+    public class QuickActionDefinition extends sObject_x {
+        public ToolingAPIWSDL.User_x CreatedBy;
+        public String CreatedById;
+        public DateTime CreatedDate;
+        public String Description;
+        public String DeveloperName;
+        public Integer Height;
+        public ToolingAPIWSDL.StaticResource Icon;
+        public String IconId;
+        public Boolean IsDeleted;
+        public String Label;
+        public String Language;
+        public ToolingAPIWSDL.User_x LastModifiedBy;
+        public String LastModifiedById;
+        public DateTime LastModifiedDate;
+        public String MasterLabel;
+        public String NamespacePrefix;
+        public String SobjectType;
+        public String StandardLabel;
+        public DateTime SystemModstamp;
+        public String TargetField;
+        public ToolingAPIWSDL.RecordType TargetRecordType;
+        public String TargetRecordTypeId;
+        public String TargetSobjectType;
+        public String Type_x;
+        public Integer Width;
+        public String[] fieldsToNull;
+        public String Id;
+        private String[] CreatedBy_type_info = new String[]{'CreatedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedById_type_info = new String[]{'CreatedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedDate_type_info = new String[]{'CreatedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Description_type_info = new String[]{'Description','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] DeveloperName_type_info = new String[]{'DeveloperName','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Height_type_info = new String[]{'Height','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Icon_type_info = new String[]{'Icon','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] IconId_type_info = new String[]{'IconId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] IsDeleted_type_info = new String[]{'IsDeleted','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Label_type_info = new String[]{'Label','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Language_type_info = new String[]{'Language','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedBy_type_info = new String[]{'LastModifiedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedById_type_info = new String[]{'LastModifiedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedDate_type_info = new String[]{'LastModifiedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] MasterLabel_type_info = new String[]{'MasterLabel','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] NamespacePrefix_type_info = new String[]{'NamespacePrefix','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] SobjectType_type_info = new String[]{'SobjectType','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] StandardLabel_type_info = new String[]{'StandardLabel','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] SystemModstamp_type_info = new String[]{'SystemModstamp','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] TargetField_type_info = new String[]{'TargetField','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] TargetRecordType_type_info = new String[]{'TargetRecordType','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] TargetRecordTypeId_type_info = new String[]{'TargetRecordTypeId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] TargetSobjectType_type_info = new String[]{'TargetSobjectType','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Type_x_type_info = new String[]{'Type','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Width_type_info = new String[]{'Width','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
+        private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
+        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
+        private String[] field_order_type_info = new String[]{'CreatedBy','CreatedById','CreatedDate','Description','DeveloperName','Height','Icon','IconId','IsDeleted','Label','Language','LastModifiedBy','LastModifiedById','LastModifiedDate','MasterLabel','NamespacePrefix','SobjectType','StandardLabel','SystemModstamp','TargetField','TargetRecordType','TargetRecordTypeId','TargetSobjectType','Type_x','Width','fieldsToNull','Id'};
     }
     public class PrimitiveQueryResultColumnMetadata extends QueryResultColumnMetadata {
         public String apexType;
@@ -2263,11 +2191,141 @@ public class ToolingAPIWSDL {
         public ToolingAPIWSDL.MapEntry[] entry;
         private String[] entry_type_info = new String[]{'entry','urn:tooling.soap.sforce.com',null,'0','-1','false'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{};
+        private String[] field_order_type_info = new String[]{'entry'};
+    }
+    public class EntityDefinition extends sObject_x {
+        public ToolingAPIWSDL.QueryResult ApexTriggers;
+        public ToolingAPIWSDL.QueryResult AssignmentRules;
+        public ToolingAPIWSDL.QueryResult AutoResponseRules;
+        public ToolingAPIWSDL.QueryResult BusinessProcesses;
+        public ToolingAPIWSDL.QueryResult CompactLayouts;
+        public ToolingAPIWSDL.QueryResult CustomFields;
+        public ToolingAPIWSDL.CompactLayoutInfo DefaultCompactLayout;
+        public String DefaultCompactLayoutId;
+        public String DeveloperName;
+        public String DurableId;
+        public ToolingAPIWSDL.QueryResult FieldSets;
+        public ToolingAPIWSDL.QueryResult Fields;
+        public String FullName;
+        public Boolean IsApexTriggerable;
+        public Boolean IsCompactLayoutable;
+        public Boolean IsCreatable;
+        public Boolean IsCustomizable;
+        public Boolean IsDeletable;
+        public Boolean IsQueryable;
+        public Boolean IsWorkflowEnabled;
+        public String KeyPrefix;
+        public String Label;
+        public ToolingAPIWSDL.QueryResult Layouts;
+        public String MasterLabel;
+        public ToolingAPIWSDLMetadata.CustomObject Metadata;
+        public String NamespacePrefix;
+        public String PluralLabel;
+        public String QualifiedApiName;
+        public ToolingAPIWSDL.QueryResult RecordTypes;
+        public ToolingAPIWSDL.QueryResult WorkflowAlerts;
+        public ToolingAPIWSDL.QueryResult WorkflowFieldUpdates;
+        public ToolingAPIWSDL.QueryResult WorkflowOutboundMessages;
+        public ToolingAPIWSDL.QueryResult WorkflowTasks;
+        public String[] fieldsToNull;
+        public String Id;
+        private String[] ApexTriggers_type_info = new String[]{'ApexTriggers','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] AssignmentRules_type_info = new String[]{'AssignmentRules','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] AutoResponseRules_type_info = new String[]{'AutoResponseRules','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] BusinessProcesses_type_info = new String[]{'BusinessProcesses','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CompactLayouts_type_info = new String[]{'CompactLayouts','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CustomFields_type_info = new String[]{'CustomFields','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] DefaultCompactLayout_type_info = new String[]{'DefaultCompactLayout','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] DefaultCompactLayoutId_type_info = new String[]{'DefaultCompactLayoutId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] DeveloperName_type_info = new String[]{'DeveloperName','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] DurableId_type_info = new String[]{'DurableId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] FieldSets_type_info = new String[]{'FieldSets','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Fields_type_info = new String[]{'Fields','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] FullName_type_info = new String[]{'FullName','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] IsApexTriggerable_type_info = new String[]{'IsApexTriggerable','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] IsCompactLayoutable_type_info = new String[]{'IsCompactLayoutable','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] IsCreatable_type_info = new String[]{'IsCreatable','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] IsCustomizable_type_info = new String[]{'IsCustomizable','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] IsDeletable_type_info = new String[]{'IsDeletable','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] IsQueryable_type_info = new String[]{'IsQueryable','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] IsWorkflowEnabled_type_info = new String[]{'IsWorkflowEnabled','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] KeyPrefix_type_info = new String[]{'KeyPrefix','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Label_type_info = new String[]{'Label','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Layouts_type_info = new String[]{'Layouts','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] MasterLabel_type_info = new String[]{'MasterLabel','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Metadata_type_info = new String[]{'Metadata','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] NamespacePrefix_type_info = new String[]{'NamespacePrefix','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] PluralLabel_type_info = new String[]{'PluralLabel','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] QualifiedApiName_type_info = new String[]{'QualifiedApiName','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] RecordTypes_type_info = new String[]{'RecordTypes','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] WorkflowAlerts_type_info = new String[]{'WorkflowAlerts','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] WorkflowFieldUpdates_type_info = new String[]{'WorkflowFieldUpdates','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] WorkflowOutboundMessages_type_info = new String[]{'WorkflowOutboundMessages','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] WorkflowTasks_type_info = new String[]{'WorkflowTasks','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
+        private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
+        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
+        private String[] field_order_type_info = new String[]{'ApexTriggers','AssignmentRules','AutoResponseRules','BusinessProcesses','CompactLayouts','CustomFields','DefaultCompactLayout','DefaultCompactLayoutId','DeveloperName','DurableId','FieldSets','Fields','FullName','IsApexTriggerable','IsCompactLayoutable','IsCreatable','IsCustomizable','IsDeletable','IsQueryable','IsWorkflowEnabled','KeyPrefix','Label','Layouts','MasterLabel','Metadata','NamespacePrefix','PluralLabel','QualifiedApiName','RecordTypes','WorkflowAlerts','WorkflowFieldUpdates','WorkflowOutboundMessages','WorkflowTasks','fieldsToNull','Id'};
     }
     public class MalformedSearchFault {
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
         private String[] field_order_type_info = new String[]{};
+    }
+    public class CompactLayoutItemInfo extends sObject_x {
+        public ToolingAPIWSDL.CompactLayoutInfo CompactLayoutInfo;
+        public String CompactLayoutInfoId;
+        public String DurableId;
+        public ToolingAPIWSDL.FieldDefinition FieldDefinition;
+        public String FieldDefinitionId;
+        public Integer SortOrder;
+        public String[] fieldsToNull;
+        public String Id;
+        private String[] CompactLayoutInfo_type_info = new String[]{'CompactLayoutInfo','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CompactLayoutInfoId_type_info = new String[]{'CompactLayoutInfoId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] DurableId_type_info = new String[]{'DurableId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] FieldDefinition_type_info = new String[]{'FieldDefinition','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] FieldDefinitionId_type_info = new String[]{'FieldDefinitionId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] SortOrder_type_info = new String[]{'SortOrder','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
+        private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
+        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
+        private String[] field_order_type_info = new String[]{'CompactLayoutInfo','CompactLayoutInfoId','DurableId','FieldDefinition','FieldDefinitionId','SortOrder','fieldsToNull','Id'};
+    }
+    public class Layout extends sObject_x {
+        public ToolingAPIWSDL.User_x CreatedBy;
+        public String CreatedById;
+        public DateTime CreatedDate;
+        public ToolingAPIWSDL.EntityDefinition EntityDefinition;
+        public String EntityDefinitionId;
+        public String FullName;
+        public ToolingAPIWSDL.User_x LastModifiedBy;
+        public String LastModifiedById;
+        public DateTime LastModifiedDate;
+        public ToolingAPIWSDLMetadata.Layout Metadata;
+        public String Name;
+        public String NamespacePrefix;
+        public Boolean ShowSubmitAndAttachButton;
+        public String TableEnumOrId;
+        public String[] fieldsToNull;
+        public String Id;
+        private String[] CreatedBy_type_info = new String[]{'CreatedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedById_type_info = new String[]{'CreatedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedDate_type_info = new String[]{'CreatedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] EntityDefinition_type_info = new String[]{'EntityDefinition','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] EntityDefinitionId_type_info = new String[]{'EntityDefinitionId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] FullName_type_info = new String[]{'FullName','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedBy_type_info = new String[]{'LastModifiedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedById_type_info = new String[]{'LastModifiedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedDate_type_info = new String[]{'LastModifiedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Metadata_type_info = new String[]{'Metadata','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Name_type_info = new String[]{'Name','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] NamespacePrefix_type_info = new String[]{'NamespacePrefix','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] ShowSubmitAndAttachButton_type_info = new String[]{'ShowSubmitAndAttachButton','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] TableEnumOrId_type_info = new String[]{'TableEnumOrId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
+        private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
+        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
+        private String[] field_order_type_info = new String[]{'CreatedBy','CreatedById','CreatedDate','EntityDefinition','EntityDefinitionId','FullName','LastModifiedBy','LastModifiedById','LastModifiedDate','Metadata','Name','NamespacePrefix','ShowSubmitAndAttachButton','TableEnumOrId','fieldsToNull','Id'};
     }
     public class ApexCodeCoverage extends sObject_x {
         public ToolingAPIWSDL.Name ApexClassOrTrigger;
@@ -2307,7 +2365,7 @@ public class ToolingAPIWSDL {
         private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
         private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fieldsToNull','Id'};
+        private String[] field_order_type_info = new String[]{'ApexClassOrTrigger','ApexClassOrTriggerId','ApexTestClass','ApexTestClassId','Coverage','CreatedBy','CreatedById','CreatedDate','IsDeleted','LastModifiedBy','LastModifiedById','LastModifiedDate','NumLinesCovered','NumLinesUncovered','SystemModstamp','TestMethodName','fieldsToNull','Id'};
     }
     public class ApexComponent extends sObject_x {
         public Double ApiVersion;
@@ -2345,17 +2403,35 @@ public class ToolingAPIWSDL {
         private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
         private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fieldsToNull','Id'};
+        private String[] field_order_type_info = new String[]{'ApiVersion','ControllerKey','ControllerType','CreatedBy','CreatedById','CreatedDate','Description','LastModifiedBy','LastModifiedById','LastModifiedDate','Markup','MasterLabel','Name','NamespacePrefix','SystemModstamp','fieldsToNull','Id'};
     }
-    public class AutoResponseRule extends Metadata {
-        public Boolean active;
-        public ToolingAPIWSDL.RuleEntry[] ruleEntry;
-        public String fullName;
-        private String[] active_type_info = new String[]{'active','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] ruleEntry_type_info = new String[]{'ruleEntry','urn:tooling.soap.sforce.com',null,'0','-1','false'};
-        private String[] fullName_type_info = new String[]{'fullName','urn:tooling.soap.sforce.com',null,'0','1','false'};
+    public class AutoResponseRule extends sObject_x {
+        public Boolean Active;
+        public ToolingAPIWSDL.User_x CreatedBy;
+        public String CreatedById;
+        public DateTime CreatedDate;
+        public ToolingAPIWSDL.EntityDefinition EntityDefinition;
+        public String EntityDefinitionId;
+        public ToolingAPIWSDL.User_x LastModifiedBy;
+        public String LastModifiedById;
+        public DateTime LastModifiedDate;
+        public String Name;
+        public String[] fieldsToNull;
+        public String Id;
+        private String[] Active_type_info = new String[]{'Active','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedBy_type_info = new String[]{'CreatedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedById_type_info = new String[]{'CreatedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedDate_type_info = new String[]{'CreatedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] EntityDefinition_type_info = new String[]{'EntityDefinition','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] EntityDefinitionId_type_info = new String[]{'EntityDefinitionId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedBy_type_info = new String[]{'LastModifiedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedById_type_info = new String[]{'LastModifiedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedDate_type_info = new String[]{'LastModifiedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Name_type_info = new String[]{'Name','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
+        private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fullName'};
+        private String[] field_order_type_info = new String[]{'Active','CreatedBy','CreatedById','CreatedDate','EntityDefinition','EntityDefinitionId','LastModifiedBy','LastModifiedById','LastModifiedDate','Name','fieldsToNull','Id'};
     }
     public class Name extends sObject_x {
         public String Alias;
@@ -2367,7 +2443,9 @@ public class ToolingAPIWSDL {
         public DateTime LastViewedDate;
         public String Name;
         public String Phone;
+        public ToolingAPIWSDL.Profile Profile;
         public String ProfileId;
+        public ToolingAPIWSDL.RecordType RecordType;
         public String RecordTypeId;
         public String Title;
         public String Type_x;
@@ -2384,7 +2462,9 @@ public class ToolingAPIWSDL {
         private String[] LastViewedDate_type_info = new String[]{'LastViewedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] Name_type_info = new String[]{'Name','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] Phone_type_info = new String[]{'Phone','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Profile_type_info = new String[]{'Profile','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] ProfileId_type_info = new String[]{'ProfileId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] RecordType_type_info = new String[]{'RecordType','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] RecordTypeId_type_info = new String[]{'RecordTypeId','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] Title_type_info = new String[]{'Title','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] Type_x_type_info = new String[]{'Type','urn:tooling.soap.sforce.com',null,'0','1','true'};
@@ -2393,7 +2473,7 @@ public class ToolingAPIWSDL {
         private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
         private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fieldsToNull','Id'};
+        private String[] field_order_type_info = new String[]{'Alias','Email','FirstName','IsActive','LastName','LastReferencedDate','LastViewedDate','Name','Phone','Profile','ProfileId','RecordType','RecordTypeId','Title','Type_x','UserRoleId','Username','fieldsToNull','Id'};
     }
     public class IDEWorkspace extends sObject_x {
         public String Content;
@@ -2425,7 +2505,69 @@ public class ToolingAPIWSDL {
         private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
         private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fieldsToNull','Id'};
+        private String[] field_order_type_info = new String[]{'Content','CreatedBy','CreatedById','CreatedDate','IsDeleted','LastModifiedBy','LastModifiedById','LastModifiedDate','Name','SystemModstamp','User_x','UserId','fieldsToNull','Id'};
+    }
+    public class QuickActionList extends sObject_x {
+        public ToolingAPIWSDL.User_x CreatedBy;
+        public String CreatedById;
+        public DateTime CreatedDate;
+        public Boolean IsDeleted;
+        public ToolingAPIWSDL.User_x LastModifiedBy;
+        public String LastModifiedById;
+        public DateTime LastModifiedDate;
+        public ToolingAPIWSDL.Name Layout;
+        public String LayoutId;
+        public DateTime SystemModstamp;
+        public ToolingAPIWSDL.QueryResult items;
+        public String[] fieldsToNull;
+        public String Id;
+        private String[] CreatedBy_type_info = new String[]{'CreatedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedById_type_info = new String[]{'CreatedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedDate_type_info = new String[]{'CreatedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] IsDeleted_type_info = new String[]{'IsDeleted','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedBy_type_info = new String[]{'LastModifiedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedById_type_info = new String[]{'LastModifiedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedDate_type_info = new String[]{'LastModifiedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Layout_type_info = new String[]{'Layout','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LayoutId_type_info = new String[]{'LayoutId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] SystemModstamp_type_info = new String[]{'SystemModstamp','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] items_type_info = new String[]{'items','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
+        private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
+        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
+        private String[] field_order_type_info = new String[]{'CreatedBy','CreatedById','CreatedDate','IsDeleted','LastModifiedBy','LastModifiedById','LastModifiedDate','Layout','LayoutId','SystemModstamp','items','fieldsToNull','Id'};
+    }
+    public class QuickActionListItem extends sObject_x {
+        public ToolingAPIWSDL.User_x CreatedBy;
+        public String CreatedById;
+        public DateTime CreatedDate;
+        public Boolean IsDeleted;
+        public ToolingAPIWSDL.User_x LastModifiedBy;
+        public String LastModifiedById;
+        public DateTime LastModifiedDate;
+        public String QuickActionDefinition;
+        public ToolingAPIWSDL.QuickActionList QuickActionList;
+        public String QuickActionListId;
+        public Integer SortOrder;
+        public DateTime SystemModstamp;
+        public String[] fieldsToNull;
+        public String Id;
+        private String[] CreatedBy_type_info = new String[]{'CreatedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedById_type_info = new String[]{'CreatedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedDate_type_info = new String[]{'CreatedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] IsDeleted_type_info = new String[]{'IsDeleted','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedBy_type_info = new String[]{'LastModifiedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedById_type_info = new String[]{'LastModifiedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedDate_type_info = new String[]{'LastModifiedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] QuickActionDefinition_type_info = new String[]{'QuickActionDefinition','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] QuickActionList_type_info = new String[]{'QuickActionList','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] QuickActionListId_type_info = new String[]{'QuickActionListId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] SortOrder_type_info = new String[]{'SortOrder','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] SystemModstamp_type_info = new String[]{'SystemModstamp','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
+        private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
+        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
+        private String[] field_order_type_info = new String[]{'CreatedBy','CreatedById','CreatedDate','IsDeleted','LastModifiedBy','LastModifiedById','LastModifiedDate','QuickActionDefinition','QuickActionList','QuickActionListId','SortOrder','SystemModstamp','fieldsToNull','Id'};
     }
     public class TraceFlag extends sObject_x {
         public String ApexCode;
@@ -2475,13 +2617,13 @@ public class ToolingAPIWSDL {
         private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
         private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fieldsToNull','Id'};
+        private String[] field_order_type_info = new String[]{'ApexCode','ApexProfiling','Callout','CreatedBy','CreatedById','CreatedDate','Database','ExpirationDate','IsDeleted','LastModifiedBy','LastModifiedById','LastModifiedDate','Scope','ScopeId','System_x','SystemModstamp','TracedEntity','TracedEntityId','Validation','Visualforce','Workflow','fieldsToNull','Id'};
     }
     public class ListValue extends StateValue {
         public ToolingAPIWSDL.StateValue[] value;
         private String[] value_type_info = new String[]{'value','urn:tooling.soap.sforce.com',null,'0','-1','false'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{};
+        private String[] field_order_type_info = new String[]{'value'};
     }
     public class AggregateQueryResultColumnMetadata {
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
@@ -2495,12 +2637,13 @@ public class ToolingAPIWSDL {
         public ToolingAPIWSDL.User_x CreatedBy;
         public String CreatedById;
         public DateTime CreatedDate;
+        public String FullName;
         public Boolean IsDeleted;
         public ToolingAPIWSDL.User_x LastModifiedBy;
         public String LastModifiedById;
         public DateTime LastModifiedDate;
         public DateTime LastSyncDate;
-        public ToolingAPIWSDL.ApexTriggerMetadata Metadata;
+        public ToolingAPIWSDLMetadata.ApexTrigger Metadata;
         public ToolingAPIWSDL.MetadataContainer MetadataContainer;
         public String MetadataContainerId;
         public ToolingAPIWSDL.SymbolTable SymbolTable;
@@ -2514,6 +2657,7 @@ public class ToolingAPIWSDL {
         private String[] CreatedBy_type_info = new String[]{'CreatedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] CreatedById_type_info = new String[]{'CreatedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] CreatedDate_type_info = new String[]{'CreatedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] FullName_type_info = new String[]{'FullName','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] IsDeleted_type_info = new String[]{'IsDeleted','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] LastModifiedBy_type_info = new String[]{'LastModifiedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] LastModifiedById_type_info = new String[]{'LastModifiedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
@@ -2527,18 +2671,74 @@ public class ToolingAPIWSDL {
         private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
         private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fieldsToNull','Id'};
+        private String[] field_order_type_info = new String[]{'Body','Content','ContentEntity','ContentEntityId','CreatedBy','CreatedById','CreatedDate','FullName','IsDeleted','LastModifiedBy','LastModifiedById','LastModifiedDate','LastSyncDate','Metadata','MetadataContainer','MetadataContainerId','SymbolTable','SystemModstamp','fieldsToNull','Id'};
+    }
+    public class RecentlyViewed extends sObject_x {
+        public String Alias;
+        public String Email;
+        public String FirstName;
+        public Boolean IsActive;
+        public String Language;
+        public String LastName;
+        public DateTime LastReferencedDate;
+        public DateTime LastViewedDate;
+        public String Name;
+        public String NetworkId;
+        public String Phone;
+        public ToolingAPIWSDL.Profile Profile;
+        public String ProfileId;
+        public ToolingAPIWSDL.RecordType RecordType;
+        public String RecordTypeId;
+        public String Title;
+        public String Type_x;
+        public String UserRoleId;
+        public String[] fieldsToNull;
+        public String Id;
+        private String[] Alias_type_info = new String[]{'Alias','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Email_type_info = new String[]{'Email','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] FirstName_type_info = new String[]{'FirstName','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] IsActive_type_info = new String[]{'IsActive','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Language_type_info = new String[]{'Language','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastName_type_info = new String[]{'LastName','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastReferencedDate_type_info = new String[]{'LastReferencedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastViewedDate_type_info = new String[]{'LastViewedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Name_type_info = new String[]{'Name','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] NetworkId_type_info = new String[]{'NetworkId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Phone_type_info = new String[]{'Phone','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Profile_type_info = new String[]{'Profile','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] ProfileId_type_info = new String[]{'ProfileId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] RecordType_type_info = new String[]{'RecordType','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] RecordTypeId_type_info = new String[]{'RecordTypeId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Title_type_info = new String[]{'Title','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Type_x_type_info = new String[]{'Type','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] UserRoleId_type_info = new String[]{'UserRoleId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
+        private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
+        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
+        private String[] field_order_type_info = new String[]{'Alias','Email','FirstName','IsActive','Language','LastName','LastReferencedDate','LastViewedDate','Name','NetworkId','Phone','Profile','ProfileId','RecordType','RecordTypeId','Title','Type_x','UserRoleId','fieldsToNull','Id'};
     }
     public class ValidationRule extends sObject_x {
+        public ToolingAPIWSDL.User_x CreatedBy;
+        public String CreatedById;
+        public DateTime CreatedDate;
+        public String Description;
         public String FullName;
+        public ToolingAPIWSDL.User_x LastModifiedBy;
+        public String LastModifiedById;
         public DateTime LastModifiedDate;
-        public ToolingAPIWSDL.ValidationRuleMetadata Metadata;
+        public ToolingAPIWSDLMetadata.ValidationRule Metadata;
         public String NamespacePrefix;
         public String TableEnumOrId;
         public String ValidationName;
         public String[] fieldsToNull;
         public String Id;
+        private String[] CreatedBy_type_info = new String[]{'CreatedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedById_type_info = new String[]{'CreatedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedDate_type_info = new String[]{'CreatedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Description_type_info = new String[]{'Description','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] FullName_type_info = new String[]{'FullName','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedBy_type_info = new String[]{'LastModifiedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedById_type_info = new String[]{'LastModifiedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] LastModifiedDate_type_info = new String[]{'LastModifiedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] Metadata_type_info = new String[]{'Metadata','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] NamespacePrefix_type_info = new String[]{'NamespacePrefix','urn:tooling.soap.sforce.com',null,'0','1','true'};
@@ -2547,59 +2747,117 @@ public class ToolingAPIWSDL {
         private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
         private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fieldsToNull','Id'};
-    }
-    public class WorkflowAction extends Metadata {
-        public String fullName;
-        private String[] fullName_type_info = new String[]{'fullName','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fullName'};
+        private String[] field_order_type_info = new String[]{'CreatedBy','CreatedById','CreatedDate','Description','FullName','LastModifiedBy','LastModifiedById','LastModifiedDate','Metadata','NamespacePrefix','TableEnumOrId','ValidationName','fieldsToNull','Id'};
     }
     public class WorkflowAlert extends sObject_x {
+        public String CcEmails;
+        public ToolingAPIWSDL.User_x CreatedBy;
+        public String CreatedById;
+        public DateTime CreatedDate;
         public String Description;
+        public String DeveloperName;
+        public ToolingAPIWSDL.EntityDefinition EntityDefinition;
+        public String EntityDefinitionId;
+        public String FullName;
+        public ToolingAPIWSDL.User_x LastModifiedBy;
+        public String LastModifiedById;
         public DateTime LastModifiedDate;
+        public ToolingAPIWSDLMetadata.WorkflowAlert Metadata;
         public String NamespacePrefix;
-        public String TableEnumOrId;
+        public String SenderType;
+        public String TemplateId;
         public String[] fieldsToNull;
         public String Id;
+        private String[] CcEmails_type_info = new String[]{'CcEmails','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedBy_type_info = new String[]{'CreatedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedById_type_info = new String[]{'CreatedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedDate_type_info = new String[]{'CreatedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] Description_type_info = new String[]{'Description','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] DeveloperName_type_info = new String[]{'DeveloperName','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] EntityDefinition_type_info = new String[]{'EntityDefinition','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] EntityDefinitionId_type_info = new String[]{'EntityDefinitionId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] FullName_type_info = new String[]{'FullName','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedBy_type_info = new String[]{'LastModifiedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedById_type_info = new String[]{'LastModifiedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] LastModifiedDate_type_info = new String[]{'LastModifiedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Metadata_type_info = new String[]{'Metadata','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] NamespacePrefix_type_info = new String[]{'NamespacePrefix','urn:tooling.soap.sforce.com',null,'0','1','true'};
-        private String[] TableEnumOrId_type_info = new String[]{'TableEnumOrId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] SenderType_type_info = new String[]{'SenderType','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] TemplateId_type_info = new String[]{'TemplateId','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
         private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fieldsToNull','Id'};
+        private String[] field_order_type_info = new String[]{'CcEmails','CreatedBy','CreatedById','CreatedDate','Description','DeveloperName','EntityDefinition','EntityDefinitionId','FullName','LastModifiedBy','LastModifiedById','LastModifiedDate','Metadata','NamespacePrefix','SenderType','TemplateId','fieldsToNull','Id'};
     }
-    public class WorkflowSend {
-        public String action;
-        public String description;
-        public String label;
-        public String language;
-        public Boolean protected_x;
-        private String[] action_type_info = new String[]{'action','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] description_type_info = new String[]{'description','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] label_type_info = new String[]{'label','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] language_type_info = new String[]{'language','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] protected_x_type_info = new String[]{'protected','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'action','description','label','language','protected_x'};
-    }
-    public class WorkflowTask extends sObject_x {
+    public class EmailTemplate extends sObject_x {
+        public Double ApiVersion;
+        public ToolingAPIWSDL.User_x CreatedBy;
+        public String CreatedById;
+        public DateTime CreatedDate;
+        public String Description;
+        public String FullName;
+        public ToolingAPIWSDL.User_x LastModifiedBy;
+        public String LastModifiedById;
         public DateTime LastModifiedDate;
+        public ToolingAPIWSDLMetadata.EmailTemplate Metadata;
+        public String Name;
         public String NamespacePrefix;
         public String Subject;
-        public String TableEnumOrId;
         public String[] fieldsToNull;
         public String Id;
+        private String[] ApiVersion_type_info = new String[]{'ApiVersion','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedBy_type_info = new String[]{'CreatedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedById_type_info = new String[]{'CreatedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedDate_type_info = new String[]{'CreatedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Description_type_info = new String[]{'Description','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] FullName_type_info = new String[]{'FullName','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedBy_type_info = new String[]{'LastModifiedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedById_type_info = new String[]{'LastModifiedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] LastModifiedDate_type_info = new String[]{'LastModifiedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Metadata_type_info = new String[]{'Metadata','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Name_type_info = new String[]{'Name','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] NamespacePrefix_type_info = new String[]{'NamespacePrefix','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] Subject_type_info = new String[]{'Subject','urn:tooling.soap.sforce.com',null,'0','1','true'};
-        private String[] TableEnumOrId_type_info = new String[]{'TableEnumOrId','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
         private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fieldsToNull','Id'};
+        private String[] field_order_type_info = new String[]{'ApiVersion','CreatedBy','CreatedById','CreatedDate','Description','FullName','LastModifiedBy','LastModifiedById','LastModifiedDate','Metadata','Name','NamespacePrefix','Subject','fieldsToNull','Id'};
+    }
+    public class WorkflowTask extends sObject_x {
+        public ToolingAPIWSDL.User_x CreatedBy;
+        public String CreatedById;
+        public DateTime CreatedDate;
+        public ToolingAPIWSDL.EntityDefinition EntityDefinition;
+        public String EntityDefinitionId;
+        public String FullName;
+        public ToolingAPIWSDL.User_x LastModifiedBy;
+        public String LastModifiedById;
+        public DateTime LastModifiedDate;
+        public ToolingAPIWSDLMetadata.WorkflowTask Metadata;
+        public String NamespacePrefix;
+        public String Priority;
+        public String Status;
+        public String Subject;
+        public String[] fieldsToNull;
+        public String Id;
+        private String[] CreatedBy_type_info = new String[]{'CreatedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedById_type_info = new String[]{'CreatedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedDate_type_info = new String[]{'CreatedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] EntityDefinition_type_info = new String[]{'EntityDefinition','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] EntityDefinitionId_type_info = new String[]{'EntityDefinitionId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] FullName_type_info = new String[]{'FullName','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedBy_type_info = new String[]{'LastModifiedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedById_type_info = new String[]{'LastModifiedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedDate_type_info = new String[]{'LastModifiedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Metadata_type_info = new String[]{'Metadata','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] NamespacePrefix_type_info = new String[]{'NamespacePrefix','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Priority_type_info = new String[]{'Priority','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Status_type_info = new String[]{'Status','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Subject_type_info = new String[]{'Subject','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
+        private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
+        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
+        private String[] field_order_type_info = new String[]{'CreatedBy','CreatedById','CreatedDate','EntityDefinition','EntityDefinitionId','FullName','LastModifiedBy','LastModifiedById','LastModifiedDate','Metadata','NamespacePrefix','Priority','Status','Subject','fieldsToNull','Id'};
     }
     public class ApexComponentMember extends sObject_x {
         public String Body;
@@ -2609,12 +2867,13 @@ public class ToolingAPIWSDL {
         public ToolingAPIWSDL.User_x CreatedBy;
         public String CreatedById;
         public DateTime CreatedDate;
+        public String FullName;
         public Boolean IsDeleted;
         public ToolingAPIWSDL.User_x LastModifiedBy;
         public String LastModifiedById;
         public DateTime LastModifiedDate;
         public DateTime LastSyncDate;
-        public ToolingAPIWSDL.ApexComponentMetadata Metadata;
+        public ToolingAPIWSDLMetadata.ApexComponent Metadata;
         public ToolingAPIWSDL.MetadataContainer MetadataContainer;
         public String MetadataContainerId;
         public DateTime SystemModstamp;
@@ -2627,6 +2886,7 @@ public class ToolingAPIWSDL {
         private String[] CreatedBy_type_info = new String[]{'CreatedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] CreatedById_type_info = new String[]{'CreatedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] CreatedDate_type_info = new String[]{'CreatedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] FullName_type_info = new String[]{'FullName','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] IsDeleted_type_info = new String[]{'IsDeleted','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] LastModifiedBy_type_info = new String[]{'LastModifiedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] LastModifiedById_type_info = new String[]{'LastModifiedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
@@ -2639,7 +2899,7 @@ public class ToolingAPIWSDL {
         private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
         private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fieldsToNull','Id'};
+        private String[] field_order_type_info = new String[]{'Body','Content','ContentEntity','ContentEntityId','CreatedBy','CreatedById','CreatedDate','FullName','IsDeleted','LastModifiedBy','LastModifiedById','LastModifiedDate','LastSyncDate','Metadata','MetadataContainer','MetadataContainerId','SystemModstamp','fieldsToNull','Id'};
     }
     public class ApexTrigger extends sObject_x {
         public Double ApiVersion;
@@ -2648,11 +2908,15 @@ public class ToolingAPIWSDL {
         public ToolingAPIWSDL.User_x CreatedBy;
         public String CreatedById;
         public DateTime CreatedDate;
+        public ToolingAPIWSDL.EntityDefinition EntityDefinition;
+        public String EntityDefinitionId;
+        public String FullName;
         public Boolean IsValid;
         public ToolingAPIWSDL.User_x LastModifiedBy;
         public String LastModifiedById;
         public DateTime LastModifiedDate;
         public Integer LengthWithoutComments;
+        public ToolingAPIWSDLMetadata.ApexTrigger Metadata;
         public String Name;
         public String NamespacePrefix;
         public String Status;
@@ -2674,11 +2938,15 @@ public class ToolingAPIWSDL {
         private String[] CreatedBy_type_info = new String[]{'CreatedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] CreatedById_type_info = new String[]{'CreatedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] CreatedDate_type_info = new String[]{'CreatedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] EntityDefinition_type_info = new String[]{'EntityDefinition','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] EntityDefinitionId_type_info = new String[]{'EntityDefinitionId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] FullName_type_info = new String[]{'FullName','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] IsValid_type_info = new String[]{'IsValid','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] LastModifiedBy_type_info = new String[]{'LastModifiedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] LastModifiedById_type_info = new String[]{'LastModifiedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] LastModifiedDate_type_info = new String[]{'LastModifiedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] LengthWithoutComments_type_info = new String[]{'LengthWithoutComments','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Metadata_type_info = new String[]{'Metadata','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] Name_type_info = new String[]{'Name','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] NamespacePrefix_type_info = new String[]{'NamespacePrefix','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] Status_type_info = new String[]{'Status','urn:tooling.soap.sforce.com',null,'0','1','true'};
@@ -2695,103 +2963,7 @@ public class ToolingAPIWSDL {
         private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
         private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fieldsToNull','Id'};
-    }
-    public class CustomFieldMetadata extends Metadata {
-        public Boolean caseSensitive;
-        public String customDataType;
-        public String defaultValue;
-        public String deleteConstraint;
-        public Boolean deprecated;
-        public String description;
-        public String displayFormat;
-        public Boolean escapeMarkup;
-        public String externalDeveloperName;
-        public Boolean externalId;
-        public String formula;
-        public String formulaTreatBlanksAs;
-        public String inlineHelpText;
-        public Boolean isFilteringDisabled;
-        public Boolean isNameField;
-        public Boolean isSortingDisabled;
-        public String label;
-        public Integer length;
-        public ToolingAPIWSDL.LookupFilter lookupFilter;
-        public String maskChar;
-        public String maskType;
-        public ToolingAPIWSDL.Picklist picklist;
-        public Boolean populateExistingRows;
-        public Integer precision;
-        public String referenceTo;
-        public String relationshipLabel;
-        public String relationshipName;
-        public Integer relationshipOrder;
-        public Boolean reparentableMasterDetail;
-        public Boolean required;
-        public Boolean restrictedAdminField;
-        public Integer scale;
-        public Integer startingNumber;
-        public Boolean stripMarkup;
-        public String summarizedField;
-        public ToolingAPIWSDL.FilterItem[] summaryFilterItems;
-        public String summaryForeignKey;
-        public String summaryOperation;
-        public Boolean trackFeedHistory;
-        public Boolean trackHistory;
-        public Boolean trackTrending;
-        public String type_x;
-        public Boolean unique;
-        public Integer visibleLines;
-        public Boolean writeRequiresMasterRead;
-        public String fullName;
-        private String[] caseSensitive_type_info = new String[]{'caseSensitive','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] customDataType_type_info = new String[]{'customDataType','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] defaultValue_type_info = new String[]{'defaultValue','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] deleteConstraint_type_info = new String[]{'deleteConstraint','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] deprecated_type_info = new String[]{'deprecated','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] description_type_info = new String[]{'description','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] displayFormat_type_info = new String[]{'displayFormat','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] escapeMarkup_type_info = new String[]{'escapeMarkup','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] externalDeveloperName_type_info = new String[]{'externalDeveloperName','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] externalId_type_info = new String[]{'externalId','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] formula_type_info = new String[]{'formula','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] formulaTreatBlanksAs_type_info = new String[]{'formulaTreatBlanksAs','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] inlineHelpText_type_info = new String[]{'inlineHelpText','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] isFilteringDisabled_type_info = new String[]{'isFilteringDisabled','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] isNameField_type_info = new String[]{'isNameField','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] isSortingDisabled_type_info = new String[]{'isSortingDisabled','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] label_type_info = new String[]{'label','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] length_type_info = new String[]{'length','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] lookupFilter_type_info = new String[]{'lookupFilter','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] maskChar_type_info = new String[]{'maskChar','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] maskType_type_info = new String[]{'maskType','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] picklist_type_info = new String[]{'picklist','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] populateExistingRows_type_info = new String[]{'populateExistingRows','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] precision_type_info = new String[]{'precision','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] referenceTo_type_info = new String[]{'referenceTo','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] relationshipLabel_type_info = new String[]{'relationshipLabel','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] relationshipName_type_info = new String[]{'relationshipName','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] relationshipOrder_type_info = new String[]{'relationshipOrder','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] reparentableMasterDetail_type_info = new String[]{'reparentableMasterDetail','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] required_type_info = new String[]{'required','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] restrictedAdminField_type_info = new String[]{'restrictedAdminField','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] scale_type_info = new String[]{'scale','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] startingNumber_type_info = new String[]{'startingNumber','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] stripMarkup_type_info = new String[]{'stripMarkup','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] summarizedField_type_info = new String[]{'summarizedField','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] summaryFilterItems_type_info = new String[]{'summaryFilterItems','urn:tooling.soap.sforce.com',null,'0','-1','false'};
-        private String[] summaryForeignKey_type_info = new String[]{'summaryForeignKey','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] summaryOperation_type_info = new String[]{'summaryOperation','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] trackFeedHistory_type_info = new String[]{'trackFeedHistory','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] trackHistory_type_info = new String[]{'trackHistory','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] trackTrending_type_info = new String[]{'trackTrending','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] type_x_type_info = new String[]{'type','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] unique_type_info = new String[]{'unique','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] visibleLines_type_info = new String[]{'visibleLines','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] writeRequiresMasterRead_type_info = new String[]{'writeRequiresMasterRead','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] fullName_type_info = new String[]{'fullName','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fullName'};
+        private String[] field_order_type_info = new String[]{'ApiVersion','Body','BodyCrc','CreatedBy','CreatedById','CreatedDate','EntityDefinition','EntityDefinitionId','FullName','IsValid','LastModifiedBy','LastModifiedById','LastModifiedDate','LengthWithoutComments','Metadata','Name','NamespacePrefix','Status','SystemModstamp','TableEnumOrId','UsageAfterDelete','UsageAfterInsert','UsageAfterUndelete','UsageAfterUpdate','UsageBeforeDelete','UsageBeforeInsert','UsageBeforeUpdate','UsageIsBulk','fieldsToNull','Id'};
     }
     public class StaticResource extends sObject_x {
         public String Body;
@@ -2827,7 +2999,31 @@ public class ToolingAPIWSDL {
         private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
         private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fieldsToNull','Id'};
+        private String[] field_order_type_info = new String[]{'Body','BodyLength','CacheControl','ContentType','CreatedBy','CreatedById','CreatedDate','Description','LastModifiedBy','LastModifiedById','LastModifiedDate','Name','NamespacePrefix','SystemModstamp','fieldsToNull','Id'};
+    }
+    public class MenuItem extends sObject_x {
+        public Boolean Active;
+        public String AppId;
+        public String Color;
+        public String IconUrl;
+        public String Label;
+        public String MenuType;
+        public Integer SortOrder;
+        public String Theme;
+        public String[] fieldsToNull;
+        public String Id;
+        private String[] Active_type_info = new String[]{'Active','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] AppId_type_info = new String[]{'AppId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Color_type_info = new String[]{'Color','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] IconUrl_type_info = new String[]{'IconUrl','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Label_type_info = new String[]{'Label','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] MenuType_type_info = new String[]{'MenuType','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] SortOrder_type_info = new String[]{'SortOrder','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Theme_type_info = new String[]{'Theme','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
+        private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
+        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
+        private String[] field_order_type_info = new String[]{'Active','AppId','Color','IconUrl','Label','MenuType','SortOrder','Theme','fieldsToNull','Id'};
     }
     public class IDEPerspective extends sObject_x {
         public String Content;
@@ -2859,7 +3055,7 @@ public class ToolingAPIWSDL {
         private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
         private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fieldsToNull','Id'};
+        private String[] field_order_type_info = new String[]{'Content','CreatedBy','CreatedById','CreatedDate','IsDeleted','LastModifiedBy','LastModifiedById','LastModifiedDate','Name','SystemModstamp','User_x','UserId','fieldsToNull','Id'};
     }
     public class ApexPage extends sObject_x {
         public Double ApiVersion;
@@ -2901,25 +3097,39 @@ public class ToolingAPIWSDL {
         private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
         private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fieldsToNull','Id'};
+        private String[] field_order_type_info = new String[]{'ApiVersion','ControllerKey','ControllerType','CreatedBy','CreatedById','CreatedDate','Description','IsAvailableInTouch','IsConfirmationTokenRequired','LastModifiedBy','LastModifiedById','LastModifiedDate','Markup','MasterLabel','Name','NamespacePrefix','SystemModstamp','fieldsToNull','Id'};
     }
-    public class ApexPageMetadata extends Metadata {
-        public Double apiVersion;
-        public Boolean availableInTouch;
-        public Boolean confirmationTokenRequired;
-        public String description;
-        public String label;
-        public ToolingAPIWSDL.PackageVersionMetadata[] packageVersions;
-        public String fullName;
-        private String[] apiVersion_type_info = new String[]{'apiVersion','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] availableInTouch_type_info = new String[]{'availableInTouch','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] confirmationTokenRequired_type_info = new String[]{'confirmationTokenRequired','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] description_type_info = new String[]{'description','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] label_type_info = new String[]{'label','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] packageVersions_type_info = new String[]{'packageVersions','urn:tooling.soap.sforce.com',null,'0','-1','false'};
-        private String[] fullName_type_info = new String[]{'fullName','urn:tooling.soap.sforce.com',null,'0','1','false'};
+    public class BusinessProcess extends sObject_x {
+        public ToolingAPIWSDL.User_x CreatedBy;
+        public String CreatedById;
+        public DateTime CreatedDate;
+        public String Description;
+        public ToolingAPIWSDL.EntityDefinition EntityDefinition;
+        public String EntityDefinitionId;
+        public Boolean IsActive;
+        public ToolingAPIWSDL.User_x LastModifiedBy;
+        public String LastModifiedById;
+        public DateTime LastModifiedDate;
+        public String Name;
+        public String NamespacePrefix;
+        public String[] fieldsToNull;
+        public String Id;
+        private String[] CreatedBy_type_info = new String[]{'CreatedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedById_type_info = new String[]{'CreatedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedDate_type_info = new String[]{'CreatedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Description_type_info = new String[]{'Description','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] EntityDefinition_type_info = new String[]{'EntityDefinition','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] EntityDefinitionId_type_info = new String[]{'EntityDefinitionId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] IsActive_type_info = new String[]{'IsActive','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedBy_type_info = new String[]{'LastModifiedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedById_type_info = new String[]{'LastModifiedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedDate_type_info = new String[]{'LastModifiedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Name_type_info = new String[]{'Name','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] NamespacePrefix_type_info = new String[]{'NamespacePrefix','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
+        private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fullName'};
+        private String[] field_order_type_info = new String[]{'CreatedBy','CreatedById','CreatedDate','Description','EntityDefinition','EntityDefinitionId','IsActive','LastModifiedBy','LastModifiedById','LastModifiedDate','Name','NamespacePrefix','fieldsToNull','Id'};
     }
     public class ExternalMethod {
         public String[] argTypes;
@@ -2933,7 +3143,7 @@ public class ToolingAPIWSDL {
         public Boolean value;
         private String[] value_type_info = new String[]{'value','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{};
+        private String[] field_order_type_info = new String[]{'value'};
     }
     public class UserPreference extends sObject_x {
         public String Preference;
@@ -2949,19 +3159,13 @@ public class ToolingAPIWSDL {
         private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
         private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fieldsToNull','Id'};
-    }
-    public class StringValue extends StateValue {
-        public String value;
-        private String[] value_type_info = new String[]{'value','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{};
+        private String[] field_order_type_info = new String[]{'Preference','SystemModstamp','UserId','Value','fieldsToNull','Id'};
     }
     public class ContainerAsyncRequest extends sObject_x {
-        public String CompilerErrors;
         public ToolingAPIWSDL.User_x CreatedBy;
         public String CreatedById;
         public DateTime CreatedDate;
+        public ToolingAPIWSDL.DeployDetails DeployDetails;
         public String ErrorMsg;
         public Boolean IsCheckOnly;
         public Boolean IsDeleted;
@@ -2977,10 +3181,10 @@ public class ToolingAPIWSDL {
         public DateTime SystemModstamp;
         public String[] fieldsToNull;
         public String Id;
-        private String[] CompilerErrors_type_info = new String[]{'CompilerErrors','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] CreatedBy_type_info = new String[]{'CreatedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] CreatedById_type_info = new String[]{'CreatedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] CreatedDate_type_info = new String[]{'CreatedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] DeployDetails_type_info = new String[]{'DeployDetails','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] ErrorMsg_type_info = new String[]{'ErrorMsg','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] IsCheckOnly_type_info = new String[]{'IsCheckOnly','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] IsDeleted_type_info = new String[]{'IsDeleted','urn:tooling.soap.sforce.com',null,'0','1','true'};
@@ -2997,25 +3201,81 @@ public class ToolingAPIWSDL {
         private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
         private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fieldsToNull','Id'};
+        private String[] field_order_type_info = new String[]{'CreatedBy','CreatedById','CreatedDate','DeployDetails','ErrorMsg','IsCheckOnly','IsDeleted','IsRunTests','LastModifiedBy','LastModifiedById','LastModifiedDate','MetadataContainer','MetadataContainerId','MetadataContainerMember','MetadataContainerMemberId','State','SystemModstamp','fieldsToNull','Id'};
     }
-    public class CustomObject extends sObject_x {
+    public class StringValue extends StateValue {
+        public String value;
+        private String[] value_type_info = new String[]{'value','urn:tooling.soap.sforce.com',null,'1','1','false'};
+        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
+        private String[] field_order_type_info = new String[]{'value'};
+    }
+    public class FlexiPage extends sObject_x {
+        public DateTime CreatedDate;
+        public String Description;
         public String DeveloperName;
-        public ToolingAPIWSDL.Name ExternalDataSource;
-        public String ExternalDataSourceId;
+        public String FullName;
         public DateTime LastModifiedDate;
+        public String MasterLabel;
+        public ToolingAPIWSDLMetadata.FlexiPage Metadata;
         public String NamespacePrefix;
+        public String SobjectType;
+        public String Type_x;
         public String[] fieldsToNull;
         public String Id;
+        private String[] CreatedDate_type_info = new String[]{'CreatedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Description_type_info = new String[]{'Description','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] DeveloperName_type_info = new String[]{'DeveloperName','urn:tooling.soap.sforce.com',null,'0','1','true'};
-        private String[] ExternalDataSource_type_info = new String[]{'ExternalDataSource','urn:tooling.soap.sforce.com',null,'0','1','true'};
-        private String[] ExternalDataSourceId_type_info = new String[]{'ExternalDataSourceId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] FullName_type_info = new String[]{'FullName','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] LastModifiedDate_type_info = new String[]{'LastModifiedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] MasterLabel_type_info = new String[]{'MasterLabel','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Metadata_type_info = new String[]{'Metadata','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] NamespacePrefix_type_info = new String[]{'NamespacePrefix','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] SobjectType_type_info = new String[]{'SobjectType','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Type_x_type_info = new String[]{'Type','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
         private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fieldsToNull','Id'};
+        private String[] field_order_type_info = new String[]{'CreatedDate','Description','DeveloperName','FullName','LastModifiedDate','MasterLabel','Metadata','NamespacePrefix','SobjectType','Type_x','fieldsToNull','Id'};
+    }
+    public class CustomObject extends sObject_x {
+        public ToolingAPIWSDL.User_x CreatedBy;
+        public String CreatedById;
+        public DateTime CreatedDate;
+        public String CustomHelpId;
+        public String Description;
+        public String DeveloperName;
+        public ToolingAPIWSDL.Name ExternalDataSource;
+        public String ExternalDataSourceId;
+        public String ExternalName;
+        public String ExternalRepository;
+        public String Language;
+        public ToolingAPIWSDL.User_x LastModifiedBy;
+        public String LastModifiedById;
+        public DateTime LastModifiedDate;
+        public String NamespacePrefix;
+        public String SharingModel;
+        public String[] fieldsToNull;
+        public String Id;
+        private String[] CreatedBy_type_info = new String[]{'CreatedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedById_type_info = new String[]{'CreatedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedDate_type_info = new String[]{'CreatedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CustomHelpId_type_info = new String[]{'CustomHelpId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Description_type_info = new String[]{'Description','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] DeveloperName_type_info = new String[]{'DeveloperName','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] ExternalDataSource_type_info = new String[]{'ExternalDataSource','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] ExternalDataSourceId_type_info = new String[]{'ExternalDataSourceId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] ExternalName_type_info = new String[]{'ExternalName','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] ExternalRepository_type_info = new String[]{'ExternalRepository','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Language_type_info = new String[]{'Language','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedBy_type_info = new String[]{'LastModifiedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedById_type_info = new String[]{'LastModifiedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedDate_type_info = new String[]{'LastModifiedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] NamespacePrefix_type_info = new String[]{'NamespacePrefix','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] SharingModel_type_info = new String[]{'SharingModel','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
+        private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
+        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
+        private String[] field_order_type_info = new String[]{'CreatedBy','CreatedById','CreatedDate','CustomHelpId','Description','DeveloperName','ExternalDataSource','ExternalDataSourceId','ExternalName','ExternalRepository','Language','LastModifiedBy','LastModifiedById','LastModifiedDate','NamespacePrefix','SharingModel','fieldsToNull','Id'};
     }
     public class InvalidQueryLocatorFault extends ApiFault {
         public String exceptionCode;
@@ -3030,20 +3290,40 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'exceptionCode','exceptionMessage','upgradeURL','upgradeMessage'};
     }
     public class WorkflowOutboundMessage extends sObject_x {
+        public Double ApiVersion;
+        public ToolingAPIWSDL.User_x CreatedBy;
+        public String CreatedById;
+        public DateTime CreatedDate;
+        public ToolingAPIWSDL.EntityDefinition EntityDefinition;
+        public String EntityDefinitionId;
+        public String FullName;
+        public String IntegrationUserId;
+        public ToolingAPIWSDL.User_x LastModifiedBy;
+        public String LastModifiedById;
         public DateTime LastModifiedDate;
+        public ToolingAPIWSDLMetadata.WorkflowOutboundMessage Metadata;
         public String Name;
         public String NamespacePrefix;
-        public String TableEnumOrId;
         public String[] fieldsToNull;
         public String Id;
+        private String[] ApiVersion_type_info = new String[]{'ApiVersion','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedBy_type_info = new String[]{'CreatedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedById_type_info = new String[]{'CreatedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedDate_type_info = new String[]{'CreatedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] EntityDefinition_type_info = new String[]{'EntityDefinition','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] EntityDefinitionId_type_info = new String[]{'EntityDefinitionId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] FullName_type_info = new String[]{'FullName','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] IntegrationUserId_type_info = new String[]{'IntegrationUserId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedBy_type_info = new String[]{'LastModifiedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedById_type_info = new String[]{'LastModifiedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] LastModifiedDate_type_info = new String[]{'LastModifiedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Metadata_type_info = new String[]{'Metadata','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] Name_type_info = new String[]{'Name','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] NamespacePrefix_type_info = new String[]{'NamespacePrefix','urn:tooling.soap.sforce.com',null,'0','1','true'};
-        private String[] TableEnumOrId_type_info = new String[]{'TableEnumOrId','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
         private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fieldsToNull','Id'};
+        private String[] field_order_type_info = new String[]{'ApiVersion','CreatedBy','CreatedById','CreatedDate','EntityDefinition','EntityDefinitionId','FullName','IntegrationUserId','LastModifiedBy','LastModifiedById','LastModifiedDate','Metadata','Name','NamespacePrefix','fieldsToNull','Id'};
     }
     public class InvalidNewPasswordFault extends ApiFault {
         public String exceptionCode;
@@ -3057,31 +3337,97 @@ public class ToolingAPIWSDL {
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
         private String[] field_order_type_info = new String[]{'exceptionCode','exceptionMessage','upgradeURL','upgradeMessage'};
     }
+    public class Profile extends sObject_x {
+        public ToolingAPIWSDL.User_x CreatedBy;
+        public String CreatedById;
+        public DateTime CreatedDate;
+        public String Description;
+        public String FullName;
+        public ToolingAPIWSDL.User_x LastModifiedBy;
+        public String LastModifiedById;
+        public DateTime LastModifiedDate;
+        public ToolingAPIWSDLMetadata.Profile Metadata;
+        public String Name;
+        public ToolingAPIWSDL.QueryResult ProfileLayouts;
+        public String UserLicenseId;
+        public ToolingAPIWSDL.QueryResult Users;
+        public String[] fieldsToNull;
+        public String Id;
+        private String[] CreatedBy_type_info = new String[]{'CreatedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedById_type_info = new String[]{'CreatedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedDate_type_info = new String[]{'CreatedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Description_type_info = new String[]{'Description','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] FullName_type_info = new String[]{'FullName','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedBy_type_info = new String[]{'LastModifiedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedById_type_info = new String[]{'LastModifiedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedDate_type_info = new String[]{'LastModifiedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Metadata_type_info = new String[]{'Metadata','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Name_type_info = new String[]{'Name','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] ProfileLayouts_type_info = new String[]{'ProfileLayouts','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] UserLicenseId_type_info = new String[]{'UserLicenseId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Users_type_info = new String[]{'Users','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
+        private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
+        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
+        private String[] field_order_type_info = new String[]{'CreatedBy','CreatedById','CreatedDate','Description','FullName','LastModifiedBy','LastModifiedById','LastModifiedDate','Metadata','Name','ProfileLayouts','UserLicenseId','Users','fieldsToNull','Id'};
+    }
+    public class FieldSet extends sObject_x {
+        public ToolingAPIWSDL.User_x CreatedBy;
+        public String CreatedById;
+        public DateTime CreatedDate;
+        public String Description;
+        public String DeveloperName;
+        public ToolingAPIWSDL.EntityDefinition EntityDefinition;
+        public String EntityDefinitionId;
+        public ToolingAPIWSDL.User_x LastModifiedBy;
+        public String LastModifiedById;
+        public DateTime LastModifiedDate;
+        public String MasterLabel;
+        public String NamespacePrefix;
+        public String[] fieldsToNull;
+        public String Id;
+        private String[] CreatedBy_type_info = new String[]{'CreatedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedById_type_info = new String[]{'CreatedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedDate_type_info = new String[]{'CreatedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Description_type_info = new String[]{'Description','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] DeveloperName_type_info = new String[]{'DeveloperName','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] EntityDefinition_type_info = new String[]{'EntityDefinition','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] EntityDefinitionId_type_info = new String[]{'EntityDefinitionId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedBy_type_info = new String[]{'LastModifiedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedById_type_info = new String[]{'LastModifiedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedDate_type_info = new String[]{'LastModifiedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] MasterLabel_type_info = new String[]{'MasterLabel','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] NamespacePrefix_type_info = new String[]{'NamespacePrefix','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
+        private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
+        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
+        private String[] field_order_type_info = new String[]{'CreatedBy','CreatedById','CreatedDate','Description','DeveloperName','EntityDefinition','EntityDefinitionId','LastModifiedBy','LastModifiedById','LastModifiedDate','MasterLabel','NamespacePrefix','fieldsToNull','Id'};
+    }
     public class MetadataContainerMember extends sObject_x {
         public String Content;
-        public ToolingAPIWSDL.Name ContentEntity;
         public String ContentEntityId;
+        public String FullName;
         public DateTime LastSyncDate;
         public ToolingAPIWSDL.MetadataContainer MetadataContainer;
         public String MetadataContainerId;
         public String[] fieldsToNull;
         public String Id;
         private String[] Content_type_info = new String[]{'Content','urn:tooling.soap.sforce.com',null,'0','1','true'};
-        private String[] ContentEntity_type_info = new String[]{'ContentEntity','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] ContentEntityId_type_info = new String[]{'ContentEntityId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] FullName_type_info = new String[]{'FullName','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] LastSyncDate_type_info = new String[]{'LastSyncDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] MetadataContainer_type_info = new String[]{'MetadataContainer','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] MetadataContainerId_type_info = new String[]{'MetadataContainerId','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
         private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fieldsToNull','Id'};
+        private String[] field_order_type_info = new String[]{'Content','ContentEntityId','FullName','LastSyncDate','MetadataContainer','MetadataContainerId','fieldsToNull','Id'};
     }
     public class NumberValue extends StateValue {
         public Double value;
         private String[] value_type_info = new String[]{'value','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{};
+        private String[] field_order_type_info = new String[]{'value'};
     }
     public class AsyncApexJob extends sObject_x {
         public ToolingAPIWSDL.ApexClass ApexClass;
@@ -3121,7 +3467,47 @@ public class ToolingAPIWSDL {
         private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
         private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fieldsToNull','Id'};
+        private String[] field_order_type_info = new String[]{'ApexClass','ApexClassId','CompletedDate','CreatedBy','CreatedById','CreatedDate','ExtendedStatus','JobItemsProcessed','JobType','LastProcessed','LastProcessedOffset','MethodName','NumberOfErrors','ParentJobId','Status','TotalJobItems','fieldsToNull','Id'};
+    }
+    public class WorkflowRuleMember extends sObject_x {
+        public String Content;
+        public ToolingAPIWSDL.WorkflowRule ContentEntity;
+        public String ContentEntityId;
+        public ToolingAPIWSDL.User_x CreatedBy;
+        public String CreatedById;
+        public DateTime CreatedDate;
+        public String FullName;
+        public Boolean IsDeleted;
+        public ToolingAPIWSDL.User_x LastModifiedBy;
+        public String LastModifiedById;
+        public DateTime LastModifiedDate;
+        public DateTime LastSyncDate;
+        public ToolingAPIWSDLMetadata.WorkflowRule Metadata;
+        public ToolingAPIWSDL.MetadataContainer MetadataContainer;
+        public String MetadataContainerId;
+        public DateTime SystemModstamp;
+        public String[] fieldsToNull;
+        public String Id;
+        private String[] Content_type_info = new String[]{'Content','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] ContentEntity_type_info = new String[]{'ContentEntity','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] ContentEntityId_type_info = new String[]{'ContentEntityId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedBy_type_info = new String[]{'CreatedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedById_type_info = new String[]{'CreatedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedDate_type_info = new String[]{'CreatedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] FullName_type_info = new String[]{'FullName','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] IsDeleted_type_info = new String[]{'IsDeleted','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedBy_type_info = new String[]{'LastModifiedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedById_type_info = new String[]{'LastModifiedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedDate_type_info = new String[]{'LastModifiedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastSyncDate_type_info = new String[]{'LastSyncDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Metadata_type_info = new String[]{'Metadata','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] MetadataContainer_type_info = new String[]{'MetadataContainer','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] MetadataContainerId_type_info = new String[]{'MetadataContainerId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] SystemModstamp_type_info = new String[]{'SystemModstamp','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
+        private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
+        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
+        private String[] field_order_type_info = new String[]{'Content','ContentEntity','ContentEntityId','CreatedBy','CreatedById','CreatedDate','FullName','IsDeleted','LastModifiedBy','LastModifiedById','LastModifiedDate','LastSyncDate','Metadata','MetadataContainer','MetadataContainerId','SystemModstamp','fieldsToNull','Id'};
     }
     public class ApexTestQueueItem extends sObject_x {
         public ToolingAPIWSDL.ApexClass ApexClass;
@@ -3147,7 +3533,29 @@ public class ToolingAPIWSDL {
         private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
         private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fieldsToNull','Id'};
+        private String[] field_order_type_info = new String[]{'ApexClass','ApexClassId','CreatedBy','CreatedById','CreatedDate','ExtendedStatus','ParentJobId','Status','SystemModstamp','fieldsToNull','Id'};
+    }
+    public class CompactLayout extends sObject_x {
+        public DateTime CreatedDate;
+        public String DeveloperName;
+        public String FullName;
+        public DateTime LastModifiedDate;
+        public ToolingAPIWSDLMetadata.CompactLayout Metadata;
+        public String NamespacePrefix;
+        public String SobjectType;
+        public String[] fieldsToNull;
+        public String Id;
+        private String[] CreatedDate_type_info = new String[]{'CreatedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] DeveloperName_type_info = new String[]{'DeveloperName','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] FullName_type_info = new String[]{'FullName','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedDate_type_info = new String[]{'LastModifiedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Metadata_type_info = new String[]{'Metadata','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] NamespacePrefix_type_info = new String[]{'NamespacePrefix','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] SobjectType_type_info = new String[]{'SobjectType','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
+        private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
+        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
+        private String[] field_order_type_info = new String[]{'CreatedDate','DeveloperName','FullName','LastModifiedDate','Metadata','NamespacePrefix','SobjectType','fieldsToNull','Id'};
     }
     public class Constructor {
         public ToolingAPIWSDL.Parameter[] parameters;
@@ -3167,20 +3575,6 @@ public class ToolingAPIWSDL {
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
         private String[] field_order_type_info = new String[]{'exceptionCode','exceptionMessage','upgradeURL','upgradeMessage'};
     }
-    public class ApexComponentMetadata extends Metadata {
-        public Double apiVersion;
-        public String description;
-        public String label;
-        public ToolingAPIWSDL.PackageVersionMetadata[] packageVersions;
-        public String fullName;
-        private String[] apiVersion_type_info = new String[]{'apiVersion','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] description_type_info = new String[]{'description','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] label_type_info = new String[]{'label','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] packageVersions_type_info = new String[]{'packageVersions','urn:tooling.soap.sforce.com',null,'0','-1','false'};
-        private String[] fullName_type_info = new String[]{'fullName','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fullName'};
-    }
     public class AggregateExpressionResultColumnMetadata extends QueryResultColumnMetadata {
         public String displayName;
         public String apexType;
@@ -3193,46 +3587,34 @@ public class ToolingAPIWSDL {
         private String[] custom_type_info = new String[]{'custom','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] foreignKeyName_type_info = new String[]{'foreignKeyName','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'apexType','columnName','custom','displayName','foreignKeyName'};
+        private String[] field_order_type_info = new String[]{'displayName','apexType','columnName','custom','foreignKeyName'};
     }
-    public class ApexClassMetadata extends Metadata {
-        public Double apiVersion;
-        public ToolingAPIWSDL.PackageVersionMetadata[] packageVersions;
-        public String status;
-        public String fullName;
-        private String[] apiVersion_type_info = new String[]{'apiVersion','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] packageVersions_type_info = new String[]{'packageVersions','urn:tooling.soap.sforce.com',null,'0','-1','false'};
-        private String[] status_type_info = new String[]{'status','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] fullName_type_info = new String[]{'fullName','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fullName'};
-    }
-    public class ApexPageMember extends sObject_x {
-        public String Body;
+    public class WorkflowFieldUpdateMember extends sObject_x {
         public String Content;
-        public ToolingAPIWSDL.ApexPage ContentEntity;
+        public ToolingAPIWSDL.WorkflowFieldUpdate ContentEntity;
         public String ContentEntityId;
         public ToolingAPIWSDL.User_x CreatedBy;
         public String CreatedById;
         public DateTime CreatedDate;
+        public String FullName;
         public Boolean IsDeleted;
         public ToolingAPIWSDL.User_x LastModifiedBy;
         public String LastModifiedById;
         public DateTime LastModifiedDate;
         public DateTime LastSyncDate;
-        public ToolingAPIWSDL.ApexPageMetadata Metadata;
+        public ToolingAPIWSDLMetadata.WorkflowFieldUpdate Metadata;
         public ToolingAPIWSDL.MetadataContainer MetadataContainer;
         public String MetadataContainerId;
         public DateTime SystemModstamp;
         public String[] fieldsToNull;
         public String Id;
-        private String[] Body_type_info = new String[]{'Body','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] Content_type_info = new String[]{'Content','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] ContentEntity_type_info = new String[]{'ContentEntity','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] ContentEntityId_type_info = new String[]{'ContentEntityId','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] CreatedBy_type_info = new String[]{'CreatedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] CreatedById_type_info = new String[]{'CreatedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] CreatedDate_type_info = new String[]{'CreatedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] FullName_type_info = new String[]{'FullName','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] IsDeleted_type_info = new String[]{'IsDeleted','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] LastModifiedBy_type_info = new String[]{'LastModifiedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] LastModifiedById_type_info = new String[]{'LastModifiedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
@@ -3245,25 +3627,123 @@ public class ToolingAPIWSDL {
         private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
         private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fieldsToNull','Id'};
+        private String[] field_order_type_info = new String[]{'Content','ContentEntity','ContentEntityId','CreatedBy','CreatedById','CreatedDate','FullName','IsDeleted','LastModifiedBy','LastModifiedById','LastModifiedDate','LastSyncDate','Metadata','MetadataContainer','MetadataContainerId','SystemModstamp','fieldsToNull','Id'};
     }
-    public class ApexTriggerMetadata extends Metadata {
-        public Double apiVersion;
-        public ToolingAPIWSDL.PackageVersionMetadata[] packageVersions;
-        public String status;
-        public String fullName;
-        private String[] apiVersion_type_info = new String[]{'apiVersion','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] packageVersions_type_info = new String[]{'packageVersions','urn:tooling.soap.sforce.com',null,'0','-1','false'};
-        private String[] status_type_info = new String[]{'status','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] fullName_type_info = new String[]{'fullName','urn:tooling.soap.sforce.com',null,'0','1','false'};
+    public class FieldDefinition extends sObject_x {
+        public ToolingAPIWSDL.QueryResult CompactLayoutItems;
+        public String DataType;
+        public String DeveloperName;
+        public String DurableId;
+        public ToolingAPIWSDL.EntityDefinition EntityDefinition;
+        public String EntityDefinitionId;
+        public String FullName;
+        public Boolean IsCompactLayoutable;
+        public Boolean IsWorkflowFilterable;
+        public String Label;
+        public String MasterLabel;
+        public ToolingAPIWSDLMetadata.CustomField Metadata;
+        public String NamespacePrefix;
+        public String QualifiedApiName;
+        public ToolingAPIWSDL.QueryResult WorkflowFieldUpdates;
+        public String[] fieldsToNull;
+        public String Id;
+        private String[] CompactLayoutItems_type_info = new String[]{'CompactLayoutItems','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] DataType_type_info = new String[]{'DataType','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] DeveloperName_type_info = new String[]{'DeveloperName','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] DurableId_type_info = new String[]{'DurableId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] EntityDefinition_type_info = new String[]{'EntityDefinition','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] EntityDefinitionId_type_info = new String[]{'EntityDefinitionId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] FullName_type_info = new String[]{'FullName','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] IsCompactLayoutable_type_info = new String[]{'IsCompactLayoutable','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] IsWorkflowFilterable_type_info = new String[]{'IsWorkflowFilterable','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Label_type_info = new String[]{'Label','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] MasterLabel_type_info = new String[]{'MasterLabel','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Metadata_type_info = new String[]{'Metadata','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] NamespacePrefix_type_info = new String[]{'NamespacePrefix','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] QualifiedApiName_type_info = new String[]{'QualifiedApiName','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] WorkflowFieldUpdates_type_info = new String[]{'WorkflowFieldUpdates','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
+        private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fullName'};
+        private String[] field_order_type_info = new String[]{'CompactLayoutItems','DataType','DeveloperName','DurableId','EntityDefinition','EntityDefinitionId','FullName','IsCompactLayoutable','IsWorkflowFilterable','Label','MasterLabel','Metadata','NamespacePrefix','QualifiedApiName','WorkflowFieldUpdates','fieldsToNull','Id'};
     }
-    public class AutoResponseRules extends Metadata {
-        public String fullName;
-        private String[] fullName_type_info = new String[]{'fullName','urn:tooling.soap.sforce.com',null,'0','1','false'};
+    public class ProfileLayout extends sObject_x {
+        public ToolingAPIWSDL.User_x CreatedBy;
+        public String CreatedById;
+        public DateTime CreatedDate;
+        public ToolingAPIWSDL.User_x LastModifiedBy;
+        public String LastModifiedById;
+        public DateTime LastModifiedDate;
+        public ToolingAPIWSDL.Layout Layout;
+        public String LayoutId;
+        public ToolingAPIWSDL.Profile Profile;
+        public String ProfileId;
+        public ToolingAPIWSDL.RecordType RecordType;
+        public String RecordTypeId;
+        public DateTime SystemModstamp;
+        public String TableEnumOrId;
+        public String[] fieldsToNull;
+        public String Id;
+        private String[] CreatedBy_type_info = new String[]{'CreatedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedById_type_info = new String[]{'CreatedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedDate_type_info = new String[]{'CreatedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedBy_type_info = new String[]{'LastModifiedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedById_type_info = new String[]{'LastModifiedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedDate_type_info = new String[]{'LastModifiedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Layout_type_info = new String[]{'Layout','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LayoutId_type_info = new String[]{'LayoutId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Profile_type_info = new String[]{'Profile','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] ProfileId_type_info = new String[]{'ProfileId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] RecordType_type_info = new String[]{'RecordType','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] RecordTypeId_type_info = new String[]{'RecordTypeId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] SystemModstamp_type_info = new String[]{'SystemModstamp','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] TableEnumOrId_type_info = new String[]{'TableEnumOrId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
+        private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fullName'};
+        private String[] field_order_type_info = new String[]{'CreatedBy','CreatedById','CreatedDate','LastModifiedBy','LastModifiedById','LastModifiedDate','Layout','LayoutId','Profile','ProfileId','RecordType','RecordTypeId','SystemModstamp','TableEnumOrId','fieldsToNull','Id'};
+    }
+    public class ApexPageMember extends sObject_x {
+        public String Body;
+        public String Content;
+        public ToolingAPIWSDL.ApexPage ContentEntity;
+        public String ContentEntityId;
+        public ToolingAPIWSDL.User_x CreatedBy;
+        public String CreatedById;
+        public DateTime CreatedDate;
+        public String FullName;
+        public Boolean IsDeleted;
+        public ToolingAPIWSDL.User_x LastModifiedBy;
+        public String LastModifiedById;
+        public DateTime LastModifiedDate;
+        public DateTime LastSyncDate;
+        public ToolingAPIWSDLMetadata.ApexPage Metadata;
+        public ToolingAPIWSDL.MetadataContainer MetadataContainer;
+        public String MetadataContainerId;
+        public DateTime SystemModstamp;
+        public String[] fieldsToNull;
+        public String Id;
+        private String[] Body_type_info = new String[]{'Body','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Content_type_info = new String[]{'Content','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] ContentEntity_type_info = new String[]{'ContentEntity','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] ContentEntityId_type_info = new String[]{'ContentEntityId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedBy_type_info = new String[]{'CreatedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedById_type_info = new String[]{'CreatedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedDate_type_info = new String[]{'CreatedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] FullName_type_info = new String[]{'FullName','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] IsDeleted_type_info = new String[]{'IsDeleted','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedBy_type_info = new String[]{'LastModifiedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedById_type_info = new String[]{'LastModifiedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedDate_type_info = new String[]{'LastModifiedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastSyncDate_type_info = new String[]{'LastSyncDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Metadata_type_info = new String[]{'Metadata','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] MetadataContainer_type_info = new String[]{'MetadataContainer','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] MetadataContainerId_type_info = new String[]{'MetadataContainerId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] SystemModstamp_type_info = new String[]{'SystemModstamp','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
+        private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
+        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
+        private String[] field_order_type_info = new String[]{'Body','Content','ContentEntity','ContentEntityId','CreatedBy','CreatedById','CreatedDate','FullName','IsDeleted','LastModifiedBy','LastModifiedById','LastModifiedDate','LastSyncDate','Metadata','MetadataContainer','MetadataContainerId','SystemModstamp','fieldsToNull','Id'};
     }
     public class InvalidIdFault extends ApiFault {
         public String exceptionCode;
@@ -3285,12 +3765,13 @@ public class ToolingAPIWSDL {
         public ToolingAPIWSDL.User_x CreatedBy;
         public String CreatedById;
         public DateTime CreatedDate;
+        public String FullName;
         public Boolean IsDeleted;
         public ToolingAPIWSDL.User_x LastModifiedBy;
         public String LastModifiedById;
         public DateTime LastModifiedDate;
         public DateTime LastSyncDate;
-        public ToolingAPIWSDL.ApexClassMetadata Metadata;
+        public ToolingAPIWSDLMetadata.ApexClass Metadata;
         public ToolingAPIWSDL.MetadataContainer MetadataContainer;
         public String MetadataContainerId;
         public ToolingAPIWSDL.SymbolTable SymbolTable;
@@ -3304,6 +3785,7 @@ public class ToolingAPIWSDL {
         private String[] CreatedBy_type_info = new String[]{'CreatedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] CreatedById_type_info = new String[]{'CreatedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] CreatedDate_type_info = new String[]{'CreatedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] FullName_type_info = new String[]{'FullName','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] IsDeleted_type_info = new String[]{'IsDeleted','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] LastModifiedBy_type_info = new String[]{'LastModifiedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] LastModifiedById_type_info = new String[]{'LastModifiedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
@@ -3317,17 +3799,7 @@ public class ToolingAPIWSDL {
         private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
         private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fieldsToNull','Id'};
-    }
-    public class EscalationRule extends Metadata {
-        public Boolean active;
-        public ToolingAPIWSDL.RuleEntry[] ruleEntry;
-        public String fullName;
-        private String[] active_type_info = new String[]{'active','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] ruleEntry_type_info = new String[]{'ruleEntry','urn:tooling.soap.sforce.com',null,'0','-1','false'};
-        private String[] fullName_type_info = new String[]{'fullName','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fullName'};
+        private String[] field_order_type_info = new String[]{'Body','Content','ContentEntity','ContentEntityId','CreatedBy','CreatedById','CreatedDate','FullName','IsDeleted','LastModifiedBy','LastModifiedById','LastModifiedDate','LastSyncDate','Metadata','MetadataContainer','MetadataContainerId','SymbolTable','SystemModstamp','fieldsToNull','Id'};
     }
     public class ApexExecutionOverlayResult extends sObject_x {
         public String ActionScript;
@@ -3383,18 +3855,28 @@ public class ToolingAPIWSDL {
         private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
         private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fieldsToNull','Id'};
+        private String[] field_order_type_info = new String[]{'ActionScript','ActionScriptType','ApexResult','ClassName','CreatedBy','CreatedById','CreatedDate','ExpirationDate','HeapDump','IsDeleted','IsDumpingHeap','Iteration','LastModifiedBy','LastModifiedById','LastModifiedDate','Line','Namespace','OverlayResultLength','RequestedBy','RequestedById','SOQLResult','SystemModstamp','User_x','UserId','fieldsToNull','Id'};
     }
     public class WorkflowRule extends sObject_x {
+        public ToolingAPIWSDL.User_x CreatedBy;
+        public String CreatedById;
+        public DateTime CreatedDate;
         public String FullName;
+        public ToolingAPIWSDL.User_x LastModifiedBy;
+        public String LastModifiedById;
         public DateTime LastModifiedDate;
-        public ToolingAPIWSDL.WorkflowRuleMetadata Metadata;
+        public ToolingAPIWSDLMetadata.WorkflowRule Metadata;
         public String Name;
         public String NamespacePrefix;
         public String TableEnumOrId;
         public String[] fieldsToNull;
         public String Id;
+        private String[] CreatedBy_type_info = new String[]{'CreatedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedById_type_info = new String[]{'CreatedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedDate_type_info = new String[]{'CreatedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] FullName_type_info = new String[]{'FullName','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedBy_type_info = new String[]{'LastModifiedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedById_type_info = new String[]{'LastModifiedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] LastModifiedDate_type_info = new String[]{'LastModifiedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] Metadata_type_info = new String[]{'Metadata','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] Name_type_info = new String[]{'Name','urn:tooling.soap.sforce.com',null,'0','1','true'};
@@ -3403,61 +3885,111 @@ public class ToolingAPIWSDL {
         private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
         private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fieldsToNull','Id'};
-    }
-    public class WorkflowRuleMetadata extends Metadata {
-        public ToolingAPIWSDL.WorkflowActionReference[] actions;
-        public Boolean active;
-        public String booleanFilter;
-        public ToolingAPIWSDL.FilterItem[] criteriaItems;
-        public String description;
-        public String formula;
-        public String triggerType;
-        public ToolingAPIWSDL.WorkflowTimeTrigger[] workflowTimeTriggers;
-        public String fullName;
-        private String[] actions_type_info = new String[]{'actions','urn:tooling.soap.sforce.com',null,'0','-1','false'};
-        private String[] active_type_info = new String[]{'active','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] booleanFilter_type_info = new String[]{'booleanFilter','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] criteriaItems_type_info = new String[]{'criteriaItems','urn:tooling.soap.sforce.com',null,'0','-1','false'};
-        private String[] description_type_info = new String[]{'description','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] formula_type_info = new String[]{'formula','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] triggerType_type_info = new String[]{'triggerType','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] workflowTimeTriggers_type_info = new String[]{'workflowTimeTriggers','urn:tooling.soap.sforce.com',null,'0','-1','false'};
-        private String[] fullName_type_info = new String[]{'fullName','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fullName'};
+        private String[] field_order_type_info = new String[]{'CreatedBy','CreatedById','CreatedDate','FullName','LastModifiedBy','LastModifiedById','LastModifiedDate','Metadata','Name','NamespacePrefix','TableEnumOrId','fieldsToNull','Id'};
     }
     public class User_x extends sObject_x {
         public ToolingAPIWSDL.QueryResult DelegatedUsers;
+        public String FirstName;
+        public String LastName;
         public ToolingAPIWSDL.QueryResult ManagedUsers;
+        public String Name;
         public ToolingAPIWSDL.QueryResult UserPreferences;
+        public String Username;
         public String WorkspaceId;
         public String[] fieldsToNull;
         public String Id;
         private String[] DelegatedUsers_type_info = new String[]{'DelegatedUsers','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] FirstName_type_info = new String[]{'FirstName','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastName_type_info = new String[]{'LastName','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] ManagedUsers_type_info = new String[]{'ManagedUsers','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Name_type_info = new String[]{'Name','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] UserPreferences_type_info = new String[]{'UserPreferences','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Username_type_info = new String[]{'Username','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] WorkspaceId_type_info = new String[]{'WorkspaceId','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
         private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fieldsToNull','Id'};
+        private String[] field_order_type_info = new String[]{'DelegatedUsers','FirstName','LastName','ManagedUsers','Name','UserPreferences','Username','WorkspaceId','fieldsToNull','Id'};
     }
-    public class ValidationRuleMetadata extends Metadata {
-        public Boolean active;
-        public String description;
-        public String errorConditionFormula;
-        public String errorDisplayField;
-        public String errorMessage;
-        public String fullName;
-        private String[] active_type_info = new String[]{'active','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] description_type_info = new String[]{'description','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] errorConditionFormula_type_info = new String[]{'errorConditionFormula','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] errorDisplayField_type_info = new String[]{'errorDisplayField','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] errorMessage_type_info = new String[]{'errorMessage','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] fullName_type_info = new String[]{'fullName','urn:tooling.soap.sforce.com',null,'0','1','false'};
+    public class CustomTab extends sObject_x {
+        public ToolingAPIWSDL.User_x CreatedBy;
+        public String CreatedById;
+        public DateTime CreatedDate;
+        public String Description;
+        public String DeveloperName;
+        public String FullName;
+        public Boolean HasSidebar;
+        public String IconId;
+        public ToolingAPIWSDL.User_x LastModifiedBy;
+        public String LastModifiedById;
+        public DateTime LastModifiedDate;
+        public String MasterLabel;
+        public ToolingAPIWSDLMetadata.CustomTab Metadata;
+        public String NamespacePrefix;
+        public String Type_x;
+        public String Url;
+        public String[] fieldsToNull;
+        public String Id;
+        private String[] CreatedBy_type_info = new String[]{'CreatedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedById_type_info = new String[]{'CreatedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedDate_type_info = new String[]{'CreatedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Description_type_info = new String[]{'Description','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] DeveloperName_type_info = new String[]{'DeveloperName','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] FullName_type_info = new String[]{'FullName','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] HasSidebar_type_info = new String[]{'HasSidebar','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] IconId_type_info = new String[]{'IconId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedBy_type_info = new String[]{'LastModifiedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedById_type_info = new String[]{'LastModifiedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedDate_type_info = new String[]{'LastModifiedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] MasterLabel_type_info = new String[]{'MasterLabel','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Metadata_type_info = new String[]{'Metadata','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] NamespacePrefix_type_info = new String[]{'NamespacePrefix','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Type_x_type_info = new String[]{'Type','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Url_type_info = new String[]{'Url','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
+        private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fullName'};
+        private String[] field_order_type_info = new String[]{'CreatedBy','CreatedById','CreatedDate','Description','DeveloperName','FullName','HasSidebar','IconId','LastModifiedBy','LastModifiedById','LastModifiedDate','MasterLabel','Metadata','NamespacePrefix','Type_x','Url','fieldsToNull','Id'};
+    }
+    public class RecordType extends sObject_x {
+        public String BusinessProcessId;
+        public ToolingAPIWSDL.User_x CreatedBy;
+        public String CreatedById;
+        public DateTime CreatedDate;
+        public String Description;
+        public ToolingAPIWSDL.EntityDefinition EntityDefinition;
+        public String EntityDefinitionId;
+        public String FullName;
+        public Boolean IsActive;
+        public ToolingAPIWSDL.User_x LastModifiedBy;
+        public String LastModifiedById;
+        public DateTime LastModifiedDate;
+        public ToolingAPIWSDLMetadata.RecordType Metadata;
+        public String Name;
+        public String NamespacePrefix;
+        public String SobjectType;
+        public String[] fieldsToNull;
+        public String Id;
+        private String[] BusinessProcessId_type_info = new String[]{'BusinessProcessId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedBy_type_info = new String[]{'CreatedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedById_type_info = new String[]{'CreatedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedDate_type_info = new String[]{'CreatedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Description_type_info = new String[]{'Description','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] EntityDefinition_type_info = new String[]{'EntityDefinition','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] EntityDefinitionId_type_info = new String[]{'EntityDefinitionId','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] FullName_type_info = new String[]{'FullName','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] IsActive_type_info = new String[]{'IsActive','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedBy_type_info = new String[]{'LastModifiedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedById_type_info = new String[]{'LastModifiedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedDate_type_info = new String[]{'LastModifiedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Metadata_type_info = new String[]{'Metadata','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Name_type_info = new String[]{'Name','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] NamespacePrefix_type_info = new String[]{'NamespacePrefix','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] SobjectType_type_info = new String[]{'SobjectType','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
+        private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
+        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
+        private String[] field_order_type_info = new String[]{'BusinessProcessId','CreatedBy','CreatedById','CreatedDate','Description','EntityDefinition','EntityDefinitionId','FullName','IsActive','LastModifiedBy','LastModifiedById','LastModifiedDate','Metadata','Name','NamespacePrefix','SobjectType','fieldsToNull','Id'};
     }
     public class ComplexQueryResultColumnMetadata extends QueryResultColumnMetadata {
         public ToolingAPIWSDL.QueryResultColumnMetadata[] joinColumns;
@@ -3473,17 +4005,11 @@ public class ToolingAPIWSDL {
         private String[] displayName_type_info = new String[]{'displayName','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] foreignKeyName_type_info = new String[]{'foreignKeyName','urn:tooling.soap.sforce.com',null,'1','1','false'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'apexType','columnName','custom','displayName','foreignKeyName'};
+        private String[] field_order_type_info = new String[]{'joinColumns','apexType','columnName','custom','displayName','foreignKeyName'};
     }
     public class InvalidFieldFault {
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
         private String[] field_order_type_info = new String[]{};
-    }
-    public class EscalationRules extends Metadata {
-        public String fullName;
-        private String[] fullName_type_info = new String[]{'fullName','urn:tooling.soap.sforce.com',null,'0','1','false'};
-        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fullName'};
     }
     public class MetadataContainer extends sObject_x {
         public ToolingAPIWSDL.User_x CreatedBy;
@@ -3509,23 +4035,7 @@ public class ToolingAPIWSDL {
         private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
         private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fieldsToNull','Id'};
-    }
-    public class VisibilitySymbol extends Symbol {
-        public String visibility;
-        public ToolingAPIWSDL.Position location;
-        public String[] modifiers;
-        public String name;
-        public ToolingAPIWSDL.Position[] references;
-        public String type_x;
-        private String[] visibility_type_info = new String[]{'visibility','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] location_type_info = new String[]{'location','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] modifiers_type_info = new String[]{'modifiers','urn:tooling.soap.sforce.com',null,'0','-1','false'};
-        private String[] name_type_info = new String[]{'name','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] references_type_info = new String[]{'references','urn:tooling.soap.sforce.com',null,'0','-1','false'};
-        private String[] type_x_type_info = new String[]{'type','urn:tooling.soap.sforce.com',null,'1','1','false'};
-        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'location','modifiers','name','references','type_x'};
+        private String[] field_order_type_info = new String[]{'CreatedBy','CreatedById','CreatedDate','IsDeleted','LastModifiedBy','LastModifiedById','LastModifiedDate','Name','SystemModstamp','fieldsToNull','Id'};
     }
     public class ApexLog extends sObject_x {
         public String Application;
@@ -3557,27 +4067,77 @@ public class ToolingAPIWSDL {
         private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
         private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fieldsToNull','Id'};
+        private String[] field_order_type_info = new String[]{'Application','DurationMilliseconds','LastModifiedDate','Location','LogLength','LogUser','LogUserId','Operation','Request','StartTime','Status','SystemModstamp','fieldsToNull','Id'};
     }
     public class CustomField extends sObject_x {
+        public ToolingAPIWSDL.User_x CreatedBy;
+        public String CreatedById;
+        public DateTime CreatedDate;
+        public String DefaultValue;
+        public String Description;
         public String DeveloperName;
+        public ToolingAPIWSDL.EntityDefinition EntityDefinition;
+        public String EntityDefinitionId;
         public String FullName;
+        public String InlineHelpText;
+        public ToolingAPIWSDL.User_x LastModifiedBy;
+        public String LastModifiedById;
         public DateTime LastModifiedDate;
-        public ToolingAPIWSDL.CustomFieldMetadata Metadata;
+        public Integer Length;
+        public String MaskChar;
+        public String MaskType;
+        public ToolingAPIWSDLMetadata.CustomField Metadata;
         public String NamespacePrefix;
+        public Integer Precision;
+        public String RelationshipLabel;
+        public Integer Scale;
+        public String SummaryOperation;
         public String TableEnumOrId;
         public String[] fieldsToNull;
         public String Id;
+        private String[] CreatedBy_type_info = new String[]{'CreatedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedById_type_info = new String[]{'CreatedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] CreatedDate_type_info = new String[]{'CreatedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] DefaultValue_type_info = new String[]{'DefaultValue','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Description_type_info = new String[]{'Description','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] DeveloperName_type_info = new String[]{'DeveloperName','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] EntityDefinition_type_info = new String[]{'EntityDefinition','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] EntityDefinitionId_type_info = new String[]{'EntityDefinitionId','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] FullName_type_info = new String[]{'FullName','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] InlineHelpText_type_info = new String[]{'InlineHelpText','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedBy_type_info = new String[]{'LastModifiedBy','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] LastModifiedById_type_info = new String[]{'LastModifiedById','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] LastModifiedDate_type_info = new String[]{'LastModifiedDate','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Length_type_info = new String[]{'Length','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] MaskChar_type_info = new String[]{'MaskChar','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] MaskType_type_info = new String[]{'MaskType','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] Metadata_type_info = new String[]{'Metadata','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] NamespacePrefix_type_info = new String[]{'NamespacePrefix','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Precision_type_info = new String[]{'Precision','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] RelationshipLabel_type_info = new String[]{'RelationshipLabel','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] Scale_type_info = new String[]{'Scale','urn:tooling.soap.sforce.com',null,'0','1','true'};
+        private String[] SummaryOperation_type_info = new String[]{'SummaryOperation','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] TableEnumOrId_type_info = new String[]{'TableEnumOrId','urn:tooling.soap.sforce.com',null,'0','1','true'};
         private String[] fieldsToNull_type_info = new String[]{'fieldsToNull','urn:tooling.soap.sforce.com',null,'0','-1','true'};
         private String[] Id_type_info = new String[]{'Id','urn:tooling.soap.sforce.com',null,'1','1','true'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'fieldsToNull','Id'};
+        private String[] field_order_type_info = new String[]{'CreatedBy','CreatedById','CreatedDate','DefaultValue','Description','DeveloperName','EntityDefinition','EntityDefinitionId','FullName','InlineHelpText','LastModifiedBy','LastModifiedById','LastModifiedDate','Length','MaskChar','MaskType','Metadata','NamespacePrefix','Precision','RelationshipLabel','Scale','SummaryOperation','TableEnumOrId','fieldsToNull','Id'};
+    }
+    public class VisibilitySymbol extends Symbol {
+        public String visibility;
+        public ToolingAPIWSDL.Position location;
+        public String[] modifiers;
+        public String name;
+        public ToolingAPIWSDL.Position[] references;
+        public String type_x;
+        private String[] visibility_type_info = new String[]{'visibility','urn:tooling.soap.sforce.com',null,'1','1','false'};
+        private String[] location_type_info = new String[]{'location','urn:tooling.soap.sforce.com',null,'1','1','false'};
+        private String[] modifiers_type_info = new String[]{'modifiers','urn:tooling.soap.sforce.com',null,'0','-1','false'};
+        private String[] name_type_info = new String[]{'name','urn:tooling.soap.sforce.com',null,'1','1','false'};
+        private String[] references_type_info = new String[]{'references','urn:tooling.soap.sforce.com',null,'0','-1','false'};
+        private String[] type_x_type_info = new String[]{'type','urn:tooling.soap.sforce.com',null,'1','1','false'};
+        private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
+        private String[] field_order_type_info = new String[]{'visibility','location','modifiers','name','references','type_x'};
     }
     public class ApiQueryFault extends ApiFault {
         public Integer row;
@@ -3593,7 +4153,7 @@ public class ToolingAPIWSDL {
         private String[] upgradeURL_type_info = new String[]{'upgradeURL','urn:tooling.soap.sforce.com',null,'0','1','false'};
         private String[] upgradeMessage_type_info = new String[]{'upgradeMessage','urn:tooling.soap.sforce.com',null,'0','1','false'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'exceptionCode','exceptionMessage','upgradeURL','upgradeMessage'};
+        private String[] field_order_type_info = new String[]{'row','column','exceptionCode','exceptionMessage','upgradeURL','upgradeMessage'};
     }
     public class MalformedQueryFault {
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
@@ -3603,10 +4163,10 @@ public class ToolingAPIWSDL {
         public ToolingAPIWSDL.StateValue[] value;
         private String[] value_type_info = new String[]{'value','urn:tooling.soap.sforce.com',null,'0','-1','false'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{};
+        private String[] field_order_type_info = new String[]{'value'};
     }
     public class SforceService {
-        public String endpoint_x = 'https://cs9.salesforce.com/services/Soap/T/30.0';
+        public String endpoint_x = 'https://cs9.salesforce.com/services/Soap/T/33.0';
         public Map<String,String> inputHttpHeaders_x;
         public Map<String,String> outputHttpHeaders_x;
         public String clientCertName_x;
@@ -3615,6 +4175,7 @@ public class ToolingAPIWSDL {
         public Integer timeout_x;
         public ToolingAPIWSDL.DebuggingHeader_element DebuggingHeader;
         public ToolingAPIWSDL.CallOptions_element CallOptions;
+        public ToolingAPIWSDL.MetadataWarningsHeader_element MetadataWarningsHeader;
         public ToolingAPIWSDL.AllowFieldTruncationHeader_element AllowFieldTruncationHeader;
         public ToolingAPIWSDL.PackageVersionHeader_element PackageVersionHeader;
         public ToolingAPIWSDL.SessionHeader_element SessionHeader;
@@ -3622,12 +4183,13 @@ public class ToolingAPIWSDL {
         public ToolingAPIWSDL.DebuggingInfo_element DebuggingInfo;
         private String DebuggingHeader_hns = 'DebuggingHeader=urn:tooling.soap.sforce.com';
         private String CallOptions_hns = 'CallOptions=urn:tooling.soap.sforce.com';
+        private String MetadataWarningsHeader_hns = 'MetadataWarningsHeader=urn:tooling.soap.sforce.com';
         private String AllowFieldTruncationHeader_hns = 'AllowFieldTruncationHeader=urn:tooling.soap.sforce.com';
         private String PackageVersionHeader_hns = 'PackageVersionHeader=urn:tooling.soap.sforce.com';
         private String SessionHeader_hns = 'SessionHeader=urn:tooling.soap.sforce.com';
         private String DisableFeedTrackingHeader_hns = 'DisableFeedTrackingHeader=urn:tooling.soap.sforce.com';
         private String DebuggingInfo_hns = 'DebuggingInfo=urn:tooling.soap.sforce.com';
-        private String[] ns_map_type_info = new String[]{'urn:tooling.soap.sforce.com', 'ToolingAPIWSDL'};
+        private String[] ns_map_type_info = new String[]{'urn:metadata.tooling.soap.sforce.com', 'ToolingAPIWSDLMetadata', 'urn:tooling.soap.sforce.com', 'ToolingAPIWSDL'};
         public ToolingAPIWSDL.DeleteResult[] delete_x(String[] ids) {
             ToolingAPIWSDL.delete_element request_x = new ToolingAPIWSDL.delete_element();
             request_x.ids = ids;
@@ -3734,12 +4296,11 @@ public class ToolingAPIWSDL {
             response_x = response_map_x.get('response_x');
             return response_x.result;
         }
-        public ToolingAPIWSDL.UpsertResult[] upsert_x(String fieldName,ToolingAPIWSDL.sObject_x[] entities) {
-            ToolingAPIWSDL.upsert_element request_x = new ToolingAPIWSDL.upsert_element();
-            request_x.fieldName = fieldName;
-            request_x.entities = entities;
-            ToolingAPIWSDL.upsertResponse_element response_x;
-            Map<String, ToolingAPIWSDL.upsertResponse_element> response_map_x = new Map<String, ToolingAPIWSDL.upsertResponse_element>();
+        public ToolingAPIWSDL.DescribeValueTypeResult describeValueType(String type_x) {
+            ToolingAPIWSDL.describeValueType_element request_x = new ToolingAPIWSDL.describeValueType_element();
+            request_x.type_x = type_x;
+            ToolingAPIWSDL.describeValueTypeResponse_element response_x;
+            Map<String, ToolingAPIWSDL.describeValueTypeResponse_element> response_map_x = new Map<String, ToolingAPIWSDL.describeValueTypeResponse_element>();
             response_map_x.put('response_x', response_x);
             WebServiceCallout.invoke(
               this,
@@ -3748,31 +4309,10 @@ public class ToolingAPIWSDL {
               new String[]{endpoint_x,
               '',
               'urn:tooling.soap.sforce.com',
-              'upsert',
+              'describeValueType',
               'urn:tooling.soap.sforce.com',
-              'upsertResponse',
-              'ToolingAPIWSDL.upsertResponse_element'}
-            );
-            response_x = response_map_x.get('response_x');
-            return response_x.result;
-        }
-        public ToolingAPIWSDL.QueryResult query(String queryString) {
-            ToolingAPIWSDL.query_element request_x = new ToolingAPIWSDL.query_element();
-            request_x.queryString = queryString;
-            ToolingAPIWSDL.queryResponse_element response_x;
-            Map<String, ToolingAPIWSDL.queryResponse_element> response_map_x = new Map<String, ToolingAPIWSDL.queryResponse_element>();
-            response_map_x.put('response_x', response_x);
-            WebServiceCallout.invoke(
-              this,
-              request_x,
-              response_map_x,
-              new String[]{endpoint_x,
-              '',
-              'urn:tooling.soap.sforce.com',
-              'query',
-              'urn:tooling.soap.sforce.com',
-              'queryResponse',
-              'ToolingAPIWSDL.queryResponse_element'}
+              'describeValueTypeResponse',
+              'ToolingAPIWSDL.describeValueTypeResponse_element'}
             );
             response_x = response_map_x.get('response_x');
             return response_x.result;
@@ -3797,26 +4337,6 @@ public class ToolingAPIWSDL {
             response_x = response_map_x.get('response_x');
             return response_x.result;
         }
-        public ToolingAPIWSDL.DescribeGlobalResult describeGlobal() {
-            ToolingAPIWSDL.describeGlobal_element request_x = new ToolingAPIWSDL.describeGlobal_element();
-            ToolingAPIWSDL.describeGlobalResponse_element response_x;
-            Map<String, ToolingAPIWSDL.describeGlobalResponse_element> response_map_x = new Map<String, ToolingAPIWSDL.describeGlobalResponse_element>();
-            response_map_x.put('response_x', response_x);
-            WebServiceCallout.invoke(
-              this,
-              request_x,
-              response_map_x,
-              new String[]{endpoint_x,
-              '',
-              'urn:tooling.soap.sforce.com',
-              'describeGlobal',
-              'urn:tooling.soap.sforce.com',
-              'describeGlobalResponse',
-              'ToolingAPIWSDL.describeGlobalResponse_element'}
-            );
-            response_x = response_map_x.get('response_x');
-            return response_x.result;
-        }
         public ToolingAPIWSDL.SetPasswordResult setPassword(String userId,String password) {
             ToolingAPIWSDL.setPassword_element request_x = new ToolingAPIWSDL.setPassword_element();
             request_x.userId = userId;
@@ -3835,27 +4355,6 @@ public class ToolingAPIWSDL {
               'urn:tooling.soap.sforce.com',
               'setPasswordResponse',
               'ToolingAPIWSDL.setPasswordResponse_element'}
-            );
-            response_x = response_map_x.get('response_x');
-            return response_x.result;
-        }
-        public ToolingAPIWSDL.DescribeSObjectResult[] describeSObjects(String[] types) {
-            ToolingAPIWSDL.describeSObjects_element request_x = new ToolingAPIWSDL.describeSObjects_element();
-            request_x.types = types;
-            ToolingAPIWSDL.describeSObjectsResponse_element response_x;
-            Map<String, ToolingAPIWSDL.describeSObjectsResponse_element> response_map_x = new Map<String, ToolingAPIWSDL.describeSObjectsResponse_element>();
-            response_map_x.put('response_x', response_x);
-            WebServiceCallout.invoke(
-              this,
-              request_x,
-              response_map_x,
-              new String[]{endpoint_x,
-              '',
-              'urn:tooling.soap.sforce.com',
-              'describeSObjects',
-              'urn:tooling.soap.sforce.com',
-              'describeSObjectsResponse',
-              'ToolingAPIWSDL.describeSObjectsResponse_element'}
             );
             response_x = response_map_x.get('response_x');
             return response_x.result;
@@ -3902,26 +4401,6 @@ public class ToolingAPIWSDL {
             response_x = response_map_x.get('response_x');
             return response_x.result;
         }
-        public ToolingAPIWSDL.GetUserInfoResult getUserInfo() {
-            ToolingAPIWSDL.getUserInfo_element request_x = new ToolingAPIWSDL.getUserInfo_element();
-            ToolingAPIWSDL.getUserInfoResponse_element response_x;
-            Map<String, ToolingAPIWSDL.getUserInfoResponse_element> response_map_x = new Map<String, ToolingAPIWSDL.getUserInfoResponse_element>();
-            response_map_x.put('response_x', response_x);
-            WebServiceCallout.invoke(
-              this,
-              request_x,
-              response_map_x,
-              new String[]{endpoint_x,
-              '',
-              'urn:tooling.soap.sforce.com',
-              'getUserInfo',
-              'urn:tooling.soap.sforce.com',
-              'getUserInfoResponse',
-              'ToolingAPIWSDL.getUserInfoResponse_element'}
-            );
-            response_x = response_map_x.get('response_x');
-            return response_x.result;
-        }
         public ToolingAPIWSDL.SaveResult[] create(ToolingAPIWSDL.sObject_x[] sObjects) {
             ToolingAPIWSDL.create_element request_x = new ToolingAPIWSDL.create_element();
             request_x.sObjects = sObjects;
@@ -3943,29 +4422,6 @@ public class ToolingAPIWSDL {
             response_x = response_map_x.get('response_x');
             return response_x.result;
         }
-        public ToolingAPIWSDL.sObject_x[] retrieve_x(String select_x,String type_x,String[] ids) {
-            ToolingAPIWSDL.retrieve_element request_x = new ToolingAPIWSDL.retrieve_element();
-            request_x.select_x = select_x;
-            request_x.type_x = type_x;
-            request_x.ids = ids;
-            ToolingAPIWSDL.retrieveResponse_element response_x;
-            Map<String, ToolingAPIWSDL.retrieveResponse_element> response_map_x = new Map<String, ToolingAPIWSDL.retrieveResponse_element>();
-            response_map_x.put('response_x', response_x);
-            WebServiceCallout.invoke(
-              this,
-              request_x,
-              response_map_x,
-              new String[]{endpoint_x,
-              '',
-              'urn:tooling.soap.sforce.com',
-              'retrieve',
-              'urn:tooling.soap.sforce.com',
-              'retrieveResponse',
-              'ToolingAPIWSDL.retrieveResponse_element'}
-            );
-            response_x = response_map_x.get('response_x');
-            return response_x.result;
-        }
         public ToolingAPIWSDL.DescribeWorkitemActionResult[] describeWorkitemActions(String[] workitemIds) {
             ToolingAPIWSDL.describeWorkitemActions_element request_x = new ToolingAPIWSDL.describeWorkitemActions_element();
             request_x.workitemIds = workitemIds;
@@ -3983,27 +4439,6 @@ public class ToolingAPIWSDL {
               'urn:tooling.soap.sforce.com',
               'describeWorkitemActionsResponse',
               'ToolingAPIWSDL.describeWorkitemActionsResponse_element'}
-            );
-            response_x = response_map_x.get('response_x');
-            return response_x.result;
-        }
-        public ToolingAPIWSDL.QueryResult queryMore(String queryLocator) {
-            ToolingAPIWSDL.queryMore_element request_x = new ToolingAPIWSDL.queryMore_element();
-            request_x.queryLocator = queryLocator;
-            ToolingAPIWSDL.queryMoreResponse_element response_x;
-            Map<String, ToolingAPIWSDL.queryMoreResponse_element> response_map_x = new Map<String, ToolingAPIWSDL.queryMoreResponse_element>();
-            response_map_x.put('response_x', response_x);
-            WebServiceCallout.invoke(
-              this,
-              request_x,
-              response_map_x,
-              new String[]{endpoint_x,
-              '',
-              'urn:tooling.soap.sforce.com',
-              'queryMore',
-              'urn:tooling.soap.sforce.com',
-              'queryMoreResponse',
-              'ToolingAPIWSDL.queryMoreResponse_element'}
             );
             response_x = response_map_x.get('response_x');
             return response_x.result;
@@ -4092,6 +4527,27 @@ public class ToolingAPIWSDL {
             );
             response_x = response_map_x.get('response_x');
         }
+        public ToolingAPIWSDL.SearchResult search_x(String searchString) {
+            ToolingAPIWSDL.search_element request_x = new ToolingAPIWSDL.search_element();
+            request_x.searchString = searchString;
+            ToolingAPIWSDL.searchResponse_element response_x;
+            Map<String, ToolingAPIWSDL.searchResponse_element> response_map_x = new Map<String, ToolingAPIWSDL.searchResponse_element>();
+            response_map_x.put('response_x', response_x);
+            WebServiceCallout.invoke(
+              this,
+              request_x,
+              response_map_x,
+              new String[]{endpoint_x,
+              '',
+              'urn:tooling.soap.sforce.com',
+              'search',
+              'urn:tooling.soap.sforce.com',
+              'searchResponse',
+              'ToolingAPIWSDL.searchResponse_element'}
+            );
+            response_x = response_map_x.get('response_x');
+            return response_x.result;
+        }
         public ToolingAPIWSDL.GetUpdatedResult getUpdated(String sObjectType,DateTime start,DateTime end_x) {
             ToolingAPIWSDL.getUpdated_element request_x = new ToolingAPIWSDL.getUpdated_element();
             request_x.sObjectType = sObjectType;
@@ -4111,6 +4567,156 @@ public class ToolingAPIWSDL {
               'urn:tooling.soap.sforce.com',
               'getUpdatedResponse',
               'ToolingAPIWSDL.getUpdatedResponse_element'}
+            );
+            response_x = response_map_x.get('response_x');
+            return response_x.result;
+        }
+        public ToolingAPIWSDL.UpsertResult[] upsert_x(String fieldName,ToolingAPIWSDL.sObject_x[] entities) {
+            ToolingAPIWSDL.upsert_element request_x = new ToolingAPIWSDL.upsert_element();
+            request_x.fieldName = fieldName;
+            request_x.entities = entities;
+            ToolingAPIWSDL.upsertResponse_element response_x;
+            Map<String, ToolingAPIWSDL.upsertResponse_element> response_map_x = new Map<String, ToolingAPIWSDL.upsertResponse_element>();
+            response_map_x.put('response_x', response_x);
+            WebServiceCallout.invoke(
+              this,
+              request_x,
+              response_map_x,
+              new String[]{endpoint_x,
+              '',
+              'urn:tooling.soap.sforce.com',
+              'upsert',
+              'urn:tooling.soap.sforce.com',
+              'upsertResponse',
+              'ToolingAPIWSDL.upsertResponse_element'}
+            );
+            response_x = response_map_x.get('response_x');
+            return response_x.result;
+        }
+        public ToolingAPIWSDL.QueryResult query(String queryString) {
+            ToolingAPIWSDL.query_element request_x = new ToolingAPIWSDL.query_element();
+            request_x.queryString = queryString;
+            ToolingAPIWSDL.queryResponse_element response_x;
+            Map<String, ToolingAPIWSDL.queryResponse_element> response_map_x = new Map<String, ToolingAPIWSDL.queryResponse_element>();
+            response_map_x.put('response_x', response_x);
+            System.debug('JWL: request: ' + request_x);
+            System.debug('JWL: this endpoint: ' + this.endpoint_x);
+            WebServiceCallout.invoke(
+              this,
+              request_x,
+              response_map_x,
+              new String[]{endpoint_x,
+              '',
+              'urn:tooling.soap.sforce.com',
+              'query',
+              'urn:tooling.soap.sforce.com',
+              'queryResponse',
+              'ToolingAPIWSDL.queryResponse_element'}
+            );
+            response_x = response_map_x.get('response_x');
+            return response_x.result;
+        }
+        public ToolingAPIWSDL.DescribeGlobalResult describeGlobal() {
+            ToolingAPIWSDL.describeGlobal_element request_x = new ToolingAPIWSDL.describeGlobal_element();
+            ToolingAPIWSDL.describeGlobalResponse_element response_x;
+            Map<String, ToolingAPIWSDL.describeGlobalResponse_element> response_map_x = new Map<String, ToolingAPIWSDL.describeGlobalResponse_element>();
+            response_map_x.put('response_x', response_x);
+            WebServiceCallout.invoke(
+              this,
+              request_x,
+              response_map_x,
+              new String[]{endpoint_x,
+              '',
+              'urn:tooling.soap.sforce.com',
+              'describeGlobal',
+              'urn:tooling.soap.sforce.com',
+              'describeGlobalResponse',
+              'ToolingAPIWSDL.describeGlobalResponse_element'}
+            );
+            response_x = response_map_x.get('response_x');
+            return response_x.result;
+        }
+        public ToolingAPIWSDL.DescribeSObjectResult[] describeSObjects(String[] types) {
+            ToolingAPIWSDL.describeSObjects_element request_x = new ToolingAPIWSDL.describeSObjects_element();
+            request_x.types = types;
+            ToolingAPIWSDL.describeSObjectsResponse_element response_x;
+            Map<String, ToolingAPIWSDL.describeSObjectsResponse_element> response_map_x = new Map<String, ToolingAPIWSDL.describeSObjectsResponse_element>();
+            response_map_x.put('response_x', response_x);
+            WebServiceCallout.invoke(
+              this,
+              request_x,
+              response_map_x,
+              new String[]{endpoint_x,
+              '',
+              'urn:tooling.soap.sforce.com',
+              'describeSObjects',
+              'urn:tooling.soap.sforce.com',
+              'describeSObjectsResponse',
+              'ToolingAPIWSDL.describeSObjectsResponse_element'}
+            );
+            response_x = response_map_x.get('response_x');
+            return response_x.result;
+        }
+        public ToolingAPIWSDL.GetUserInfoResult getUserInfo() {
+            ToolingAPIWSDL.getUserInfo_element request_x = new ToolingAPIWSDL.getUserInfo_element();
+            ToolingAPIWSDL.getUserInfoResponse_element response_x;
+            Map<String, ToolingAPIWSDL.getUserInfoResponse_element> response_map_x = new Map<String, ToolingAPIWSDL.getUserInfoResponse_element>();
+            response_map_x.put('response_x', response_x);
+            WebServiceCallout.invoke(
+              this,
+              request_x,
+              response_map_x,
+              new String[]{endpoint_x,
+              '',
+              'urn:tooling.soap.sforce.com',
+              'getUserInfo',
+              'urn:tooling.soap.sforce.com',
+              'getUserInfoResponse',
+              'ToolingAPIWSDL.getUserInfoResponse_element'}
+            );
+            response_x = response_map_x.get('response_x');
+            return response_x.result;
+        }
+        public ToolingAPIWSDL.sObject_x[] retrieve_x(String select_x,String type_x,String[] ids) {
+            ToolingAPIWSDL.retrieve_element request_x = new ToolingAPIWSDL.retrieve_element();
+            request_x.select_x = select_x;
+            request_x.type_x = type_x;
+            request_x.ids = ids;
+            ToolingAPIWSDL.retrieveResponse_element response_x;
+            Map<String, ToolingAPIWSDL.retrieveResponse_element> response_map_x = new Map<String, ToolingAPIWSDL.retrieveResponse_element>();
+            response_map_x.put('response_x', response_x);
+            WebServiceCallout.invoke(
+              this,
+              request_x,
+              response_map_x,
+              new String[]{endpoint_x,
+              '',
+              'urn:tooling.soap.sforce.com',
+              'retrieve',
+              'urn:tooling.soap.sforce.com',
+              'retrieveResponse',
+              'ToolingAPIWSDL.retrieveResponse_element'}
+            );
+            response_x = response_map_x.get('response_x');
+            return response_x.result;
+        }
+        public ToolingAPIWSDL.QueryResult queryMore(String queryLocator) {
+            ToolingAPIWSDL.queryMore_element request_x = new ToolingAPIWSDL.queryMore_element();
+            request_x.queryLocator = queryLocator;
+            ToolingAPIWSDL.queryMoreResponse_element response_x;
+            Map<String, ToolingAPIWSDL.queryMoreResponse_element> response_map_x = new Map<String, ToolingAPIWSDL.queryMoreResponse_element>();
+            response_map_x.put('response_x', response_x);
+            WebServiceCallout.invoke(
+              this,
+              request_x,
+              response_map_x,
+              new String[]{endpoint_x,
+              '',
+              'urn:tooling.soap.sforce.com',
+              'queryMore',
+              'urn:tooling.soap.sforce.com',
+              'queryMoreResponse',
+              'ToolingAPIWSDL.queryMoreResponse_element'}
             );
             response_x = response_map_x.get('response_x');
             return response_x.result;
