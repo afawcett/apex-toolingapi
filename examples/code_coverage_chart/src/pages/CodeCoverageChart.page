@@ -1,0 +1,23 @@
+<apex:page showHeader="true" sidebar="true" controller="CodeCoverageChartCtrl" tabStyle="Account">
+    <apex:form >
+    	<apex:pageblock >
+        	<apex:pageBlockSection title="Code Coverage Graph" columns="1">
+   		    	<apex:chart name="MyChart" id="thechart" height="200" width="275" data="{!coverageData}">
+                	<apex:axis type="Gauge" position="gauge" title="{!$Label.Coverage_Chart_Label}"  minimum="0" maximum="100" steps="10"/>
+                	<apex:gaugeSeries dataField="size" donut="50" colorSet="{!chartColor},#ddd"/>
+    			</apex:chart>
+   			</apex:pageBlockSection>
+   			<apex:pageBlockSection title="Code Coverage Report" columns="1">
+   				<apex:pageBlockTable var="coverage" value="{!coverageList}" id="thereport">
+   					<apex:column headerValue="Class or Trigger">
+   					   <apex:outputLink value="/{!coverage.classId}" target="_blank">{!coverage.name}</apex:outputLink>
+   					</apex:column>
+   					<apex:column headerValue="Percent Covered" value="{!coverage.percentage}% ({!coverage.covered} / {!coverage.totalLines})" />
+   				</apex:pageBlockTable>
+   			</apex:pageBlockSection>
+   			<apex:pageBlockButtons >
+                	<apex:commandButton action="{!calculate}" value="Calculate Code Coverage" rerender="thechart,thereport"/>
+        	</apex:pageBlockButtons>
+    	</apex:pageBlock>
+    </apex:form>
+</apex:page>
