@@ -47,16 +47,24 @@ public class ToolingAPI {
         service.SessionHeader = new ToolingAPIWSDL.SessionHeader_element();
         service.SessionHeader.sessionId = sessionId;
         service.endpoint_x = endpoint + endpointSuffix;
-        System.debug('JWL: service: ' + service);
     }
 
-
-    public ToolingAPIWSDL.QueryResult queryMore(String queryLocator){
-        return service.queryMore(queryLocator);
+    public ToolingAPIWSDL.QueryResult queryMore(String queryLocator,String recordClassName){
+        return castQueryResultToSubclass(service.queryMore(queryLocator),recordClassName);
     }
 
     public ToolingAPIWSDL.SearchResult search(String searchString){
-        return service.search_x(searchString);
+        return search(searchString,null);
+    }
+
+    public ToolingAPIWSDL.SearchResult search(String searchString,String recordClassName){
+        ToolingAPIWSDL.SearchResult result = service.search_x(searchString);
+        if(!String.isEmpty(recordClassName)){
+            for(ToolingAPIWSDL.SearchRecord record : result.searchRecords){
+                record.record = castSobjToSubclass(record.record,recordClassName);
+            }
+        }
+        return result;
     }
 
     public ToolingAPIWSDL.DescribeSObjectResult describeSObject(String type_x){
@@ -68,7 +76,12 @@ public class ToolingAPI {
     }
 
     public ToolingAPIWSDL.QueryResult query(String queryString) {
-        return service.query(queryString);
+        return castQueryResultToSubclass(service.query(queryString),null);
+    }
+
+    public ToolingAPIWSDL.QueryResult query(String queryString,String recordClassName) {
+        ToolingAPIWSDL.QueryResult qr = service.query(queryString);
+        return castQueryResultToSubclass(qr,recordClassName);
     }
 
     public ToolingAPIWSDL.SaveResult[] updatesObjects(ToolingAPIWSDL.sObject_x[] sObjects) {
@@ -92,11 +105,19 @@ public class ToolingAPI {
     }
 
     public ToolingAPIWSDL.QueryResult queryAll(String queryString) {
-        return service.queryAll(queryString);
+        return castQueryResultToSubclass(service.queryAll(queryString),null);
+    }
+
+    public ToolingAPIWSDL.QueryResult queryAll(String queryString,String recordClassName) {
+        return castQueryResultToSubclass(service.queryAll(queryString),recordClassName);
     }
 
     public ToolingAPIWSDL.sObject_x[] retrieve(String select_x,String type_x,String[] ids) {
-        return service.retrieve_x(select_x,type_x,ids);
+        return castSobjectArrToSubclass(service.retrieve_x(select_x,type_x,ids),null);
+    }
+
+    public ToolingAPIWSDL.sObject_x[] retrieve(String select_x,String type_x,String[] ids,String recordClassName) {
+        return castSobjectArrToSubclass(service.retrieve_x(select_x,type_x,ids),recordClassName);
     }
 
     public ToolingAPIWSDL.DescribeGlobalResult describeGlobal() {
@@ -140,4 +161,24 @@ public class ToolingAPI {
     }
 
     public class ToolingAPIException extends Exception{}
+
+    private ToolingAPIWSDL.QueryResult castQueryResultToSubclass(ToolingAPIWSDL.QueryResult queryResult, String recordClassName){
+        if(!String.isEmpty(recordClassName)){
+            queryResult.records = castSobjectArrToSubclass(queryResult.records,recordClassName);
+        }
+        return queryResult;
+    }
+
+    private ToolingAPIWSDL.sObject_x [] castSobjectArrToSubclass(List<ToolingAPIWSDL.sObject_x> sobjArr,String recordClassName){
+        List<ToolingAPIWSDL.sObject_x> records = (List<ToolingAPIWSDL.sobject_x>)Type.forName('List<'+recordClassName+'>').newInstance();
+        for(Integer i=0; i < sobjArr.size(); i++){
+            records.add(castSobjToSubclass(sObjArr.get(i),recordClassName));
+            sObjArr.remove(i);
+        }
+        return records;
+    }
+
+    private ToolingAPIWSDL.sObject_x castSobjToSubclass(ToolingAPIWSDL.sObject_x sobj,String recordClassName){
+        return (ToolingAPIWSDL.sObject_x)Json.deserialize(JSON.serialize(sobj),Type.forName(recordClassName));
+    }
 }
