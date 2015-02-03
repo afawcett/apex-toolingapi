@@ -2,9 +2,9 @@
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
         <members>ToolingAPI</members>
-        <members>ToolingAPIDemo</members>
+        <members>ToolingAPIWSDL</members>
         <members>ToolingAPITest</members>
         <name>ApexClass</name>
     </types>
-    <version>31.0</version>
+    <version>33.0</version>
 </Package>
