@@ -3,7 +3,7 @@
     <types>
         <members>ToolingAPI</members>
         <members>ToolingAPIWSDL</members>
-        <members>ToolingAPITest</members>
+        <members>ToolingAPIWSDLMetadata</members>
         <name>ApexClass</name>
     </types>
     <version>32.0</version>
