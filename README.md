@@ -1,7 +1,7 @@
-Apex Tooling API
+Apex Tooling API - REST edition
 ================
 
-<a href="https://githubsfdeploy.herokuapp.com?owner=afawcett&repo=apex-toolingapi">
+<a href="https://githubsfdeploy.herokuapp.com?owner=afawcett&repo=apex-toolingapi%2Ftree%2Fapex-toolingapi-rest">
   <img alt="Deploy to Salesforce"
        src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/src/main/webapp/resources/img/deploy.png">
 </a>
