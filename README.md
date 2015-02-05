@@ -8,7 +8,7 @@ Apex Tooling API - SOAP Edition
 
 Note - This project has been updated to utilize the SOAP protocol, instead of the previous REST implementation.  This is to due to support extra functionality that is currently not available via REST, but also to support bulk operations and Spring '15 enhancements.  The former REST implementation may be found here:
 
-<a href="https://github.com/afawcett/apex-toolingapi/blob/apex-toolingapi-rest">Apex-ToolingAPI-REST</a>
+<a href="https://github.com/afawcett/apex-toolingapi/tree/apex-toolingapi-rest">Apex-ToolingAPI-REST</a> branch
 
 
 **Reference Blogs**
