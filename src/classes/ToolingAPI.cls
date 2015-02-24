@@ -1383,7 +1383,7 @@ public with sharing class ToolingAPI {
     }
 
     public class SymbolTable {
-        public Symbol[]            constructors;
+        public Constructor[]            constructors;
         public ExternalReference[] externalReferences;
         public Id                  id;
         public SymbolTable[]       innerClasses;
