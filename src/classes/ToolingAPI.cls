@@ -173,7 +173,6 @@ public class ToolingAPI {
         List<ToolingAPIWSDL.sObject_x> records = (List<ToolingAPIWSDL.sobject_x>)Type.forName('List<'+recordClassName+'>').newInstance();
         for(Integer i=0; i < sobjArr.size(); i++){
             records.add(castSobjToSubclass(sObjArr.get(i),recordClassName));
-            sObjArr.remove(i);
         }
         return records;
     }
