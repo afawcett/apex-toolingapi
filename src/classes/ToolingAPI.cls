@@ -48,6 +48,13 @@ public class ToolingAPI {
         service.SessionHeader.sessionId = sessionId;
         service.endpoint_x = endpoint + endpointSuffix;
     }
+    
+    /**
+     * Allow to set your own timeout
+     */
+    public void setTimeout(Integer TimeoutInMilliSecond) {
+        this.service.timeout_x = TimeoutInMilliSecond;
+    }
 
     public ToolingAPIWSDL.QueryResult queryMore(String queryLocator,String recordClassName){
         return castQueryResultToSubclass(service.queryMore(queryLocator),recordClassName);
