@@ -1823,7 +1823,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'result'};
     }
     public class ApexTestResult extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'ApexTestResult';
         private String[] type_att_info = new String[]{'xsi:type'};
         public ToolingAPIWSDL.ApexClass ApexClass;
         public String ApexClassId;
@@ -1861,7 +1861,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'ApexClass','ApexClassId','ApexLog','ApexLogId','AsyncApexJob','AsyncApexJobId','Message','MethodName','Outcome','QueueItem','QueueItemId','StackTrace','SystemModstamp','TestTimestamp','fieldsToNull','Id'};
     }
     public class CompactLayoutInfo extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'CompactLayoutInfo';
         private String[] type_att_info = new String[]{'xsi:type'};
         public String DeveloperName;
         public String DurableId;
@@ -1895,7 +1895,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{};
     }
     public class WorkflowFieldUpdate extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'WorkflowFieldUpdate';
         private String[] type_att_info = new String[]{'xsi:type'};
         public ToolingAPIWSDL.User_x CreatedBy;
         public String CreatedById;
@@ -1939,7 +1939,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'CreatedBy','CreatedById','CreatedDate','EntityDefinition','EntityDefinitionId','FieldDefinition','FieldDefinitionId','FullName','LastModifiedBy','LastModifiedById','LastModifiedDate','LiteralValue','LookupValueId','Metadata','Name','NamespacePrefix','SourceTableEnumOrId','fieldsToNull','Id'};
     }
     public class AssignmentRule extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'AssignmentRule';
         private String[] type_att_info = new String[]{'xsi:type'};
         public Boolean Active;
         public ToolingAPIWSDL.User_x CreatedBy;
@@ -1985,7 +1985,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'returnType'};
     }
     public class ApexClass extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'ApexClass';
         private String[] type_att_info = new String[]{'xsi:type'};
         public Double ApiVersion;
         public String Body;
@@ -2031,7 +2031,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'ApiVersion','Body','BodyCrc','CreatedBy','CreatedById','CreatedDate','FullName','IsValid','LastModifiedBy','LastModifiedById','LastModifiedDate','LengthWithoutComments','Metadata','Name','NamespacePrefix','Status','SymbolTable','SystemModstamp','fieldsToNull','Id'};
     }
     public class ApexExecutionOverlayAction extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'ApexExecutionOverlayAction';
         private String[] type_att_info = new String[]{'xsi:type'};
         public String ActionScript;
         public String ActionScriptType;
@@ -2089,7 +2089,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'exceptionCode','exceptionMessage','upgradeURL','upgradeMessage'};
     }
     public class ApexCodeCoverageAggregate extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'ApexCodeCoverageAggregate';
         private String[] type_att_info = new String[]{'xsi:type'};
         public ToolingAPIWSDL.Name ApexClassOrTrigger;
         public String ApexClassOrTriggerId;
@@ -2127,7 +2127,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'ApexClassOrTrigger','ApexClassOrTriggerId','Coverage','CoverageLastModifiedDate','CreatedBy','CreatedById','CreatedDate','IsDeleted','LastModifiedBy','LastModifiedById','LastModifiedDate','NumLinesCovered','NumLinesUncovered','SystemModstamp','fieldsToNull','Id'};
     }
     public class ApexOrgWideCoverage extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'ApexOrgWideCoverage';
         private String[] type_att_info = new String[]{'xsi:type'};
         public ToolingAPIWSDL.User_x CreatedBy;
         public String CreatedById;
@@ -2155,7 +2155,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'CreatedBy','CreatedById','CreatedDate','IsDeleted','LastModifiedBy','LastModifiedById','LastModifiedDate','PercentCovered','SystemModstamp','fieldsToNull','Id'};
     }
     public class QuickActionDefinition extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'QuickActionDefinition';
         private String[] type_att_info = new String[]{'xsi:type'};
         public ToolingAPIWSDL.User_x CreatedBy;
         public String CreatedById;
@@ -2235,7 +2235,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'entry'};
     }
     public class EntityDefinition extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'EntityDefinition';
         private String[] type_att_info = new String[]{'xsi:type'};
         public ToolingAPIWSDL.QueryResult ApexTriggers;
         public ToolingAPIWSDL.QueryResult AssignmentRules;
@@ -2315,7 +2315,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{};
     }
     public class CompactLayoutItemInfo extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'CompactLayoutItemInfo';
         private String[] type_att_info = new String[]{'xsi:type'};
         public ToolingAPIWSDL.CompactLayoutInfo CompactLayoutInfo;
         public String CompactLayoutInfoId;
@@ -2337,7 +2337,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'CompactLayoutInfo','CompactLayoutInfoId','DurableId','FieldDefinition','FieldDefinitionId','SortOrder','fieldsToNull','Id'};
     }
     public class Layout extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'Layout';
         private String[] type_att_info = new String[]{'xsi:type'};
         public ToolingAPIWSDL.User_x CreatedBy;
         public String CreatedById;
@@ -2375,7 +2375,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'CreatedBy','CreatedById','CreatedDate','EntityDefinition','EntityDefinitionId','FullName','LastModifiedBy','LastModifiedById','LastModifiedDate','Metadata','Name','NamespacePrefix','ShowSubmitAndAttachButton','TableEnumOrId','fieldsToNull','Id'};
     }
     public class ApexCodeCoverage extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'ApexCodeCoverage';
         private String[] type_att_info = new String[]{'xsi:type'};
         public ToolingAPIWSDL.Name ApexClassOrTrigger;
         public String ApexClassOrTriggerId;
@@ -2417,7 +2417,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'ApexClassOrTrigger','ApexClassOrTriggerId','ApexTestClass','ApexTestClassId','Coverage','CreatedBy','CreatedById','CreatedDate','IsDeleted','LastModifiedBy','LastModifiedById','LastModifiedDate','NumLinesCovered','NumLinesUncovered','SystemModstamp','TestMethodName','fieldsToNull','Id'};
     }
     public class ApexComponent extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'ApexComponent';
         private String[] type_att_info = new String[]{'xsi:type'};
         public Double ApiVersion;
         public String ControllerKey;
@@ -2457,7 +2457,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'ApiVersion','ControllerKey','ControllerType','CreatedBy','CreatedById','CreatedDate','Description','LastModifiedBy','LastModifiedById','LastModifiedDate','Markup','MasterLabel','Name','NamespacePrefix','SystemModstamp','fieldsToNull','Id'};
     }
     public class AutoResponseRule extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'AutoResponseRule';
         private String[] type_att_info = new String[]{'xsi:type'};
         public Boolean Active;
         public ToolingAPIWSDL.User_x CreatedBy;
@@ -2487,7 +2487,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'Active','CreatedBy','CreatedById','CreatedDate','EntityDefinition','EntityDefinitionId','LastModifiedBy','LastModifiedById','LastModifiedDate','Name','fieldsToNull','Id'};
     }
     public class Name extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'Name';
         private String[] type_att_info = new String[]{'xsi:type'};
         public String Alias;
         public String Email;
@@ -2531,7 +2531,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'Alias','Email','FirstName','IsActive','LastName','LastReferencedDate','LastViewedDate','Name','Phone','Profile','ProfileId','RecordType','RecordTypeId','Title','Type_x','UserRoleId','Username','fieldsToNull','Id'};
     }
     public class IDEWorkspace extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'IDEWorkspace';
         private String[] type_att_info = new String[]{'xsi:type'};
         public String Content;
         public ToolingAPIWSDL.User_x CreatedBy;
@@ -2565,7 +2565,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'Content','CreatedBy','CreatedById','CreatedDate','IsDeleted','LastModifiedBy','LastModifiedById','LastModifiedDate','Name','SystemModstamp','User_x','UserId','fieldsToNull','Id'};
     }
     public class QuickActionList extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'QuickActionList';
         private String[] type_att_info = new String[]{'xsi:type'};
         public ToolingAPIWSDL.User_x CreatedBy;
         public String CreatedById;
@@ -2597,7 +2597,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'CreatedBy','CreatedById','CreatedDate','IsDeleted','LastModifiedBy','LastModifiedById','LastModifiedDate','Layout','LayoutId','SystemModstamp','items','fieldsToNull','Id'};
     }
     public class QuickActionListItem extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'QuickActionListItem';
         private String[] type_att_info = new String[]{'xsi:type'};
         public ToolingAPIWSDL.User_x CreatedBy;
         public String CreatedById;
@@ -2631,7 +2631,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'CreatedBy','CreatedById','CreatedDate','IsDeleted','LastModifiedBy','LastModifiedById','LastModifiedDate','QuickActionDefinition','QuickActionList','QuickActionListId','SortOrder','SystemModstamp','fieldsToNull','Id'};
     }
     public class TraceFlag extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'TraceFlag';
         private String[] type_att_info = new String[]{'xsi:type'};
         public String ApexCode;
         public String ApexProfiling;
@@ -2693,7 +2693,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{};
     }
     public class ApexTriggerMember extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'ApexTriggerMember';
         private String[] type_att_info = new String[]{'xsi:type'};
         public String Body;
         public String Content;
@@ -2739,7 +2739,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'Body','Content','ContentEntity','ContentEntityId','CreatedBy','CreatedById','CreatedDate','FullName','IsDeleted','LastModifiedBy','LastModifiedById','LastModifiedDate','LastSyncDate','Metadata','MetadataContainer','MetadataContainerId','SymbolTable','SystemModstamp','fieldsToNull','Id'};
     }
     public class RecentlyViewed extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'RecentlyViewed';
         private String[] type_att_info = new String[]{'xsi:type'};
         public String Alias;
         public String Email;
@@ -2785,7 +2785,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'Alias','Email','FirstName','IsActive','Language','LastName','LastReferencedDate','LastViewedDate','Name','NetworkId','Phone','Profile','ProfileId','RecordType','RecordTypeId','Title','Type_x','UserRoleId','fieldsToNull','Id'};
     }
     public class ValidationRule extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'ValidationRule';
         private String[] type_att_info = new String[]{'xsi:type'};
         public ToolingAPIWSDL.User_x CreatedBy;
         public String CreatedById;
@@ -2819,7 +2819,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'CreatedBy','CreatedById','CreatedDate','Description','FullName','LastModifiedBy','LastModifiedById','LastModifiedDate','Metadata','NamespacePrefix','TableEnumOrId','ValidationName','fieldsToNull','Id'};
     }
     public class WorkflowAlert extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'WorkflowAlert';
         private String[] type_att_info = new String[]{'xsi:type'};
         public String CcEmails;
         public ToolingAPIWSDL.User_x CreatedBy;
@@ -2861,7 +2861,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'CcEmails','CreatedBy','CreatedById','CreatedDate','Description','DeveloperName','EntityDefinition','EntityDefinitionId','FullName','LastModifiedBy','LastModifiedById','LastModifiedDate','Metadata','NamespacePrefix','SenderType','TemplateId','fieldsToNull','Id'};
     }
     public class EmailTemplate extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'EmailTemplate';
         private String[] type_att_info = new String[]{'xsi:type'};
         public Double ApiVersion;
         public ToolingAPIWSDL.User_x CreatedBy;
@@ -2897,7 +2897,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'ApiVersion','CreatedBy','CreatedById','CreatedDate','Description','FullName','LastModifiedBy','LastModifiedById','LastModifiedDate','Metadata','Name','NamespacePrefix','Subject','fieldsToNull','Id'};
     }
     public class WorkflowTask extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'WorkflowTask';
         private String[] type_att_info = new String[]{'xsi:type'};
         public ToolingAPIWSDL.User_x CreatedBy;
         public String CreatedById;
@@ -2935,7 +2935,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'CreatedBy','CreatedById','CreatedDate','EntityDefinition','EntityDefinitionId','FullName','LastModifiedBy','LastModifiedById','LastModifiedDate','Metadata','NamespacePrefix','Priority','Status','Subject','fieldsToNull','Id'};
     }
     public class ApexComponentMember extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'ApexComponentMember';
         private String[] type_att_info = new String[]{'xsi:type'};
         public String Body;
         public String Content;
@@ -2979,7 +2979,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'Body','Content','ContentEntity','ContentEntityId','CreatedBy','CreatedById','CreatedDate','FullName','IsDeleted','LastModifiedBy','LastModifiedById','LastModifiedDate','LastSyncDate','Metadata','MetadataContainer','MetadataContainerId','SystemModstamp','fieldsToNull','Id'};
     }
     public class ApexTrigger extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'ApexTrigger';
         private String[] type_att_info = new String[]{'xsi:type'};
         public Double ApiVersion;
         public String Body;
@@ -3045,7 +3045,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'ApiVersion','Body','BodyCrc','CreatedBy','CreatedById','CreatedDate','EntityDefinition','EntityDefinitionId','FullName','IsValid','LastModifiedBy','LastModifiedById','LastModifiedDate','LengthWithoutComments','Metadata','Name','NamespacePrefix','Status','SystemModstamp','TableEnumOrId','UsageAfterDelete','UsageAfterInsert','UsageAfterUndelete','UsageAfterUpdate','UsageBeforeDelete','UsageBeforeInsert','UsageBeforeUpdate','UsageIsBulk','fieldsToNull','Id'};
     }
     public class StaticResource extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'StaticResource';
         private String[] type_att_info = new String[]{'xsi:type'};
         public String Body;
         public Integer BodyLength;
@@ -3083,7 +3083,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'Body','BodyLength','CacheControl','ContentType','CreatedBy','CreatedById','CreatedDate','Description','LastModifiedBy','LastModifiedById','LastModifiedDate','Name','NamespacePrefix','SystemModstamp','fieldsToNull','Id'};
     }
     public class MenuItem extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'MenuItem';
         private String[] type_att_info = new String[]{'xsi:type'};
         public Boolean Active;
         public String AppId;
@@ -3109,7 +3109,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'Active','AppId','Color','IconUrl','Label','MenuType','SortOrder','Theme','fieldsToNull','Id'};
     }
     public class IDEPerspective extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'IDEPerspective';
         private String[] type_att_info = new String[]{'xsi:type'};
         public String Content;
         public ToolingAPIWSDL.User_x CreatedBy;
@@ -3143,7 +3143,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'Content','CreatedBy','CreatedById','CreatedDate','IsDeleted','LastModifiedBy','LastModifiedById','LastModifiedDate','Name','SystemModstamp','User_x','UserId','fieldsToNull','Id'};
     }
     public class ApexPage extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'ApexPage';
         private String[] type_att_info = new String[]{'xsi:type'};
         public Double ApiVersion;
         public String ControllerKey;
@@ -3187,7 +3187,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'ApiVersion','ControllerKey','ControllerType','CreatedBy','CreatedById','CreatedDate','Description','IsAvailableInTouch','IsConfirmationTokenRequired','LastModifiedBy','LastModifiedById','LastModifiedDate','Markup','MasterLabel','Name','NamespacePrefix','SystemModstamp','fieldsToNull','Id'};
     }
     public class BusinessProcess extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'BusinessProcess';
         private String[] type_att_info = new String[]{'xsi:type'};
         public ToolingAPIWSDL.User_x CreatedBy;
         public String CreatedById;
@@ -3235,7 +3235,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'value'};
     }
     public class UserPreference extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'UserPreference';
         private String[] type_att_info = new String[]{'xsi:type'};
         public String Preference;
         public DateTime SystemModstamp;
@@ -3253,7 +3253,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'Preference','SystemModstamp','UserId','Value','fieldsToNull','Id'};
     }
     public class ContainerAsyncRequest extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'ContainerAsyncRequest';
         private String[] type_att_info = new String[]{'xsi:type'};
         public ToolingAPIWSDL.User_x CreatedBy;
         public String CreatedById;
@@ -3303,7 +3303,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'value'};
     }
     public class FlexiPage extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'FlexiPage';
         private String[] type_att_info = new String[]{'xsi:type'};
         public DateTime CreatedDate;
         public String Description;
@@ -3333,7 +3333,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'CreatedDate','Description','DeveloperName','FullName','LastModifiedDate','MasterLabel','Metadata','NamespacePrefix','SobjectType','Type_x','fieldsToNull','Id'};
     }
     public class CustomObject extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'CustomObject';
         private String[] type_att_info = new String[]{'xsi:type'};
         public ToolingAPIWSDL.User_x CreatedBy;
         public String CreatedById;
@@ -3387,7 +3387,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'exceptionCode','exceptionMessage','upgradeURL','upgradeMessage'};
     }
     public class WorkflowOutboundMessage extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'WorkflowOutboundMessage';
         private String[] type_att_info = new String[]{'xsi:type'};
         public Double ApiVersion;
         public ToolingAPIWSDL.User_x CreatedBy;
@@ -3437,7 +3437,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'exceptionCode','exceptionMessage','upgradeURL','upgradeMessage'};
     }
     public class Profile extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'Profile';
         private String[] type_att_info = new String[]{'xsi:type'};
         public ToolingAPIWSDL.User_x CreatedBy;
         public String CreatedById;
@@ -3473,7 +3473,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'CreatedBy','CreatedById','CreatedDate','Description','FullName','LastModifiedBy','LastModifiedById','LastModifiedDate','Metadata','Name','ProfileLayouts','UserLicenseId','Users','fieldsToNull','Id'};
     }
     public class FieldSet extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'FieldSet';
         private String[] type_att_info = new String[]{'xsi:type'};
         public ToolingAPIWSDL.User_x CreatedBy;
         public String CreatedById;
@@ -3507,7 +3507,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'CreatedBy','CreatedById','CreatedDate','Description','DeveloperName','EntityDefinition','EntityDefinitionId','LastModifiedBy','LastModifiedById','LastModifiedDate','MasterLabel','NamespacePrefix','fieldsToNull','Id'};
     }
     public class MetadataContainerMember extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'MetadataContainerMember';
         private String[] type_att_info = new String[]{'xsi:type'};
         public String Content;
         public String ContentEntityId;
@@ -3535,7 +3535,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'value'};
     }
     public class AsyncApexJob extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'AsyncApexJob';
         private String[] type_att_info = new String[]{'xsi:type'};
         public ToolingAPIWSDL.ApexClass ApexClass;
         public String ApexClassId;
@@ -3577,7 +3577,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'ApexClass','ApexClassId','CompletedDate','CreatedBy','CreatedById','CreatedDate','ExtendedStatus','JobItemsProcessed','JobType','LastProcessed','LastProcessedOffset','MethodName','NumberOfErrors','ParentJobId','Status','TotalJobItems','fieldsToNull','Id'};
     }
     public class WorkflowRuleMember extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'WorkflowRuleMember';
         private String[] type_att_info = new String[]{'xsi:type'};
         public String Content;
         public ToolingAPIWSDL.WorkflowRule ContentEntity;
@@ -3619,7 +3619,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'Content','ContentEntity','ContentEntityId','CreatedBy','CreatedById','CreatedDate','FullName','IsDeleted','LastModifiedBy','LastModifiedById','LastModifiedDate','LastSyncDate','Metadata','MetadataContainer','MetadataContainerId','SystemModstamp','fieldsToNull','Id'};
     }
     public class ApexTestQueueItem extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'ApexTestQueueItem';
         private String[] type_att_info = new String[]{'xsi:type'};
         public ToolingAPIWSDL.ApexClass ApexClass;
         public String ApexClassId;
@@ -3647,7 +3647,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'ApexClass','ApexClassId','CreatedBy','CreatedById','CreatedDate','ExtendedStatus','ParentJobId','Status','SystemModstamp','fieldsToNull','Id'};
     }
     public class CompactLayout extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'CompactLayout';
         private String[] type_att_info = new String[]{'xsi:type'};
         public DateTime CreatedDate;
         public String DeveloperName;
@@ -3703,7 +3703,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'displayName','apexType','columnName','custom','foreignKeyName'};
     }
     public class WorkflowFieldUpdateMember extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'WorkflowFieldUpdateMember';
         private String[] type_att_info = new String[]{'xsi:type'};
         public String Content;
         public ToolingAPIWSDL.WorkflowFieldUpdate ContentEntity;
@@ -3745,7 +3745,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'Content','ContentEntity','ContentEntityId','CreatedBy','CreatedById','CreatedDate','FullName','IsDeleted','LastModifiedBy','LastModifiedById','LastModifiedDate','LastSyncDate','Metadata','MetadataContainer','MetadataContainerId','SystemModstamp','fieldsToNull','Id'};
     }
     public class FieldDefinition extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'FieldDefinition';
         private String[] type_att_info = new String[]{'xsi:type'};
         public ToolingAPIWSDL.QueryResult CompactLayoutItems;
         public String DataType;
@@ -3785,7 +3785,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'CompactLayoutItems','DataType','DeveloperName','DurableId','EntityDefinition','EntityDefinitionId','FullName','IsCompactLayoutable','IsWorkflowFilterable','Label','MasterLabel','Metadata','NamespacePrefix','QualifiedApiName','WorkflowFieldUpdates','fieldsToNull','Id'};
     }
     public class ProfileLayout extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'ProfileLayout';
         private String[] type_att_info = new String[]{'xsi:type'};
         public ToolingAPIWSDL.User_x CreatedBy;
         public String CreatedById;
@@ -3823,7 +3823,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'CreatedBy','CreatedById','CreatedDate','LastModifiedBy','LastModifiedById','LastModifiedDate','Layout','LayoutId','Profile','ProfileId','RecordType','RecordTypeId','SystemModstamp','TableEnumOrId','fieldsToNull','Id'};
     }
     public class ApexPageMember extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'ApexPageMember';
         private String[] type_att_info = new String[]{'xsi:type'};
         public String Body;
         public String Content;
@@ -3879,7 +3879,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'exceptionCode','exceptionMessage','upgradeURL','upgradeMessage'};
     }
     public class ApexClassMember extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'ApexClassMember';
         private String[] type_att_info = new String[]{'xsi:type'};
         public String Body;
         public String Content;
@@ -3925,7 +3925,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'Body','Content','ContentEntity','ContentEntityId','CreatedBy','CreatedById','CreatedDate','FullName','IsDeleted','LastModifiedBy','LastModifiedById','LastModifiedDate','LastSyncDate','Metadata','MetadataContainer','MetadataContainerId','SymbolTable','SystemModstamp','fieldsToNull','Id'};
     }
     public class ApexExecutionOverlayResult extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'ApexExecutionOverlayResult';
         private String[] type_att_info = new String[]{'xsi:type'};
         public String ActionScript;
         public String ActionScriptType;
@@ -3983,7 +3983,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'ActionScript','ActionScriptType','ApexResult','ClassName','CreatedBy','CreatedById','CreatedDate','ExpirationDate','HeapDump','IsDeleted','IsDumpingHeap','Iteration','LastModifiedBy','LastModifiedById','LastModifiedDate','Line','Namespace','OverlayResultLength','RequestedBy','RequestedById','SOQLResult','SystemModstamp','User_x','UserId','fieldsToNull','Id'};
     }
     public class WorkflowRule extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'WorkflowRule';
         private String[] type_att_info = new String[]{'xsi:type'};
         public ToolingAPIWSDL.User_x CreatedBy;
         public String CreatedById;
@@ -4015,7 +4015,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'CreatedBy','CreatedById','CreatedDate','FullName','LastModifiedBy','LastModifiedById','LastModifiedDate','Metadata','Name','NamespacePrefix','TableEnumOrId','fieldsToNull','Id'};
     }
     public class User_x extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'User_x';
         private String[] type_att_info = new String[]{'xsi:type'};
         public ToolingAPIWSDL.QueryResult DelegatedUsers;
         public String FirstName;
@@ -4041,7 +4041,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'DelegatedUsers','FirstName','LastName','ManagedUsers','Name','UserPreferences','Username','WorkspaceId','fieldsToNull','Id'};
     }
     public class CustomTab extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'CustomTab';
         private String[] type_att_info = new String[]{'xsi:type'};
         public ToolingAPIWSDL.User_x CreatedBy;
         public String CreatedById;
@@ -4083,7 +4083,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'CreatedBy','CreatedById','CreatedDate','Description','DeveloperName','FullName','HasSidebar','IconId','LastModifiedBy','LastModifiedById','LastModifiedDate','MasterLabel','Metadata','NamespacePrefix','Type_x','Url','fieldsToNull','Id'};
     }
     public class RecordType extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'RecordType';
         private String[] type_att_info = new String[]{'xsi:type'};
         public String BusinessProcessId;
         public ToolingAPIWSDL.User_x CreatedBy;
@@ -4145,7 +4145,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{};
     }
     public class MetadataContainer extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'MetadataContainer';
         private String[] type_att_info = new String[]{'xsi:type'};
         public ToolingAPIWSDL.User_x CreatedBy;
         public String CreatedById;
@@ -4173,7 +4173,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'CreatedBy','CreatedById','CreatedDate','IsDeleted','LastModifiedBy','LastModifiedById','LastModifiedDate','Name','SystemModstamp','fieldsToNull','Id'};
     }
     public class ApexLog extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'ApexLog';
         private String[] type_att_info = new String[]{'xsi:type'};
         public String Application;
         public Integer DurationMilliseconds;
@@ -4207,7 +4207,7 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'Application','DurationMilliseconds','LastModifiedDate','Location','LogLength','LogUser','LogUserId','Operation','Request','StartTime','Status','SystemModstamp','fieldsToNull','Id'};
     }
     public class CustomField extends sObject_x {
-        public String type = (String.valueOf(this)).split(':')[0];
+        public String type = 'CustomField';
         private String[] type_att_info = new String[]{'xsi:type'};
         public ToolingAPIWSDL.User_x CreatedBy;
         public String CreatedById;
