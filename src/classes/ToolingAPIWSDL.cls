@@ -197,7 +197,7 @@ public class ToolingAPIWSDL {
         public Boolean IsDefault;
         public ToolingAPIWSDL.QueryResult Items;
         public String Label;
-        public ToolingAPIWSDLMetadata.CompactLayout Metadata;
+        public ToolingAPIWSDLMetadata.Metadata Metadata;
         public String NamespacePrefix;
         public ToolingAPIWSDL.User_x CreatedBy;
         public String CreatedById;
