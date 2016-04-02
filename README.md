@@ -1,7 +1,7 @@
 Apex Tooling API - SOAP Edition
 ================
 
-<a href="https://githubsfdeploy.herokuapp.com?owner=afawcett&repo=apex-toolingapi">
+<a href="https://githubsfdeploy.herokuapp.com">
   <img alt="Deploy to Salesforce"
        src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/src/main/webapp/resources/img/deploy.png">
 </a>
@@ -33,13 +33,3 @@ TODO List
 =========
 
 Our current TODO list is being managed via [GitHub Issues](https://github.com/afawcett/apex-toolingapi/issues)
-
-Ignore
-======
-
-Please ignore this button, i'm using it to test some GitHub SF Deploy Functionality...
-
-<a href="http://localhost:8080/index.jsp">
-  <img alt="Deploy to Salesforce"
-       src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/src/main/webapp/resources/img/deploy.png">
-</a>
