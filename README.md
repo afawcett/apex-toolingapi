@@ -33,3 +33,13 @@ TODO List
 =========
 
 Our current TODO list is being managed via [GitHub Issues](https://github.com/afawcett/apex-toolingapi/issues)
+
+Ignore
+======
+
+Please ignore this button, i'm using it to test some GitHub SF Deploy Functionality...
+
+<a href="http://localhost:8080">
+  <img alt="Deploy to Salesforce"
+       src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/src/main/webapp/resources/img/deploy.png">
+</a>
