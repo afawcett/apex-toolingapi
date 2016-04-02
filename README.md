@@ -39,7 +39,7 @@ Ignore
 
 Please ignore this button, i'm using it to test some GitHub SF Deploy Functionality...
 
-<a href="http://localhost:8080">
+<a href="http://localhost:8080/index.jsp">
   <img alt="Deploy to Salesforce"
        src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/src/main/webapp/resources/img/deploy.png">
 </a>
