@@ -1971,11 +1971,25 @@ public class ToolingAPIWSDL {
         private String[] field_order_type_info = new String[]{'parameters','name','references'};
     }
     public class Method {
+        public ToolingAPIWSDL.Position location;
+        public String[] modifiers;
+        public String name;
+        public ToolingAPIWSDL.Position[] references;
+        public String type_x;
+        private String[] location_type_info = new String[]{'location','urn:tooling.soap.sforce.com','Position','1','1','false'};
+        private String[] modifiers_type_info = new String[]{'modifiers','urn:tooling.soap.sforce.com','string','0','-1','false'};
+        private String[] name_type_info = new String[]{'name','urn:tooling.soap.sforce.com','string','1','1','false'};
+        private String[] references_type_info = new String[]{'references','urn:tooling.soap.sforce.com','Position','0','-1','false'};
+        private String[] type_x_type_info = new String[]{'type','urn:tooling.soap.sforce.com','string','1','1','false'};
+        public String visibility;
+        private String[] visibility_type_info = new String[]{'visibility','urn:tooling.soap.sforce.com','SymbolVisibility','1','1','false'};
+        public ToolingAPIWSDL.Parameter[] parameters;
+        private String[] parameters_type_info = new String[]{'parameters','urn:tooling.soap.sforce.com','Parameter','0','-1','false'};
         public String returnType;
-        private String[] returnType_type_info = new String[]{'returnType','urn:tooling.soap.sforce.com',null,'1','1','false'};
+        private String[] returnType_type_info = new String[]{'returnType','urn:tooling.soap.sforce.com','string','1','1','false'};
         private String[] apex_schema_type_info = new String[]{'urn:tooling.soap.sforce.com','true','false'};
-        private String[] field_order_type_info = new String[]{'returnType'};
-    }
+        private String[] field_order_type_info = new String[]{'location','modifiers','name','references','type_x','visibility','parameters','returnType'};
+        }
     public class ApexClass extends sObject_x {
         public Double ApiVersion;
         public String Body;
