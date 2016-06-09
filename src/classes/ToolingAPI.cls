@@ -214,7 +214,7 @@ public with sharing class ToolingAPI {
     public ToolingAPI.SaveResult deleteSObject(SObject_x sobjectRecord){
         return (ToolingAPI.SaveResult) submitRestCallAndDeserialize(
             '/sobjects/'+sobjectRecord.type_x+'/'+sobjectRecord.Id
-            ,null
+            ,ToolingAPI.SaveResult.class
             ,'DELETE'
         );
     }
