@@ -1424,7 +1424,7 @@ public with sharing class ToolingAPI {
         public TraceFlag() {
             super(SObjectType.TraceFlag);
         }        
-        public virtual void seralize(JSONGenerator jsonGen) {
+        public override void serialize(JSONGenerator jsonGen) {
             super.serialize(jsonGen);
             if(apexCode!=null)
                 jsonGen.writeStringField('apexCode', apexCode);
