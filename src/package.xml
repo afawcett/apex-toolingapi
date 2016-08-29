@@ -4,7 +4,10 @@
         <members>ToolingAPI</members>
         <members>ToolingAPIWSDL</members>
         <members>ToolingAPIWSDLMetadata</members>
+        <members>ToolingAPIWSDLTest</members>
+	<members>ToolingAPIWSDLMock</members>
+	<members>ToolingAPIWSDLMetadataTest</members>
         <name>ApexClass</name>
     </types>
-    <version>32.0</version>
+    <version>37.0</version>
 </Package>
